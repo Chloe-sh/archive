@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 마이랩 항균 쿨링 데오티슈 | 세스코몰 상세페이지 시안 v3 (템플릿 가이드 v2)</title>
+<meta name="description" content="세스코 생활과학연구소가 만든 항균 쿨링 데오티슈. 99% 항균, 겨드랑이 냄새 평균 96.17% 개선, 일시적 피부 온도 평균 9.34℃ 감소를 확인했습니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{
+  /* 필름 인쇄 컬러 기준: PANTONE 281C(네이비) / PANTONE 2718C(블루) */
+  --navy:#00205B;
+  --blue:#5B77CF;
+  --blue-deep:#3D55A8;
+  --ice:#EEF4FC;
+  --ice-2:#F7FAFE;
+  --aqua:#BFE3F2;
+  --paper:#FFFFFF;
+  --txt:#1C2438;
+  --txt-2:#5C6578;
+  --txt-3:#8B93A6;
+  --line:#E2E7F0;
+  --warn:#B23A48;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,'Malgun Gothic',sans-serif;
+  background:#F2F4F8;color:var(--txt);
+  font-size:16px;line-height:1.7;
+  word-break:keep-all;overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:860px;margin:0 auto;background:var(--paper);box-shadow:0 0 40px rgba(0,32,91,.07)}
+img{max-width:100%;display:block}
+sup{font-size:.62em;color:var(--blue-deep);font-weight:600}
+sup a{color:inherit;text-decoration:none}
+section{padding:72px 28px}
+@media(max-width:480px){section{padding:56px 20px}}
+
+/* ── 공통 타이포 ── */
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--blue-deep);background:var(--ice);border:1px solid #D6E2F5;padding:6px 14px;border-radius:100px;margin-bottom:18px}
+h2.head{font-size:clamp(24px,5.4vw,31px);font-weight:800;line-height:1.42;letter-spacing:-.02em;color:var(--navy)}
+.sub{margin-top:14px;font-size:clamp(14.5px,3.6vw,16.5px);color:var(--txt-2);line-height:1.75}
+.body-p{margin-top:20px;font-size:15.5px;color:var(--txt);line-height:1.85}
+.center{text-align:center}
+
+/* ── 이미지 플레이스홀더 ── */
+.ph{
+  border:1.5px dashed #B9C6DE;background:repeating-linear-gradient(45deg,#F4F8FD,#F4F8FD 12px,#EDF3FB 12px,#EDF3FB 24px);
+  border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;
+  color:#7C8AA8;font-size:13.5px;font-weight:600;text-align:center;padding:16px;
+}
+.ph small{font-weight:400;font-size:12px;color:#9AA6BE}
+
+/* ── 시안 안내 바 ── */
+.notice{background:var(--navy);color:#C9D6F2;font-size:12.5px;text-align:center;padding:10px 16px;letter-spacing:.02em}
+.notice b{color:#fff}
+
+/* ══ 01 히어로 ══ */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(178deg,var(--ice-2) 0%,var(--ice) 46%,#DFEDF9 100%);
+  padding:0;
+}
+.hero .hero-video{margin:0;width:100%;aspect-ratio:16/9;height:auto;border:none;border-radius:0;background:linear-gradient(180deg,#FDFEFF,#DFEDF9)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px}
+.badge{background:#fff;border:1px solid #D3E0F2;color:var(--navy);font-size:13px;font-weight:700;padding:9px 16px;border-radius:100px;box-shadow:0 2px 8px rgba(0,32,91,.06)}
+
+/* ══ 02 메인 비주얼 ══ */
+.mainvisual{background:var(--paper);text-align:center}
+.mainvisual .ph{height:420px;max-width:520px;margin:0 auto 36px}
+@media(max-width:480px){.mainvisual .ph{height:300px}}
+.mainvisual .pname-en{font-size:14px;font-weight:700;letter-spacing:.24em;color:var(--blue)}
+.mainvisual .pname{margin-top:8px;font-size:clamp(26px,6vw,34px);font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.mainvisual .positioning{margin-top:18px;font-size:clamp(16px,4.2vw,19px);font-weight:600;color:var(--txt);line-height:1.6}
+.spec-inline{margin-top:22px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;color:var(--txt-2);font-size:14px;font-weight:600}
+.spec-inline span{background:var(--ice);padding:7px 14px;border-radius:8px}
+
+/* ══ 03 Why Mylab ══ */
+.whymylab{background:linear-gradient(180deg,var(--navy) 0%,#0B2E74 100%);color:#EAF0FC;text-align:center}
+.whymylab .eyebrow{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#BFD2F5}
+.whymylab h2{font-size:clamp(23px,5.4vw,30px);font-weight:800;line-height:1.5;letter-spacing:-.02em;color:#fff}
+.whymylab .body-p{color:#C7D4EE;max-width:480px;margin:26px auto 0;font-size:15.5px}
+.whymylab .emph{margin:46px auto 0;padding-top:38px;border-top:1px solid rgba(255,255,255,.18);max-width:480px}
+.whymylab .emph p{font-size:clamp(17px,4.4vw,20px);font-weight:600;line-height:1.65;color:#fff}
+.whymylab .emph .logo{margin-top:14px;font-size:22px;font-weight:800;letter-spacing:.06em;color:#fff}
+.whymylab .ph{margin:40px auto 0;max-width:480px;height:220px;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.05);color:#AFC2E8}
+.why-this{background:var(--paper);text-align:left}
+.why-this>*{max-width:560px;margin-left:auto;margin-right:auto}
+.sol-head{position:relative;border-top:2px solid var(--navy);border-bottom:1px solid var(--navy);padding:14px 0 16px;margin-bottom:70px}
+.sol-label{font-size:15px;font-weight:800;color:var(--navy);letter-spacing:-.01em}
+.lab-stamp{position:absolute;right:0;top:38px;width:112px;height:112px;opacity:.92}
+@media(max-width:480px){.lab-stamp{width:88px;height:88px;top:34px}}
+.why-this h2.head.sol-copy{text-align:left;margin:0;font-size:clamp(25px,6.4vw,33px);line-height:1.48;font-weight:700;max-width:440px;margin-left:0}
+.why-this h2.head.sol-copy b{font-weight:800}
+.why-this>h2.head.sol-copy{margin-left:auto}
+.why-this .body-p{margin-top:26px;text-align:left}
+.why-checks{margin-top:34px;text-align:left;display:flex;flex-direction:column;gap:12px}
+.why-checks .wc{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:14.5px;font-weight:600;color:var(--navy)}
+.why-checks .tick{flex:none;width:20px;height:20px;border-radius:50%;background:var(--ice);position:relative}
+.why-checks .tick::after{content:"";position:absolute;left:5px;top:5px;width:8px;height:5px;border-left:2.5px solid var(--blue-deep);border-bottom:2.5px solid var(--blue-deep);transform:rotate(-45deg)}
+.why-close{margin-top:22px;font-size:13.5px;color:var(--txt-2);letter-spacing:.01em;text-align:left}
+
+/* ══ 04 타깃 공감 ══ */
+.empathy{background:var(--ice-2)}
+.empathy .head-wrap{text-align:center;margin-bottom:44px}
+.qcards{display:flex;flex-direction:column;gap:16px;max-width:560px;margin:0 auto}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px;box-shadow:0 3px 14px rgba(0,32,91,.05)}
+.qcard .q{font-size:16.5px;font-weight:700;color:var(--navy);line-height:1.55}
+.qcard .q::before{content:"";margin-right:0}
+.qcard .a{margin-top:10px;font-size:14.5px;color:var(--txt-2);line-height:1.7;padding-left:26px;position:relative}
+.qcard .a::before{content:"";position:absolute;left:8px;top:.55em;width:8px;height:8px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg)}
+.situations{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:40px auto 0;max-width:560px}
+.situations span{font-size:13px;font-weight:600;color:var(--blue-deep);background:#fff;border:1px solid #D6E2F5;border-radius:100px;padding:8px 15px}
+
+/* ══ 05 핵심 USP ══ */
+.usp{background:var(--paper);text-align:center}
+.usp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:640px;margin:44px auto 0}
+@media(max-width:560px){.usp-grid{grid-template-columns:repeat(2,1fr)}}
+.usp-item{background:var(--ice-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 14px 22px;transition:transform .2s, box-shadow .2s}
+.usp-item:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,32,91,.08)}
+.usp-item .icon{width:46px;height:46px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(145deg,var(--blue),var(--blue-deep));display:flex;align-items:center;justify-content:center}
+.usp-item .icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.usp-item .t{font-size:15.5px;font-weight:800;color:var(--navy);line-height:1.4}
+.usp-item .d{margin-top:6px;font-size:12.5px;color:var(--txt-2);line-height:1.5}
+
+/* GEO 텍스트 표 */
+.geo-table-wrap{max-width:640px;margin:36px auto 0}
+table.spec{width:100%;border-collapse:collapse;font-size:13.5px}
+table.spec caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--txt-3);padding-bottom:8px}
+table.spec th,table.spec td{border:1px solid var(--line);padding:10px 14px;text-align:left;vertical-align:top}
+table.spec th{background:var(--ice);color:var(--navy);font-weight:700;width:38%}
+table.spec td{color:var(--txt)}
+
+/* ══ 06 개발·검증 ══ */
+.proofdev{background:linear-gradient(180deg,#0A2B6E,#123B8F);color:#E8EFFB;text-align:center}
+.proofdev .eyebrow{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#BFD2F5}
+.proofdev h2{font-size:clamp(24px,5.6vw,31px);font-weight:800;line-height:1.45;letter-spacing:-.02em;color:#fff}
+.proofdev .body-p{color:#C6D3EE;max-width:460px;margin:24px auto 0}
+.thermal{max-width:560px;margin:44px auto 0}
+.thermal-frame{position:relative;border-radius:var(--radius);overflow:hidden;height:320px;user-select:none;box-shadow:0 14px 36px rgba(0,10,40,.4)}
+@media(max-width:480px){.thermal-frame{height:240px}}
+.thermal-side{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;font-weight:700;font-size:14px;color:rgba(255,255,255,.92)}
+.thermal-before{background:
+  radial-gradient(circle at 48% 45%, #F9D423 0%, #F2733C 34%, #C2274B 62%, #5B1B4D 100%)}
+.thermal-after{background:
+  radial-gradient(circle at 48% 45%, #D8F3F7 0%, #7FC8E8 36%, #3D6FC2 66%, #12275E 100%);
+  clip-path:inset(0 0 0 var(--clip,50%))}
+.thermal-side small{font-weight:500;font-size:11.5px;opacity:.85;letter-spacing:.06em}
+.thermal-side .tag{background:rgba(0,0,0,.32);padding:6px 14px;border-radius:100px;backdrop-filter:blur(2px)}
+.thermal-handle{position:absolute;top:0;bottom:0;left:var(--clip,50%);width:3px;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.4);pointer-events:none}
+.thermal-handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--navy);font-size:11px;font-weight:800;padding:8px 9px;border-radius:100px;white-space:nowrap;letter-spacing:.05em}
+.thermal input[type=range]{width:100%;margin-top:14px;accent-color:#fff}
+.thermal-caption{margin-top:16px;font-size:12.5px;color:#A9BCE4;line-height:1.6}
+.thermal-note{margin-top:6px;font-size:11.5px;color:#7E93C7}
+.researcher{max-width:520px;margin:44px auto 0;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.3);border-radius:var(--radius);padding:22px;font-size:13px;color:#AFC2E8;text-align:left}
+.researcher b{color:#fff}
+
+/* ══ 07 상세 USP ══ */
+.detailusp{background:var(--paper);padding:0}
+.point{padding:76px 28px;border-top:1px solid var(--line)}
+.point:first-child{border-top:none}
+@media(max-width:480px){.point{padding:60px 20px}}
+.point .pt-label{display:flex;align-items:baseline;gap:12px;justify-content:center;margin-bottom:16px}
+.point .pt-num{font-size:13px;font-weight:800;letter-spacing:.18em;color:var(--blue)}
+.point .pt-name{font-size:clamp(21px,5vw,26px);font-weight:800;letter-spacing:-.01em;color:var(--navy)}
+.point .pt-subhead{text-align:center;font-size:14.5px;color:var(--txt-2);margin-bottom:36px}
+.point h3.pt-copy{text-align:center;font-size:clamp(21px,5vw,26px);font-weight:800;line-height:1.5;letter-spacing:-.02em;color:var(--navy);margin-bottom:26px}
+.point .body-p{max-width:520px;margin:0 auto;text-align:center}
+.point .ph{max-width:520px;height:260px;margin:36px auto}
+@media(max-width:480px){.point .ph{height:200px}}
+.num-hero{text-align:center;margin:38px 0}
+.num-hero .n{font-size:clamp(38px,9vw,54px);font-weight:800;letter-spacing:-.03em;color:var(--blue-deep);line-height:1.1}
+.num-hero .l{margin-top:8px;font-size:14px;font-weight:600;color:var(--txt-2)}
+.cme{max-width:600px;margin:36px auto 0}
+.cme-title{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--blue-deep);margin-bottom:12px}
+table.cme-t{width:100%;border-collapse:collapse;font-size:13px}
+table.cme-t th,table.cme-t td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.55}
+table.cme-t thead th{background:var(--navy);color:#fff;font-weight:700}
+table.cme-t td:first-child{font-weight:700;color:var(--navy);width:24%}
+.ingr{max-width:600px;margin:26px auto 0;background:var(--ice-2);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px}
+.ingr .cme-title{color:var(--txt-2)}
+.ingr ul{list-style:none}
+.ingr li{font-size:13.5px;color:var(--txt);padding:5px 0 5px 18px;position:relative;line-height:1.6}
+.ingr li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:24px auto 0;max-width:560px}
+.chip-row span{font-size:12.5px;font-weight:600;color:var(--navy);background:var(--ice);border:1px solid #D6E2F5;border-radius:8px;padding:7px 12px}
+
+/* ══ 08 사용법 ══ */
+.usage{background:var(--ice-2)}
+.usage .head-wrap{text-align:center;margin-bottom:44px}
+.use-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:600px;margin:0 auto}
+@media(max-width:520px){.use-cards{grid-template-columns:1fr}}
+.use-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.use-card .uc-t{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.use-card .uc-t svg{width:18px;height:18px;stroke:var(--blue-deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.use-card p{font-size:13.5px;color:var(--txt-2);line-height:1.7}
+.use-card.warn .uc-t{color:var(--warn)}
+.use-card.warn .uc-t svg{stroke:var(--warn)}
+.steps{max-width:600px;margin:52px auto 0;counter-reset:step}
+.steps h3{text-align:center;font-size:18px;font-weight:800;color:var(--navy);margin-bottom:24px}
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:10px}
+.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);flex:none;font-size:13px;font-weight:800;color:#fff;background:var(--blue);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.step p{font-size:14.5px;color:var(--txt);line-height:1.65;padding-top:4px}
+.acc-wrap{max-width:600px;margin:44px auto 0}
+details.acc{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+details.acc summary{cursor:pointer;list-style:none;padding:17px 20px;font-size:14.5px;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:10px}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"+";font-size:19px;font-weight:400;color:var(--blue);transition:transform .2s;flex:none}
+details.acc[open] summary::after{transform:rotate(45deg)}
+details.acc .acc-body{padding:2px 20px 20px;font-size:13.5px;color:var(--txt-2);line-height:1.8;border-top:1px solid var(--ice)}
+details.acc .acc-body ul{list-style:none;margin-top:6px}
+details.acc .acc-body li{padding:3px 0 3px 16px;position:relative}
+details.acc .acc-body li::before{content:"·";position:absolute;left:2px;color:var(--blue);font-weight:800}
+
+/* ══ 09 확장 ══ */
+.extend{background:var(--paper)}
+.extend .head-wrap{text-align:center;margin-bottom:40px}
+.cross-duo{max-width:640px;margin:0 auto}
+.duo-links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.duo-btn{display:block;text-align:center;padding:14px 10px;border:1.5px solid var(--navy);border-radius:6px;color:var(--navy);font-size:14px;font-weight:700;background:#fff;cursor:pointer}
+.duo-btn:hover{background:var(--navy);color:#fff}
+@media(max-width:520px){.cross{grid-template-columns:1fr}}
+.cross .ph{height:180px}
+.faq-wrap{max-width:600px;margin:0 auto}
+.cta-final{background:linear-gradient(178deg,var(--ice) 0%,#DCEBF8 100%);text-align:center}
+.cta-final .ph{max-width:380px;height:280px;margin:0 auto 34px}
+.cta-final h2{font-size:clamp(23px,5.6vw,30px);font-weight:800;line-height:1.5;letter-spacing:-.02em;color:var(--navy)}
+.cta-final .pinfo{margin-top:18px;font-size:14.5px;font-weight:600;color:var(--txt-2)}
+.cta-final .pname{margin-top:26px;font-size:17px;font-weight:800;color:var(--navy)}
+.btn-cta{display:inline-block;margin-top:28px;background:var(--navy);color:#fff;font-size:16.5px;font-weight:800;padding:18px 52px;border-radius:100px;text-decoration:none;box-shadow:0 10px 26px rgba(0,32,91,.28);transition:transform .15s,box-shadow .15s}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,32,91,.34)}
+.price-note{margin-top:14px;font-size:12px;color:var(--txt-3)}
+
+/* ── 각주 ── */
+.footnotes{background:#F5F7FB;padding:44px 28px 64px;font-size:12px;color:var(--txt-2);line-height:1.75}
+.footnotes h4{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:14px}
+.footnotes ol{padding-left:20px}
+.footnotes li{margin-bottom:5px}
+
+/* ── 스크롤 리빌 ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ── 하단 구매 바 ── */
+.hashtag{max-width:640px;margin:0 auto;font-size:13px;color:var(--blue-deep);font-weight:600;text-align:center}
+.brand-para{max-width:640px;margin:16px auto 0;font-size:14px;color:var(--txt-2);line-height:1.85;text-align:center}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px;display:flex;justify-content:center;gap:12px;align-items:center;transform:translateY(110%);transition:transform .3s}
+.buybar.show{transform:none}
+.buybar .bb-name{font-size:13.5px;font-weight:700;color:var(--navy)}
+.buybar .bb-btn{font-size:14px;font-weight:800;border:none;border-radius:100px;padding:12px 26px;cursor:pointer}
+.buybar .bb-cart{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.buybar .bb-buy{background:#D6001C;color:#fff} /* 세스코몰 '바로구매' 버튼 실제 컬러로 최종 교체 */
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="notice"><b>내부 시안 v3</b> · 표준 템플릿 가이드 v2 적용 (히어로 비주얼 전용) · 이미지 영역은 플레이스홀더 · 가격/구성 확정 전 (Offer 스키마 추후 삽입)</div>
+
+  <!-- ══════════ 01 히어로존 : 비주얼 전용 (가이드 v2) ══════════ -->
+  <section class="hero">
+    <div class="hero-video ph" role="img" aria-label="히어로 영상 삽입 영역">
+      [ 즉시 효과 GIF 삽입 영역 : 16:9 루프 ]
+      <small>유튜브 영상 대신 5~8초 무한루프 GIF 권장 - 재생 버튼 없이 진입 즉시 후킹 (실페이지도 콘텐츠에 GIF 사용)<br>
+      컨셉 A: 닦는 순간의 사용감 연출 - 팔·겨드랑이를 닦고 보송해지는 질감, 물기 참(gleam) 컷<br>
+      컨셉 B: 끈적임 테스트 시연 - 사용 전/후 피부 표면 비교 연출 (끈적임 완화 시험⁴ 근거 범위 내)<br>
+      영상 내 자막(선택, 1줄): "샤워하기 어려운 순간, 한 장으로 산뜻하게"<br>
+      * 열화상(온도) 비주얼은 06 검증 블록의 대표 비주얼과 역할 중복 - 히어로에는 쓰지 않음<br>
+      * "즉시 -9.34℃" 같은 수치·즉시성 단정 자막 금지 / 카피는 02 블록부터 시작</small>
+    </div>
+  </section>
+
+  <!-- ══════════ 02 메인 비주얼 ══════════ -->
+  <section class="mainvisual reveal">
+    <div class="ph" role="img" aria-label="제품 이미지 삽입 영역">
+      [ 제품 단독컷 삽입 영역 ]
+      <small>밝은 화이트·아이스블루 톤의 생활과학 연구 이미지<br>제품 파우치 중앙 단독 배치</small>
+    </div>
+    <p class="pname-en">CESCO Mylab</p>
+    <h2 class="pname">항균 쿨링 데오티슈</h2>
+    <p class="positioning">땀·냄새·열감을 한 장으로 관리하는<br>항균 쿨링 데오티슈</p>
+    <div class="badges">
+      <span class="badge">99% 항균<sup>1)</sup></span>
+      <span class="badge">겨드랑이 냄새 96.17% 개선<sup>2)</sup></span>
+      <span class="badge">피부 저자극 테스트 완료<sup>8)</sup></span>
+    </div>
+    <div class="spec-inline">
+      <span>15 SHEETS</span><span>20 x 15 cm</span><span>프레시 코튼향</span>
+    </div>
+  </section>
+
+  <!-- ══════════ 03-A 마이랩 공통 소개 ══════════ -->
+  <section class="whymylab reveal">
+    <span class="eyebrow">세스코가 만든 환경위생 솔루션</span>
+    <h2>누구나 집에서도<br>전문가의 기준으로 위생을 관리할 수 있도록</h2>
+    <p class="body-p">
+      세스코 마이랩은 누구나 집에서 스스로 전문가 수준의 위생을 누릴 수 있어야 한다는 세스코의 생각에서 탄생했습니다.
+      세스코 생활과학연구소의 엄격한 기준으로 성분 하나부터 제품의 기능과 사용감까지 꼼꼼하게 살피고,
+      제품을 올바르게 사용하는 방법까지 함께 제안합니다.
+    </p>
+    <div class="emph">
+      <p>세스코 생활과학연구소의 노하우를<br>한 장에 담은</p>
+      <p class="logo">CESCO Mylab</p>
+    </div>
+    <div class="ph">[ 마이랩 제품군 또는 연구소 이미지 ]</div>
+  </section>
+
+  <!-- ══════════ 03-B Why 이 제품 ══════════ -->
+  <section class="why-this reveal">
+    <div class="sol-head">
+      <p class="sol-label">세스코 전문 연구원의 맞춤 위생 솔루션</p>
+      <svg class="lab-stamp" viewBox="0 0 130 130" aria-label="세스코 생활과학연구소 스탬프">
+        <defs>
+          <path id="arcTop" d="M 65,65 m -46,0 a 46,46 0 1,1 92,0"/>
+          <path id="arcBot" d="M 65,65 m -46,0 a 46,46 0 1,0 92,0"/>
+        </defs>
+        <circle cx="65" cy="65" r="60" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
+        <circle cx="65" cy="65" r="52" fill="none" stroke="var(--navy)" stroke-width="1"/>
+        <text font-size="11" font-weight="700" letter-spacing="2.5" fill="var(--navy)">
+          <textPath href="#arcTop" startOffset="50%" text-anchor="middle">CESCO SCIENCE</textPath>
+        </text>
+        <text font-size="11" font-weight="700" letter-spacing="3" fill="var(--navy)">
+          <textPath href="#arcBot" startOffset="50%" text-anchor="middle">LABORATORY</textPath>
+        </text>
+        <g transform="rotate(-14 65 65)">
+          <line x1="8" y1="53" x2="122" y2="53" stroke="var(--navy)" stroke-width="1.5"/>
+          <line x1="8" y1="77" x2="122" y2="77" stroke="var(--navy)" stroke-width="1.5"/>
+          <text x="65" y="70" text-anchor="middle" font-size="15" font-weight="800" fill="var(--navy)">생활과학연구소</text>
+        </g>
+      </svg>
+    </div>
+    <h2 class="head sol-copy">닦아낸 다음까지 살폈으니까<br>냄새와 열감, 끈적임, 피부 자극까지<br><b>한 장으로 관리합니다.</b></h2>
+    <p class="body-p">땀은 닦으면 사라지지만, 그 뒤에 남는 것들이 있습니다. 세스코 생활과학연구소는 한 장의 티슈가 관리해야 할 범위를 '닦은 뒤'까지 넓혔습니다. 성분의 선택 기준부터 원단의 두께, 닦고 난 뒤의 사용감까지 전문가의 기준으로 세심하게 설계했습니다.</p>
+    <div class="why-checks">
+      <div class="wc"><span class="tick"></span>닦은 뒤에도 남는 냄새</div>
+      <div class="wc"><span class="tick"></span>쉽게 가라앉지 않는 열감</div>
+      <div class="wc"><span class="tick"></span>다시 올라오는 끈적임</div>
+      <div class="wc"><span class="tick"></span>매일 닿는 피부이기에, 성분과 자극까지</div>
+    </div>
+    <p class="why-close">이 네 가지가 이 제품의 설계 기준이 되었습니다.</p>
+  </section>
+
+  <!-- ══════════ 04 타깃 공감 ══════════ -->
+  <section class="empathy reveal">
+    <div class="head-wrap">
+      <h2 class="head">혹시, 이런 순간 없으셨나요?</h2>
+    </div>
+    <div class="qcards">
+      <div class="qcard">
+        <p class="q">잠깐 시원하고 마는 티슈에 아쉬웠던 적, 있으시죠?</p>
+        <p class="a">쓰는 순간의 화함보다, 닦고 난 뒤 피부가 실제로 어떤지를 더 중요하게 봤습니다.</p>
+      </div>
+      <div class="qcard">
+        <p class="q">닦았는데 끈적임이나 허연 자국이 남았던 적, 있으시죠?</p>
+        <p class="a">닦은 자리에 무엇이 남는지까지가 사용감이라고 봤습니다.</p>
+      </div>
+      <div class="qcard">
+        <p class="q">향으로 덮어도 땀 냄새가 계속 신경 쓰였던 적, 있으시죠?</p>
+        <p class="a">향으로 가리기보다, 신경 쓰이는 냄새 자체를 관리하는 쪽을 택했습니다.</p>
+      </div>
+    </div>
+    <div class="situations">
+      <span>운동 후</span><span>출퇴근길</span><span>여름철 외출</span><span>여행</span><span>캠핑·레저</span><span>일상 속 땀 관리</span>
+    </div>
+  </section>
+
+  <!-- ══════════ 05 핵심 USP 요약 ══════════ -->
+  <section class="usp reveal">
+    <h2 class="head">한 장에 담은<br>6가지 항균 쿨링 데오 케어</h2>
+    <div class="usp-grid">
+      <div class="usp-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <p class="t">99% 항균<sup>1)</sup></p>
+        <p class="d">인체피부 대상 항균 테스트</p>
+      </div>
+      <div class="usp-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 9c3-2 5-2 8 0s5 2 8 0"/><path d="M4 15c3-2 5-2 8 0s5 2 8 0"/></svg></div>
+        <p class="t">냄새 96.17% 개선<sup>2)</sup></p>
+        <p class="d">겨드랑이 냄새 완화 확인</p>
+      </div>
+      <div class="usp-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><circle cx="12" cy="17" r="4"/><path d="M8 7h3M8 11h3"/></svg></div>
+        <p class="t">피부 온도 -9.34℃<sup>3)</sup></p>
+        <p class="d">일시적 쿨링 효과 확인</p>
+      </div>
+      <div class="usp-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M7 16c1.5-1.5 3-1.5 5 0s3.5 1.5 5 0"/><path d="M9 8l1.5 3M15 8l-1.5 3M12 6v5"/></svg></div>
+        <p class="t">끈적임 50.3% 완화<sup>4)</sup></p>
+        <p class="d">닦은 뒤 보송한 마무리</p>
+      </div>
+      <div class="usp-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-6-6-6-9a6 6 0 0 1 12 0c0 3-2 6-6 9z"/><path d="M9.5 11.5l2 2 3-3.5"/></svg></div>
+        <p class="t">피부 저자극 테스트<sup>8)</sup></p>
+        <p class="d">인체피부 일차자극 테스트 완료</p>
+      </div>
+      <div class="usp-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M8 11l2 2 4-4"/><path d="M16.5 16.5L21 21"/></svg></div>
+        <p class="t">유해물질 13종 불검출<sup>9)</sup></p>
+        <p class="d">특정 유해 우려 성분 분석</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 06 개발·검증 (사회적 증거 대체) ══════════ -->
+  <section class="proofdev reveal">
+    <span class="eyebrow">세스코 생활과학연구소의 개발 기준</span>
+    <h2>시원한 느낌보다<br>피부의 실제 변화를 확인했습니다</h2>
+    <p class="body-p">
+      땀을 닦은 직후의 화한 느낌만으로는 제품의 쿨링 효과를 판단하기 어렵습니다.
+      세스코 생활과학연구소는 비멘톨 쿨링 성분을 적용하고, 사용 후 피부 온도가 실제로 어떻게 달라지는지 확인했습니다.
+    </p>
+
+    <div class="thermal">
+      <div class="thermal-frame" id="thermalFrame">
+        <div class="thermal-side thermal-before">
+          <span class="tag">사용 전</span>
+          <small>[ 열화상 원본 이미지 교체 영역 ]</small>
+        </div>
+        <div class="thermal-side thermal-after" id="thermalAfter">
+          <span class="tag">사용 후</span>
+          <small>[ 열화상 원본 이미지 교체 영역 ]</small>
+        </div>
+        <div class="thermal-handle" id="thermalHandle"></div>
+      </div>
+      <input type="range" id="thermalRange" min="0" max="100" value="50" aria-label="사용 전후 열화상 비교 슬라이더">
+      <p class="thermal-caption">동일 부위의 사용 전·후 열화상 비교<br>인체피부 대상 일시적 피부 온도 감소 테스트 완료<sup><a href="#fn" style="color:#BFD2F5">3)</a></sup></p>
+      <p class="thermal-note">* 위 그라데이션은 목업용 연출이며, 실제 열화상 원본 이미지로 교체해야 합니다.</p>
+    </div>
+
+    <div class="researcher">
+      <b>[연구원 코멘트 영역 - 수급 시에만 노출]</b><br>
+      실제 인터뷰 문구 확보 시 이 위치에 인용 배치 (실명 게재는 본인 확인 필수).
+      미수급 시 이 영역은 삭제하고 상단 서술형으로만 진행합니다.
+    </div>
+  </section>
+
+  <!-- ══════════ 07 상세 USP ══════════ -->
+  <div class="detailusp">
+
+    <!-- POINT 01 -->
+    <section class="point reveal">
+      <div class="pt-label"><span class="pt-num">POINT 01</span><span class="pt-name">엄격한 기준으로</span></div>
+      <p class="pt-subhead">보이지 않는 불쾌함의 근본 원인부터 연구했습니다</p>
+      <h3 class="pt-copy">강한 향으로 덮지 않고,<br>냄새 완화를 확인했습니다</h3>
+      <p class="body-p">
+        땀 냄새는 강한 향으로 잠시 덮는 것만으로는 충분히 개운해지기 어렵습니다.
+        세스코 마이랩 항균 쿨링 데오티슈는 냄새 완화에 도움을 주는 성분인 <b>징크리시놀리에이트</b><sup><a href="#fn">5)</a></sup>를 함유하고,
+        인체피부 대상 시험에서 <b>겨드랑이 냄새 평균 96.17% 개선</b><sup><a href="#fn">2)</a></sup>을 확인했습니다.
+      </p>
+      <div class="num-hero">
+        <p class="n">96.17%</p>
+        <p class="l">겨드랑이 냄새 평균 개선율 확인<sup>2)</sup></p>
+      </div>
+      <div class="ph">[ 겨드랑이 냄새 개선 그래프 영역 ]<small>시험 결과 그래프 원본으로 교체</small></div>
+      <p class="body-p">
+        땀으로 신경 쓰이는 피부 위생까지. 인체피부 대상 항균 테스트로 <b>99% 항균력</b><sup><a href="#fn">1)</a></sup>을 확인했습니다.
+      </p>
+      <div class="chip-row">
+        <span>황색포도상구균 99.9%</span><span>대장균 99.8%</span><span>칸디다균 99.9%</span>
+      </div>
+      <p class="body-p">
+        마무리는 시원하고 깨끗한 프레시 코튼향.
+        식약처 고시 알레르기 유발 물질 26종 불검출 향료를 적용했습니다.
+      </p>
+      <div class="cme">
+        <p class="cme-title">인체적용시험 결과</p>
+        <table class="cme-t">
+          <thead><tr><th>주장</th><th>검증 방법</th><th>결과</th></tr></thead>
+          <tbody>
+            <tr><td>겨드랑이 냄새 완화</td><td>인체피부 겨드랑이 냄새 완화 테스트</td><td>평균 96.17% 개선 (한국피부과학연구원)<sup>2)</sup></td></tr>
+            <tr><td>99% 항균</td><td>인체피부 대상 항균 테스트</td><td>황색포도상구균 99.9% · 대장균 99.8% · 칸디다균 99.9% (글로벌의학연구센터)<sup>1)</sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ingr">
+        <p class="cme-title">원료·향료 정보</p>
+        <ul>
+          <li>냄새 유발 완화 성분: 징크리시놀리에이트 함유<sup>5)</sup></li>
+          <li>향료: 식약처 고시 알레르기 유발 물질 26종 불검출 향료 적용</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- POINT 02 -->
+    <section class="point reveal">
+      <div class="pt-label"><span class="pt-num">POINT 02</span><span class="pt-name">까다로운 검증을 거쳐</span></div>
+      <p class="pt-subhead">예민한 피부에도 사용하기에, 성분 하나까지 모두 검증했습니다</p>
+      <h3 class="pt-copy">화한 자극에 기대지 않은<br>피부를 고려한 시원함</h3>
+      <p class="body-p">
+        강한 화한 느낌에 의존하지 않았습니다. 멘톨 대신 빙하수·자일리톨·MDP를 조합한 <b>비멘톨 쿨링 성분</b><sup><a href="#fn">6)</a></sup>을 적용해 청량한 사용감을 전달합니다.
+        인체피부 대상 시험에서는 <b>일시적 피부 온도 평균 9.34℃ 감소</b><sup><a href="#fn">3)</a></sup>를 확인했습니다.
+      </p>
+      <div class="num-hero">
+        <p class="n">-9.34℃</p>
+        <p class="l">일시적 피부 온도 평균 감소 확인<sup>3)</sup></p>
+      </div>
+      <div class="ph">[ 사용 전후 피부 온도 비교 그래프 영역 ]<small>시험 결과 그래프 원본으로 교체</small></div>
+      <p class="body-p">
+        닦아낸 뒤의 피부 컨디션까지. 보습 성분(글리세린)<sup><a href="#fn">7)</a></sup>과 피부 컨디셔닝·보호 성분(스피룰리나플라텐시스추출물)을 함유했습니다.
+        피부에 직접 사용하는 제품인 만큼 인체피부 대상 일차자극 테스트<sup><a href="#fn">8)</a></sup>를 완료했으며,
+        파라벤 7종·가습기 이슈 성분 4종·트리클로산·PCMX 등 특정 유해 우려 성분 13종의 불검출<sup><a href="#fn">9)</a></sup>도 확인했습니다.
+      </p>
+      <div class="chip-row">
+        <span>빙하수</span><span>자일리톨</span><span>MDP</span><span>글리세린</span><span>스피룰리나플라텐시스추출물</span>
+      </div>
+      <div class="cme">
+        <p class="cme-title">인체적용시험·성분 분석 결과</p>
+        <table class="cme-t">
+          <thead><tr><th>주장</th><th>검증 방법</th><th>결과</th></tr></thead>
+          <tbody>
+            <tr><td>일시적 쿨링</td><td>인체피부 일시적 피부 온도 감소 테스트</td><td>평균 9.34℃ 감소 (한국피부과학연구원)<sup>3)</sup></td></tr>
+            <tr><td>피부 저자극</td><td>인체피부 일차자극 테스트</td><td>피부 저자극 확인 (한국피부과학연구원)<sup>8)</sup></td></tr>
+            <tr><td>특정 유해 우려 성분 분석</td><td>성분 분석 (KCL, FITI 시험연구원)</td><td>파라벤 7종 · 가습기 이슈 성분 4종(CMIT·MIT·BKC·DDAC) · 트리클로산 · PCMX 불검출<sup>9)</sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ingr">
+        <p class="cme-title">원료 정보</p>
+        <ul>
+          <li>비멘톨 쿨링 성분: 빙하수·자일리톨·MDP 조합<sup>6)</sup></li>
+          <li>보습·컨디셔닝: 글리세린<sup>7)</sup>, 스피룰리나플라텐시스추출물 함유</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- POINT 03 -->
+    <section class="point reveal">
+      <div class="pt-label"><span class="pt-num">POINT 03</span><span class="pt-name">강력하게 기능하도록</span></div>
+      <p class="pt-subhead">끈적임과 잔여감을 줄이고, 피부는 보송하게 마무리해 줍니다</p>
+      <h3 class="pt-copy">끈적임과 잔여감을 줄이고<br>피부는 보송하게</h3>
+      <p class="body-p">
+        실키한 미세입자 파우더 <b>PMSSQ(폴리메틸실세스퀴옥세인)</b>를 함유해 백탁과 잔여감을 줄여 가볍고 산뜻하게 마무리합니다.
+        인체피부 대상 시험에서 <b>끈적임 평균 50.3% 완화</b><sup><a href="#fn">4)</a></sup>를 확인했습니다.
+      </p>
+      <div class="num-hero">
+        <p class="n">50.3%</p>
+        <p class="l">끈적임 평균 완화 확인<sup>4)</sup></p>
+      </div>
+      <div class="ph">[ 사용 전 → 사용 후 비교 이미지 영역 ]<small>타 제품 비교 연출 금지 · 자사 사용 전후 프레임만</small></div>
+      <p class="body-p">
+        도톰한 엠보싱 원단으로 겨드랑이와 팔, 다리 등 넓은 부위를 닦기 좋습니다.
+      </p>
+      <div class="ph" style="height:200px">[ 엠보싱 원단 확대 이미지 영역 ]</div>
+      <div class="cme">
+        <p class="cme-title">인체적용시험 결과</p>
+        <table class="cme-t">
+          <thead><tr><th>주장</th><th>검증 방법</th><th>결과</th></tr></thead>
+          <tbody>
+            <tr><td>끈적임 완화</td><td>인체피부 끈적임 완화 테스트</td><td>평균 50.3% 완화 (한국피부과학연구원)<sup>4)</sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ingr">
+        <p class="cme-title">원료·소재 정보</p>
+        <ul>
+          <li>미세입자 파우더: PMSSQ 함유 (백탁·잔여감을 줄이는 처방)</li>
+          <li>원단: 65gsm 도톰한 엠보싱 원단 적용</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══════════ 08 사용법 & 안전정보 ══════════ -->
+  <section class="usage reveal">
+    <div class="head-wrap">
+      <h2 class="head">어디에, 어떻게 사용하나요?</h2>
+    </div>
+    <div class="use-cards">
+      <div class="use-card">
+        <p class="uc-t"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="2.5"/><path d="M12 9v5l-3 6M12 14l3 6M8 11l4-1 4 1"/></svg>운동·야외활동 후</p>
+        <p>땀과 끈적임이 신경 쓰이는 겨드랑이, 팔, 다리 등을 부드럽게 닦아주세요.</p>
+      </div>
+      <div class="use-card">
+        <p class="uc-t"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="13" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>외출·여행 중</p>
+        <p>파우치 형태로 휴대하고, 사용 후에는 남은 티슈가 마르지 않도록 스티커를 다시 붙여주세요.</p>
+      </div>
+      <div class="use-card warn">
+        <p class="uc-t"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>사용할 수 없는 부위</p>
+        <p>얼굴과 눈·입술 주변 등 민감한 부위, 상처가 있는 부위에는 사용을 자제해주세요.</p>
+      </div>
+      <div class="use-card warn">
+        <p class="uc-t"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M16 8l-8 8"/></svg>제모 후</p>
+        <p>털을 제거한 직후에는 사용하지 마세요.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <h3>기본 사용 방법</h3>
+      <div class="step"><p>파우치 스티커를 개봉해 시트를 꺼냅니다.</p></div>
+      <div class="step"><p>얼굴을 제외한 팔·다리·전신·겨드랑이 등 땀 나는 곳, 끈적이는 부위를 부드럽게 닦습니다.</p></div>
+      <div class="step"><p>사용 후 스티커를 다시 붙여 보관합니다.</p></div>
+    </div>
+
+    <div class="acc-wrap">
+      <details class="acc">
+        <summary>보관 방법 및 사용 시 주의사항</summary>
+        <div class="acc-body">
+          <ul>
+            <li>어린이의 손이 닿지 않는 곳에 보관해 주세요.</li>
+            <li>직사광선을 피해 보관해 주세요.</li>
+            <li>사용 중 의류에 닿을 경우 변색될 수 있으므로 주의해 주세요.</li>
+            <li>사용 후 액체가 새거나 마르지 않도록 스티커를 다시 붙여 보관해 주세요.</li>
+            <li>사용 부위에 붉은 반점, 부어오름, 가려움증 등의 이상 증상이나 부작용이 있는 경우 전문의 등과 상담해 주세요.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>제품 표시 정보 (화장품법 표시사항)</summary>
+        <div class="acc-body">
+          <ul>
+            <li>제품명: 세스코 마이랩 항균 쿨링 데오티슈</li>
+            <li>중량 및 매수: 63g / 15매</li>
+            <li>화장품책임판매업자: ㈜세스코, 서울시 강동구 상일로10길 46 (상일동), 고객센터 1588-1119</li>
+            <li>화장품제조업자: 에이제이㈜, 충남 아산시 영인면 아산호로496번길 35</li>
+            <li>제조번호 및 사용기한: 제품 별도 표기</li>
+            <li>본 제품에 이상이 있을 경우 공정거래위원회 고시 소비자 분쟁해결 기준에 의거 보상해드립니다.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>전성분</summary>
+        <div class="acc-body">
+          정제수, 에탄올, 폴리솔베이트 80, 글리세린, 폴리메틸실세스퀴옥세인, 소듐벤조에이트, 시트릭애씨드,
+          징크리시놀리에이트, 에틸헥실글리세린, 메틸다이아이소프로필프로피온아마이드, 자일리톨, 빙하수,
+          부틸렌글라이콜, 다이소듐이디티에이, 스피룰리나플라텐시스추출물, 1,2-헥산다이올, 향료
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════════ 09 기타 확장 ══════════ -->
+  <section class="extend reveal">
+    <div class="head-wrap">
+      <h2 class="head">함께 쓰면 좋아요</h2>
+      <p class="sub">[확인 필요] 마이랩 라인업 확정 후 교체 - 사용 맥락 연결 제품 우선</p>
+    </div>
+    <!-- 세스코몰 관례: 듀오 배너 통이미지 + 이미지 위 '보러가기' 링크 오버레이 (기름때세정제 페이지의 editor(4).jpg 방식) -->
+    <div class="cross-duo">
+      <div class="ph" style="height:300px">[ 마이랩 듀오 배너 이미지 ]<small>[확인 필요] 사용 맥락 연결 제품 2종 확정 후 제작<br>하단에 제품별 '보러가기' 버튼 2개가 이미지 위 링크로 올라감</small></div>
+      <div class="duo-links">
+        <span class="duo-btn">크로스셀 제품 1 보러가기</span>
+        <span class="duo-btn">크로스셀 제품 2 보러가기</span>
+      </div>
+    </div>
+    <!-- 세스코몰 관례: 마이랩 캠페인 배너 (editor(5).jpg 방식, 캠페인 페이지 링크) -->
+    <div class="ph" style="max-width:640px;height:170px;margin:18px auto 0">[ 세스코 마이랩 브랜드 캠페인 배너 ]<small>클릭 시 마이랩 캠페인 페이지 이동</small></div>
+  </section>
+
+  <section class="extend reveal" style="padding-top:0">
+    <div class="head-wrap">
+      <h2 class="head">제품 정보 한눈에 보기</h2>
+    </div>
+    <!-- GEO: 속성:값 스펙 표 (가시 텍스트) - 구매 직전 확인용, 법정 표시(08 아코디언)와 역할 분리 -->
+    <div class="geo-table-wrap" style="margin-top:0">
+      <table class="spec">
+        <tbody>
+          <tr><th>제품명</th><td>세스코 마이랩 항균 쿨링 데오티슈</td></tr>
+          <tr><th>분류</th><td>화장품 (바디용 데오도란트 티슈)</td></tr>
+          <tr><th>중량 / 매수</th><td>63g / 15매</td></tr>
+          <tr><th>시트 크기</th><td>20 x 15 cm</td></tr>
+          <tr><th>향</th><td>프레시 코튼향 (식약처 고시 알레르기 유발 물질 26종 불검출 향료 적용)</td></tr>
+          <tr><th>원단</th><td>65gsm 도톰한 엠보싱 원단</td></tr>
+          <tr><th>사용 부위</th><td>얼굴을 제외한 팔·다리·전신·겨드랑이 등</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="extend reveal" style="padding-top:0">
+    <div class="head-wrap">
+      <h2 class="head">자주 묻는 질문</h2>
+    </div>
+    <div class="faq-wrap">
+      <details class="acc">
+        <summary>얼굴에도 사용할 수 있나요?</summary>
+        <div class="acc-body">아니요. 얼굴을 제외한 팔·다리·겨드랑이 등 땀과 끈적임이 신경 쓰이는 신체 부위에 사용하는 제품입니다. 눈·입술 주변 등 민감한 부위에는 사용을 자제해주세요.</div>
+      </details>
+      <details class="acc">
+        <summary>멘톨이 들어 있나요?</summary>
+        <div class="acc-body">멘톨 대신 빙하수·자일리톨·MDP를 조합한 비멘톨 쿨링 성분<sup>6)</sup>을 적용했습니다. 인체피부 대상 일차자극 테스트<sup>8)</sup>도 별도로 완료했습니다.</div>
+      </details>
+      <details class="acc">
+        <summary>정말 시원해지나요?</summary>
+        <div class="acc-body">인체피부 대상 시험에서 사용 후 일시적 피부 온도가 평균 9.34℃ 감소<sup>3)</sup>함을 확인했습니다 (한국피부과학연구원).</div>
+      </details>
+      <details class="acc">
+        <summary>어떤 향인가요?</summary>
+        <div class="acc-body">시원하고 깨끗한 느낌의 프레시 코튼향입니다. 식품의약품안전처 고시 기준 알레르기 유발 물질 26종 불검출을 확인한 향료를 적용했습니다.</div>
+      </details>
+      <details class="acc">
+        <summary>사용 후 하얀 가루가 남지 않나요?</summary>
+        <div class="acc-body">실키한 미세입자 파우더(PMSSQ)를 함유해 백탁과 잔여감을 줄이고, 가볍고 산뜻하게 마무리되도록 설계했습니다.</div>
+      </details>
+      <details class="acc">
+        <summary>개봉 후에는 어떻게 보관하나요?</summary>
+        <div class="acc-body">내용물이 마르거나 새지 않도록 파우치의 스티커를 반드시 다시 붙여, 직사광선을 피해 보관해주세요.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════════ 최종 CTA ══════════ -->
+    <!-- 세스코몰 관례: 상세 콘텐츠 하단 해시태그 + 브랜드 설명 텍스트 문단 (기름때세정제 페이지 동일 - 드래그 가능한 GEO 텍스트) -->
+  <section class="extend reveal" style="padding-top:0">
+    <p class="hashtag">#데오티슈 #쿨링티슈 #항균티슈 #마이랩항균쿨링데오티슈 #바디티슈</p>
+    <p class="brand-para">세스코 마이랩 항균 쿨링 데오티슈는 땀으로 인한 냄새와 열감, 끈적임까지 한 장으로 관리할 수 있도록 세스코 생활과학연구소가 설계한 바디용 데오도란트 티슈입니다. 인체적용시험으로 확인한 항균력<sup>1)</sup>과 겨드랑이 냄새 개선<sup>2)</sup>, 일시적 피부 온도 감소<sup>3)</sup>를 바탕으로, 성분 하나부터 사용감까지 꼼꼼하게 살펴 만들었습니다.</p>
+  </section>
+
+  <!-- 세스코몰 시스템 영역 참고: 상품고시정보 (몰이 자동 생성하는 영역 - 콘텐츠 제작 범위 아님, 등록 정보 준비용) -->
+  <section class="extend reveal" style="padding-top:0">
+    <div class="head-wrap"><h2 class="head" style="font-size:18px">상품고시정보 <span style="font-size:12px;font-weight:600;color:var(--txt-2)">(몰 등록 정보 - 화장품 고시 항목)</span></h2></div>
+    <div class="geo-table-wrap" style="margin-top:0">
+      <table class="spec">
+        <tbody>
+          <tr><th>용량/중량</th><td>63g (15매)</td></tr>
+          <tr><th>제품 주요 사양</th><td>바디용 데오도란트 티슈 (얼굴 제외 팔·다리·전신·겨드랑이)</td></tr>
+          <tr><th>사용기한</th><td>[확인 필요] 제품 별도표기</td></tr>
+          <tr><th>사용방법</th><td>상세정보 별도표기</td></tr>
+          <tr><th>화장품책임판매업자</th><td>[확인 필요]</td></tr>
+          <tr><th>제조국</th><td>[확인 필요]</td></tr>
+          <tr><th>전성분</th><td>상세정보 별도표기 (08 블록 전성분 아코디언과 일치)</td></tr>
+          <tr><th>기능성 심사 여부</th><td>해당 없음 (일반 화장품)</td></tr>
+          <tr><th>사용상 주의사항</th><td>상세정보 별도표기</td></tr>
+          <tr><th>품질보증기준</th><td>본 제품에 이상이 있을 경우 공정거래위원회 고시 소비자 분쟁해결 기준에 의거 보상해드립니다.</td></tr>
+          <tr><th>소비자상담 전화번호</th><td>㈜세스코, 1588-1119</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+<section class="cta-final reveal" id="ctaFinal">
+    <div class="ph">[ 제품 이미지 삽입 영역 ]</div>
+    <h2>샤워하기 어려운 순간에도<br>한 장으로 산뜻하고 보송하게</h2>
+    <p class="pname">세스코 마이랩 항균 쿨링 데오티슈</p>
+    <p class="pinfo">15매 · 20 x 15cm · 프레시 코튼향</p>
+    <a class="btn-cta" href="#" onclick="return false">항균 쿨링 데오티슈 만나보기</a>
+    <p class="price-note">* 가격·구성 확정 후 구매 옵션 연동 [확인 필요]</p>
+  </section>
+
+  <!-- ══════════ 시험 결과 각주 ══════════ -->
+  <div class="footnotes" id="fn">
+    <h4>시험 결과 각주</h4>
+    <ol>
+      <li>인체피부 대상 항균 테스트 완료: 황색포도상구균 99.9%, 대장균 99.8%, 칸디다균 99.9%, 글로벌의학연구센터</li>
+      <li>인체피부 대상 겨드랑이 냄새 완화 테스트 완료: 평균 96.17% 개선, 한국피부과학연구원</li>
+      <li>인체피부 대상 일시적 피부 온도 감소 테스트 완료: 평균 9.34℃ 감소, 한국피부과학연구원</li>
+      <li>인체피부 대상 끈적임 완화 테스트 완료: 평균 50.3% 완화, 한국피부과학연구원</li>
+      <li>징크리시놀리에이트 원료 특성에 한함</li>
+      <li>빙하수·자일리톨·MDP(메틸다이아이소프로필프로피온아마이드) 성분 조합</li>
+      <li>글리세린 성분에 한함</li>
+      <li>인체피부 대상 일차자극 테스트 완료(피부 저자극), 한국피부과학연구원</li>
+      <li>파라벤 7종(메틸파라벤, 에틸파라벤, 프로필파라벤, 부틸파라벤, 이소프로필파라벤, 이소부틸파라벤, p-하이드록시벤조익애씨드), 가습기 이슈 성분 4종(CMIT, MIT, BKC, DDAC), 트리클로산, PCMX 불검출, KCL·FITI 시험연구원</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 하단 구매 바 -->
+<div class="buybar" id="buybar">
+  <span class="bb-name">세스코 마이랩 항균 쿨링 데오티슈</span>
+  <button class="bb-btn bb-cart">장바구니</button>
+  <button class="bb-btn bb-buy" onclick="document.getElementById('ctaFinal').scrollIntoView({behavior:'smooth'})">바로구매</button>
+</div>
+
+<!-- GEO: Product 구조화 데이터 (Offer는 가격 확정 후 추가) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "세스코 마이랩 항균 쿨링 데오티슈",
+  "brand": {"@type": "Brand", "name": "CESCO Mylab"},
+  "category": "바디용 데오도란트 티슈 (화장품)",
+  "description": "세스코 생활과학연구소가 만든 항균 쿨링 데오티슈. 인체피부 대상 시험에서 99% 항균력, 겨드랑이 냄새 평균 96.17% 개선, 일시적 피부 온도 평균 9.34℃ 감소, 끈적임 평균 50.3% 완화를 확인했습니다. 15매, 20x15cm, 프레시 코튼향.",
+  "size": "63g / 15매 / 20x15cm",
+  "additionalProperty": [
+    {"@type": "PropertyValue", "name": "향", "value": "프레시 코튼향"},
+    {"@type": "PropertyValue", "name": "매수", "value": "15매"},
+    {"@type": "PropertyValue", "name": "시트 크기", "value": "20x15cm"},
+    {"@type": "PropertyValue", "name": "원단", "value": "65gsm 엠보싱 원단"}
+  ]
+}
+</script>
+
+<script>
+// 열화상 Before/After 슬라이더
+(function(){
+  const range = document.getElementById('thermalRange');
+  const after = document.getElementById('thermalAfter');
+  const handle = document.getElementById('thermalHandle');
+  function update(v){
+    after.style.setProperty('--clip', v+'%');
+    handle.style.left = v+'%';
+  }
+  range.addEventListener('input', e => update(e.target.value));
+  update(50);
+})();
+
+// 스크롤 리빌
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+// 하단 구매 바: 히어로 지나면 노출
+(function(){
+  const bar = document.getElementById('buybar');
+  const hero = document.querySelector('.hero');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => bar.classList.toggle('show', !en.isIntersecting));
+  }, {threshold:0});
+  io.observe(hero);
+})();
+</script>
+</body>
+</html>
