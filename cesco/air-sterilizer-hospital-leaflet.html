@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 UV파워 공기살균기 Sense me | 병원용 A4 양면 리플릿 구성안</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{
+  --bg:#F4F5F7; --page:#FFFFFF; --line:#E5E7EB; --line-2:#D6D9DF;
+  --ink:#1F2430; --txt:#3A4150; --txt-2:#6B7280; --txt-3:#9AA1AC;
+  --grn:#3E7C6F;   /* 병원 타깃 그린 */
+  --grn-bg:#EDF4F2;
+  --note:#FFF7DC; --note-line:#EAD98F; --note-ink:#7A5B00;
+  --navy:#1F2430;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;background:var(--bg);color:var(--txt);font-size:13px;line-height:1.62;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:1320px;margin:0 auto;padding:36px 28px 64px}
+
+/* ── 문서 헤더 ── */
+.dochead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}
+.dochead h1{font-size:19px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.dochead h1 span{font-weight:400;color:var(--txt-2)}
+.dochead .flow{font-size:12px;color:var(--txt-2);margin-top:4px}
+.pill{flex:none;font-size:11.5px;color:var(--txt-2);border:1px solid var(--line-2);border-radius:16px;padding:5px 14px;background:var(--page)}
+
+/* ── 페이지 ── */
+.pages{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.page{background:var(--page);border:1px solid var(--line);border-radius:6px;padding:34px 34px 30px;position:relative;box-shadow:0 1px 3px rgba(31,36,48,.05)}
+.pno{position:absolute;top:18px;right:18px;width:38px;height:38px;border:1.5px solid var(--grn);color:var(--grn);border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;background:#fff}
+
+/* 아이브로·헤드라인 */
+.eyebrow{display:inline-block;font-size:11px;color:var(--txt-2);background:#F3F4F6;border-radius:3px;padding:3px 9px;margin-bottom:14px}
+.h-main{font-size:29px;font-weight:800;color:var(--ink);line-height:1.32;letter-spacing:-.02em}
+.h-main.sm{font-size:21px}
+.h-sub{font-size:13.5px;color:var(--txt-2);margin-top:9px}
+
+/* 인트로 리드 박스 */
+.lead{background:#F7F8FA;border-radius:5px;padding:15px 18px;margin-top:20px;font-size:13px;color:var(--txt);line-height:1.65}
+.lead b{color:var(--ink)}
+
+/* 섹션 */
+section{margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.st{font-size:15.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.st .bref{font-size:10px;font-weight:700;color:var(--txt-3);vertical-align:2px;margin-left:6px;letter-spacing:.04em}
+.st .opt{font-size:9.5px;font-weight:800;color:var(--note-ink);background:var(--note);border:1px solid var(--note-line);border-radius:3px;padding:1px 7px;vertical-align:2px;margin-left:6px}
+.sd{font-size:12px;color:var(--txt-2);margin-top:3px}
+
+/* 두 순간 카드 */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.card{border:1px solid var(--line-2);border-radius:4px;padding:15px 16px;background:#fff}
+.card .cap{font-size:10.5px;font-weight:800;letter-spacing:.12em;margin-bottom:7px;color:var(--grn)}
+.card .ct{font-size:15px;font-weight:800;color:var(--ink);line-height:1.42}
+.card .cd{font-size:12px;color:var(--txt-2);margin-top:7px;line-height:1.6}
+
+/* 플로우 스트립 */
+.flowstrip{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;border:1px dashed var(--line-2);border-radius:4px;padding:10px 12px;margin-top:12px;font-size:12px}
+.flowstrip .f{font-weight:700;color:var(--ink);background:#F3F4F6;border-radius:3px;padding:4px 11px}
+.flowstrip .ar{color:var(--txt-3)}
+
+/* 살균 수치 3카드 */
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.num{border:1px solid var(--line-2);border-radius:4px;padding:14px 12px;text-align:center;background:var(--grn-bg)}
+.num .nv{font-size:21px;font-weight:800;color:var(--grn)}
+.num .nl{font-size:11.5px;color:var(--txt);margin-top:3px;line-height:1.45}
+
+/* 기술 카드 (spec-row) */
+.role .card{padding:0;overflow:hidden}
+.role .rh{color:#fff;font-size:12.5px;font-weight:800;padding:8px 15px;background:var(--grn)}
+.role .rt{font-size:16px;font-weight:800;color:var(--ink);line-height:1.4;padding:14px 15px 4px}
+.role .ri{padding:0 15px 13px}
+.spec-row{border-top:1px solid var(--line);padding:9px 1px}
+.spec-row:first-child{border-top:none}
+.spec-row .sn{font-size:12.3px;font-weight:800;color:var(--ink)}
+.spec-row .sv{font-size:11.8px;color:var(--txt-2);margin-top:2px;line-height:1.55}
+
+/* 공간별 4카드 */
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.eff{border:1px solid var(--line-2);border-radius:4px;padding:13px 12px;text-align:center}
+.eff .et{font-size:12.6px;font-weight:800;color:var(--ink);line-height:1.45}
+.eff .ed{font-size:11.3px;color:var(--txt-2);margin-top:7px;line-height:1.55;text-align:left}
+
+/* 신뢰 카드 */
+.ing .card{border-left:3px solid var(--grn)}
+.ing .it{font-size:13.5px;font-weight:800;color:var(--ink)}
+.ing .idsc{font-size:12px;color:var(--txt-2);margin-top:5px;line-height:1.6}
+
+/* 확인 필요 노트 */
+.note{background:var(--note);border:1px solid var(--note-line);border-radius:4px;padding:10px 14px;font-size:12px;color:var(--note-ink);margin-top:12px;line-height:1.6}
+.note b{font-weight:800}
+
+/* 표 */
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#F3F4F6;color:var(--ink);font-weight:800;text-align:left;padding:8px 12px;border:1px solid var(--line-2);font-size:11.5px}
+td{border:1px solid var(--line-2);padding:8px 12px;color:var(--txt);vertical-align:top}
+
+/* 사양 2단 */
+.specbox{border:1px solid var(--line-2);border-radius:4px;padding:14px 16px}
+.specbox .spt{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.specbox ul{list-style:none}
+.specbox li{font-size:12px;color:var(--txt);padding:3px 0 3px 12px;position:relative}
+.specbox li::before{content:"";position:absolute;left:0;top:11px;width:4px;height:4px;border-radius:50%;background:var(--txt-3)}
+.specbox li b{color:var(--ink);font-weight:700}
+
+/* 가격 */
+.price td,.price th{text-align:center}
+.price td.l{text-align:left}
+.tnote{font-size:11px;color:var(--txt-2);margin-top:6px}
+
+/* 주의 2단 리스트 */
+.cautions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.cautions .c{border:1px solid var(--line-2);border-radius:4px;padding:9px 13px;font-size:11.8px;color:var(--txt);line-height:1.55}
+
+/* CTA */
+.ctasec{margin-top:30px;padding-top:24px;border-top:2px solid var(--ink)}
+.ctabody{display:grid;grid-template-columns:64px 1fr 110px;gap:16px;align-items:center;margin-top:14px}
+.qr{width:64px;height:64px;border:1.5px solid var(--ink);border-radius:4px;display:grid;place-items:center;font-size:10px;font-weight:800;color:var(--ink);text-align:center;line-height:1.3}
+.ctatxt{font-size:12.6px;color:var(--txt);line-height:1.65}
+.ctatxt b{color:var(--ink)}
+.namecard{border:1.5px dashed var(--line-2);border-radius:4px;height:64px;display:grid;place-items:center;font-size:10.5px;color:var(--txt-3);text-align:center;line-height:1.45}
+
+/* 각주 */
+.legal{margin-top:18px;padding-top:12px;border-top:1px solid var(--line);font-size:10.6px;color:var(--txt-2);line-height:1.75}
+
+/* 미니 QR 표시 (1p 상단) */
+.miniqr{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--txt-2);margin-top:18px}
+.miniqr .q{width:22px;height:22px;border:1.2px solid var(--ink);border-radius:2px;flex:none;display:grid;place-items:center;font-size:7px;font-weight:800;color:var(--ink)}
+
+@media(max-width:1024px){
+  .pages{grid-template-columns:1fr}
+  .cols4{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .cols2,.cols3,.cautions,.cols4{grid-template-columns:1fr}
+  .ctabody{grid-template-columns:64px 1fr}
+  .namecard{display:none}
+  .h-main{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="dochead">
+  <div>
+    <h1>세스코 UV파워 공기살균기 Sense me <span>| 병원용 A4 양면 리플릿 구성안</span></h1>
+    <div class="flow">병원 도입 상담용 와이어프레임 · 문제 제기 → 핵심 USP → (뒷면) 기술 상세 → 공간별 관리 → 도입 사례 → 렌탈 조건 → 상담 유도 <span style="color:var(--txt-3)">(표준 골격 B1~B7 · 병원 타깃 가이드 적용 · <b>선택</b> 표시 섹션은 지면에 따라 골라 반영, 생략 시에도 핵심 고지는 하단 각주에 유지)</span></div>
+  </div>
+  <span class="pill">타깃 버전 · 병원</span>
+</div>
+
+<div class="pages">
+
+<!-- ─────────────── 1P ─────────────── -->
+<div class="page">
+  <div class="pno">1p</div>
+
+  <span class="eyebrow">손 소독과 표면 소독 다음, 공기 관리가 남았습니다</span>
+  <div class="h-main">감염 관리는 손 소독에서<br>끝나지 않습니다</div>
+  <div class="h-sub">세스코 UV파워 공기살균기 Sense me</div>
+
+  <div class="lead">
+    환자와 보호자가 함께 숨 쉬는 원내 공기, 눈에 보이지 않아 관리 사각지대로 남기 쉽습니다.<br>
+    <b>대기실부터 입원실까지, 세스코가 24시간 살균으로 관리해 드립니다.</b>
+  </div>
+
+  <div class="miniqr"><span class="q">QR</span>고정 존 · 앞면 미니 QR - "제품 상세는 QR로 확인해 주세요"</div>
+
+  <section>
+    <div class="st">원내 공기 관리가 어려운 두 가지 이유<span class="bref">B2</span></div>
+    <div class="cols2">
+      <div class="card">
+        <div class="cap">WAITING ROOM</div>
+        <div class="ct">가장 붐비는 곳이,<br>가장 관리가 어렵습니다</div>
+        <div class="cd">대기실은 면역이 약한 환자와 보호자가 밀집해 오래 머무는 공간입니다. 환기만으로는 대응이 어렵습니다.</div>
+      </div>
+      <div class="card">
+        <div class="cap">INVISIBLE</div>
+        <div class="ct">공기는 소독할 수 없는<br>사각지대입니다</div>
+        <div class="cd">손 소독과 표면 소독은 일상이 되었지만, 공기 중 유해요소는 눈에 보이지 않아 관리 기준을 세우기 어렵습니다.</div>
+      </div>
+    </div>
+    <div class="flowstrip">
+      <span class="f">원내 공기 살균 관리</span><span class="ar">→</span>
+      <span class="f">환자·보호자 안심</span><span class="ar">→</span>
+      <span class="f">진료 환경 신뢰</span><span class="ar">→</span>
+      <span class="f">환경 관리 체계 강화</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="st">공기 중 바이러스와 세균을 직접 살균합니다<span class="bref">B3</span></div>
+    <div class="cols3">
+      <div class="num"><div class="nv">99.9%</div><div class="nl">폐렴균 살균*</div></div>
+      <div class="num"><div class="nv">99.99%</div><div class="nl">인플루엔자(H1N1) 살균*</div></div>
+      <div class="num"><div class="nv">99.99%</div><div class="nl">코로나 바이러스 살균*</div></div>
+    </div>
+    <div class="sd" style="margin-top:8px">세스코 과학연구소 × 고려대 의대 바이러스병 연구소 공동연구로 검증했습니다*</div>
+    <div class="cols4" style="grid-template-columns:repeat(3,1fr)">
+      <div class="eff"><div class="et">UV살균터널™</div><div class="ed">공기 중 바이러스와 세균을 직접 파괴하는 핵심 살균 기술</div></div>
+      <div class="eff"><div class="et">모션인식<br>스마트케어</div><div class="ed">붐비는 순간, 스스로 강해지는 자동 살균</div></div>
+      <div class="eff"><div class="et">24시간<br>연속 가동</div><div class="ed">진료 시간에도 야간에도 멈추지 않는 공기 관리</div></div>
+    </div>
+    <div class="note"><b>[확인 필요]</b> 살균 수치의 시험기관·시험조건·균주 각주는 기존 리플릿 원문 그대로 이관해 주세요. 각주 없이 수치 단독 사용은 금지합니다.</div>
+  </section>
+
+</div>
+
+<!-- ─────────────── 2P ─────────────── -->
+<div class="page">
+  <div class="pno">2p</div>
+
+  <div class="h-main sm">환자가 머무는 모든 시간, 공기도 진료 환경입니다</div>
+  <div class="h-sub">대기실·진료실·입원실, 공간에 맞춰 배치하는 원내 공기 살균 솔루션</div>
+
+  <section class="role">
+    <div class="st">공기가 달라지는 이유, 세 가지 살균 기술<span class="bref">B3 상세</span></div>
+    <div class="cols2" style="grid-template-columns:1fr">
+      <div class="card">
+        <div class="rh">세스코 첨단 과학으로 설계한 살균 기술</div>
+        <div class="ri" style="padding-top:11px">
+          <div class="spec-row"><div class="sn">UV살균터널™</div><div class="sv">UV-C 램프로 공기 중 바이러스와 세균을 직접 제거합니다. 거울 반사효과의 미러월 구조로 공기 체류 시간을 늘려 살균 효과를 극대화했습니다.</div></div>
+          <div class="spec-row"><div class="sn">모션인식 스마트케어</div><div class="sv">사람의 움직임을 감지하는 순간 터보 살균이 자동 가동됩니다. 접수·대기실이 붐비는 시간에 스스로 강도를 높여 대응합니다.</div></div>
+          <div class="spec-row"><div class="sn">24시간 연속 가동 설계</div><div class="sv">진료 시간에도, 사람이 없는 야간·주말에도 멈추지 않고 공기를 관리합니다. 권장 사용면적 22.5㎡ 기준으로 공간별 다수 대수 배치가 가능합니다.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="st">환자의 동선을 따라, 공기를 관리합니다<span class="bref">B4 · 병원 타깃 가이드</span></div>
+    <div class="cols4">
+      <div class="eff"><div class="et">대기실<br>밀집 시간대</div><div class="ed">오전 접수·환절기 성수기, 가장 붐비는 시간에 모션인식 터보 살균이 자동 대응</div></div>
+      <div class="eff"><div class="et">진료실<br>처치실</div><div class="ed">환기가 어려운 밀폐 공간의 공기 중 유해요소 저감</div></div>
+      <div class="eff"><div class="et">입원실</div><div class="ed">면역이 약한 환자가 오래 머무는 공간을 조용하게 관리 [확인 필요: 소음 수치]</div></div>
+      <div class="eff"><div class="et">야간·주말</div><div class="ed">사람이 없는 시간에도 연속 가동으로 다음 진료 준비</div></div>
+    </div>
+  </section>
+
+  <section class="ing">
+    <div class="st">감염 관리가 중요한 곳이 먼저 선택했습니다<span class="bref">B5</span><span class="opt">선택</span></div>
+    <div class="cols2" style="grid-template-columns:1fr">
+      <div class="card"><div class="it">요양병원 도입 사례</div><div class="idsc">"환자와 보호자분들이 더욱 안심하고 머무를 수 있도록 세스코 공기살균케어 시스템을 도입했습니다. 감염병실을 별도로 운영하는 요양병원 특성상 공기질 관리는 매우 중요합니다." - OO요양병원 (도입 병원 공개 후기 중)</div></div>
+    </div>
+    <div class="note"><b>[확인 필요]</b> 병원 실명 표기와 후기 인용은 해당 병원의 동의 확인 후 사용해 주세요. 동의 전에는 "OO요양병원" 익명 표기 또는 사례 삭제로 대응합니다.</div>
+  </section>
+
+  <section>
+    <div class="st">공간에 맞춰 자유롭게 배치합니다<span class="bref">B4 보완</span><span class="opt">선택</span></div>
+    <div class="cols2">
+      <div class="specbox">
+        <div class="spt">설치·운영</div>
+        <ul>
+          <li><b>설치 타입:</b> 월(벽면)타입 / 스탠드타입 선택</li>
+          <li><b>이동 편의성:</b> 대기실·진료실 등 공간 이동 배치 가능</li>
+          <li><b>권장 사용면적:</b> 22.5㎡ (공간별 다수 대수 도입 가능)</li>
+          <li><b>가동:</b> 24시간 연속 가동 설계</li>
+        </ul>
+      </div>
+      <div class="specbox">
+        <div class="spt">정기 방문 관리 (렌탈 포함)</div>
+        <ul>
+          <li><b>방문주기:</b> 4개월 / 12개월 선택</li>
+          <li><b>관리 내용:</b> 필터 교체 등 전문가 정기 관리</li>
+          <li><b>운영 부담:</b> 병원 자체 기기 관리 인력 불필요</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="st">렌탈 안내<span class="bref">B6</span></div>
+    <table class="price" style="margin-top:12px">
+      <tr><th style="text-align:left">모델</th><th>렌탈등록비</th><th>방문주기</th><th>약정</th><th>월 렌탈료</th></tr>
+      <tr><td class="l">UV파워 공기살균기 Sense me</td><td>100,000</td><td>4개월 / 12개월</td><td>3·5·6년</td><td>22,900~29,900</td></tr>
+    </table>
+    <div class="tnote">단위: 원(VAT 포함) · 세스코 제휴카드 정기 결제 시 월 최대 25,000원 할인 ※2 · 다수 대수 도입 조건은 상담 시 안내 [확인 필요: B2B 계약 방식]</div>
+  </section>
+
+  <section>
+    <div class="st">공기살균에 향기를 더하면, 첫인상까지 완성됩니다<span class="bref">크로스셀</span><span class="opt">선택</span></div>
+    <div class="cols2" style="grid-template-columns:1fr">
+      <div class="card">
+        <div class="cap">SCENT CARE</div>
+        <div class="ct">세스코 향기 솔루션</div>
+        <div class="cd">실제 도입 병원은 공기살균과 함께 향기 솔루션을 적용했습니다. 병원 특유의 약품 냄새 대신, 들어서는 순간 깨끗하고 산뜻한 향으로 기억되는 병원을 만듭니다. 민감한 공간에는 호불호 없는 순한 향을 우선 제안해 드립니다.</div>
+      </div>
+    </div>
+    <div class="note"><b>[확인 필요]</b> 향기 솔루션 병원 적용 시 제품 라인(에어퍼퓸 등)·향 종류·도입 조건은 담당 부서 확인 후 표기해 주세요.</div>
+  </section>
+
+  <section>
+    <div class="st">도입 전 꼭 확인해 주세요<span class="bref">B6 각주 연동</span><span class="opt">선택</span></div>
+    <div class="cautions">
+      <div class="c">본 제품은 의료기기가 아니며, 질병의 예방·치료 효과를 보장하지 않습니다.</div>
+      <div class="c">살균 성능은 시험 환경 기준이며, 실제 사용 환경(공간 크기·공기 유입량·설치 위치 등)에 따라 달라질 수 있습니다.</div>
+      <div class="c">권장 사용면적을 초과하는 공간은 다수 대수 배치를 권장합니다.</div>
+      <div class="c">제품의 소유권은 회사에 있으며, 고객님께 이전되지 않습니다.</div>
+    </div>
+  </section>
+
+  <div class="ctasec">
+    <div class="st">우리 병원에 몇 대가 필요할까요<span class="bref">B7</span></div>
+    <div class="ctabody">
+      <div class="qr">메인<br>QR</div>
+      <div class="ctatxt"><b>세스코 컨설턴트가 대기실 면적부터 진료실 배치까지, 공간을 진단하고 적합한 도입 방안을 제안해 드립니다.</b><br>제품 상세는 QR로 확인하시고, 궁금한 점은 편하게 문의해 주세요. · 고객센터 1588-1119 <span style="color:var(--note-ink);font-weight:700">[확인 필요: QR URL]</span></div>
+      <div class="namecard">담당 컨설턴트<br>명함 스티커 존</div>
+    </div>
+    <div class="legal">
+      *살균 성능: 시험기관·시험조건·균주 정보를 원문 각주 그대로 표기 (밀폐 시험 환경 기준) [확인 필요: 각주 원문]&nbsp;&nbsp;
+      ※ 본 제품은 의료기기가 아니며, 질병의 예방·치료 효과를 보장하지 않습니다.&nbsp;&nbsp;
+      ※2 제휴카드 할인은 카드사 사정에 따라 중지·변경될 수 있습니다.&nbsp;&nbsp;
+      ※ 렌탈 요금은 약정·방문주기에 따라 상이하며 판매 정책에 따라 변동될 수 있습니다. [확인 필요: 의료광고 심의 해당 여부 법무 확인]
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
