@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코몰 상세페이지 표준 템플릿 가이드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{
+  --navy:#1C2340; --navy-2:#2A3358; --ink:#23283B;
+  --gold:#C9A24B; --gold-soft:#F4EBD7;
+  --paper:#FAFAF8; --card:#FFFFFF; --line:#E3E4EA;
+  --txt:#2A2E3E; --txt-2:#6A7086;
+  --hook:#C9A24B; --trust:#5B6B9E; --persuade:#1C2340; --convert:#3E7C6F;
+  --hook-bg:#FAF4E4; --trust-bg:#EDF0F8; --persuade-bg:#E8EAF2; --convert-bg:#E7F1EE;
+  --mylab:#3D64B8; --appl:#2A6E63; --svc:#8A5A2E;
+  --mylab-bg:#EDF2FB; --appl-bg:#E9F3F1; --svc-bg:#F7F0E6;
+  --danger:#A8354A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;background:var(--paper);color:var(--txt);line-height:1.65;font-size:15px;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:1120px;margin:0 auto;padding:56px 32px 90px}
+
+/* header */
+header{border-bottom:3px solid var(--navy);padding-bottom:28px;margin-bottom:12px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:700;margin-bottom:14px;border:1px solid var(--gold);padding:4px 12px;border-radius:2px}
+h1{font-size:32px;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.32}
+h1 .thin{font-weight:400;color:var(--txt-2)}
+.vtag{display:inline-block;margin-left:10px;font-size:12px;font-weight:800;color:#fff;background:var(--gold);padding:3px 10px;border-radius:3px;vertical-align:middle;letter-spacing:.06em}
+.lede{margin-top:12px;font-size:15.5px;color:var(--txt-2);max-width:800px}
+.lede b{color:var(--navy);font-weight:700}
+
+/* TOC */
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 48px}
+.toc a{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--navy);background:var(--card);border:1px solid var(--line);border-radius:100px;padding:7px 14px;text-decoration:none}
+.toc a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* section heads */
+h2{font-size:22px;font-weight:800;color:var(--navy);margin:76px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:24px}
+h2 .num{font-size:13px;font-weight:800;color:var(--gold);letter-spacing:.1em}
+h3.sub-h{font-size:16px;font-weight:800;color:var(--navy);margin:34px 0 12px}
+.sec-sub{font-size:14px;color:var(--txt-2);margin-bottom:26px;max-width:800px}
+
+/* funnel strip */
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0 30px}
+@media(max-width:820px){.funnel{grid-template-columns:repeat(2,1fr)}}
+.fstage{background:var(--card);border:1px solid var(--line);border-top:4px solid;border-radius:6px;padding:16px 18px}
+.fstage .fstep{font-size:11px;font-weight:800;letter-spacing:.12em;opacity:.7}
+.fstage .fname{font-weight:800;font-size:17px;margin:2px 0}
+.fstage .fdesc{font-size:12.5px;color:var(--txt-2)}
+.fstage .fblocks{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:3px}
+.f-hook{border-top-color:var(--hook)} .f-hook .fname,.f-hook .fstep{color:#8a6a1e} .f-hook .fblocks{background:var(--hook-bg);color:#8a6a1e}
+.f-trust{border-top-color:var(--trust)} .f-trust .fname,.f-trust .fstep{color:#3d4d80} .f-trust .fblocks{background:var(--trust-bg);color:#3d4d80}
+.f-pers{border-top-color:var(--persuade)} .f-pers .fname,.f-pers .fstep{color:var(--persuade)} .f-pers .fblocks{background:var(--persuade-bg);color:var(--persuade)}
+.f-conv{border-top-color:var(--convert)} .f-conv .fname,.f-conv .fstep{color:#2b5a50} .f-conv .fblocks{background:var(--convert-bg);color:#2b5a50}
+
+/* tables */
+table.doc{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);margin:6px 0 10px}
+table.doc th,table.doc td{border:1px solid var(--line);padding:10px 13px;text-align:left;vertical-align:top;line-height:1.6}
+table.doc thead th{background:var(--navy);color:#fff;font-weight:700;font-size:13px}
+table.doc tbody th{background:#F2F3F7;color:var(--navy);font-weight:700;width:130px}
+table.doc td b{color:var(--navy)}
+.col-mylab{color:var(--mylab);font-weight:800}
+.col-appl{color:var(--appl);font-weight:800}
+.col-svc{color:var(--svc);font-weight:800}
+.tnote{font-size:12px;color:var(--txt-2);margin:2px 0 8px}
+
+/* ===== 02 blocks: sticky phone + cards ===== */
+.main{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start}
+@media(max-width:900px){.main{grid-template-columns:1fr}.phone-sticky{position:static!important;max-width:340px;margin:0 auto 30px}}
+.phone-sticky{position:sticky;top:24px}
+.phone{background:var(--navy);border-radius:22px;padding:14px 12px;box-shadow:0 12px 32px rgba(28,35,64,.22)}
+.screen{background:var(--paper);border-radius:12px;overflow:hidden}
+.wf .row{display:block;padding:10px 12px 9px;border-bottom:1px solid var(--line);border-left:4px solid transparent;cursor:pointer;text-decoration:none}
+.wf .row:last-child{border-bottom:none}
+.wf .wnum{font-size:10px;font-weight:800;letter-spacing:.08em;opacity:.6;display:block}
+.wf .wname2{font-size:12.5px;font-weight:800;line-height:1.35;color:var(--txt)}
+.wf .wdesc{font-size:10.5px;color:var(--txt-2);line-height:1.4;display:block;margin-top:1px}
+.wf .s-hook{border-left-color:var(--hook);background:var(--hook-bg)} .wf .s-hook .wname2,.wf .s-hook .wnum{color:#8a6a1e}
+.wf .s-trust{border-left-color:var(--trust);background:var(--trust-bg)} .wf .s-trust .wname2,.wf .s-trust .wnum{color:#3d4d80}
+.wf .s-pers{border-left-color:var(--persuade);background:var(--persuade-bg)} .wf .s-pers .wname2,.wf .s-pers .wnum{color:var(--persuade)}
+.wf .s-conv{border-left-color:var(--convert);background:var(--convert-bg)} .wf .s-conv .wname2,.wf .s-conv .wnum{color:#2b5a50}
+.wf-label{text-align:center;font-size:10px;font-weight:800;letter-spacing:.2em;color:#8FA0D0;padding:8px 0 2px}
+
+.bcards{display:flex;flex-direction:column;gap:18px}
+.bcard2{background:var(--card);border:1px solid var(--line);border-left:5px solid;border-radius:6px;padding:22px 26px;scroll-margin-top:24px}
+.bcard2.b-hook{border-left-color:var(--hook)} .bcard2.b-trust{border-left-color:var(--trust)}
+.bcard2.b-pers{border-left-color:var(--persuade)} .bcard2.b-conv{border-left-color:var(--convert)}
+.bcard2 .bh{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.bcard2 .bnum{font-size:20px;font-weight:800}
+.bcard2.b-hook .bnum{color:#8a6a1e} .bcard2.b-trust .bnum{color:#3d4d80} .bcard2.b-pers .bnum{color:var(--persuade)} .bcard2.b-conv .bnum{color:#2b5a50}
+.bcard2 .bname{font-size:17.5px;font-weight:800;color:var(--navy)}
+.bcard2 .bstage{font-size:11px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:3px}
+.bcard2.b-hook .bstage{background:var(--hook-bg);color:#8a6a1e} .bcard2.b-trust .bstage{background:var(--trust-bg);color:#3d4d80}
+.bcard2.b-pers .bstage{background:var(--persuade-bg);color:var(--persuade)} .bcard2.b-conv .bstage{background:var(--convert-bg);color:#2b5a50}
+.bcard2 .bgoal{font-size:13.5px;color:var(--txt);margin-bottom:12px}
+.bcard2 .bgoal b{color:var(--navy)}
+.brow{display:grid;grid-template-columns:82px 1fr;gap:12px;padding:8px 0;border-top:1px dashed var(--line);font-size:13px;line-height:1.65}
+.brow .bk{font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--gold);padding-top:2px}
+.brow .bk.warn{color:var(--danger)}
+.brow .bv{color:var(--txt)}
+.brow .bv b{color:var(--navy)}
+.brow .bv ul{list-style:none;margin-top:2px}
+.brow .bv li{padding-left:13px;position:relative}
+.brow .bv li::before{content:"·";position:absolute;left:2px;font-weight:800;color:var(--gold)}
+.mini-t{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+.mini-t th,.mini-t td{border:1px solid var(--line);padding:6px 9px;text-align:left;line-height:1.5}
+.mini-t th{background:#F2F3F7;color:var(--navy);font-weight:700}
+
+/* group cards */
+.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.groups{grid-template-columns:1fr}}
+.gcard{background:var(--card);border:1px solid var(--line);border-top:4px solid;border-radius:6px;padding:22px 22px 18px}
+.gcard.mylab{border-top-color:var(--mylab)} .gcard.appl{border-top-color:var(--appl)} .gcard.svc{border-top-color:var(--svc)}
+.gcard .gtype{font-size:11.5px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:3px;display:inline-block;margin-bottom:10px}
+.gcard.mylab .gtype{background:var(--mylab-bg);color:var(--mylab)}
+.gcard.appl .gtype{background:var(--appl-bg);color:var(--appl)}
+.gcard.svc .gtype{background:var(--svc-bg);color:var(--svc)}
+.gcard h4{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.gcard .gitems{font-size:12.5px;color:var(--txt-2);line-height:1.7}
+.gcard .gkey{margin-top:12px;padding-top:11px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--txt)}
+.gcard .gkey b{color:var(--navy)}
+
+/* 3 wireframes */
+.wires{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:start;margin-top:10px}
+@media(max-width:960px){.wires{grid-template-columns:1fr;max-width:420px;margin:10px auto 0}}
+.wirecol .wtitle{text-align:center;margin-bottom:12px}
+.wirecol .wtitle .wname{font-size:16px;font-weight:800;color:var(--navy)}
+.wirecol .wtitle .wtag{display:block;font-size:11.5px;font-weight:700;margin-top:2px}
+.wirecol.mylab .wtag{color:var(--mylab)} .wirecol.appl .wtag{color:var(--appl)} .wirecol.svc .wtag{color:var(--svc)}
+.wnote{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:13px 15px;font-size:12px;color:var(--txt-2);line-height:1.65}
+.wnote b{color:var(--navy)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 20px;font-size:12px;color:var(--txt-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:2px;display:inline-block}
+
+/* why / cta cards */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.tri{grid-template-columns:1fr}}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.wcard .wh{padding:13px 20px;font-size:14px;font-weight:800;color:#fff}
+.wcard.mylab .wh{background:var(--mylab)} .wcard.appl .wh{background:var(--appl)} .wcard.svc .wh{background:var(--svc)}
+.wcard .wb{padding:16px 20px;font-size:13px;color:var(--txt);line-height:1.7}
+.wcard .wb b{color:var(--navy)}
+.wcard .quote{margin-top:11px;background:#F5F6F9;border-left:3px solid var(--gold);padding:9px 13px;font-size:12.5px;color:var(--txt-2);line-height:1.6}
+.wcard .btns{margin-top:11px;display:flex;flex-wrap:wrap;gap:6px}
+.wcard .btns span{font-size:11.5px;font-weight:700;border-radius:100px;padding:6px 12px;border:1px solid var(--line);color:var(--navy);background:#F7F8FA}
+
+/* logic */
+.logic{background:var(--navy);border-radius:8px;padding:24px 28px;color:#D9DEF0;font-size:13.5px;line-height:2.05;margin-top:8px}
+.logic .if{color:var(--gold);font-weight:800}
+.logic .arrow{color:#8FA0D0}
+.logic b{color:#fff}
+.logic .div{border-top:1px dashed rgba(255,255,255,.25);margin:10px 0}
+
+/* principle strip */
+.oneline{margin:22px 0 0;background:var(--gold-soft);border-left:4px solid var(--gold);padding:15px 22px;border-radius:4px;font-size:14px;color:var(--navy);font-weight:600;line-height:1.8}
+
+/* rules grid */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:820px){.rules{grid-template-columns:1fr}}
+.rcard{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:19px 22px}
+.rcard h4{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:9px;display:flex;gap:8px;align-items:center}
+.rcard h4 .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none}
+.rcard ul{list-style:none;font-size:13px;color:var(--txt-2);line-height:1.75}
+.rcard ul li{padding-left:14px;position:relative}
+.rcard ul li::before{content:"·";position:absolute;left:2px;font-weight:800;color:var(--gold)}
+.rcard ul li b{color:var(--navy)}
+
+/* code & pre */
+pre{background:#22283E;color:#D8DEF0;border-radius:8px;padding:18px 20px;font-size:12.5px;line-height:1.75;overflow-x:auto;font-family:'Pretendard Variable',ui-monospace,monospace;white-space:pre-wrap}
+pre .c{color:#8FA0D0}
+code.inline{background:#EEEFF4;color:var(--navy);border-radius:3px;padding:1px 6px;font-size:12.5px}
+
+/* details accordion */
+details.acc{background:var(--card);border:1px solid var(--line);border-radius:8px;margin-bottom:10px;overflow:hidden}
+details.acc summary{cursor:pointer;list-style:none;padding:15px 20px;font-size:14px;font-weight:800;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:10px}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"+";font-size:19px;font-weight:400;color:var(--gold);flex:none}
+details.acc[open] summary::after{content:"−"}
+details.acc .acc-body{padding:0 20px 18px;font-size:13px;color:var(--txt);line-height:1.75;border-top:1px solid #F0F1F5}
+details.acc .acc-body p{margin:12px 0 6px;color:var(--txt-2)}
+
+/* checklist */
+.check{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px 26px;columns:2;column-gap:40px;font-size:13px;color:var(--txt);line-height:1.95;list-style:none}
+@media(max-width:820px){.check{columns:1}}
+.check li{padding-left:24px;position:relative;break-inside:avoid}
+.check li::before{content:"";position:absolute;left:0;top:.4em;width:13px;height:13px;border:2px solid var(--gold);border-radius:3px}
+.check .chead{font-weight:800;color:var(--navy);padding-left:0;margin-top:8px}
+.check .chead::before{display:none}
+.check .chead:first-child{margin-top:0}
+
+/* geo cards */
+.geo6{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:900px){.geo6{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.geo6{grid-template-columns:1fr}}
+.geocard{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:17px 19px}
+.geocard .gn{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:.08em}
+.geocard b.gt{display:block;color:var(--navy);font-size:14px;margin:3px 0 6px}
+.geocard span{font-size:12.5px;color:var(--txt-2);line-height:1.65}
+
+/* footer */
+.foot{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--txt-2);line-height:1.8}
+ul.plain{list-style:none;font-size:13.5px;line-height:1.9;color:var(--txt)}
+ul.plain li{padding-left:15px;position:relative}
+ul.plain li::before{content:"·";position:absolute;left:2px;font-weight:800;color:var(--gold)}
+ul.plain b{color:var(--navy)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">CESCO MALL · DETAIL PAGE TEMPLATE</span>
+  <h1>세스코몰 상세페이지 표준 템플릿 <span class="thin">: 구조화 가이드</span></h1>
+  <p class="lede">어떤 제품이 와도 <b>같은 틀에 채워 넣으면 상세페이지가 완성되는 구조</b>를 만들기 위한 문서입니다.<br><br>
+  공통 9-Block 구조 + 상품군별(환경위생용품·환경가전·서비스) 분기 규칙 + 표현·컴플라이언스 기준 + 프롬프트 운영 체계를 하나로 합쳤습니다.</p>
+</header>
+
+<nav class="toc">
+  <a data-target="s1">01 표준 구조</a><a data-target="s2">02 블록별 상세 규격</a><a data-target="s3">03 상품군별 분기</a>
+  <a data-target="s4">04 표현·컴플라이언스</a><a data-target="s5">05 브리프 데이터</a><a data-target="s6">06 프롬프트 세트</a>
+  <a data-target="s7">07 실전 팁</a><a data-target="s8">08 GEO</a><a data-target="s9">09 HTML 구현</a><a data-target="s10">10 체크리스트</a><a data-target="apx">부록</a>
+</nav>
+
+<!-- ═══════ 01 ═══════ -->
+<h2 id="s1"><span class="num">01</span>표준 템플릿 구조 (9-Block)</h2>
+<p class="sec-sub">9-Block은 상세페이지가 수행해야 하는 <b style="color:var(--navy)">설득 역할</b>에 따라 배치된 구조입니다. 그래서 기본적으로는 이 공통 순서를 그대로 유지하고, 상품군의 구매 방식에 따라 일부 블록의 순서와 내용만 조정합니다(03장).</p>
+
+<div class="funnel">
+  <div class="fstage f-hook"><span class="fstep">STEP 1</span><p class="fname">후킹</p><p class="fdesc">3초 안에 스크롤을 멈추게</p><span class="fblocks">BLOCK ① ②</span></div>
+  <div class="fstage f-trust"><span class="fstep">STEP 2</span><p class="fname">신뢰형성</p><p class="fdesc">"세스코라서" + "내 얘기네"</p><span class="fblocks">BLOCK ③ ④</span></div>
+  <div class="fstage f-pers"><span class="fstep">STEP 3</span><p class="fname">설득</p><p class="fdesc">가치 요약 → 검증 → 근거</p><span class="fblocks">BLOCK ⑤ ⑥ ⑦</span></div>
+  <div class="fstage f-conv"><span class="fstep">STEP 4</span><p class="fname">전환</p><p class="fdesc">사용 정보 + 혜택으로 마무리</p><span class="fblocks">BLOCK ⑧ ⑨</span></div>
+</div>
+
+<h3 class="sub-h">블록별 역할 분담표 - 수치·효능 반복 방지</h3>
+<p class="tnote">같은 수치를 여러 블록에서 반복하면 페이지가 늘어지고 설득력이 떨어집니다. 같은 효능이 4개 이상 블록에서 반복되면 재설계를 고려해주세요.</p>
+<table class="doc">
+  <thead><tr><th style="width:130px">블록</th><th>전달할 내용</th><th style="width:230px">수치 사용</th></tr></thead>
+  <tbody>
+    <tr><th>① 히어로</th><td>시각적 후킹 (영상/GIF)</td><td>없음 (영상 자막 내 1개까지)</td></tr>
+    <tr><th>② 메인/요약</th><td>정체성 + 기본 정보 + 대표 배지</td><td>배지형 1~3개</td></tr>
+    <tr><th>③ Why</th><td>왜 만들었는지 / 왜 필요한지</td><td>없음</td></tr>
+    <tr><th>④ 공감</th><td>소비자가 겪는 실제 불편</td><td>없음</td></tr>
+    <tr><th>⑤ USP 요약</th><td><b>핵심 수치·기능 전체 (3~6개)</b></td><td>전체</td></tr>
+    <tr><th>⑥ 사회적 증거</th><td>대표 검증 1개로 신뢰 형성</td><td>수치 반복 없이 비주얼·캡션</td></tr>
+    <tr><th>⑦ 세부 USP</th><td>성분·기술·시험·결과 상세</td><td>전체 + 기관·각주</td></tr>
+    <tr><th>⑧ 사용 정보</th><td>사용·설치·이용과 주의사항</td><td>없음</td></tr>
+    <tr><th>⑨ FAQ·구매</th><td>구매 직전 의문 해소 + 스펙 확인</td><td>필요 시</td></tr>
+  </tbody>
+</table>
+
+<h3 class="sub-h">이렇게 구성해야 하는 근거 (마케팅 관점)</h3>
+<table class="doc">
+  <thead><tr><th style="width:130px">블록</th><th>근거 요약</th></tr></thead>
+  <tbody>
+    <tr><th>① 히어로존</th><td>시선의 57%가 첫 화면, 74%가 두 번째 화면 이내 집중 후 급감(NN/g 아이트래킹, 2018) · 첫인상은 50ms에 형성(Lindgaard et al., 2006) · 진입 후 10~20초 내 이탈 결정(NN/g, 2011) · 고품질 이미지 전환율 +33%, Before/After +30~50% 사례. <b>첫 화면은 읽게 하지 말고 보게 해야 함</b></td></tr>
+    <tr><th>①~⑤ 상단부</th><td>3스크롤을 넘기면 피로도 급상승 → 후킹·핵심 USP를 3스크롤 이내 배치</td></tr>
+    <tr><th>② 메인</th><td>소비자 56%는 텍스트보다 제품 이미지를 먼저 탐색(Baymard Institute)</td></tr>
+    <tr><th>③④ 신뢰</th><td>"후킹 → 공감 → 해결 → 신뢰 → CTA" 설득 공식 · PAS(Problem-Agitate-Solution) 프레임</td></tr>
+    <tr><th>⑥ 위치</th><td>"효과 → 검증 → 근거" 순 배치가 CVR 2%+ 페이지 공통 구조 · 리뷰 노출만으로 구매 가능성 최대 +270%, 효과 대부분 첫 5개 리뷰 · 평점 4.0~4.7 구간이 구매 확률 최고(Spiegel, 2017). 검증은 하단이 아닌 <b>핵심 USP 직후</b></td></tr>
+    <tr><th>⑦ 세부 USP</th><td>감성적 확신 뒤 객관 근거가 오면 잔여 의심 최종 제거</td></tr>
+    <tr><th>⑧ 사용 정보</th><td>사용 정보가 충실하면 기대치 불일치로 인한 반품·불만족 감소, 만족도·재구매율 상승</td></tr>
+    <tr><th>⑨ 확장</th><td>FAQ는 CTA 바로 위 배치 시 구매 직전 고민 해소 · 크로스셀은 객단가·LTV 기여</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════ 02 ═══════ -->
+<h2 id="s2"><span class="num">02</span>블록별 상세 규격 - "이 블록에 들어가야 하는 내용"</h2>
+<p class="sec-sub">왼쪽은 실제 페이지의 블록 배치 순서, 오른쪽은 블록별 필수 요소·카피 가이드·주의사항입니다. 왼쪽 블록을 누르면 해당 규격으로 이동합니다.</p>
+
+<div class="main">
+  <div class="phone-sticky">
+    <div class="phone"><div class="screen"><div class="wf">
+      <a class="row s-hook" data-target="b1"><span class="wnum">01</span><span class="wname2">히어로존</span><span class="wdesc">영상/GIF · 비주얼 전용</span></a>
+      <a class="row s-hook" data-target="b2"><span class="wnum">02</span><span class="wname2">메인 비주얼 / 상품 요약</span><span class="wdesc">첫 카피 + 배지</span></a>
+      <a class="row s-trust" data-target="b3"><span class="wnum">03</span><span class="wname2">Why 세스코 / Why 이 제품</span></a>
+      <a class="row s-trust" data-target="b4"><span class="wnum">04</span><span class="wname2">타겟 공감</span><span class="wdesc">질문형 카드</span></a>
+      <a class="row s-pers" data-target="b5"><span class="wnum">05</span><span class="wname2">핵심 USP 요약</span><span class="wdesc">수치 전체</span></a>
+      <a class="row s-pers" data-target="b6"><span class="wnum">06</span><span class="wname2">사회적 증거</span><span class="wdesc">리뷰 / 대체 검증</span></a>
+      <a class="row s-pers" data-target="b7"><span class="wnum">07</span><span class="wname2">세부 USP</span><span class="wdesc">시험 · 인증 · 성분</span></a>
+      <a class="row s-conv" data-target="b8"><span class="wnum">08</span><span class="wname2">사용 정보 & 안전/조건</span></a>
+      <a class="row s-conv" data-target="b9"><span class="wnum">09</span><span class="wname2">스펙 · 크로스셀 · FAQ · CTA</span></a>
+      <span class="wf-label">PAGE SKELETON</span>
+    </div></div></div>
+  </div>
+
+  <div class="bcards">
+
+    <div class="bcard2 b-hook" id="b1">
+      <div class="bh"><span class="bnum">①</span><span class="bname">히어로존</span><span class="bstage">후킹 · 비주얼 전용</span></div>
+      <p class="bgoal">스크롤을 멈추게 하는 것. <b>카피가 아니라 영상/GIF가 주인공</b> - 별도 헤드카피 블록을 두지 않음.</p>
+      <div class="brow"><span class="bk">필수</span><div class="bv">5~10초 루프 영상 또는 GIF 1개 (또는 Before/After 이미지 세트)</div></div>
+      <div class="brow"><span class="bk">선택</span><div class="bv">영상 안 자막 1줄 이내 - 소비자 효용만. <b>수치·기관명·즉시성 단정 금지</b></div></div>
+      <div class="brow"><span class="bk">조건</span><div class="bv">변화가 보이는 제품 → 사용 전후·사용 장면 / 안 보이는 제품 → 문제 상황 재연 / 환경가전 → 공간 변화·대표 기능 / 서비스 → 문제 상황·방문 후 결과</div></div>
+      <div class="brow"><span class="bk">비주얼</span><div class="bv">과장 연출보다 현실적인 일상 장면. 실데이터 근거가 있는 연출만. ⑥의 대표 검증 비주얼과 역할 중복 금지</div></div>
+      <div class="brow"><span class="bk">GEO</span><div class="bv">영상·자막 속 핵심 문구는 ② 이후 블록에서 HTML 텍스트로 반드시 반복</div></div>
+      <div class="brow"><span class="bk warn">주의</span><div class="bv">쿠폰 배너·상품 옵션 UI가 이 자리에 끼지 않도록 콘텐츠 영역과 분리</div></div>
+    </div>
+
+    <div class="bcard2 b-hook" id="b2">
+      <div class="bh"><span class="bnum">②</span><span class="bname">메인 비주얼 / 상품 요약</span><span class="bstage">후킹</span></div>
+      <p class="bgoal">제품 각인 + 브랜드 룩앤필 확립 + <b>페이지의 첫 카피 전달</b>. 여기서 톤이 확정되면 이후 블록의 신뢰 비용이 낮아짐.</p>
+      <div class="brow"><span class="bk">필수</span><div class="bv"><ul>
+        <li>대표 비주얼 <b>1장</b>: 제품 단독컷(고해상도) / 가전은 제품+공간 컷 / 서비스는 서비스 대표 컷. 주인공은 대표 이미지 한 장 - 요약 정보는 이미지를 대체하지 않고 <b>이미지 아래 텍스트로 보조</b></li>
+        <li>제품(서비스)명 + 브랜드 로고 + 한 줄 포지셔닝 문구</li>
+        <li>기본 정보: 용량·매수·크기·향 (가전: 핵심 기능·적용 면적·월 렌탈료 / 서비스: 대상·가격·결과물)</li>
+      </ul></div></div>
+      <div class="brow"><span class="bk">선택</span><div class="bv">대표 배지 1~3개 (수치 사용 시 각주 병기)</div></div>
+      <div class="brow"><span class="bk">카피</span><div class="bv">계절·용도를 과도하게 한정하지 않기 ("여름 전용 OO"보다 "땀·냄새·열감을 관리하는 OO")</div></div>
+      <div class="brow"><span class="bk">패턴</span><div class="bv">다크 배경+로고+라인업 컷 / 밝은 화이트 계열+중앙 단독 배치 - 제품 성격에 맞게</div></div>
+      <div class="brow"><span class="bk">GEO</span><div class="bv">이미지 아래에 제품명·기본 정보를 HTML 텍스트로 반복</div></div>
+    </div>
+
+    <div class="bcard2 b-trust" id="b3">
+      <div class="bh"><span class="bnum">③</span><span class="bname">Why 세스코 / Why 이 제품</span><span class="bstage">신뢰형성</span></div>
+      <p class="bgoal"><b>"세스코가 왜 이 제품을 만들었는지"</b>, <b>"왜 세스코여야 하는지"</b>를 설명해 신뢰의 진입장벽 낮추기. 개발 주체·스토리는 공감 진입 전 심리적 안전판. 상품군별 적용이 크게 다름(03장).</p>
+      <div class="brow"><span class="bk">필수</span><div class="bv"><ul>
+        <li>브랜드 철학 1~2문장 + 개발 주체(연구소/전문가) 명시 + 개발 배경</li>
+        <li>(환경위생용품) 마이랩 고정 소개 모듈 70% + 제품별 개발 이유 30% (2문장 이내)</li>
+        <li>(환경가전) 이 카테고리를 다루는 이유 + 연구가 설계에 반영된 방식 + 설치·관리 연결</li>
+        <li>(서비스) "왜 지금 전문가 진단이 필요한가"로 대체</li>
+      </ul></div></div>
+      <div class="brow"><span class="bk">카피</span><div class="bv">"왜 만들었는가"에서 시작 → <b>"그래서 당신이 얻는 것"으로 끝맺기</b>. <b>효능·수치 금지</b>(이후 블록 중복 방지). 브랜드 소개는 한 화면 이내</div></div>
+      <div class="brow"><span class="bk">GEO</span><div class="bv">브랜드 정의 문장을 전 제품 페이지에 동일하게 반복 - AI가 "세스코 마이랩 = 세스코가 만든 생활 위생 브랜드"라고 일관되게 이해·설명하도록 돕는 부가 효과 (필수는 아니며, 고정 모듈 운영만으로 자연히 얻어짐)</div></div>
+    </div>
+
+    <div class="bcard2 b-trust" id="b4">
+      <div class="bh"><span class="bnum">④</span><span class="bname">타겟 공감</span><span class="bstage">신뢰형성</span></div>
+      <p class="bgoal">페르소나별 페인포인트를 짚어 <b>"이거 완전 내 얘기"</b> 만들기. "문제 제기 → 공감 → 해결" 흐름이 구매 심리와 일치.</p>
+      <div class="brow"><span class="bk">필수</span><div class="bv">페인포인트 2~4개, <b>질문형 공감 카드</b>: [경험을 묻는 질문 1줄 + 설계 방향 답변 1줄]<br>예: "화한 느낌만 강하지는 않았나요? - OO 방식으로 실제 변화를 확인했습니다"</div></div>
+      <div class="brow"><span class="bk">선택</span><div class="bv">사용 상황 리드인은 아이콘 한 줄로 (별도 블록 분리 시 핵심 USP 도달이 늦어짐)</div></div>
+      <div class="brow"><span class="bk warn">금지</span><div class="bv"><ul>
+        <li>타사·기존 제품 부정·비하 화법 ("~하는 제품이 아니에요", "~하는 척" - 비교광고 인상)</li>
+        <li>수치 사용 (답변은 "~를 확인했습니다" 수준의 설계 방향까지만)</li>
+        <li>서로 다른 근거의 인과 연결 (A성분이라서 B결과)</li>
+      </ul></div></div>
+      <div class="brow"><span class="bk">카피</span><div class="bv">"고민 해결!" 같은 일반론 대신 생활 장면이 그려지게 ("가스레인지 기름때 앞에서 한숨부터 나오지 않았나요?")</div></div>
+    </div>
+
+    <div class="bcard2 b-pers" id="b5">
+      <div class="bh"><span class="bnum">⑤</span><span class="bname">핵심 USP 요약</span><span class="bstage">설득</span></div>
+      <p class="bgoal">스크롤만 훑어도 핵심 가치 3~6개 각인. 3스크롤 원칙의 마지노선이자 <b>수치 전체가 처음 모여 나오는 자리</b>.</p>
+      <div class="brow"><span class="bk">필수</span><div class="bv">섹션 헤드 1줄 + [아이콘 + 타이틀(6~10자) + 한 줄 설명(10~15자)] 3~6개, 수치엔 각주 번호</div></div>
+      <div class="brow"><span class="bk">조건</span><div class="bv">6개 이상 2x3 그리드 / 4개 이하 1열 강조형. 가전은 기능+스펙+관리, 서비스는 과정·점검 항목</div></div>
+      <div class="brow"><span class="bk warn">주의</span><div class="bv">기관·시험 방법 등 디테일 근거는 ⑦의 몫. <b>스펙 표는 ⑧ 표시 정보와 중복되므로 여기 두지 않고 ⑨(구매 직전 확인 영역)에 배치</b></div></div>
+      <div class="brow"><span class="bk">GEO</span><div class="bv">그리드를 이미지로 만들더라도 동일 내용을 table 텍스트로 반복</div></div>
+    </div>
+
+    <div class="bcard2 b-pers" id="b6">
+      <div class="bh"><span class="bnum">⑥</span><span class="bname">사회적 증거</span><span class="bstage">설득</span></div>
+      <p class="bgoal"><b>"남들도(또는 연구소가) 검증했다"</b>는 확신. USP 주장 직후 검증으로 의심 즉시 해소. <b>대표 검증 1개로 승부</b> - ⑤와 수치 나열 중복 금지.</p>
+      <div class="brow"><span class="bk">리뷰 O</span><div class="bv">평균 평점 + 리뷰 총 개수 + <b>각기 다른 페인포인트를 언급하는 리뷰 3~5개</b>로 선별. "어떤 상황에 좋았는지"가 담긴 구체적 문장으로 (별점만 나열 금지)</div></div>
+      <div class="brow"><span class="bk">리뷰 X</span><div class="bv">대체 콘텐츠 택1 (발행용 단일안 확정):<ul>
+        <li><b>개발·검증형(기본값)</b>: 개발 기준 라벨 + 철학 헤드카피 + 본문 2~3문장 + 대표 실험 비주얼 1개(실데이터 근거만) + 각주 캡션. 인용문은 확인된 것만, 미확보 시 서술형</li>
+        <li><b>전문가 추천형</b>: 실명·소속은 본인 확인 후에만, 실험·인물 실사 병행</li>
+        <li><b>데이터 시각화형</b>: 자사 절대치만. "일반 제품 대비" 비교는 동일 조건 시험·출처 없이 금지(부당비교광고)</li>
+        <li><b>체험단형</b>: "제품을 무상 제공받아 작성" 대가성 문구 명시 의무(공정위 심사지침)</li>
+      </ul>서비스는 사례형(전문가·진단 결과물·현장 사례) 우선</div></div>
+      <div class="brow"><span class="bk warn">금지</span><div class="bv">확인되지 않은 사실의 광고적 표현 ("만든 사람이 가장 까다로운 사용자" 등)</div></div>
+      <div class="brow"><span class="bk">운영</span><div class="bv">기획 검토는 복수안 가능, 목업·발행용은 단일안. 출시 후 리뷰 확보 시 교체 플랜 명시</div></div>
+    </div>
+
+    <div class="bcard2 b-pers" id="b7">
+      <div class="bh"><span class="bnum">⑦</span><span class="bname">세부 USP (수치 · 인증)</span><span class="bstage">설득</span></div>
+      <p class="bgoal">⑤에서 던진 주장을 <b>"왜 믿어도 되는지"로 증명.</b></p>
+      <div class="brow"><span class="bk">필수</span><div class="bv"><ul>
+        <li>챕터 구조: 패키지·필름의 콘셉트 헤드라인이 있으면 챕터 헤드로 승계</li>
+        <li>챕터마다 3층: <b>풀어쓰기 → 검증 결과 표(주장→시험 방법→결과) → 원료·기술·소재 정보</b></li>
+        <li>각주는 블록 하단 일괄 표기. <b>각주 자체에도 수치+기관 포함</b>(자족성)</li>
+      </ul></div></div>
+      <div class="brow"><span class="bk">3구분</span><div class="bv">인증·근거 자료는 <b>아래 세 종류로 명확하게 구분해 사용하고, 섞어서 사용하지 않습니다</b>. 섞이면 증명되지 않은 효과처럼 읽혀 과장광고가 됩니다:
+        <table class="mini-t"><thead><tr><th>종류</th><th>이렇게 씁니다</th><th>어디에</th></tr></thead><tbody>
+        <tr><td><b>1. 시험 결과</b><br>실제 시험해서 나온 결과 숫자</td><td>수치 + 시험기관 + 각주를 세트로<br>(예: "냄새 평균 OO% 개선¹ - OO시험기관")</td><td>검증 결과 표<br>(주장→시험 방법→결과)</td></tr>
+        <tr><td><b>2. 원료·기술</b><br>"넣었다"는 설계 사실 (효과가 시험된 건 아님)</td><td>수치·효과 없이 "OO 성분 함유",<br>"OO 기술 적용"까지만</td><td>표와 분리된<br>성분·기술 소개 영역</td></tr>
+        <tr><td><b>3. 소재·사양</b><br>물리적 스펙</td><td>"OOgsm 원단 적용"처럼 사실만</td><td>스펙 표기</td></tr>
+        </tbody></table>
+        가장 흔한 사고는 2를 1처럼 쓰는 것 - <b>"OO 성분이라서 OO% 효과"</b>처럼 성분과 결과를 증명 없이 연결하면 근거 혼합으로 검수에서 걸립니다.</div></div>
+      <div class="brow"><span class="bk">선택</span><div class="bv">개발 프로세스 다이어그램, 연구원 인터뷰(확인된 것만), 시험성적서 캡처, 사용 전→후 비교(자사 내에서만)</div></div>
+      <div class="brow"><span class="bk warn">금지</span><div class="bv">근거 없는 수치·"1위"·"최다" (출처·기준 명시 없이 - 표시광고법 리스크)</div></div>
+    </div>
+
+    <div class="bcard2 b-conv" id="b8">
+      <div class="bh"><span class="bnum">⑧</span><span class="bname">사용 정보 & 안전/조건</span><span class="bstage">전환</span></div>
+      <p class="bgoal">올바르게, 더 잘 쓰게 하는 정보 + 법정 표시 충족. 명칭: 실제 전문가 코멘트가 있으면 "전문가 활용 꿀팁", 없으면 <b>"상황별 올바른 사용법"</b>.</p>
+      <div class="brow"><span class="bk">필수</span><div class="bv"><ul>
+        <li>질문형 헤딩 ("어디에, 어떻게 사용하나요?")</li>
+        <li>상황별 사용 정보 2~4개 (자료 기반) + 기본 사용 방법(단계형)</li>
+        <li>보관 방법 + 사용상 주의사항</li>
+        <li>법정 표시 정보 (카테고리별 - 04장. 화장품은 전성분·책임판매업자 포함)</li>
+        <li>(가전) 설치·관리·소음·전력 / (서비스) 방문 전 준비·소요 시간·취소 조건</li>
+      </ul></div></div>
+      <div class="brow"><span class="bk warn">금지</span><div class="bv"><b>자료에 없는 사용 순서·타이밍·보관 팁 창작 금지.</b> 제품 구성을 오인시키는 표현 주의</div></div>
+      <div class="brow"><span class="bk">패턴</span><div class="bv">사용 정보는 카드/아이콘형, 주의사항·법정 표시·전성분은 아코디언 (내용은 가시 텍스트 유지)</div></div>
+    </div>
+
+    <div class="bcard2 b-conv" id="b9">
+      <div class="bh"><span class="bnum">⑨</span><span class="bname">기타 확장</span><span class="bstage">전환</span></div>
+      <p class="bgoal">객단가 상승 + 마지막 구매 망설임 해소.</p>
+      <div class="brow"><span class="bk">구성</span><div class="bv"><ul>
+        <li><b>속성:값 스펙 표</b>: 구매 직전 확인용 + GEO 가시 텍스트. ⑧ 법정 표시와 역할 분리(법정 표시=의무 항목 전체 / 스펙 표=구매 판단용 요약)</li>
+        <li>크로스셀: <b>사용 맥락(같은 장바구니) 연결 1순위</b>, 시즌 묶음은 기획전으로</li>
+        <li>정기구독·케어서비스 / 카드 혜택 / 배송·교환·환불 요약</li>
+        <li>(가전) 모델 비교표 - 비교 모델 있으면 필수</li>
+        <li>FAQ 3~6개: 실제 고객 질문 문장 그대로, <b>CTA 바로 위</b>, 질문·답변 모두 가시 텍스트</li>
+        <li>최종 CTA: 상품군별 문구 (03장 CTA 운영)</li>
+      </ul></div></div>
+      <div class="brow"><span class="bk">FAQ 주제</span><div class="bv">사용법·안전성, 재질·성분, 배송·교환, 정품/인증 (가전: 렌탈료 포함 범위·해지 / 서비스: 포함·미포함·추가 비용)</div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════ 03 ═══════ -->
+<h2 id="s3"><span class="num">03</span>상품군별 템플릿 분기</h2>
+<p class="sec-sub">3개의 다른 템플릿이 아니라, <b style="color:var(--navy)">하나의 공통 구조 + 상품군별 필수·선택·대체·삭제 규칙</b>으로 운영합니다.</p>
+
+<div class="groups">
+  <div class="gcard mylab"><span class="gtype">일반 판매형</span><h4>환경위생용품</h4>
+    <p class="gitems">위생용품 · 주방/청소세제 · 세탁세제/유연제 · 탈취/제습/방향 · 살충/기피제 · 물티슈 · 도구/기타 · 선물세트 · 사업장용 (마이랩 제품군)</p>
+    <p class="gkey"><b>저관여 · 즉시 구매</b> - 효과와 사용성을 빠르게 설득</p></div>
+  <div class="gcard appl"><span class="gtype">설치 · 렌탈형</span><h4>환경가전</h4>
+    <p class="gitems">공기살균기 · 공기청정기 · 정수기 · 비데</p>
+    <p class="gkey"><b>고관여 · 장기 계약</b> - 성능·관리·계약 조건을 충분히 설명</p></div>
+  <div class="gcard svc"><span class="gtype">방문 수행형</span><h4>서비스</h4>
+    <p class="gitems">해충방제 솔루션 (긴급진단 · 방제 · 클리닝·위생진단 등 방문형 서비스)</p>
+    <p class="gkey"><b>무형 서비스 신청</b> - 진단 과정과 제공 결과를 구체적으로</p></div>
+</div>
+
+<p class="tnote" style="margin-top:14px">몰 카테고리와 템플릿이 항상 1:1은 아닙니다. 판정 기준은 카테고리명이 아니라 <b>구매 방식</b> - 예: 에어커튼은 몰에서 '해충방제' 카테고리에 있지만 설치형 기기이므로 환경가전 템플릿을 적용합니다.</p>
+<h3 class="sub-h">구매 의사결정 차이 - 블록을 바꾸는 이유는 소비자의 고민이 다르기 때문</h3>
+<table class="doc">
+  <thead><tr><th style="width:110px">구분</th><th><span class="col-mylab">환경위생용품</span></th><th><span class="col-appl">환경가전</span></th><th><span class="col-svc">서비스</span></th></tr></thead>
+  <tbody>
+    <tr><th>주요 고민</th><td>효과가 있는가, 쓰기 편한가</td><td>성능·관리·가격·설치·계약</td><td>실제로 무엇을 해주는가</td></tr>
+    <tr><th>가격 인식</th><td>일시불·단가 중심</td><td>월 렌탈료·약정·<b>총 비용</b></td><td>1회 비용·<b>추가 비용</b></td></tr>
+    <tr><th>신뢰 핵심</th><td>시험 결과·성분·리뷰</td><td>기술·스펙·관리 서비스·A/S</td><td>전문가·진단 과정·결과물</td></tr>
+    <tr><th>대표 CTA</th><td>장바구니·바로구매</td><td>렌탈 신청·상담</td><td>방문 진단 신청·예약</td></tr>
+    <tr><th>적정 길이</th><td>짧고 빠르게</td><td>가장 길고 상세하게</td><td>중간, 절차 중심</td></tr>
+    <tr><th>효과 체감</th><td>사용 직후·단기</td><td>장기 사용·관리</td><td>방문·진단 이후</td></tr>
+  </tbody>
+</table>
+
+<h3 class="sub-h">상품군별 권장 구조 (9-Block 변형)</h3>
+<div class="legend">
+  <span><i style="background:var(--hook)"></i>후킹</span><span><i style="background:var(--trust)"></i>신뢰형성</span>
+  <span><i style="background:var(--persuade)"></i>설득</span><span><i style="background:var(--convert)"></i>전환</span>
+</div>
+<div class="wires">
+  <div class="wirecol mylab">
+    <div class="wtitle"><span class="wname">환경위생용품</span><span class="wtag">효과·사용성·근거 / 짧고 빠르게</span></div>
+    <div class="phone"><div class="screen"><div class="wf">
+      <span class="row s-hook"><span class="wnum">01</span><span class="wname2">히어로존</span><span class="wdesc">사용 전후 · 즉시 효과 (비주얼 전용)</span></span>
+      <span class="row s-hook"><span class="wnum">02</span><span class="wname2">제품 메인 비주얼</span><span class="wdesc">패키지 + 포지셔닝 + 배지</span></span>
+      <span class="row s-trust"><span class="wnum">03</span><span class="wname2">Why 마이랩 + 개발 이유</span><span class="wdesc">고정 70% + 가변 30%</span></span>
+      <span class="row s-trust"><span class="wnum">04</span><span class="wname2">타깃 공감</span><span class="wdesc">질문형 카드 (수치 없음)</span></span>
+      <span class="row s-pers"><span class="wnum">05</span><span class="wname2">핵심 USP 요약</span><span class="wdesc">효능 3~6개 + 각주</span></span>
+      <span class="row s-pers"><span class="wnum">06</span><span class="wname2">리뷰 / 대체 검증</span><span class="wdesc">신제품은 개발·검증형</span></span>
+      <span class="row s-pers"><span class="wnum">07</span><span class="wname2">세부 USP · 시험 · 성분</span><span class="wdesc">3개 내외 압축</span></span>
+      <span class="row s-conv"><span class="wnum">08</span><span class="wname2">사용법 · 주의사항</span></span>
+      <span class="row s-conv"><span class="wnum">09</span><span class="wname2">FAQ · 스펙 · 크로스셀 · CTA</span></span>
+    </div></div></div>
+    <div class="wnote"><b>전략</b> : 효과를 빠르게. 상단 핵심 효능 - 하단 성분·시험·법정 정보. 리뷰는 USP 직후. 크로스셀·세트 적극 활용.</div>
+  </div>
+  <div class="wirecol appl">
+    <div class="wtitle"><span class="wname">환경가전</span><span class="wtag">성능·관리·계약 / 가장 길고 상세하게</span></div>
+    <div class="phone"><div class="screen"><div class="wf">
+      <span class="row s-hook"><span class="wnum">01</span><span class="wname2">히어로존</span><span class="wdesc">공간 변화 · 대표 기능</span></span>
+      <span class="row s-hook"><span class="wnum">02</span><span class="wname2">제품 요약</span><span class="wdesc">기능 · 적용 면적 · 월 렌탈료</span></span>
+      <span class="row s-trust"><span class="wnum">03</span><span class="wname2">Why 세스코 환경가전</span><span class="wdesc">필수 · 상단 배치</span></span>
+      <span class="row s-trust"><span class="wnum">04</span><span class="wname2">고객 문제 · 사용 불편</span></span>
+      <span class="row s-pers"><span class="wnum">05</span><span class="wname2">핵심 기능 요약</span><span class="wdesc">기능+스펙+관리</span></span>
+      <span class="row s-pers"><span class="wnum">06</span><span class="wname2">핵심 기술 · 시험 결과</span></span>
+      <span class="row s-pers"><span class="wnum">07</span><span class="wname2">사용 편의 · 공간 적합성</span></span>
+      <span class="row s-conv"><span class="wnum">08</span><span class="wname2">관리 · 설치 · 렌탈 조건</span><span class="wdesc">약정 · 총 비용 · 해지</span></span>
+      <span class="row s-conv"><span class="wnum">09</span><span class="wname2">모델 비교 · FAQ · 상담 CTA</span></span>
+    </div></div></div>
+    <div class="wnote"><b>전략</b> : 가격·계약 조건을 초반에. 성능과 관리 서비스를 분리하지 않기. 모델 비교표 적극 활용. 상담·렌탈 신청으로 전환.</div>
+  </div>
+  <div class="wirecol svc">
+    <div class="wtitle"><span class="wname">서비스</span><span class="wtag">진단 과정·범위·결과물 / 절차형</span></div>
+    <div class="phone"><div class="screen"><div class="wf">
+      <span class="row s-hook"><span class="wnum">01</span><span class="wname2">히어로존</span><span class="wdesc">문제 상황 · 방문 후 결과</span></span>
+      <span class="row s-hook"><span class="wnum">02</span><span class="wname2">메인 비주얼 + 요약 텍스트</span><span class="wdesc">대표 컷 1장 + 대상·가격·결과물</span></span>
+      <span class="row s-trust"><span class="wnum">03</span><span class="wname2">이런 상황이라면</span><span class="wdesc">문제 상황 공감</span></span>
+      <span class="row s-trust"><span class="wnum">04</span><span class="wname2">왜 전문가 진단인가</span><span class="wdesc">Why 대체 블록</span></span>
+      <span class="row s-pers"><span class="wnum">05</span><span class="wname2">서비스 프로세스</span></span>
+      <span class="row s-pers"><span class="wnum">06</span><span class="wname2">진단 결과물 · 전문가 · 사례</span></span>
+      <span class="row s-pers"><span class="wnum">07</span><span class="wname2">제공 범위 · 미포함 · 이후 진행</span></span>
+      <span class="row s-conv"><span class="wnum">08</span><span class="wname2">방문 전 준비 · 취소 · 주의</span></span>
+      <span class="row s-conv"><span class="wnum">09</span><span class="wname2">FAQ · 신청 CTA</span></span>
+    </div></div></div>
+    <div class="wnote"><b>전략</b> : 제품 비주얼보다 결과와 과정. 상단 요약. USP 대신 프로세스 중심. 포함·미포함 명확히. CTA는 행동 결과형.</div>
+  </div>
+</div>
+
+<h3 class="sub-h">블록별 상품군 대조표</h3>
+<p class="tnote">같은 블록이라도 상품군마다 담는 내용이 다릅니다. "이 블록에 상품군별로 무엇을 넣는지"를 한눈에 대조한 표입니다.<br>새 상품 기획 시 해당 상품군 열만 세로로 읽으면 페이지 구성이 잡힙니다.</p>
+<table class="doc">
+  <thead><tr><th style="width:110px">공통 블록</th><th><span class="col-mylab">환경위생용품</span></th><th><span class="col-appl">환경가전</span></th><th><span class="col-svc">서비스</span></th></tr></thead>
+  <tbody>
+    <tr><th>히어로</th><td>사용 전후·즉시 효과</td><td>공간 변화·대표 기능</td><td>문제 상황·방문 후 결과</td></tr>
+    <tr><th>메인 비주얼</th><td>제품 패키지</td><td>제품+인테리어 공간</td><td>서비스 대표 컷 (+이미지 아래 요약 텍스트)</td></tr>
+    <tr><th>Why 세스코</th><td><b>Why 마이랩</b>(고정 모듈)</td><td><b>필수</b>, 상단 배치</td><td><b>삭제 또는 대체</b>(진단 필요성)</td></tr>
+    <tr><th>타깃 공감</th><td>생활 속 불편</td><td>사용·관리·공간 불편</td><td>해충 징후·문제 상황</td></tr>
+    <tr><th>핵심 USP</th><td>효능 3~6개</td><td>기능+스펙+관리</td><td>서비스 과정·점검 항목</td></tr>
+    <tr><th>사회적 증거</th><td>리뷰·시험 결과</td><td>리뷰·수상·설치 사례·시험</td><td>사례·전문가·진단 결과물</td></tr>
+    <tr><th>세부 USP</th><td>성분·시험·사용감</td><td>기술 구조·성능·필터·센서</td><td>진단 방법·장비·프로세스</td></tr>
+    <tr><th>사용 정보</th><td>사용법·보관·주의</td><td>설치·관리·소음·전력</td><td>방문 전 준비·서비스 범위</td></tr>
+    <tr><th>기타 확장</th><td>스펙·크로스셀·세트</td><td>모델 비교·렌탈 조건</td><td>포함/미포함·취소·후속</td></tr>
+  </tbody>
+</table>
+
+<h3 class="sub-h">Why 세스코 블록 적용 원칙</h3>
+<div class="tri">
+  <div class="wcard mylab"><div class="wh">환경위생용품 - Why 마이랩 고정 모듈 운영</div><div class="wb">
+    브랜드 소개 <b>70% 고정</b>(집에서도 전문가 기준 위생 / 생활과학연구소의 기준 / 성분·기능·사용법까지 설계) + 개발 이유 <b>30% 가변</b>(2문장 이내). 단위어는 제형별 치환({한 장에|한 병에|한 통에} 담은).
+    <div class="quote">가변 예 : 기름때세정제=식당 주방 노하우 · 살균티슈=생활 접촉면 위생 · 세탁세제=세탁 환경 연구</div></div></div>
+  <div class="wcard appl"><div class="wh">환경가전 - 필수, 상단 배치</div><div class="wb">
+    물·공기·위생을 다뤄온 이유, 환경위생 데이터가 설계에 반영된 방식, 판매를 넘어 설치·점검·관리까지 연결하는 이유, 일반 가전 브랜드와 다른 관점을 반드시 설명.
+    <div class="quote">"세스코가 정수기를 만든 이유 - 마시는 물뿐 아니라 물이 흐르고 머무는 모든 구간을 위생적으로 관리하기 위해서입니다."</div></div></div>
+  <div class="wcard svc"><div class="wh">서비스 - 생략 또는 대체</div><div class="wb">
+    해충방제·위생진단은 이미 대표 영역. "왜 세스코인가" 대신 <b>"왜 지금 전문가 진단이 필요한가"</b>: 직접 약을 쓰는 것과의 차이, 원인·유입 경로를 찾아야 하는 이유.
+    <div class="quote">"해충을 발견하는 것과 해충이 생긴 원인을 찾는 것은 다릅니다."</div></div></div>
+</div>
+
+<h3 class="sub-h">가격대와 구매 방식에 따른 버튼(CTA) 운영</h3>
+<p class="tnote">CTA는 "구매하기", "신청하기"처럼 고객의 다음 행동을 이끄는 버튼입니다. 상품군마다 가격대와 결정 방식이 다르므로, 버튼을 어디에 몇 번 놓을지도 달라집니다.</p>
+<div class="tri">
+  <div class="wcard mylab"><div class="wh">환경위생용품 - 핵심 지점에만 최소 배치</div><div class="wb">저가·즉시 구매 상품. 구매 버튼은 몰 기본 UI(상단 가격·옵션 영역, 하단 고정 구매 바)에 맡기고 콘텐츠 안에는 거의 넣지 않기. 중간 버튼 0~1회, 맨 아래(FAQ 다음) 최종 구매 버튼 1회. 버튼 주변에 쿠폰·세트·무료배송 등 "지금 사야 할 이유"를 함께 표기
+    <div class="btns"><span>장바구니 담기</span><span>바로 구매하기</span><span>세트로 구매하기</span><span>함께 쓰는 제품 보기</span></div></div></div>
+  <div class="wcard appl"><div class="wh">환경가전 - 정보 확인 버튼을 단계별로</div><div class="wb">고가·장기 계약 상품. 처음부터 "바로 렌탈"을 누르게 하기보다 결정에 필요한 정보를 확인하는 버튼을 단계마다 배치: 상단 요약에서 월 렌탈료+상담 신청 → 핵심 기술 뒤 "모델 확인"(비교표로 이동) → 관리 서비스 뒤 "렌탈 조건 확인"(약정·총 비용으로 이동) → 맨 아래에서 상담+렌탈 버튼 한 번 더
+    <div class="btns"><span>내게 맞는 모델 확인하기</span><span>월 렌탈료 확인하기</span><span>렌탈 상담 신청하기</span><span>바로 렌탈하기</span></div></div></div>
+  <div class="wcard svc"><div class="wh">서비스 - 행동 결과가 보이는 문구로</div><div class="wb">무형 서비스라 "구매하기" 대신 무엇이 일어나는지 알 수 있는 문구 사용: 상단 요약에서 "진단 신청" → 문제 공감 뒤엔 부담 낮은 자가 확인형("우리 집도 해당되는지") → 프로세스 뒤 "방문 예약" → 맨 아래 최종 신청 버튼
+    <div class="btns"><span>우리 집도 해당되는지 확인하기</span><span>전문가 진단 신청하기</span><span>방문 일정 예약하기</span><span>사업장 상담 신청하기</span></div></div></div>
+</div>
+
+<h3 class="sub-h">템플릿 분기 로직</h3>
+<div class="logic">
+  <span class="if">IF</span> 상품 유형 = 일반 판매형 <span class="arrow">→</span> <b>환경위생용품 템플릿</b> &nbsp;/&nbsp;
+  <span class="if">IF</span> 설치·렌탈형 <span class="arrow">→</span> <b>환경가전 템플릿</b> &nbsp;/&nbsp;
+  <span class="if">IF</span> 방문 수행형 <span class="arrow">→</span> <b>서비스 템플릿</b>
+  <div class="div"></div>
+  <span class="if">IF</span> 리뷰 있음 <span class="arrow">→</span> 실제 리뷰 &nbsp;/&nbsp; <span class="if">IF</span> 리뷰 없음 <span class="arrow">→</span> 개발·검증/전문가/데이터/사례 중 <b>단일안 확정</b><br>
+  <span class="if">IF</span> 설치 필요 <span class="arrow">→</span> 설치 조건 필수 &nbsp;/&nbsp; <span class="if">IF</span> 계약기간 있음 <span class="arrow">→</span> 약정·총 비용·해지 조건 필수<br>
+  <span class="if">IF</span> 방문 서비스 <span class="arrow">→</span> 프로세스·포함 범위·취소 조건 필수 &nbsp;/&nbsp; <span class="if">IF</span> 비교 모델 있음 <span class="arrow">→</span> 모델 비교표 필수<br>
+  <span class="if">IF</span> 저가 일반 판매형 <span class="arrow">→</span> 설명 압축·즉시 구매 CTA 강화 &nbsp;/&nbsp; <span class="if">IF</span> 고가·장기 계약형 <span class="arrow">→</span> 정보 확인 CTA 단계별 배치
+</div>
+<p class="oneline">한 줄 정리 - 환경위생용품은 효과와 사용성을 빠르게 설득하고, 환경가전은 성능과 관리·계약 조건을 충분히 설명하며, 서비스는 진단 과정과 제공 결과를 구체적으로 보여줍니다.</p>
+
+<!-- ═══════ 04 ═══════ -->
+<h2 id="s4"><span class="num">04</span>표현 리스크 · 컴플라이언스 (전 상품군 공통)</h2>
+<p class="sec-sub">발행 전 검수에서 가장 자주 걸리는 유형입니다. 작성 단계부터 함께 고려해주세요.</p>
+
+<h3 class="sub-h">표현 리스크 9유형</h3>
+<table class="doc">
+  <thead><tr><th style="width:110px">유형</th><th>금지/주의</th><th>대체 방향</th></tr></thead>
+  <tbody>
+    <tr><th>절대 표현</th><td>"~없이", "완전 제거", "무독성", "100%"</td><td>"~를 줄여", "완화", "감소 확인"</td></tr>
+    <tr><th>암시적 비교</th><td>"진짜 OO", "~하는 척하는 제품과 달리", 일반 제품 대비 비교표</td><td>자사 사실 서술, 사용 전→후 프레임</td></tr>
+    <tr><th>즉시성 단정</th><td>시험이 즉시성을 측정하지 않았는데 "쓰는 순간 OO"</td><td>"사용 후 OO 확인" + 시험 조건 명시</td></tr>
+    <tr><th>범위 확장</th><td>일부 항목 확인을 전체로 확장 (OO종 불검출 → "OO 프리")</td><td>확인된 범위 그대로 표기</td></tr>
+    <tr><th>대상 확장</th><td>시험 조건에 없는 대상 한정 ("민감 대상 기준")</td><td>실제 시험명·대상 그대로 표기</td></tr>
+    <tr><th>근거 혼합</th><td>서로 다른 근거의 인과 연결 (A성분이라서 B결과)</td><td>각각 별개 사실로 서술</td></tr>
+    <tr><th>성능 과장</th><td>물리적으로 부담스러운 단정 ("하나로 전체를")</td><td>"넓은 부위/영역에 적합" 수준</td></tr>
+    <tr><th>안전성 일반화</th><td>일부 성분 불검출을 "안전성 확인"으로</td><td>"특정 유해 우려 성분 분석: OO 불검출"</td></tr>
+    <tr><th>안전·안심 단정</th><td>"안전한 성분", "안심하고 사용", "인체에 무해", 근거 없는 "순한"</td><td>확인된 시험 결과로 서술 ("피부 저자극 테스트 완료⁸⁾" 등 근거+각주)</td></tr>
+    <tr><th>원인 단정</th><td>직접 인과가 확인되지 않은 원인 서술</td><td>확인된 효과 범위로 한정</td></tr>
+  </tbody>
+</table>
+<p class="tnote"><b style="color:var(--navy)">헤드카피 공통 원칙</b> : 헤드는 소비자 효용, 수치·시험결과·기관명은 서브카피와 배지로.</p>
+
+<h3 class="sub-h">카테고리별 컴플라이언스 분기</h3>
+<table class="doc">
+  <thead><tr><th style="width:90px">항목</th><th>생활화학제품 (세정제 등)</th><th>화장품 (티슈·바디케어 등)</th><th>환경가전</th><th>서비스</th></tr></thead>
+  <tbody>
+    <tr><th>근거 법령</th><td>화학제품안전법, 표시광고법</td><td>화장품법, 표시광고법</td><td>전기용품·생활용품 안전관리법, 할부거래·방문판매 관련 법</td><td>방문판매법, 약관규제법, 표시광고법</td></tr>
+    <tr><th>법정 표시</th><td>안전확인대상생활화학제품 여부, 신고번호, 성분</td><td>책임판매업자/제조업자, 전성분, 중량, 사용기한, 주의사항</td><td>KC 인증, 정격·소비전력, 렌탈 약정·총 비용·해지 조건</td><td>포함/미포함 범위, 추가 비용, 취소·환불 조건</td></tr>
+    <tr><th>효능 표현</th><td>승인·신고 범위 내</td><td><b>"살균" 불가</b>, "항균"은 기관·균종·수치 각주 필수, 의학적 효능 단정 금지</td><td>성능 수치는 시험 조건 병기</td><td>결과 보장형 표현 금지("완전 박멸"), 진단·제안 범위로 서술</td></tr>
+    <tr><th>공통</th><td colspan="4">"무독성"·"인체 무해" 등 절대 안전성 표현 금지 / 최상급 표현("1위"·"최다")은 출처·기준 필수 / 체험단·협찬은 대가성 표시 의무</td></tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════ 05 ═══════ -->
+<h2 id="s5"><span class="num">05</span>제품 정보 입력지(브리프) - 구조와 내용을 분리하기</h2>
+<p class="sec-sub"><b style="color:var(--navy)">브리프</b>는 상세페이지를 만들기 전에 제품 정보를 한곳에 모아 적는 <b style="color:var(--navy)">"제품 정보 입력지"</b>입니다.
+  템플릿화의 본질은 "페이지의 구조(레이아웃·역할)"와 "제품마다 달라지는 내용"을 분리하는 것 - 신제품이 나올 때마다 이 입력지의 빈칸만 채우면, 그 내용이 상품군별 템플릿에 자동으로 들어갑니다.</p>
+
+<h3 class="sub-h">공통 입력 양식 (모든 상품군 공통 항목)</h3>
+<p class="tnote">아래는 입력지의 항목 목록입니다. 개발·AI 도구에서 그대로 쓸 수 있도록 JSON이라는 데이터 형식(항목 이름: 내용 짝으로 정리하는 표기법)으로 적어두었지만, 엑셀 표나 설문 폼으로 옮겨 운영해도 됩니다. 빈칸("")과 null은 "아직 정보 없음"이라는 뜻입니다.</p>
+<pre>{
+  "product_group": "환경위생용품 | 환경가전 | 서비스",
+  "product": { "brand": "", "name": "", "category": "", "category_type": "생활화학제품 | 화장품 | 가전 | 서비스", "price": null },
+  "hero_visual": { "type": "루프영상 | GIF | BeforeAfter | 문제상황재연", "concept": "", "caption_in_video": "" },
+  "concept_headlines": [],
+  "target_personas": [{ "pain": "", "solution": "" }],
+  "usp_summary": [],
+  "proof_points": [{ "type": "인체적용시험 | 성능시험 | 원료특성 | 소재스펙 | 기술구조",
+                     "claim": "", "method": "", "evidence": "", "footnote_no": null }],
+  "reviews": { "has_reviews": null, "average_score": null, "review_count": null, "sample_reviews": [] },
+  "social_proof_alt": { "type": "개발검증형 | 전문가추천형 | 데이터시각화형 | 체험단형 | 사례형",
+                        "expert_comment_confirmed": false },
+  "cross_sell": [],
+  "tone": "신뢰감 있고 담백한 전문가 톤, 과장 없이 근거 중심, -했습니다 체"
+}</pre>
+
+<h3 class="sub-h">상품군별 추가 필드</h3>
+<div class="tri">
+  <div class="wcard mylab"><div class="wh">환경위생용품</div><div class="wb"><div class="btns">
+    <span>form_unit(한 장에/병에/통에)</span><span>용량·제형·향</span><span>사용 전후 효과</span><span>성분·원료 역할</span><span>사용법</span><span>사용 가능 재질·부위</span><span>보관</span><span>주의사항</span><span>법정 표시</span><span>세트 구성</span><span>pro_tips_confirmed</span></div></div></div>
+  <div class="wcard appl"><div class="wh">환경가전</div><div class="wb"><div class="btns">
+    <span>모델명</span><span>크기·무게</span><span>적용 면적·용량</span><span>핵심 기술</span><span>필터·센서·살균</span><span>성능 시험</span><span>소음</span><span>소비전력</span><span>설치 조건</span><span>관리 방식·방문주기</span><span>월 렌탈료</span><span>의무사용기간</span><span>총 렌탈금액</span><span>제휴카드 혜택</span><span>A/S</span><span>비교 모델</span></div></div></div>
+  <div class="wcard svc"><div class="wh">서비스</div><div class="wb"><div class="btns">
+    <span>대상 공간</span><span>해결 문제</span><span>신청 조건</span><span>가격·추가 비용</span><span>방문 주체</span><span>점검 항목</span><span>진행 단계</span><span>제공 결과물</span><span>포함/미포함 범위</span><span>소요 시간</span><span>방문 전 준비</span><span>취소·환불 조건</span><span>후속 서비스</span><span>고객 사례</span></div></div></div>
+</div>
+
+<div class="rules" style="margin-top:16px">
+  <div class="rcard"><h4><span class="dot"></span>왜 이렇게 하나요?</h4><ul>
+    <li>신제품이 올 때마다 <b>브리프만 채우면</b> 해당 상품군 구조의 카피가 생성됨</li>
+    <li><code class="inline">has_reviews</code>·<code class="inline">expert_comment_confirmed</code>·<code class="inline">pro_tips_confirmed</code> 값에 따라 <b>자동으로 안전한 대체 로직</b>으로 분기</li>
+    <li><code class="inline">proof_points.type</code> 구분으로 시험 결과만 검증 결과 표에, 원료·소재는 별도 영역으로 자동 분리</li>
+    <li>디자이너/카피라이터/AI 누가 작업하든 같은 데이터 기준 → 산출물 편차 감소</li>
+  </ul></div>
+  <div class="rcard"><h4><span class="dot"></span>운영 흐름 (6단계)</h4><ul>
+    <li>① 정보수집+분기 판정 → ② 마스터 생성 → ③ 블록별 재작업</li>
+    <li>→ ④ 신제품 예외처리 → ⑤ 컴플라이언스 검수 → ⑥ 검수 피드백 반영</li>
+    <li>중간마다 사람이 검토·수정 - 단계를 쪼개는 것이 품질 관리의 핵심</li>
+    <li>브리프 작성 예시는 <b>부록 A</b> 참조</li>
+  </ul></div>
+</div>
+
+<!-- ═══════ 06 ═══════ -->
+<h2 id="s6"><span class="num">06</span>프롬프트 세트</h2>
+<p class="sec-sub"><b style="color:var(--navy)">역할 부여 원칙</b> : ①역할은 브랜드·채널까지 구체적으로("세스코몰 상세페이지 기획자") ②역할+판단 기준을 세트로("근거 없는 표현은 쓰지 않는다") ③검수는 역할을 반대편("표시광고 심의 담당자")으로 - 자기 글에 관대해지는 문제를 방지.</p>
+
+<details class="acc"><summary>6-1. 제품 정보 구조화 + 분기 판정 (1단계: 재료 모으기)</summary><div class="acc-body">
+<pre>너는 세스코 자사몰(세스코몰) 상세페이지 제작을 지원하는 정보 정리 담당자야.
+아래 [원본 자료]를 분석해서 다음 두 가지를 순서대로 해줘.
+
+1) 템플릿 분기 판정: 상품 유형(일반 판매형/설치·렌탈형/방문 수행형)을 판정하고
+   근거를 한 줄로 설명 (환경위생용품/환경가전/서비스 중 택1)
+2) 가이드 05장 브리프 스키마(공통 + 해당 상품군 추가 필드)를 JSON으로 채우기.
+   정보가 없는 항목은 null로 남기고, 절대 추측해서 지어내지 마.
+   proof_points는 반드시 type을 구분해.
+
+[원본 자료]
+{기획서/성분표/스펙시트/필름 시안/서비스 정의서/인터뷰 메모 붙여넣기}</pre></div></details>
+
+<details class="acc"><summary>6-2. 마스터 원샷 프롬프트 (2단계: 전체 카피 생성, 상품군 분기 반영)</summary><div class="acc-body">
+<pre>너는 세스코 자사몰(세스코몰) 상세페이지 기획자야. 세스코는 위생·환경 전문기업이고,
+자사몰 상세페이지는 과장 없이 연구·검증 근거 중심으로 신뢰를 쌓는 톤을 유지해.
+전환율(CVR) 관점에서 각 블록이 제 역할을 하도록, 아래 &lt;브리프&gt;의 product_group에 맞는
+권장 구조(가이드 03장)로 상세페이지 카피를 작성해줘.
+
+&lt;브리프&gt;
+{6-1 결과 JSON}
+&lt;/브리프&gt;
+
+&lt;출력형식&gt;
+블록마다: 1) 블록명 2) 헤드카피(15자 내외, 소비자 효용에서 시작) 3) 서브카피(25~35자)
+4) 바디카피(불릿 3~5개 또는 짧은 문단) 5) 디자인/비주얼 디렉션(구체적으로)
+단, ① 히어로존은 카피 없이 비주얼 컨셉만 제안 (hero_visual 기반, 자막 필요 시 1줄 이내)
+
+상품군별 구조:
+- 환경위생용품: ③은 마이랩 고정 모듈 그대로(form_unit 치환) + 제품 Why 2문장
+- 환경가전: ②에 월 렌탈료·핵심 스펙, ③ Why 세스코 필수, ⑧ 설치·관리·렌탈 조건, ⑨ 모델 비교표
+- 서비스: ② 대표 컷 + 이미지 아래 요약 텍스트(대상·가격·결과물), ③은 "왜 전문가 진단이 필요한가"로 대체,
+  ⑤ 프로세스 중심, ⑦ 포함/미포함 범위 명확히
+&lt;/출력형식&gt;
+
+&lt;제약조건&gt;
+- tone 일관 유지 ("-했습니다" 체, "—" 대신 "-"/":")
+- 블록별 역할 분담표 준수: 수치는 ⑤⑦에 집중, ①③④ 반복 금지
+- 표현 리스크 9유형(04장)·카테고리 분기 준수
+- &lt;브리프&gt;에 없는 사실(수치·인증·순위·효능·사용법·조건·혜택)은 절대 새로 만들지 말 것.
+  부족하면 "[확인 필요]"로 표시
+- "살균", "항균", "무독성", "완전 제거" 등 인증·시험성적 없이 쓰면 표시광고법 리스크가 있는
+  표현은 근거가 있을 때만 사용, 없으면 순화된 표현으로 대체
+- 모든 헤드카피는 소비자 관점(내가 얻는 것)에서 시작, 브랜드 자랑으로 시작하지 말 것
+- 사회적 증거: has_reviews true면 리뷰형(각기 다른 페인포인트의 리뷰 3~5개로 재배열) /
+  false면 social_proof_alt.type 단일안 확정 (expert_comment_confirmed false면 인용문 없이 서술형)
+- CTA는 상품군별 원칙에 맞게
+&lt;/제약조건&gt;</pre></div></details>
+
+<details class="acc"><summary>6-3. 블록별 단독 프롬프트 (히어로 비주얼 · 타겟 공감 · 세부 USP · 사용 정보 · 렌탈 조건 · 서비스 범위)</summary><div class="acc-body">
+<p>히어로존(비주얼 컨셉) 전용</p>
+<pre>너는 세스코몰 상세페이지의 히어로존(최상단) 비주얼을 담당하는 기획자야.
+히어로존은 카피 없이 영상/GIF만으로 후킹하는 블록이야. 상품군({product_group})
+특성에 맞춰 스크롤을 멈추게 할 히어로 비주얼 3가지 안을 제안해줘. 각 안마다:
+(1) 컨셉 한 줄 (2) 영상/GIF 구성(길이, 씬 순서, 앵글·구도까지 구체적으로)
+(3) 자막 필요 시 1줄 문구(수치·기관명·즉시성 단정 금지) (4) 겨냥하는 소비자 심리
+단, ⑥에서 쓸 대표 검증 비주얼({social_proof_alt})과 역할이 겹치지 않게.
+- 환경위생용품: 사용 전후·즉시 효과 / 환경가전: 공간 변화·대표 기능 / 서비스: 문제 상황·방문 후 결과</pre>
+<p>타겟 공감 전용</p>
+<pre>아래 페인포인트 리스트를 "질문형 공감 카드" 구조로 만들어줘.
+각 카드: [소비자 경험을 묻는 질문 1줄 + 설계 방향 답변 1줄].
+타사 비하 금지, 수치 금지, 서로 다른 근거의 인과 연결 금지.
+너무 일반적인 표현 대신 실제 생활 장면이 그려지도록 구체적으로.
+페인포인트 목록: {target_personas}</pre>
+<p>세부 USP(수치/인증) 전용</p>
+<pre>아래 proof_points 데이터만 근거로, 챕터(concept_headlines)별로
+[풀어쓰기 문단 → 검증 결과 검증 결과 표(주장-검증방법-결과) → 원료·기술·소재 설명]을 작성해줘.
+type이 '인체적용시험'/'성능시험'인 항목만 검증 결과 표에 넣고, 나머지는 별도 영역으로 분리해.
+데이터에 없는 수치나 인증은 절대 추가하지 말고, 각주 번호를 함께 표기해줘.
+어떤 시각화(표/타임라인/프로세스)가 적합한지도 제안해줘.</pre>
+<p>사용 정보 전용</p>
+<pre>아래 정보만 근거로 "상황별 올바른 사용법" 섹션을 작성해줘.
+자료에 없는 사용 순서·타이밍·보관 팁을 창작하지 마.
+구성: 상황별 사용법 카드 2~4개 + 기본 사용 방법(단계형) + 주의사항/보관(아코디언용) + 법정 표시.
+pro_tips_confirmed가 true인 경우에만 "전문가가 알려주는 활용 꿀팁" 톤으로 전환
+(각 팁은 [상황 소제목 + 2~3문장], 설명서 톤 금지).</pre>
+<p>환경가전 렌탈 조건 블록 전용</p>
+<pre>아래 렌탈 정보를 소비자가 총 비용을 오해 없이 이해하도록 구성해줘.
+[월 렌탈료(할인 전/후) - 의무사용기간 - 총 렌탈금액 - 방문주기·관리 - 설치 조건 - 해지 조건] 순서.
+할인 조건(카드·결합 등)은 적용 조건을 반드시 병기. 없는 혜택 창작 금지.</pre>
+<p>서비스 범위 블록 전용</p>
+<pre>아래 서비스 정보를 "포함 / 미포함 / 이후 진행" 3단으로 명확히 구분해 작성해줘.
+진단만인지 처리 포함인지, 추가 계약·출장비·소요 시간·취소 조건을 빠짐없이.
+모호한 표현("상황에 따라") 대신 조건을 구체적으로. 없는 조건 창작 금지.</pre></div></details>
+
+<details class="acc"><summary>6-4. 리뷰 없는 신제품 대응 프롬프트</summary><div class="acc-body">
+<pre>너는 세스코몰 상세페이지 기획자야. 이 상품은 아직 정식 구매 리뷰가 없어
+"사회적 증거" 블록을 대체 콘텐츠로 채워야 해.
+기획 검토 단계면 후보 2안을 모두, 목업/발행용이면 social_proof_alt.type에 지정된 1안만 작성해줘.
+
+[안 1] 개발·검증형 (기본값)
+- 개발 기준 라벨 + 개발 철학 헤드카피 + 본문 2~3문장
+- 대표 검증 비주얼 1개 제안 (실데이터 근거가 있는 연출만) + 시험 각주 캡션
+- expert_comment_confirmed가 false면 전문가 인용문 없이 서술형으로
+- 이 블록에서 수치를 반복하지 말 것 (정확한 수치·기관은 ⑦의 몫)
+
+[안 2] 검증 데이터 시각화형
+- 자사 공인기관 테스트 결과의 절대치만 시각화 (실제 수치 없는 항목은 [측정 필요])
+- "일반 제품 대비" 비교 금지 (부당비교광고 리스크)
+
+- 서비스는 사례형(전문가·진단 결과물·현장 사례) 우선 검토</pre></div></details>
+
+<details class="acc"><summary>6-5. 컴플라이언스 · 과장광고 QA 프롬프트 (발행 전 최종 검수)</summary><div class="acc-body">
+<pre>너는 세스코몰 상세페이지의 표시광고 리스크 검수(심의) 담당자야.
+카피를 만든 사람이 아니라 걸러내는 사람의 관점에서, 아래 카피 전체를 검토해
+문제 소지가 있는 문장을 모두 찾아 [문제 문장 | 문제 유형 | 수정 제안] 표로 정리해줘.
+
+점검 기준:
+1. 인증·시험성적서 없이 "살균", "항균", "99.9% 제거", "무독성", "완전분해" 등
+   절대적/의학적 효능 단정
+2. "업계 1위", "국내 최다" 등 근거·출처 없는 최상급
+3. 표현 리스크 9유형(04장): 절대 표현, 암시적 비교, 즉시성 단정, 범위·대상 확장,
+   근거 혼합, 성능 과장, 안전성 일반화, 원인 단정
+4. 원료·기술 특성을 인체적용시험 결과처럼 표기
+5. 카테고리별 법정 표시사항 누락
+6. 렌탈·서비스의 비용·조건 오인 표현 (총 비용·해지·미포함 범위 불명확)
+7. 리뷰·추천사 과장 재구성, 체험단·협찬 대가성 문구 누락
+8. 자료에 없는 사용법·조건·혜택 창작
+
+&lt;검수 대상 카피&gt;{전체 카피}&lt;/검수 대상 카피&gt;</pre>
+<p>* 이 프롬프트는 법률 자문을 대체하지 않습니다. 최종 발행 전 사내 법무/규제 확인을 권장합니다.</p></div></details>
+
+<details class="acc"><summary>6-6. 검수 피드백 반영(재작업) 프롬프트</summary><div class="acc-body">
+<pre>너는 세스코몰 상세페이지 기획자야. 아래 &lt;기존 카피&gt;에 대해 &lt;검수 피드백&gt;이 도착했어.
+피드백을 전부 반영한 수정본을 작성해줘.
+
+규칙:
+- 피드백 항목별로 [반영 내역]을 먼저 요약하고, 그 다음 수정된 전체 카피를 출력
+- 피드백이 지적하지 않은 부분은 임의로 바꾸지 말 것
+- 대체 문구가 제시됐으면 그대로 사용, 없으면 04장 원칙에 맞게 순화
+- 수정 과정에서 새로운 수치·사실을 추가하지 말 것
+
+&lt;기존 카피&gt;{v1 카피}&lt;/기존 카피&gt;
+&lt;검수 피드백&gt;{피드백 문서 전체}&lt;/검수 피드백&gt;</pre></div></details>
+
+<!-- ═══════ 07 ═══════ -->
+<h2 id="s7"><span class="num">07</span>프롬프트를 잘 쓰기 위한 실전 팁</h2>
+<div class="rules">
+  <div class="rcard"><h4><span class="dot"></span>운영 원칙</h4><ul>
+    <li><b>명령문과 제품 정보를 따로 관리하기</b> - 매번 AI에게 보낼 글을 처음부터 새로 쓰지 마세요. 명령문(프롬프트)은 06장의 것을 그대로 쓰고, 제품이 바뀌면 <b>제품 정보 입력지(05장)만 갈아 끼우면</b> 됩니다. 이렇게 하면 담당자가 바뀌어도 누가 돌려도 비슷한 품질이 나옵니다</li>
+    <li><b>"자료에 없는 내용은 지어내지 마"를 꼭 써넣기</b> - AI는 자료에 없는 내용도 그럴듯하게 만들어내는 습성이 있습니다. 수치·효능만이 아니라 <b>사용법·보관 팁·할인 혜택 같은 것도 지어낼 수 있으니</b>, 이 한 줄을 명령문에 항상 포함하세요</li>
+    <li><b>한 번에 다 시키지 말고 단계를 나누기</b> - "상세페이지 다 만들어줘" 대신 [① 정보 정리 → ② 초안 → ③ 부분 수정 → ④ 검수 → ⑤ 피드백 반영] 순서로 나눠 진행하세요. <b>단계 사이마다 사람이 확인</b>할 수 있어서 품질 관리가 쉬워집니다</li>
+    <li><b>결과물의 모양을 미리 정해주기</b> - "자유롭게 써줘"라고 하면 매번 다른 모양이 나옵니다. "블록마다 ①블록명 ②헤드카피 ③서브카피 ④바디카피 ⑤비주얼 방향, 이 5가지를 이 순서로"처럼 형식을 정해주면 <b>디자이너에게 그대로 전달할 수 있는 정돈된 결과물</b>이 나옵니다</li>
+  </ul></div>
+  <div class="rcard"><h4><span class="dot"></span>품질을 올리는 장치</h4><ul>
+    <li><b>잘 쓴 예시를 하나 붙여주기</b> - 원하는 톤을 말로 설명하는 것보다, 잘 나온 기존 페이지의 카피를 붙이고 <b>"이런 느낌으로 써줘"</b>라고 하는 편이 훨씬 정확합니다 (AI 업계에서는 이 방법을 few-shot이라고 부릅니다)</li>
+    <li><b>꺾쇠 표시로 구역 나누기</b> - 명령문 안에 제품 정보·요구 형식·금지 사항이 뒤섞이면 AI가 헷갈립니다. &lt;브리프&gt;제품 정보&lt;/브리프&gt;처럼 <b>꺾쇠로 "여기부터 여기까지는 제품 정보"라고 표시</b>해주면 지시와 자료를 혼동하지 않습니다 (06장 프롬프트에 이미 적용돼 있음)</li>
+    <li><b>검수 피드백은 요약하지 말고 문서째 붙여넣기</b> - 피드백을 한 줄씩 나눠 넣으면 앞뒤 맥락이 끊깁니다. 받은 피드백 문서를 통째로 붙여넣고, AI에게 <b>수정본에 앞서 "무엇을 어떻게 고쳤는지" 목록([반영 내역])부터 쓰게</b> 하세요. 그 목록과 피드백을 대조하면 빠뜨린 항목이 없는지 사람이 쉽게 확인할 수 있습니다</li>
+  </ul></div>
+</div>
+
+<!-- ═══════ 08 ═══════ -->
+<h2 id="s8"><span class="num">08</span>GEO 최적화 - AI 검색에 인용되는 상세페이지</h2>
+<p class="sec-sub">ChatGPT·Perplexity·구글 AI 오버뷰가 상세페이지를 읽고 <b style="color:var(--navy)">"이 제품이 OO에 좋아?"라는 질문의 답변 근거로 인용</b>합니다. 인용되면 사실상 무료 추천 노출. 한 사례에서는 제품·리뷰 정보를 검색엔진이 읽기 쉬운 데이터 라벨(스키마) 형태로 넣어주자 AI의 상품 이해 정확도가 16%→54%로 상승했다는 보고도 있습니다.</p>
+
+<div class="geo6">
+  <div class="geocard"><span class="gn">01 · 최우선</span><b class="gt">드래그 가능한 텍스트</b><span>AI는 이미지 속 글자를 못 읽음 - 이미지에만 있으면 "없는 정보". 드래그로 선택·복사되면 OK, 안 되면 같은 내용을 HTML 텍스트·표로 반복. 히어로 영상 속 문구는 ②⑤⑦에서 텍스트로.</span></div>
+  <div class="geocard"><span class="gn">02</span><b class="gt">질문형 헤딩</b><span>"어디에 사용하나요?", "월 렌탈료에 무엇이 포함되나요?" - AI는 질문↔답 문단을 매칭해 인용. 헤딩 아래 첫 1~2문장에 핵심 답 요약.</span></div>
+  <div class="geocard"><span class="gn">03</span><b class="gt">자족적 문단</b><span>문단 하나만 떼어내도 의미가 통하게. 제품명·핵심 사실을 문단마다 반복. 각주도 수치+기관을 포함해 자족적으로.</span></div>
+  <div class="geocard"><span class="gn">04</span><b class="gt">수치 + 출처 + 시점</b><span>통계·출처를 명시한 콘텐츠는 생성형 AI 답변 내 인용 가시성 최대 40% 향상 (Aggarwal et al. 「GEO」, ACM KDD 2024).</span></div>
+  <div class="geocard"><span class="gn">05</span><b class="gt">구조화 데이터(스키마) = 검색엔진용 정보 라벨</b><span>페이지 뒤편에 "이 페이지의 제품명은 OO, 용량은 OO"라고 기계가 읽기 쉽게 달아주는 라벨입니다(개발팀 요청 사항). 제품 정보 라벨(Product)은 목업 단계부터, <b>가격 라벨(Offer)은 가격·조건 확정 후에만</b>. 옵션명은 "1번/2번"이 아니라 "용량: 500ml"처럼 항목과 값을 짝지어. 어디까지나 보조 수단이라 화면에 보이는 텍스트와 내용이 같아야 합니다.</span></div>
+  <div class="geocard"><span class="gn">06</span><b class="gt">FAQ = AI가 가장 좋아하는 블록</b><span>고객센터 문의·리뷰에서 나온 실제 질문 문장 그대로, 화면에 보이는 텍스트로 작성. FAQ용 데이터 라벨은 구글 검색결과 노출 기능이 종료(2026.5.)되어, 이제는 AI가 내용을 읽어가도록 돕는 보조 용도로만 넣습니다.</span></div>
+</div>
+
+<h3 class="sub-h">9블록과 GEO의 접점</h3>
+<table class="doc">
+  <thead><tr><th style="width:130px">블록</th><th>GEO 적용 포인트</th></tr></thead>
+  <tbody>
+    <tr><th>① 히어로</th><td>영상/GIF 전용 - 영상 속 핵심 문구(USP·제품명)는 ②⑤⑦에서 텍스트로 반복</td></tr>
+    <tr><th>② 메인/요약</th><td>명칭·기본 정보(렌탈료·서비스 요약 포함)를 이미지 아래 텍스트로</td></tr>
+    <tr><th>③ Why</th><td>브랜드 정의 문장을 전 페이지에 일관되게 반복 - AI가 브랜드를 안정적으로 이해·설명하는 데 도움 (고정 모듈 운영의 부가 효과)</td></tr>
+    <tr><th>⑤⑦ USP</th><td>수치·인증·스펙을 이미지가 아닌 텍스트로</td></tr>
+    <tr><th>⑥ 사회적 증거</th><td>"어떤 상황에 좋았는지" 담긴 구체적 문장 → 리뷰가 쌓이면 리뷰 내용도 데이터 라벨(Review)로 추가 (개발 요청)</td></tr>
+    <tr><th>⑧ 사용 정보</th><td>질문형 헤딩, 안전·인증 정보는 신뢰 신호, 상세 정보는 HTML 텍스트</td></tr>
+    <tr><th>⑨ 스펙·FAQ</th><td>스펙은 "용량: 500ml"처럼 항목과 값을 짝지은 표로, FAQ는 실제 질문 기반의 보이는 텍스트 Q&A로</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════ 09 ═══════ -->
+<h2 id="s9"><span class="num">09</span>HTML 구현 단계 체크</h2>
+<div class="rules">
+  <div class="rcard"><h4><span class="dot"></span>제작 규칙</h4><ul>
+    <li>이미지 플레이스홀더에 <b>촬영/교체 지시</b>를 함께 표기 (디자이너 전달 문서 겸용)</li>
+    <li>연출 비주얼(비교·그래프·열화상)은 <b>실데이터 근거 항목만</b>, 목업 그래픽엔 "실제 원본 교체" 주석</li>
+    <li>검증 결과 표와 원료·기술·소재 정보는 시각적으로도 분리 (표 vs 별도 박스)</li>
+    <li>각주는 본문 sup → 하단 각주 영역 앵커 링크</li>
+    <li>스펙 표는 ⑨(크로스셀~FAQ 사이) - ⑤ 상단에 두지 않기</li>
+  </ul></div>
+  <div class="rcard"><h4><span class="dot"></span>UI · 발행</h4><ul>
+    <li>아코디언: 주의사항·법정 표시·전성분·렌탈 조건·서비스 범위·FAQ (내용은 가시 텍스트 유지)</li>
+    <li>하단 고정 CTA 바(상품군별 문구)는 히어로 통과 후 노출</li>
+    <li>prefers-reduced-motion 대응, 모바일(≤480px) 반응형 확인</li>
+    <li><b>발행 전 제거</b>: 내부 시안 안내 바, 목업 연출 주석, [확인 필요] 표기</li>
+  </ul></div>
+</div>
+
+<!-- ═══════ 10 ═══════ -->
+<h2 id="s10"><span class="num">10</span>발행 전 최종 체크리스트</h2>
+<ul class="check">
+  <li class="chead">공통 구조 · 전환</li>
+  <li>히어로존이 비주얼 전용(영상/GIF)이고 카피·수치가 없는가</li>
+  <li>후킹·핵심 USP가 3스크롤 이내인가</li>
+  <li>같은 수치가 ①③④⑥에서 반복되지 않는가</li>
+  <li>사회적 증거가 핵심 USP 직후·세부 USP 이전, 발행용 단일안인가</li>
+  <li>전문가 인용문은 실제 확인된 코멘트만인가</li>
+  <li>⑦ 시험/원료·기술/소재 3구분이 지켜졌는가</li>
+  <li>⑧이 자료 근거 범위 내인가 (창작된 사용법·조건 없음)</li>
+  <li>스펙 표가 ⑨에 있고 ⑧ 법정 표시와 역할 분리됐는가</li>
+  <li>FAQ가 CTA 바로 위인가 / 크로스셀이 사용 맥락 기준인가</li>
+  <li>프로모션 배너·쇼핑몰 UI와 콘텐츠 블록이 분리됐는가</li>
+  <li class="chead">상품군별 추가</li>
+  <li>(환경위생용품) Why 마이랩 고정 모듈 정확 승계(단위어 치환), 각주 체계 패키지와 일치</li>
+  <li>(환경가전) 월 렌탈료·의무기간·총 비용 상단 배치, 설치·관리·해지 조건 명확, 모델 비교표 포함</li>
+  <li>(서비스) 요약 정보(대상·가격·결과물 텍스트)·프로세스·포함/미포함·취소 조건 빠짐없음, CTA가 행동 결과형</li>
+  <li class="chead">표현 · 컴플라이언스</li>
+  <li>표현 리스크 9유형 전수 점검 (6-5 QA 프롬프트 실행)</li>
+  <li>타사·일반 제품 대비 비교 표현·연출 미사용</li>
+  <li>체험단·협찬 대가성 문구 명시</li>
+  <li>모든 수치·인증에 근거 + 각주(수치·기관 포함)</li>
+  <li>카테고리별 법정 표시 누락 없음</li>
+  <li>문체 통일: "-했습니다", "—" 미사용, 기관명 표기 통일</li>
+  <li class="chead">GEO</li>
+  <li>핵심 정보가 드래그 가능한 HTML 텍스트로 존재 (영상 속 문구 포함)</li>
+  <li>주요 헤딩이 질문형인가 / 문단이 자족적인가</li>
+  <li>수치·인증에 출처·시점이 문장·각주 모두에 포함</li>
+  <li>제품 정보 데이터 라벨(Product 스키마) 삽입 요청 / 가격 라벨(Offer)은 확정 후 (화면에 보이는 텍스트가 우선)</li>
+</ul>
+
+<!-- ═══════ 부록 ═══════ -->
+<h2 id="apx"><span class="num">A</span>부록 - 브리프 작성 예시 (환경위생용품 · 기름때세정제)</h2>
+<details class="acc"><summary>브리프 예시 JSON 펼치기</summary><div class="acc-body">
+<pre>{
+  "product_group": "환경위생용품",
+  "product": { "brand": "세스코 마이랩", "name": "기름때세정제 파워", "category": "주방세정제",
+               "category_type": "생활화학제품", "price": 19900 },
+  "form_unit": "한 병에", "volume": "500ml",
+  "hero_visual": { "type": "BeforeAfter",
+    "concept": "가스레인지 기름때에 뿌리고 5분 후 닦아내는 사용 전후 루프",
+    "caption_in_video": "뿌리고 기다리면 청소 끝" },
+  "core_tech": "기름때 특화 알칼리 처방 / 고밀도 폼",
+  "target_personas": [
+    { "pain": "가스레인지 기름때 때문에 고생", "solution": "뿌리고 5분이면 끝" },
+    { "pain": "강한 세제 냄새가 부담스러움", "solution": "무향·저자극 성분으로 안심 사용" },
+    { "pain": "찌든 때 청소가 막막함", "solution": "힘들게 문지를 필요 없이 뿌리고 기다리면 끝" }
+  ],
+  "usp_summary": ["120만개 식당 효과검증", "빠른 기름때세정 고밀도폼", "기름때세정 특화 알칼리처방",
+                  "뿌리고 기다리면 청소 끝", "공기중 휘발 최소화", "왁스·유해물질 26종 불검출"],
+  "proof_points": [
+    { "type": "성능시험", "claim": "기름때 세정력", "method": "실제 식당 주방 검증",
+      "evidence": "세정 효과 검증 완료", "footnote_no": 1 },
+    { "type": "성능시험", "claim": "안전성", "method": "26종 유해물질 성분 분석",
+      "evidence": "불검출", "footnote_no": 2 },
+    { "type": "원료특성", "claim": "고밀도 폼", "method": null,
+      "evidence": "기름때 특화 알칼리 처방 적용", "footnote_no": null }
+  ],
+  "reviews": { "has_reviews": true, "average_score": 4.89, "review_count": null, "sample_reviews": ["..."] },
+  "social_proof_alt": { "type": "개발검증형", "expert_comment_confirmed": false },
+  "usage_tips_safety": {
+    "pro_tips_confirmed": true,
+    "situation_usage": ["주방 후드 기름때는 주기적으로 이렇게", "가스레인지 탄 자국엔 이 순서로"],
+    "how_to_use": ["표면에 분사", "10분 방치", "브러시/수세미로 제거", "물로 헹굼"],
+    "storage": ["직사광선/고온 피하기", "어린이 손 닿지 않는 곳"],
+    "cautions": ["변색/부식 테스트 후 사용", "혼합 사용 금지 성분"],
+    "regulatory_label": "안전확인대상생활화학제품" },
+  "cross_sell": ["다목적 주방세정제"],
+  "tone": "신뢰감 있고 담백한 전문가 톤, 과장 없이 근거 중심, -했습니다 체"
+}</pre>
+<p>· has_reviews: true → ⑥은 리뷰형 (각기 다른 페인포인트의 리뷰 3~5개로 재배열)<br>
+· pro_tips_confirmed: true → ⑧은 "전문가가 알려주는 활용 꿀팁" 톤 사용 가능<br>
+· proof_points의 원료특성 항목은 검증 결과 표가 아닌 별도 원료 정보 영역으로 배치</p></div></details>
+
+<p class="foot">
+  <b style="color:var(--navy)">마케팅 근거 출처</b> - NN/g 「How Long Do Users Stay on Web Pages?」(2011) · 「Scrolling and Attention」(2018) · Lindgaard et al.(Behaviour & Information Technology, 2006) · Baymard Institute 상품페이지 UX 연구 · 노스웨스턴대 Spiegel Research Center 「How Online Reviews Influence Sales」(2017) · 공정거래위원회 「추천·보증 등에 관한 표시·광고 심사지침」 · 클릭샵 CVR 분석 · 콘텐츠핏 · Gency/Gency Studio 전환 사례 · 어썸스타일 · 고도몰 · 와디즈 메이커센터<br>
+  <b style="color:var(--navy)">GEO 출처</b> - Aggarwal et al. 「GEO: Generative Engine Optimization」(ACM KDD 2024) · Google Search Central 구조화 데이터 문서(FAQ 리치결과 2026.5.7. 종료 고지) · 슈퍼라벨(스키마 적용 시 AI 이해도 16%→54%) · 데이터라이즈 · GPTO · 비즈스프링 · 토스페이먼츠
+</p>
+
+</div>
+<script>
+// 목차·와이어프레임 이동: href 없이 data-target 방식으로 처리해
+// 뷰어가 링크를 가로채 외부 창을 띄우는 문제를 원천 차단
+document.addEventListener('click', function(e){
+  var t = e.target.closest('[data-target]');
+  if(!t) return;
+  e.preventDefault();
+  var el = document.getElementById(t.getAttribute('data-target'));
+  if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+});
+</script>
+</body>
+</html>
