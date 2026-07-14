@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 카드뉴스 표준 템플릿 (기본 8장·최대 10장)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{
+  --navy:#1C2340; --navy-2:#2A3358; --ink:#23283B;
+  --gold:#C9A24B; --gold-soft:#F4EBD7;
+  --paper:#FAFAF8; --card:#FFFFFF; --line:#E3E4EA;
+  --txt:#2A2E3E; --txt-2:#6A7086;
+  --hook:#C9A24B; --trust:#5B6B9E; --persuade:#1C2340; --convert:#3E7C6F;
+  --hook-bg:#FAF4E4; --trust-bg:#EDF0F8; --persuade-bg:#E8EAF2; --convert-bg:#E7F1EE;
+  --cesco-blue:#2E6FD6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;background:var(--paper);color:var(--txt);line-height:1.65;font-size:15px;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 32px 80px}
+
+/* ===== header ===== */
+header{border-bottom:3px solid var(--navy);padding-bottom:28px;margin-bottom:40px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:700;margin-bottom:14px;border:1px solid var(--gold);padding:4px 12px;border-radius:2px}
+h1{font-size:34px;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.3}
+h1 .thin{font-weight:400;color:var(--txt-2)}
+.lede{margin-top:12px;font-size:16px;color:var(--txt-2);max-width:680px}
+.lede b{color:var(--navy);font-weight:700}
+.purpose{margin-top:18px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:14px 18px;font-size:14px;color:var(--txt);max-width:680px}
+.purpose b{color:var(--navy)}
+.meta-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.chip{font-size:12px;font-weight:700;background:var(--navy);color:#fff;padding:6px 13px;border-radius:20px;letter-spacing:.02em}
+.chip.line{background:transparent;color:var(--navy);border:1px solid var(--navy)}
+
+/* ===== section heads ===== */
+h2{font-size:22px;font-weight:800;color:var(--navy);margin:0 0 6px;display:flex;align-items:center;gap:10px}
+h2 .num{font-size:13px;font-weight:800;color:var(--gold);letter-spacing:.1em}
+.sec-sub{font-size:14px;color:var(--txt-2);margin-bottom:28px}
+.sec{margin-top:68px}
+
+/* ===== funnel strip ===== */
+.funnel{display:flex;flex-direction:column;gap:0;margin:8px 0 12px;max-width:760px}
+.fstage{position:relative;display:grid;grid-template-columns:150px 1fr auto;align-items:center;gap:20px;padding:18px 24px;background:var(--card);border:1px solid var(--line);border-left:5px solid}
+.fstage:not(:first-child){border-top:none}
+.fstage::after{content:"";position:absolute;left:52px;bottom:-9px;width:16px;height:16px;background:var(--paper);border-right:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg);z-index:2}
+.fstage:last-child::after{display:none}
+.fstage .fstep{font-size:11px;font-weight:800;letter-spacing:.12em;opacity:.65}
+.fstage .fname{font-weight:800;font-size:18px;line-height:1.2}
+.fstage .fdesc{font-size:13px;color:var(--txt-2)}
+.fstage .fblocks{font-size:11.5px;font-weight:700;letter-spacing:.04em;padding:5px 12px;border-radius:3px;white-space:nowrap}
+.f-hook{border-left-color:var(--hook)} .f-hook .fname,.f-hook .fstep{color:var(--hook)} .f-hook .fblocks{background:var(--hook-bg);color:#8a6a1e}
+.f-trust{border-left-color:var(--trust)} .f-trust .fname,.f-trust .fstep{color:var(--trust)} .f-trust .fblocks{background:var(--trust-bg);color:#3d4d80}
+.f-pers{border-left-color:var(--persuade)} .f-pers .fname,.f-pers .fstep{color:var(--persuade)} .f-pers .fblocks{background:var(--persuade-bg);color:var(--persuade)}
+.f-conv{border-left-color:var(--convert)} .f-conv .fname,.f-conv .fstep{color:var(--convert)} .f-conv .fblocks{background:var(--convert-bg);color:#2b5a50}
+.funnel-caption{font-size:12.5px;color:var(--txt-2);margin:20px 0 0;max-width:760px}
+.funnel-caption b{color:var(--navy)}
+
+/* ===== card gallery (10 instagram cards) ===== */
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+.igcard{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(28,35,64,.08)}
+.igcard.opt{border:1.5px dashed var(--gold);box-shadow:none;opacity:.9}
+.igcard.opt .cno{color:var(--gold)}
+.igcard .role{position:absolute;top:0;left:0;right:0;font-size:9.5px;font-weight:800;letter-spacing:.04em;padding:5px 8px;color:#fff;z-index:3;text-align:center}
+.igcard .cno{position:absolute;top:6px;right:8px;font-size:10px;font-weight:800;color:rgba(255,255,255,.85);z-index:4}
+.igcard .cno.dk{color:rgba(28,35,64,.5)}
+.igbody{flex:1;padding:26px 12px 12px;display:flex;flex-direction:column}
+.igcard .logo{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:12px;letter-spacing:.02em;margin-bottom:8px}
+.igcard .logo.w{color:#fff} .igcard .logo.b{color:var(--cesco-blue)}
+.ig-h{font-size:14px;font-weight:800;line-height:1.28;letter-spacing:-.01em}
+.ig-h .hi{color:var(--cesco-blue)}
+.ig-sub{font-size:9px;margin-top:auto;opacity:.75}
+.ig-txt{font-size:9px;line-height:1.5;margin-top:8px}
+.ig-txt .mk{background:#C9D6EF;padding:0 2px;border-radius:2px}
+.ig-src{font-size:7.5px;opacity:.55;margin-top:8px}
+.ig-tip{font-size:9px;line-height:1.45;margin-top:6px}
+.ig-tip b{color:var(--cesco-blue)}
+.ig-tip .lim{color:#B24A2E;font-weight:700}
+.ig-bridge{font-size:8px;margin-top:auto;padding-top:6px;color:var(--cesco-blue);font-weight:700}
+.role-hook{background:var(--hook)} .role-trust{background:var(--trust)}
+.role-info{background:var(--trust)} .role-emph{background:#C36B4E}
+.role-tip{background:var(--convert)} .role-prod{background:var(--convert)} .role-cta{background:var(--convert)}
+/* card backgrounds */
+.bg-dark{background:linear-gradient(135deg,#0E1428 0%,#1C2340 55%,#2E4E8C 100%)}
+.bg-dark .ig-h{color:#fff}.bg-dark .ig-sub{color:#B9C4DE}.bg-dark .ig-txt{color:#D6DCEC}
+.bg-light{background:linear-gradient(120deg,#FFFFFF 70%,#EAF0FB 100%)}
+.bg-light .ig-h{color:var(--navy)}.bg-light .ig-txt{color:#3A4056}.bg-light .ig-src{color:#8A90A2}
+.bg-solution{background:linear-gradient(120deg,#F4F6FA 60%,#E4ECF8 100%)}
+.gallery-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--txt-2)}
+.gallery-legend span{display:inline-flex;align-items:center;gap:6px}
+.gallery-legend i{width:11px;height:11px;border-radius:2px;display:inline-block}
+
+/* ===== tone standard ===== */
+.tone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.tone-box{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:8px;padding:18px 20px}
+.tone-box .tb-t{font-weight:800;font-size:14px;color:var(--navy);margin-bottom:10px}
+.tone-box .tb-row{font-size:12.5px;line-height:1.6;color:var(--txt);padding:7px 0;border-top:1px dashed var(--line)}
+.tone-box .tb-row b{color:var(--navy)}
+.tone-box .tb-row.ng{color:#a5502f}.tone-box .tb-row.ng b{color:#8f3d1f}
+.tone-box .tb-row.ok{color:#2b5a50}.tone-box .tb-row.ok b{color:#1f4a41}
+.tone-table{width:100%;border-collapse:collapse;margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.tone-table th{background:var(--navy);color:#fff;font-size:12px;letter-spacing:.05em;padding:10px 14px;text-align:left}
+.tone-table td{font-size:13px;padding:11px 14px;border-top:1px solid var(--line);vertical-align:top;color:var(--txt)}
+.tone-table td.ex{color:var(--ink);font-weight:600}
+.tone-table .lv{font-size:11px;font-weight:800;padding:3px 9px;border-radius:2px;white-space:nowrap;letter-spacing:.03em}
+.lv.ok{background:var(--convert-bg);color:#2b5a50}
+.lv.mid{background:var(--hook-bg);color:#8a6a1e}
+.lv.ng{background:#F6E0DA;color:#a5402a}
+.tone-note{margin-top:14px;background:var(--gold-soft);border-radius:6px;padding:12px 16px;font-size:13px;color:#6e551a}
+.tone-note b{color:#54400f}
+
+/* ===== block cards ===== */
+.blocks{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.bcard{background:var(--card);border:1px solid var(--line);border-left:4px solid;border-radius:8px;padding:20px 24px}
+.bcard.hook{border-left-color:var(--hook)} .bcard.trust{border-left-color:var(--trust)}
+.bcard.emph{border-left-color:#C36B4E} .bcard.conv{border-left-color:var(--convert)}
+.bhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.bno{font-size:18px;font-weight:800;color:var(--navy);min-width:52px}
+.bname{font-size:17px;font-weight:800;color:var(--navy)}
+.blabel{font-size:12px;color:var(--txt-2);font-weight:600}
+.btag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:.05em;margin-left:auto}
+.btag.hook{background:var(--hook-bg);color:#8a6a1e}.btag.trust{background:var(--trust-bg);color:#3d4d80}
+.btag.emph{background:#F6E5DE;color:#a5502f}.btag.conv{background:var(--convert-bg);color:#2b5a50}
+.bgoal{font-size:14px;color:var(--txt);margin-bottom:12px}
+.bgoal b{color:var(--navy)}
+.brow{display:grid;grid-template-columns:76px 1fr;gap:12px;font-size:13.5px;padding:8px 0;border-top:1px dashed var(--line)}
+.brow .k{font-weight:700;color:var(--txt-2);font-size:12px;letter-spacing:.04em;padding-top:1px}
+.brow .v{color:var(--txt)}
+.brow .v b{color:var(--navy)}
+.hinge{background:var(--gold-soft);border-radius:6px;padding:10px 14px;font-size:13px;color:#6e551a;margin-top:12px;display:flex;gap:10px}
+.hinge .ei{font-weight:800;flex-shrink:0}
+
+/* ===== process ===== */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:8px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 14px;position:relative}
+.step .sno{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.step .sname{font-weight:800;font-size:13.5px;color:var(--navy);margin-bottom:4px;line-height:1.4}
+.step .sdesc{font-size:12px;color:var(--txt-2);line-height:1.55}
+.step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:44%;color:var(--gold);font-weight:800;font-size:14px;z-index:1}
+
+/* ===== principles ===== */
+.principles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+.pr{background:var(--navy);color:#E7EAF5;border-radius:8px;padding:20px 20px 18px}
+.pr .pt{font-weight:800;font-size:14.5px;color:var(--gold);margin-bottom:6px}
+.pr .pd{font-size:12.5px;line-height:1.6;color:#C6CCE2}
+.pr .pd b{color:#fff}
+
+/* ===== json ===== */
+.jsonbox{background:var(--navy);border-radius:10px;padding:22px 24px;margin-top:8px;overflow-x:auto}
+.jsonbox pre{font-family:'SF Mono',Consolas,monospace;font-size:12px;line-height:1.7;color:#C6CCE2;white-space:pre}
+.jsonbox .k{color:var(--gold)}.jsonbox .s{color:#9FD3C0}.jsonbox .c{color:#7A82A0;font-style:italic}
+
+/* ===== checklist ===== */
+.check{margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 30px}
+.check h3{font-size:15px;color:var(--navy);margin-bottom:6px}
+.check ul{list-style:none;columns:2;column-gap:40px;margin:8px 0 18px}
+.check ul:last-child{margin-bottom:0}
+.check li{font-size:13.5px;padding:7px 0 7px 26px;position:relative;break-inside:avoid;color:var(--txt)}
+.check li::before{content:"";position:absolute;left:0;top:10px;width:14px;height:14px;border:2px solid var(--gold);border-radius:3px}
+
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-size:11.5px;color:var(--txt-2)}
+
+@media(max-width:900px){
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .tone-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-16px}
+  .principles{grid-template-columns:1fr}
+  .check ul{columns:1}
+  .fstage{grid-template-columns:110px 1fr}
+  .fstage .fblocks{display:none}
+}
+@media print{body{font-size:12px}.gallery{grid-template-columns:repeat(5,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">CESCO · CARD NEWS TEMPLATE</span>
+  <h1>세스코 카드뉴스 표준 템플릿 <span class="thin">: 기본 8장 · 최대 10장</span></h1>
+  <p class="lede">어떤 위생 주제가 와도 <b>같은 틀에 채워 넣으면 카드뉴스가 완성되는</b> 표준 구조입니다.<br>독자 심리 흐름(후킹 → 신뢰 → 필요성 인식 → 셀프팁 → 제품 → 전환)에 맞춰 역할 블록을 고정 배치합니다.</p>
+  <div class="purpose"><b>목적</b> (고객사 가이드) : 고객에게 <b>전문 위생 정보를 전달하고 관리의 필요성을 강조</b>합니다. 주로 <b>숫자·통계 등 근거 데이터</b>를 활용합니다.</div>
+  <div class="purpose" style="border-left-color:#C0392B;margin-top:10px"><b style="color:#C0392B">⚠ 가장 중요한 원칙 : 근거는 권위 있는 출처에서만.</b> 모든 수치·통계·주장은 <b>식약처·질병관리청(KDCA)·통계청·환경부 등 정부·공공기관, 학회, 학술 논문, WHO·EPA 등 국제기구</b> 같은 1차·권위 출처에서만 가져옵니다. 개인 블로그·커뮤니티·출처 불명 기사는 근거로 쓰지 않으며, 출처를 찾을 수 없는 수치는 아예 쓰지 않습니다. 표기는 <b>기관/저자명+자료명+연도</b>.</div>
+  <div class="meta-row">
+    <span class="chip">규격 1080 × 1350px (4:5)</span>
+    <span class="chip line">채널 : 사내 포털 → 인스타그램</span>
+    <span class="chip line">정보 : 제품 = 8 : 2</span>
+  </div>
+</header>
+
+<h2><span class="num">01</span>퍼널 흐름 한눈에 보기</h2>
+<p class="sec-sub">카드를 7개 역할 단계로 묶으면, 정보로 신뢰를 쌓고 마지막에만 제품을 꺼내는 흐름이 보입니다.</p>
+<div class="funnel">
+  <div class="fstage f-hook"><div><div class="fstep">STEP 1</div><div class="fname">후킹</div></div><div class="fdesc">첫 장 경각심 문구로 스크롤을 멈추게</div><span class="fblocks">CARD 1</span></div>
+  <div class="fstage f-trust"><div><div class="fstep">STEP 2</div><div class="fname">신뢰 · 필요성</div></div><div class="fdesc">근거를 받아들이고 → "관리해야겠다" 인식</div><span class="fblocks">CARD 2-4</span></div>
+  <div class="fstage f-conv" style="border-left-color:#C36B4E"><div><div class="fstep">STEP 3</div><div class="fname" style="color:#C36B4E">대상 강조</div></div><div class="fdesc">타깃별 추가 위해성·특별 관리 대상 언급으로 위기감 개인화</div><span class="fblocks" style="background:#F6E5DE;color:#a5502f">CARD 5</span></div>
+  <div class="fstage f-conv"><div><div class="fstep">STEP 4</div><div class="fname">셀프팁 → 제품 → CTA</div></div><div class="fdesc">일상 관리 팁 제안 → 일상 관리의 한계 → 세스코 전환</div><span class="fblocks">CARD 6-8</span></div>
+</div>
+<p class="funnel-caption"><b>정보 8 : 제품 2 원칙.</b> 셀프팁 블록의 마지막 항목이 "일상 관리 한계 → 제품"을 잇는 경첩(hinge)입니다. 너무 일찍 제품을 꺼내면 광고로 읽혀 이탈하고, 셀프팁 없이 제품을 붙이면 설득력이 떨어집니다. (근거: 세스코 진드기편·기름때편 역설계 + 고객사 리라이팅 가이드)</p>
+
+<div class="sec">
+<h2><span class="num">02</span>톤앤매너 · 표현 수위 기준</h2>
+<p class="sec-sub">카드뉴스는 <b>'공포 조장'이 아닌 '경각심 유도'</b>를 지향하되, 선이 애매하면 <b>신뢰를 해치지 않는 범위 안에서 경각심·후킹 쪽으로</b> 디벨롭합니다.</p>
+
+<div class="tone-grid">
+  <div class="tone-box">
+    <div class="tb-t">채널별 적용 범위</div>
+    <div class="tb-row"><b>홈페이지(IPM 솔루션 등)</b> : 공포 조장보다 세스코에 대한 신뢰 전달이 우선</div>
+    <div class="tb-row"><b>카드뉴스(사내 포털·인스타)</b> : 약간의 자극적 소구 허용. 일부 공포 소구 성격이 있어도 신뢰를 해치지 않는 선에서 OK</div>
+  </div>
+  <div class="tone-box">
+    <div class="tb-t">지향점 = 경각심 유도 콘텐츠</div>
+    <div class="tb-row">① 사람들이 <b>모르고 넘겼던 포인트</b>를 짚어주는 콘텐츠</div>
+    <div class="tb-row">② 일반 사실도 <b>전문성 있게 파고들어</b> 더 와닿는 콘텐츠 → 권위·신뢰가 생기는 콘텐츠 (의사·약사 인플루언서 톤)</div>
+  </div>
+  <div class="tone-box">
+    <div class="tb-t">감정 기준 (독자 반응)</div>
+    <div class="tb-row ng"><b>금지 ✕</b> : "윽" "헉" (불쾌·혐오) / "이러면 안 돼! 하지 마!" (협박·단정)</div>
+    <div class="tb-row ok"><b>지향 ○</b> : "아~ 몰랐네" "바로 관리해야겠네" / "이렇게 관리하면 효과적이에요"</div>
+  </div>
+</div>
+
+<table class="tone-table">
+  <tr><th style="width:110px">판정</th><th>예시</th><th style="width:36%">이유</th></tr>
+  <tr><td><span class="lv ok">정보전달 O</span></td><td class="ex">"기침할 때 분비물이 2m 떨어진 사람에게도 튀어"</td><td>근거 있는 사실로 경각심 (코로나19 당시 회자)</td></tr>
+  <tr><td><span class="lv ok">정보전달 O</span></td><td class="ex">"한 달 넘은 수세미, 식중독균이 변기보다 수백 배"</td><td>실제 근거 수치 + 자극적인 비교 대상 활용</td></tr>
+  <tr><td><span class="lv ok">정보전달 O</span></td><td class="ex">"생야채의 렉틴·옥살산염, 쪄서 먹어야" · "전자담배 나노 에어로졸, 폐·혈관 더 깊숙이"</td><td>과장 없이 몰랐던 사실을 구체적으로 → 일반 인식과 달라 후킹</td></tr>
+  <tr><td><span class="lv mid">허용 상한 △</span></td><td class="ex">"콜라 한 캔에 수명이 15분 줄어든다"</td><td>통계를 개인 눈높이로 가공한 수준. <b>카드뉴스는 이 수준 + 조금 더 강한 경각심·후킹까지 허용</b></td></tr>
+  <tr><td><span class="lv ng">공포 조장 ✕</span></td><td class="ex">"술 마실 때마다 전두엽을 면도칼로 긁어낸다"</td><td>근거 대비 과한 시각 비유, 불쾌·혐오 유발, 이미지 왜곡</td></tr>
+  <tr><td><span class="lv ng">공포 조장 ✕</span></td><td class="ex">"뜨거운 음식 그대로 냉장고에 넣으면 응급실 갑니다"</td><td>비약 심함, 협박성·단정 워딩으로 불쾌감 유발</td></tr>
+</table>
+<div class="tone-note"><b>한 줄 요약</b> : 근거 데이터가 확실하고 독자 반응이 "몰랐네, 바로 관리해야겠다"면 OK. 근거 대비 비약·혐오 비유·협박성 단정이면 NG. 애매하면 신뢰를 해치지 않는 선에서 경각심(후킹) 쪽으로.</div>
+</div>
+
+<div class="sec">
+<h2><span class="num">03</span>카드 기본 구성 (기본 8장 · 최대 10장)</h2>
+<p class="sec-sub">기본은 <b>8장(문제 인식 2장)</b>으로 짧고 빠르게. 근거가 많은 주제만 문제 인식을 늘려 최대 10장. 역할 순서는 항상 고정입니다.</p>
+<div class="purpose" style="border-left-color:var(--gold);margin:10px 0 4px"><b>⚠ 이 구조는 단일 템플릿 1차안입니다 - 추가 디벨롭 예정.</b> 실무에서는 한 주제에 보통 <b>2~3개의 템플릿(안)</b>을 만들어 비교·선택합니다(세스코 실물도 "1안/2안", "메인카피 ALT안"을 함께 운영). 이 8장 구조는 기준이 되는 표준안이며, 이후 타깃·소구점 변형안과 표지 후킹 ALT안 등을 세트로 추가할 예정입니다.</div>
+<div class="gallery">
+
+  <div class="igcard bg-dark"><div class="role role-hook">표지 · 후킹</div><span class="cno">01</span>
+    <div class="igbody"><div class="logo w">CESCO</div>
+      <div class="ig-h">하루 1억개 피부 각질<br><span class="hi" style="color:#8FB6F0">수백만 마리 진드기</span><br>지금 이 순간에도 매트리스 위에 함께 살고 있습니다</div>
+      <div class="ig-sub">봄철 알레르기, 원인은 매트리스일 수 있습니다</div>
+    </div>
+  </div>
+
+  <div class="igcard bg-light"><div class="role role-trust">도입 · 근거 리드</div><span class="cno dk">02</span>
+    <div class="igbody"><div class="logo b">CESCO</div>
+      <div class="ig-h">성인 5명 중 1명이 <span class="hi">알레르기 비염</span></div>
+      <div class="ig-txt">경험률은 2012년 16.8%에서 최근 <span class="mk">20% 수준</span>. 청소년은 37.8%.</div>
+      <div class="ig-src">*출처 : 질병관리청 국민건강통계 2022</div>
+      <div class="ig-bridge">→ 이 비염, 원인이 침실에 있다면?</div>
+    </div>
+  </div>
+
+  <div class="igcard bg-light"><div class="role role-info">문제 인식 ① · 심각성</div><span class="cno dk">03</span>
+    <div class="igbody"><div class="logo b">CESCO</div>
+      <div class="ig-h">베개 무게의 10%가 <span class="hi">진드기 사체와 배설물?!</span></div>
+      <div class="ig-txt">25~28℃·습도 70~80%에서 활발히 번식. 2년 쓴 베개는 유기물이 <span class="mk">무게의 약 10%까지 축적</span>.</div>
+      <div class="ig-src">*출처 : 질병관리청 KDCA · AAD</div>
+      <div class="ig-bridge">→ 그럼 청소기로 밀면 되지 않을까?</div>
+    </div>
+  </div>
+
+  <div class="igcard bg-dark"><div class="role role-info">문제 인식 ② · 원인·오해</div><span class="cno">04</span>
+    <div class="igbody"><div class="logo w">CESCO</div>
+      <div class="ig-h">일반 청소기로는 <span class="hi" style="color:#8FB6F0">제거가 어렵습니다</span></div>
+      <div class="ig-txt">사람이 흘린 각질이 먹이가 돼 개체 수가 급증. 게다가 일반 가정용 청소기는 미세 입자를 완전히 빨아들이지 못해, <span class="mk">청소 중 오염 물질이 오히려 공기 중으로 다시 퍼질 수 있습니다.</span></div>
+      <div class="ig-src">*출처 : 美 EPA 실내알레르겐 관리 가이드, Indoor Air, University of Surrey</div>
+    </div>
+  </div>
+
+  <div class="igcard bg-light opt"><div class="role role-info">문제 인식 추가(선택)</div><span class="cno dk">＋</span>
+    <div class="igbody"><div class="logo b">CESCO</div>
+      <div class="ig-h" style="font-size:13px">근거가 많은 주제만 <span class="hi">3~4장으로 확장</span></div>
+      <div class="ig-txt">기본은 위 2장(심각성 → 원인·오해)으로 압축. 다뤄야 할 위험·데이터가 많을 때만 이 자리에 카드를 더해 최대 10장까지 늘립니다.</div>
+    </div>
+  </div>
+
+  <div class="igcard bg-light"><div class="role role-emph">대상 강조 · 위해성</div><span class="cno dk">05</span>
+    <div class="igbody"><div class="logo b">CESCO</div>
+      <div class="ig-h">어린 자녀가 있다면 <span class="hi">더 중요한 침실 위생</span></div>
+      <div class="ig-txt">면역이 미성숙해 <span class="mk">알레르기 비염·아토피·천식</span>으로 이어지기 쉬움.</div>
+      <div class="ig-src">*출처 : 대한소아알레르기호흡기학회</div>
+    </div>
+  </div>
+
+  <div class="igcard bg-solution"><div class="role role-tip">셀프팁 (전환 경첩)</div><span class="cno dk">06</span>
+    <div class="igbody"><div class="logo b">CESCO <span style="float:right;font-family:Pretendard;font-size:8px;color:var(--trust);font-weight:700">셀프 관리 팁</span></div>
+      <div class="ig-h" style="font-size:13px">이렇게 관리해 보세요</div>
+      <div class="ig-tip"><b>1.</b> 실내 습도 50% 이하 유지</div>
+      <div class="ig-tip"><b>2.</b> 침구는 55℃ 이상 뜨거운 물 세탁</div>
+      <div class="ig-tip"><b>3. 매트리스는 정기 관리</b><br><span class="lim">일상 관리로는 한계 → 전문 케어 서비스</span></div>
+    </div>
+  </div>
+
+  <div class="igcard bg-solution"><div class="role role-prod">Why 세스코 · 제품</div><span class="cno dk">07</span>
+    <div class="igbody"><div class="logo b">CESCO <span style="float:right;font-family:Pretendard;font-size:8px;color:var(--convert);font-weight:700">세스코 솔루션</span></div>
+      <div class="ig-h">집먼지 진드기는 <span class="hi">세스코가 가장 잘 압니다</span></div>
+      <div class="ig-txt">전문 방제기술로 탄생한 <span class="mk">매트리스 케어 솔루션</span>. 원인 분석·원천 차단.</div>
+    </div>
+  </div>
+
+  <div class="igcard bg-dark"><div class="role role-cta">맺음말 · CTA</div><span class="cno">08</span>
+    <div class="igbody"><div class="logo w">CESCO</div>
+      <div class="ig-h">알레르기 관리의 시작은 <span class="hi" style="color:#8FB6F0">생활 공간 점검</span>입니다</div>
+      <div class="ig-sub">봄·여름 대청소 시즌, 세스코와 매트리스 위생까지 무료 점검</div>
+    </div>
+  </div>
+
+</div>
+<div class="gallery-legend">
+  <span><i style="background:var(--hook)"></i>후킹</span>
+  <span><i style="background:var(--trust)"></i>신뢰 · 정보</span>
+  <span><i style="background:#C36B4E"></i>대상 강조</span>
+  <span><i style="background:var(--convert)"></i>셀프팁 · 제품 · CTA</span>
+  <span style="margin-left:auto;opacity:.7">진드기편을 기본 8장으로 재구성한 예시. 점선 카드는 근거가 많을 때만 더하는 선택 카드(최대 10장). 파란 화살표(→)는 다음 카드로 잇는 브릿지.</span>
+</div>
+</div>
+
+<div class="sec">
+<h2><span class="num">04</span>역할 블록별 규격</h2>
+<p class="sec-sub">고객사 라벨을 채택했습니다. 각 블록의 목적·필수요소·주의사항입니다.</p>
+<div class="blocks">
+
+  <div class="bcard hook">
+    <div class="bhead"><span class="bno">CARD 1</span><span class="bname">표지</span><span class="blabel">/ 후킹</span><span class="btag hook">후킹</span></div>
+    <p class="bgoal">피드 썸네일에서 <b>3초 안에 스크롤을 멈추게</b> 하는 것. 헤드라인 한 방에 승부.</p>
+    <div class="brow"><span class="k">헤드라인</span><span class="v">문제 제기형 + 가능하면 <b>핵심 숫자를 표지에 노출</b>. 강조어는 블루 컬러로 (2줄 이내)</span></div>
+    <div class="brow"><span class="k">부제</span><span class="v">건조체 한 줄. 다소 밋밋해도 전체 내용을 예고. 어미 <b>~방법 / ~이유 / ~TIP / ~솔루션</b></span></div>
+    <div class="brow"><span class="k">디자인</span><span class="v">다크 네이비 그라데이션 + 로고(좌상단). 임팩트 필요 시 매크로 실물 사진</span></div>
+  </div>
+
+  <div class="bcard trust">
+    <div class="bhead"><span class="bno">CARD 2</span><span class="bname">도입 · 근거 리드</span><span class="blabel">/ 도입부(요약)</span><span class="btag trust">신뢰착지</span></div>
+    <p class="bgoal">표지의 후킹을 근거로 받아 <b>"낚시 아님, 진짜 정보"</b>임을 증명.</p>
+    <div class="brow"><span class="k">필수</span><span class="v">요약 리드 2~3문장 + <b>출처 표기</b>(하단 *출처:). 통계·기관명·연도를 문장에 포함</span></div>
+    <div class="brow"><span class="k">브릿지</span><span class="v">마지막 문장은 <b>다음 카드(문제 인식)로 이어지는 브릿지 문구</b>로 끝맺기. 예: "그런데 이 알레르기, 원인이 침실에 있다면?"</span></div>
+    <div class="brow"><span class="k">톤</span><span class="v">표지의 흥분을 가라앉히고 차분한 정보 톤으로 전환</span></div>
+  </div>
+
+  <div class="bcard trust">
+    <div class="bhead"><span class="bno">문제 인식</span><span class="bname">위생 필요성 (기본 2장·최대 4장)</span><span class="blabel">/ 정의·영향 · 언제·어떻게 · 위험성</span><span class="btag trust">정보전달</span></div>
+    <p class="bgoal">"정의 → 언제/어떻게 → 왜 위험한가"를 정보로 쌓아 <b>독자가 스스로 관리 필요성을 느끼게</b>. <b>기본 2장</b>("심각성 → 원인·오해"), 근거 많은 주제만 최대 4장.</p>
+    <div class="brow"><span class="k">헤드라인</span><span class="v"><b>헤드라인만 읽어도 카드 내 내용이 이해</b>되어야 함 · 구체적이고 쉬운 워딩 · <b>불필요한 동어 반복은 지양</b>(카드 내용을 반영하는 것이므로 3회 미만은 가능)</span></div>
+    <div class="brow"><span class="k">필수</span><span class="v">헤드라인 + 본문 3~6줄 + 핵심 문장 하이라이트(블루 형광) + 출처</span></div>
+    <div class="brow"><span class="k">구성</span><span class="v">각 장은 정의 / 언제·어떻게 / 근거 데이터 중 하나 이상 담당. 데이터는 반드시 출처와 함께</span></div>
+    <div class="brow"><span class="k">브릿지</span><span class="v">각 장의 마지막 문장은 <b>다음 장 첫 문장과 자연스럽게 이어지는 브릿지</b>로 끝맺기 (앞 카드 마지막 ↔ 다음 카드 처음이 하나의 흐름)</span></div>
+  </div>
+
+  <div class="bcard emph">
+    <div class="bhead"><span class="bno">CARD 7</span><span class="bname">대상 강조 · 위해성</span><span class="blabel">/ 위험성 · 관리 필요성</span><span class="btag emph">행동유도</span></div>
+    <p class="bgoal"><b>타깃 고객에게 적용되는 추가 위해성</b>을 언급하거나 <b>특별 관리 대상</b>을 짚어 위기감을 개인화.</p>
+    <div class="brow"><span class="k">필수</span><span class="v">특별 관리 대상 명시(영유아 가정·자영업 매장·알레르기 질환자 등) + 방치 시 결과</span></div>
+    <div class="brow"><span class="k">주의</span><span class="v">공포 '조장'까지는 금지, <b>경각심 유도는 적극 활용</b> (02 표현 수위 기준 참조). 근거 데이터로 "왜 지금 관리해야 하는가"를 타깃 눈높이로</span></div>
+  </div>
+
+  <div class="bcard conv">
+    <div class="bhead"><span class="bno">CARD 8</span><span class="bname">셀프 관리 팁</span><span class="blabel">/ 예방 관리</span><span class="btag conv">전환경첩</span></div>
+    <p class="bgoal">무료 노하우로 호감·저장률을 올리고, <b>마지막 항목에서 제품으로 넘어가는 다리</b>를 놓음.</p>
+    <div class="brow"><span class="k">헤드라인</span><span class="v"><b>"이렇게 관리해 보세요"</b>로 고정</span></div>
+    <div class="brow"><span class="k">흐름</span><span class="v">일상에서 문제를 개선할 수 있는 솔루션(셀프팁) 제안 → <b>일상 관리의 한계</b> → 그 이상의 관리는 전문가(세스코)의 도움을 받도록 유도</span></div>
+    <div class="brow"><span class="k">필수</span><span class="v">번호형 셀프팁 3~4개 (각: 소제목 + 2~3문장). 실행 가능한 구체적 팁</span></div>
+    <div class="hinge"><span class="ei">경첩</span><span><b>마지막 팁 = 일상 관리의 한계 → 전문가 전환.</b> "내부 깊숙한 곳은 일상 관리로는 한계가 있어 전문 케어가 효과적입니다." → 이 문장이 CARD 9 제품 장의 명분이 됩니다.</span></div>
+  </div>
+
+  <div class="bcard conv">
+    <div class="bhead"><span class="bno">CARD 9</span><span class="bname">Why 세스코 · 제품</span><span class="blabel">/ 제품 소개</span><span class="btag conv">설득</span></div>
+    <p class="bgoal">일상 관리의 한계를 받아 <b>"그래서 세스코"</b>로 연결.</p>
+    <div class="brow"><span class="k">필수</span><span class="v">세스코가 잘하는 이유(전문 방제기술·원인 분석·원천 차단) + 솔루션/제품명 + 작동 원리 1~2문장</span></div>
+    <div class="brow"><span class="k">주의</span><span class="v">여기서도 과장 금지. 근거 있는 표현만</span></div>
+  </div>
+
+  <div class="bcard conv">
+    <div class="bhead"><span class="bno">CARD 10</span><span class="bname">맺음말 · CTA</span><span class="blabel">/ 맺음말</span><span class="btag conv">전환</span></div>
+    <p class="bgoal">마지막 행동 유도.</p>
+    <div class="brow"><span class="k">필수</span><span class="v">요약 한 줄 + CTA(무료진단 / 구매 / 상담). "전문가에게 맡기세요"류 위임형 마무리</span></div>
+    <div class="brow"><span class="k">디자인</span><span class="v">다크 배경으로 표지와 수미상관. 로고를 하단 중앙/우하단에</span></div>
+  </div>
+
+</div>
+</div>
+
+<div class="sec">
+<h2><span class="num">05</span>뼈대와 내용 나누기 (주제별 재료 양식)</h2>
+<p class="sec-sub"><b>바뀌지 않는 뼈대</b>(역할 순서, 기본 8장·최대 10장)와 <b>주제마다 바뀌는 내용</b>(헤드라인·통계·출처)을 따로 관리합니다. 주제 하나당 아래 양식만 채우면 뼈대에 자동으로 채워집니다. <code>problem_cards</code> 개수로 장수를, <code>info_product_ratio</code>로 제품 노출 강도를 조절합니다.</p>
+<div class="jsonbox"><pre>{
+  <span class="k">"topic"</span>: { <span class="k">"subject"</span>: <span class="s">"집먼지 진드기 / 매트리스 위생"</span>, <span class="k">"season_hook"</span>: <span class="s">"봄·여름 대청소 시즌"</span>,
+             <span class="k">"channel"</span>: [<span class="s">"사내포털"</span>, <span class="s">"인스타그램"</span>], <span class="k">"info_product_ratio"</span>: <span class="s">"8:2"</span> },
+  <span class="k">"cover"</span>: { <span class="k">"headline"</span>: <span class="s">"하루 1억개 피부 각질, 수백만 마리 진드기 - 지금 이 순간에도 매트리스 위에 함께 살고 있습니다"</span>,
+             <span class="k">"subhead"</span>: <span class="s">"봄철 알레르기, 원인은 매트리스일 수 있습니다"</span>, <span class="k">"hero_stat"</span>: <span class="s">"수백만 마리"</span> },
+  <span class="k">"lead"</span>: { <span class="k">"summary"</span>: <span class="s">"25~28℃·습도 70~80%에서 활발히 번식…"</span>, <span class="k">"source"</span>: <span class="s">"질병관리청 KDCA"</span>,
+           <span class="k">"bridge"</span>: <span class="s">"그런데 원인이 침실에 있다면?"</span> },   <span class="c">// bridge = 다음 카드로 잇는 마지막 문장</span>
+  <span class="k">"problem_cards"</span>: [   <span class="c">// 배열 길이 = 문제인식 장수 (기본 2 → 8장, 최대 4 → 10장)</span>
+    { <span class="k">"headline"</span>: <span class="s">"성인 5명 중 1명이 알레르기 비염"</span>, <span class="k">"highlight"</span>: <span class="s">"청소년은 37.8%"</span>, <span class="k">"source"</span>: <span class="s">"국민건강통계 2022"</span> },
+    { <span class="k">"headline"</span>: <span class="s">"일반 청소기로는 제거가 어렵습니다"</span>, <span class="k">"highlight"</span>: <span class="s">"오염 물질이 다시 공기 중으로 퍼질 수 있습니다"</span>, <span class="k">"source"</span>: <span class="s">"美 EPA"</span> }
+  ],
+  <span class="k">"target_emphasis"</span>: { <span class="k">"who"</span>: <span class="s">"어린 자녀가 있는 가정"</span>, <span class="k">"headline"</span>: <span class="s">"어린 자녀가 있다면 더 중요한 침실 위생"</span> },
+  <span class="k">"self_tips"</span>: { <span class="k">"fixed_headline"</span>: <span class="s">"이렇게 관리해 보세요"</span>, <span class="k">"tips"</span>: [<span class="c">…</span>],
+                <span class="k">"limit_tip"</span>: { <span class="k">"desc"</span>: <span class="s">"내부는 일상 관리 한계 → 전문 케어가 효과적"</span> } },   <span class="c">// 전환 경첩</span>
+  <span class="k">"product"</span>: { <span class="k">"why_cesco"</span>: <span class="s">"전문 방제기술로 원인 분석·원천 차단"</span>, <span class="k">"name"</span>: <span class="s">"세스코 매트리스 케어 솔루션"</span> },
+  <span class="k">"cta"</span>: { <span class="k">"closing"</span>: <span class="s">"알레르기 관리의 시작은 생활 공간 점검입니다"</span>, <span class="k">"action"</span>: <span class="s">"무료진단 신청"</span> },
+  <span class="k">"tone"</span>: <span class="s">"근거 중심 전문가 톤 + 경각심 유도 허용(공포 조장 금지, 02 기준)"</span>
+}</pre></div>
+</div>
+
+<div class="sec">
+<h2><span class="num">06</span>프롬프트 운영 흐름</h2>
+<p class="sec-sub">상세페이지와 동일하게 단계를 쪼개, 중간마다 사람이 검토할 여지를 둡니다. 자료가 부족하면 <b>1B(자료 탐색·보강)</b>로 웹검색을 거쳐 근거를 채웁니다. (전체 프롬프트는 가이드 .md 4장 참조)</p>
+<div class="steps">
+  <div class="step"><div class="sno">1</div><div class="sname">정보 구조화</div><div class="sdesc">원본 자료 → JSON 스키마로 정리. "지어내지 마" 명시</div></div>
+  <div class="step"><div class="sno" style="width:auto;padding:0 8px;border-radius:13px">1B</div><div class="sname">자료 탐색·보강</div><div class="sdesc">빈칸이 남으면 웹검색 도구로 근거 조사. 공공·1차 출처 + URL·연도 검증(4-1B)</div></div>
+  <div class="step"><div class="sno">2</div><div class="sname">마스터 생성</div><div class="sdesc">JSON → 전체 카피 원샷 생성(기본 8장·최대 10장)</div></div>
+  <div class="step"><div class="sno">3</div><div class="sname">장별 재작업</div><div class="sdesc">표지·문제인식·셀프팁 등 특정 장만 재생성</div></div>
+  <div class="step"><div class="sno">4</div><div class="sname">헤드라인 점검</div><div class="sdesc">동어 반복 지양(3회 미만 허용) + "헤드라인만 읽어도 이해" 일괄 검수</div></div>
+  <div class="step"><div class="sno">5</div><div class="sname">컴플라이언스</div><div class="sdesc">"심의 담당자" 역할로 과장·의료 단정 표현 걸러내기</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h2><span class="num">07</span>이 구조가 작동하는 4가지 원리</h2>
+<div class="principles">
+  <div class="pr"><div class="pt">권위 있는 근거로 신뢰를 산다</div><div class="pd">모든 수치를 <b>식약처·질병관리청·통계청·학회·논문</b> 같은 1차·공공 출처에서만 인용합니다. 근거의 권위가 곧 세스코 콘텐츠의 신뢰이며, 출처 불명 수치는 오히려 신뢰를 깎습니다.</div></div>
+  <div class="pr"><div class="pt">셀프팁이 전환의 경첩</div><div class="pd">무료 팁을 준 뒤 <b>마지막 항목의 "일상 관리 한계"</b>가 제품 소구의 명분을 만듭니다. 정보와 제품 사이 자연스러운 다리입니다.</div></div>
+  <div class="pr"><div class="pt">헤드라인만으로 스토리</div><div class="pd">각 장 헤드라인이 <b>헤드라인만 읽어도 카드 내 내용이 이해</b>되고 불필요한 동어 반복이 없으면, 빠르게 넘겨도 전체 메시지가 전달됩니다.</div></div>
+  <div class="pr"><div class="pt">브릿지로 이어지는 흐름</div><div class="pd">도입·문제인식 카드는 <b>다음 카드로 이어지는 브릿지 문구</b>로 끝맺습니다. 앞 카드의 마지막 문장이 다음 카드의 첫 문장을 불러, 이탈 없이 끝까지 읽히게 합니다.</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h2><span class="num">08</span>발행 전 최종 체크리스트</h2>
+<div class="check">
+  <h3>구조 · 전환 · 근거</h3>
+  <ul>
+    <li>표지 헤드라인이 문제제기형 + 핵심 숫자를 담았는가</li>
+    <li>표지 부제가 전체 내용을 예고하는 건조체인가</li>
+    <li>2장에서 표지 후킹을 받아주는 근거·출처가 있는가</li>
+    <li><b>앞 카드 마지막 문장과 다음 카드 첫 문장이 자연스럽게 연결되는가 (브릿지)</b></li>
+    <li>각 장 헤드라인만 읽어도 카드 내 내용이 이해되는가 (동어 반복은 지양, 3회 미만 허용)</li>
+    <li><b>모든 수치가 권위 출처(식약처·질병관리청·통계청·환경부·학회·논문·WHO/EPA)에서 왔는가</b></li>
+    <li><b>개인 블로그·커뮤니티·출처 불명 기사에서 온 수치가 섞이지 않았는가</b></li>
+    <li>검색으로 새로 채운 수치(1B)는 원문 URL·연도까지 사람이 교차 확인했는가</li>
+    <li><b>모든 근거에 기관/저자명+자료명+연도가 표기됐는가</b></li>
+    <li>대상 강조 장에서 타깃별 추가 위해성·특별 관리 대상으로 위기감을 개인화했는가</li>
+    <li>셀프팁 헤드라인이 "이렇게 관리해 보세요"인가</li>
+    <li>셀프팁 마지막이 "일상 관리 한계 → 제품"으로 연결되는가</li>
+    <li>제품이 마지막 2장(Why 세스코·CTA)에서만 노출됐는가</li>
+    <li>맺음말에 명확한 CTA가 있는가</li>
+    <li>표현 수위가 '경각심 유도' 범위인가 (협박·단정·혐오 비유 없음)</li>
+    <li>컴플라이언스 QA로 과장·의료 단정·공포 조장을 걸렀는가</li>
+  </ul>
+</div>
+</div>
+
+</div>
+</body>
+</html>
