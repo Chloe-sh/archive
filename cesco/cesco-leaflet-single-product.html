@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>리플렛 템플릿 3 · 단일 상품·서비스형 (B형)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --card:#FBFCFC;
+  --ink:#131B23;
+  --ink2:#4A5761;
+  --ink3:#7C888F;
+  --rule:#CDD5D6;
+  --uv:#6C4BD8;
+  --uv-soft:#EEE9FC;
+  --keep:#12695A;
+  --avoid:#A32D3B;
+
+  --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --display:var(--sans);
+  --body:var(--sans);
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad:clamp(20px,4vw,48px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.72;
+  letter-spacing:-.008em;
+  word-break:keep-all;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+
+/* ---------- shell ---------- */
+.shell{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 var(--pad) 96px;
+  display:grid;
+  grid-template-columns:172px minmax(0,1fr);
+  gap:clamp(28px,5vw,64px);
+  align-items:start;
+}
+@media (max-width:900px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:0}
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:1px solid var(--ink);
+  padding:clamp(48px,8vw,88px) var(--pad) 0;
+  max-width:1180px;
+  margin:0 auto;
+}
+.eyebrow{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.16em;
+  color:var(--uv);
+  margin:0 0 22px;
+}
+.eyebrow span{color:var(--ink3)}
+h1{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:clamp(34px,6.6vw,62px);
+  line-height:1.12;
+  letter-spacing:-.035em;
+  margin:0 0 6px;
+}
+h1 em{
+  font-style:normal;
+  display:block;
+  font-size:.36em;
+  font-weight:400;
+  letter-spacing:-.01em;
+  color:var(--ink2);
+  margin-top:14px;
+  line-height:1.5;
+  max-width:46ch;
+}
+.mast-meta{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+  margin:clamp(34px,5vw,54px) 0 0;
+  transform:translateY(1px);
+}
+.mast-meta div{background:var(--paper);padding:16px 18px 18px}
+.mast-meta dt{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.06em;
+  color:var(--ink3);
+  margin:0 0 6px;
+}
+.mast-meta dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.ids{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.id{
+  font-family:var(--mono);
+  font-size:11.5px;
+  padding:2px 7px;
+  border:1px solid var(--uv);
+  color:var(--uv);
+  border-radius:2px;
+}
+.id b{font-weight:500}
+.id small{font-family:var(--sans);color:var(--ink3);font-size:11.5px;margin-left:5px;font-weight:400}
+
+/* ---------- rail ---------- */
+.rail{
+  position:sticky;
+  top:0;
+  padding-top:clamp(40px,6vw,72px);
+}
+.rail-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.1em;
+  color:var(--ink3);
+  padding-bottom:10px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:10px;
+}
+.rail a{
+  display:block;
+  font-size:13.5px;
+  color:var(--ink2);
+  text-decoration:none;
+  padding:5px 0 5px 14px;
+  border-left:2px solid transparent;
+  transition:color .18s,border-color .18s;
+}
+.rail a:hover{color:var(--ink)}
+.rail a.on{color:var(--uv);border-left-color:var(--uv);font-weight:500}
+.rail a .n{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-right:7px}
+.rail a.on .n{color:var(--uv)}
+@media (max-width:900px){
+  .rail{
+    position:sticky;top:0;z-index:20;
+    background:var(--paper);
+    padding:10px 0;
+    border-bottom:1px solid var(--rule);
+    margin:0 calc(var(--pad)*-1);
+    padding-inline:var(--pad);
+  }
+  .rail-title{display:none}
+  .rail nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+  .rail nav::-webkit-scrollbar{display:none}
+  .rail a{
+    flex:0 0 auto;padding:4px 11px;border:1px solid var(--rule);border-left-width:1px;
+    border-radius:2px;font-size:12.5px;white-space:nowrap;
+  }
+  .rail a.on{border-color:var(--uv);background:var(--uv-soft)}
+}
+
+/* ---------- sections ---------- */
+main{padding-top:clamp(40px,6vw,72px);min-width:0}
+.sec{margin:0 0 clamp(56px,8vw,96px);scroll-margin-top:24px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.sec-num{
+  font-family:var(--mono);
+  font-size:12.5px;
+  color:var(--uv);
+  letter-spacing:.02em;
+  padding-top:7px;
+}
+h2{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:clamp(22px,3.2vw,30px);
+  letter-spacing:-.025em;
+  line-height:1.3;
+  margin:0;
+}
+h2 .sub{
+  display:block;font-family:var(--sans);font-weight:400;font-size:14.5px;
+  color:var(--ink3);letter-spacing:-.005em;margin-top:9px;line-height:1.6;
+}
+p{margin:0 0 1em}
+.lede{font-size:17px;color:var(--ink2);max-width:62ch}
+
+/* ---------- table ---------- */
+.tw{overflow-x:auto;border:1px solid var(--rule);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;
+  color:var(--ink3);font-weight:600;background:var(--paper);
+}
+tbody tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--mono);color:var(--uv);width:44px;text-align:center}
+td:nth-child(2){font-weight:500;white-space:nowrap}
+td:nth-child(4){color:var(--ink2);font-size:13.5px}
+tbody tr:hover{background:var(--uv-soft)}
+
+/* ---------- spec blocks ---------- */
+.spec{
+  border:1px solid var(--rule);
+  background:var(--card);
+  margin-bottom:20px;
+}
+.spec > header{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px 22px;
+  border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--paper),var(--card));
+}
+.glyph{
+  font-size:22px;line-height:1;color:var(--uv);
+  flex:0 0 auto;padding-top:2px;
+}
+.spec h3{
+  margin:0;font-family:var(--sans);font-weight:600;
+  font-size:18.5px;line-height:1.4;letter-spacing:-.02em;
+}
+.spec h3 .tag{
+  display:inline-block;margin-left:9px;vertical-align:2px;
+  font-family:var(--sans);font-size:11.5px;letter-spacing:.02em;font-weight:500;
+  color:var(--uv);border:1px solid var(--uv);border-radius:2px;padding:1px 7px;
+}
+.spec-body{padding:6px 22px 22px}
+
+.sub{margin-top:18px}
+.sub-label{
+  display:flex;align-items:center;gap:9px;
+  font-family:var(--sans);font-weight:600;font-size:12.5px;letter-spacing:.04em;
+  color:var(--ink3);margin-bottom:9px;
+}
+.sub-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+.sub-label b{color:var(--uv);font-weight:600;font-family:var(--mono);font-size:11.5px}
+.sub p{margin:0 0 .6em;font-size:15px;color:var(--ink2)}
+.sub p:last-child{margin-bottom:0}
+.sub p strong{color:var(--ink);font-weight:500}
+
+/* formula */
+.f{list-style:none;margin:0;padding:0}
+.f li{
+  font-family:var(--mono);font-size:13px;line-height:1.85;
+  background:var(--paper);border-left:2px solid var(--uv);
+  padding:10px 14px;margin-bottom:6px;
+  overflow-wrap:anywhere;
+}
+.f li:last-child{margin-bottom:0}
+.f .k{color:var(--ink3)}
+.slot{background:var(--uv-soft);color:var(--uv);padding:0 3px;border-radius:2px}
+
+/* examples */
+.ex{margin:0;padding:0;list-style:none}
+.ex li{
+  position:relative;padding:2px 0 14px 20px;
+  border-left:1px solid var(--rule);
+  padding-left:20px;margin-bottom:12px;
+}
+.ex li:last-child{margin-bottom:0;padding-bottom:0}
+.ex q{font-size:14.5px;line-height:1.85;color:var(--ink);quotes:'"' '"'}
+.ex .src{
+  display:inline-block;margin-left:7px;
+  font-family:var(--mono);font-size:11px;color:var(--ink3);
+  border-bottom:1px dotted var(--ink3);
+  white-space:nowrap;
+}
+.ex .kind{
+  display:block;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.03em;
+  color:var(--uv);margin-bottom:5px;
+}
+.bubble{
+  display:inline-block;font-family:var(--sans);font-weight:500;font-size:11px;
+  background:var(--ink);color:var(--paper);padding:1px 6px;border-radius:9px;
+  margin:0 4px 0 0;vertical-align:1px;letter-spacing:.04em;
+}
+
+/* keep / avoid */
+.ka{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media (max-width:620px){.ka{grid-template-columns:1fr}}
+.ka > div{background:var(--card);padding:14px 16px}
+.ka h4{
+  margin:0 0 7px;font-family:var(--sans);font-size:12.5px;letter-spacing:.03em;
+  font-weight:600;display:flex;align-items:center;gap:7px;
+}
+.ka .keep h4{color:var(--keep)}
+.ka .avoid h4{color:var(--avoid)}
+.ka h4::before{content:"";width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+.ka .keep h4::before{background:var(--keep)}
+.ka .avoid h4::before{background:var(--avoid)}
+.ka p{margin:0;font-size:14px;line-height:1.7;color:var(--ink2)}
+
+/* density gauge — signature detail for §5 */
+.gauge{margin:18px 0 0;border:1px solid var(--uv);background:var(--uv-soft);padding:14px 16px}
+.gauge .lab{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.04em;
+  color:var(--uv);margin-bottom:9px;
+}
+.bar{display:flex;height:10px;border:1px solid var(--uv)}
+.bar i{display:block}
+.bar .foot{width:33.33%;background:repeating-linear-gradient(45deg,var(--uv),var(--uv) 2px,transparent 2px,transparent 5px);border-right:1px solid var(--uv)}
+.bar .rest{flex:1;background:transparent}
+.gauge small{display:block;margin-top:8px;font-size:12.5px;color:var(--ink2);line-height:1.6}
+
+/* lists */
+ul.plain{margin:0;padding:0;list-style:none}
+ul.plain li{
+  position:relative;padding-left:18px;margin-bottom:9px;font-size:15px;color:var(--ink2);
+}
+ul.plain li::before{
+  content:"";position:absolute;left:0;top:.7em;width:7px;height:1px;background:var(--uv);
+}
+ul.plain li:last-child{margin-bottom:0}
+ul.plain strong{color:var(--ink);font-weight:500}
+
+/* code / fixed blocks */
+.block{border:1px solid var(--rule);background:var(--card);margin-bottom:20px}
+.block > header{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:11px 16px;border-bottom:1px solid var(--rule);background:var(--paper);
+}
+.block h3{
+  margin:0;font-family:var(--sans);font-size:13px;letter-spacing:.02em;
+  color:var(--ink2);font-weight:600;
+}
+pre{
+  margin:0;padding:18px 16px;overflow-x:auto;
+  font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink);
+  white-space:pre-wrap;word-break:break-word;
+}
+button.copy{
+  font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.02em;
+  background:transparent;color:var(--uv);border:1px solid var(--uv);border-radius:2px;
+  padding:4px 10px;cursor:pointer;flex:0 0 auto;transition:background .16s,color .16s;
+}
+button.copy:hover{background:var(--uv);color:#fff}
+button.copy[data-done="1"]{background:var(--keep);border-color:var(--keep);color:#fff}
+:focus-visible{outline:2px solid var(--uv);outline-offset:2px}
+
+/* skeleton — signature */
+.skel-wrap{border:1px solid var(--ink);background:var(--card)}
+.skel-wrap > header{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:13px 18px;background:var(--ink);color:var(--paper);
+}
+.skel-wrap > header h3{
+  margin:0;font-family:var(--sans);font-size:13px;letter-spacing:.04em;font-weight:600;
+}
+.skel-wrap > header button.copy{color:var(--paper);border-color:rgba(242,244,243,.45)}
+.skel-wrap > header button.copy:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.skel{
+  padding:clamp(20px,4vw,40px) clamp(16px,3vw,34px);
+  max-width:62ch;margin:0 auto;
+  font-family:var(--mono);font-size:12.5px;line-height:2;
+  white-space:pre-wrap;word-break:break-word;
+}
+.skel .b{color:var(--ink);font-weight:500}
+.skel hr{border:0;border-top:1px dashed var(--rule);margin:20px 0}
+
+.note{
+  font-size:13.5px;color:var(--ink3);line-height:1.7;
+  border-left:2px solid var(--rule);padding-left:14px;margin:16px 0 0;
+}
+footer.pagefoot{
+  border-top:1px solid var(--ink);margin-top:8px;padding:22px var(--pad) 44px;
+  max-width:1180px;margin-inline:auto;
+  display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.01em;color:var(--ink3);
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <p class="eyebrow">리플렛 템플릿 03 <span>/ 유형 B</span></p>
+  <h1>단일 상품·<br>서비스형
+    <em>상품·서비스 1개를 “문제 → 근거 → 해법” 서사로 깊게 설득하는 본문형 리플렛.</em>
+  </h1>
+
+  <dl class="mast-meta">
+    <div>
+      <dt>용도</dt>
+      <dd>통합 리플릿(표지형)이 연 관심을 개별 상품 계약으로 전환하는 단계</dd>
+    </div>
+    <div>
+      <dt>타깃</dt>
+      <dd>특정 문제(호흡기 감염·초파리·화장실 위생)를 이미 체감한 가정·사업장 고객</dd>
+    </div>
+    <div>
+      <dt>표준 분량</dt>
+      <dd>1면 밀도형 — 지면의 1/3까지 신뢰 각주가 차지하는 것이 이 유형의 특징</dd>
+    </div>
+    <div>
+      <dt>근거 원문 id</dt>
+      <dd class="ids">
+        <span class="id"><b>343</b><small>공기살균기</small></span>
+        <span class="id"><b>400</b><small>위생해충</small></span>
+        <span class="id"><b>327</b><small>살균방수비데</small></span>
+      </dd>
+    </div>
+  </dl>
+</header>
+
+<div class="shell">
+
+  <aside class="rail">
+    <div class="rail-title">목차</div>
+    <nav>
+      <a href="#s1"><span class="n">01</span>전체 구조</a>
+      <a href="#s2"><span class="n">02</span>섹션별 스펙</a>
+      <a href="#s3"><span class="n">03</span>톤앤매너</a>
+      <a href="#s4"><span class="n">04</span>고정 요소</a>
+      <a href="#s5"><span class="n">05</span>변형 규칙</a>
+      <a href="#s6"><span class="n">06</span>빈 스켈레톤</a>
+    </nav>
+  </aside>
+
+  <main>
+
+  <!-- 1 -->
+  <section class="sec" id="s1">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>전체 구조<span class="sub">7개 섹션 고정 순서 — ①에서 ⑦까지가 설득 서사의 진행 순서다</span></h2>
+    </div>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr><th>#</th><th>섹션명</th><th>역할</th><th>분량</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>①</td><td>문제 제기 헤드라인</td><td>질문형·뉴스 말풍선·문제 단정</td><td>2~3줄 (+말풍선 3개)</td></tr>
+          <tr><td>②</td><td>근거·심각성</td><td>해충 생태 수치·통계·유행 서술</td><td>문단 1~2 또는 카드 3개</td></tr>
+          <tr><td>③</td><td>상품명 + 한 문장 정의</td><td>“{기술 수식} 세스코 {상품명}”</td><td>2~3줄</td></tr>
+          <tr><td>④</td><td>기능·특징 넘버링</td><td>1~8 / SOLUTION 01~03 / STEP</td><td>3~8항</td></tr>
+          <tr><td>⑤</td><td>신뢰 장치</td><td>시험기관·인증 각주 + 면책</td><td>※ 3~5줄</td></tr>
+          <tr><td>⑥</td><td>부가 혜택</td><td>홍보물(스티커·POP) 제공 안내</td><td>1블록 (선택)</td></tr>
+          <tr><td>⑦</td><td>클로징</td><td>본사 4줄 푸터 → ©코드 → [명함스티커 부착]</td><td>고정 블록</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="sec" id="s2">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>섹션별 상세 스펙<span class="sub">각 섹션은 (a) 원칙 · (b) 카피 공식 · (c) 실제 예문 · (d) 지킬 것과 피할 것 순으로 정의된다</span></h2>
+    </div>
+
+    <!-- ① -->
+    <article class="spec">
+      <header>
+        <span class="glyph">①</span>
+        <h3>문제 제기 헤드라인</h3>
+      </header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 원칙</div>
+          <p>세 가지 진입 패턴: (i) 뉴스 헤드라인 말풍선 + 효능 헤드, (ii) 문제 단정 + ‘A는 다릅니다’ 재프레이밍, (iii) 브랜드 헤더 + 기술 수식 상품명(프리미엄 가전형).</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="k">(i)</span> [말풍선] <span class="slot">{뉴스 헤드라인}</span> ×3 + <span class="slot">{병원체 나열}</span> 살균하는 / 세스코 <span class="slot">{상품명}</span></li>
+            <li><span class="k">(ii)</span> 잡아도 또 나타나는 <span class="slot">{해충}</span>, / <span class="slot">{범위 확장: 알부터 번데기까지}</span> 제어하는 / 세스코 솔루션은 다릅니다.</li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">패턴 i — 뉴스 말풍선 + 효능 헤드</span>
+              <q>폐렴균·독감·코로나 바이러스 살균하는 / 세스코 공기살균기</q><span class="src">343</span>
+              <p style="margin:9px 0 0;font-size:14px;line-height:1.9;color:var(--ink2)">
+                <span class="bubble">말풍선</span>독감에 코로나19, 폐렴까지 ‘동시에’…호흡기 질환 비상<br>
+                <span class="bubble">말풍선</span>독감 확산에 동네병원 북새통<br>
+                <span class="bubble">말풍선</span>코로나발 면역력 저하에 호흡기질환 역대급 유행
+              </p>
+            </li>
+            <li>
+              <span class="kind">패턴 ii — 문제 단정 + 재프레이밍</span>
+              <q>잡아도 또 나타나는 얼룩점초파리, / 숨어있는 알부터 번데기까지 제어하는 / 세스코 솔루션은 다릅니다.</q><span class="src">400</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>말풍선은 실제 뉴스 어투(명사구 종결)로 3개.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>헤드라인에서 해법 상세를 미리 풀기.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ② -->
+    <article class="spec">
+      <header>
+        <span class="glyph">②</span>
+        <h3>근거·심각성</h3>
+      </header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 원칙</div>
+          <p>불안 환기를 감정어가 아닌 <strong>수치·생태</strong>로 수행. ✅ 소제목(질문형 허용) + 근거 문단 또는 수치 카드 3개.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="k">질문 소제목</span> ✅ <span class="slot">{해충/문제}</span>, 왜 자꾸 생겨날까요? → 즉답: <span class="slot">{원인 원리}</span>에서 시작해야 근본 원인을 해결할 수 있습니다.</li>
+            <li><span class="k">수치 카드</span> <span class="slot">{라벨 명사구}</span> / <span class="slot">{수치 주장}</span>* <span class="k">(카드 3개: 주기·번식력·서식지)</span></li>
+            <li><span class="k">유행 서술</span> <span class="slot">{병원체}</span>는 <span class="slot">{주기·양상}</span>으로 유행을 반복합니다. … <span class="slot">{상품}</span>은 <span class="slot">{병원체}</span>가 당신을 공격하기 전에 <span class="slot">{기술}</span>이 가동되어 <span class="slot">{대상}</span>을 선제공격합니다!</li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">질문 소제목 + 수치 카드 3개</span>
+              <q>✅ 얼룩점초파리, 왜 자꾸 생겨날까요? / 해충의 습성에서 시작해야 근본 원인을 해결할 수 있습니다. // 초단기 생애 주기(2주) 빠른 개체 수 증가 및 확산 / 폭발적 번식력 암컷 1마리 당 약 500개 산란* / 은밀한 서식지 배수관이나 틈새에 쌓인 유기물, 음식물 찌꺼기 등에 유충과 번데기 주요 서식</q><span class="src">400</span>
+            </li>
+            <li>
+              <span class="kind">유행 서술 + 해법 선언</span>
+              <q>인플루엔자 바이러스에 의한 ‘독감’이 매년 유행하고 있으며, 사망원인 3위(출처: 통계청 2022)인 폐렴은 3~5년 주기로 환절기마다 유행을 반복합니다. … 세스코 공기살균기는 공기 중 폐렴균, 독감, 코로나 바이러스가 당신을 공격하기 전에 첨단 UV살균터널이 가동되어 바이러스와 세균을 선제공격합니다!</q><span class="src">343</span>
+            </li>
+            <li>
+              <span class="kind">수치 선언 인용형</span>
+              <q>환절기마다 유행하는 독감 인플루엔자(H1N1)바이러스 99.99% 살균, / 각종 호흡기 질환 유발하는 폐렴균 99.9% 살균 / 계속 변이하며 확산을 멈추지 않는 코로나 바이러스 99.99% 살균</q><span class="src">343</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>수치엔 즉시 <code style="font-family:var(--mono)">*</code> 또는 <code style="font-family:var(--mono)">(출처: )</code> 병기. 군사 은유(선제공격·박멸)는 해충·병원체 대상에만.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>출처 없는 공포 수치, ‘무섭다·끔찍하다’ 류 감정어.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ③ -->
+    <article class="spec">
+      <header>
+        <span class="glyph">③</span>
+        <h3>상품명 + 한 문장 정의<span class="tag">전환 경첩</span></h3>
+      </header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 원칙</div>
+          <p>문제에서 해법으로 넘기는 경첩. 관형절 수식 + 상품명.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="slot">{문제 특성}</span>에 맞춘 <span class="slot">{방식}</span>를 통해 <span class="slot">{효과}</span>를 제공하는 / 세스코 <span class="slot">{문제}</span> <span class="slot">{제어/케어}</span> 솔루션</li>
+            <li><span class="k">또는</span> <span class="slot">{기술 시스템}</span>이 적용된 / 세스코 <span class="slot">{상품명}</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li><q>얼룩점초파리의 생애 주기와 습성에 맞춘 단계별 케어를 통해 지속적이고 확실한 관리 효과를 제공하는 / 세스코 얼룩점초파리 제어 집중 케어 솔루션</q><span class="src">400</span></li>
+            <li><q>입체살균시스템이 적용된 / 세스코 살균방수 비데</q><span class="src">327</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>상품명 앞 관형절에 기술 고유명사(입체살균시스템·UV살균터널) 1개 포함.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>기술 고유명사 없는 일반 수식만으로 상품명 도입.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ④ -->
+    <article class="spec">
+      <header>
+        <span class="glyph">④</span>
+        <h3>기능·특징 넘버링</h3>
+      </header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 원칙</div>
+          <p>근거는 반드시 세어서 제시. 가전형은 <strong>1~8 기능 나열</strong>, 서비스형은 <strong>SOLUTION 1~3 단계 전개</strong>.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="k">가전형</span> <span class="slot">{N}</span> <span class="slot">{혜택 헤드: ~까지 / ~없이 / ~가능한}</span> <span class="slot">{기능명}</span> / · <span class="slot">{상세 설명}</span> / · <span class="slot">{인증: 기관 균종 수치}</span></li>
+            <li><span class="k">서비스형</span> SOLUTION <span class="slot">{N}</span> / <span class="slot">{진단·처치 대상}</span> 중심 집중 케어 / <span class="slot">{처치 방식}</span>으로 <span class="slot">{효과}</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">가전형</span>
+              <q>1 오염균이 축적되기 쉬운 노즐과 유로부터 상시 세균이 발생하는 도기까지 전해수로 99.99% 살균 / · 노즐/유로/도기 : KCL 대장균 99.99% / KCL 황색포도상구균 99.99%</q><span class="src">327</span>
+            </li>
+            <li>
+              <span class="kind">가전형</span>
+              <q>6 마음 놓고 물청소가 가능한 IPX6 방수 최고 등급 / · 모든 방향에서 강력한 물줄기로부터의 완벽 방수가 가능한 IPX6 방수 등급으로 걱정 없이 물청소 가능</q><span class="src">327</span>
+            </li>
+            <li>
+              <span class="kind">서비스형</span>
+              <q>SOLUTION 1 / 서식처 정밀 진단 및 활동하고 있는 성충의 서식처 중심 집중 케어 / 서식처에 전문 케미컬 코팅으로 1차 퇴치</q> … <q>SOLUTION 3 / 서식처와 배관 상태 점검 후 통합적인 솔루션 적용 / 잔류성이 뛰어난 약제 처리로 방제 효과 지속 유지</q><span class="src">400</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>헤드는 혜택 언어, 서브 불릿은 스펙 언어(용어+풀이 병기). 서비스형 SOLUTION은 진단 → 처치 → 유지 순.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>번호 없는 나열.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑤ -->
+    <article class="spec">
+      <header>
+        <span class="glyph">⑤</span>
+        <h3>신뢰 장치<span class="tag">이 유형의 차별 섹션</span></h3>
+      </header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 원칙</div>
+          <p>공인시험기관 명기 + 시험 조건 상세 각주 + 면책 단서. 수치 주장의 안전핀.</p>
+          <div class="gauge">
+            <div class="lab"><span>지면 점유</span><span>1 / 3</span></div>
+            <div class="bar"><i class="foot"></i><i class="rest"></i></div>
+            <small>B형에서는 신뢰 각주가 지면의 1/3까지 차지한다. 각주 분량을 줄이는 방향의 편집은 이 유형의 정체성을 깎는 것.</small>
+          </div>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li>공인시험기관(<span class="slot">{기관 풀네임(약칭)}</span>) 시험완료</li>
+            <li>※ <span class="slot">{기관}</span>에서 <span class="slot">{균종(학명) 표준번호}</span>에 대해 시험분석, <span class="slot">{챔버 조건}</span> <span class="slot">{방법}</span>을 비교, <span class="slot">{결과}</span> <span class="slot">{수치}</span>% <span class="slot">{살균/감소}</span> <span class="k">×N</span></li>
+            <li><span class="k">→</span> 면책 1줄</li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li><q>공인시험기관(한국산업기술시험원(KTL), 한국건설생활환경시험연구원(KCL)) 시험완료</q><span class="src">343</span></li>
+            <li><q>※ 한국건설생활환경시험연구원에서 폐렴균(klebsiella pneumoniae) ATCC 4352에 대해 시험분석, 8㎥ 챔버 내부 중앙에 공기살균기 Sense me를 위치 시킨 후 폐렴균을 공기 중 부유시켜 초기 부유 세균 농도와 공기살균기 2시간 동안 가동 후 농도를 비교, 부유 세균 저감 시험결과 99.9% 감소</q><span class="src">343</span></li>
+            <li><q>* 일반적인 초파리과 기준이며, 환경 및 개체에 따라 상이할 수 있음</q><span class="src">400</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>본문 수치와 각주가 1:1 대응. 학명·표준균주 번호까지 표기.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>각주 없는 % 수치, 각주의 임의 축약.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑥ -->
+    <article class="spec">
+      <header>
+        <span class="glyph">⑥</span>
+        <h3>부가 혜택 — 홍보물 제공<span class="tag">선택</span></h3>
+      </header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 원칙</div>
+          <p>이중 소구(방문객/사업장) 후 인증 스티커·POP 제공 고지. 사업장 대상 상품에 선택 적용.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <q>방문객이라면 다중이용시설 방문할 때 독감, 폐렴, 코로나 바이러스가 걱정된다면 세스코 공기살균기 가동 중인 사업장인지 확인하세요. / 사업장이라면 방문객 건강까지 생각하는 차별화된 사업장임을 보여줄 수 있는 홍보물을 제공해 드립니다.</q><span class="src">343</span>
+            </li>
+            <li>
+              <span class="kind">스티커 문안</span>
+              <q>이곳은 공기 속 세균과 바이러스 케어를 위해 세스코 공기살균기가 가동 중입니다. CESCO Science. ON Life</q><span class="src">343</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>스티커 문안은 ‘이곳은 ~를 위해 세스코 {상품}이 가동 중입니다’ 정형.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>정형을 벗어난 자유 문안.</p></div>
+          </div>
+          <p class="note">로켓별 리플렛의 홍보물 섹션과 동일 계열 — <em>03-로켓별리플릿</em> 참조.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑦ -->
+    <article class="spec">
+      <header>
+        <span class="glyph">⑦</span>
+        <h3>클로징</h3>
+      </header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 원칙</div>
+          <p>4항 고정 블록 참조 — 아래 <a href="#s4" style="color:var(--uv)">04. 고정 요소</a>의 본사 4줄 푸터 → ©저작권 코드 → [명함스티커 부착] 순서를 그대로 사용.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 3 -->
+  <section class="sec" id="s3">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>톤앤매너</h2>
+    </div>
+    <ul class="plain">
+      <li><strong>설득 3단 서사</strong>(불안 환기 → 시간 압박 → 전문가 구원)의 정석 구현 채널. 단, 모든 공포 수치에 균형장치 필수.</li>
+      <li><strong>종결어미</strong> — 본문 <em>~합니다</em> 지배, ✅ 소제목만 질문형 허용, <em>~하세요</em>는 행동 유도 지점(무료진단·확인 촉구) 1~2회.</li>
+      <li><strong>느낌표</strong> — ‘선제공격합니다!’ 급의 해법 선언 1회로 제한.</li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section class="sec" id="s4">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>고정 요소<span class="sub">그대로 복사해 쓰는 블록. 임의 수정 금지.</span></h2>
+    </div>
+
+    <div class="block">
+      <header>
+        <h3>본사 4줄 푸터 전문</h3>
+        <button class="copy" type="button">복사</button>
+      </header>
+      <pre>CESCO {서브브랜드} {세스코서브브랜드}
+주소 : 서울시 강동구 상일로10길 46(상일동) 세스코 타워센터 (우)05288
+대표전화 : 1588-1119  고객센터(월~금 08:30~18:00 / 토 09:00~13:00 / 일·공휴일 휴무)
+Fax : 02-488-1720  홈페이지 : www.cesco.co.kr / www.cescomall.co.kr</pre>
+    </div>
+    <p class="note">327 원문 변형 — B형은 홈페이지 1종 표기도 존재.</p>
+
+    <div class="block" style="margin-top:22px">
+      <header>
+        <h3>© 저작권 코드</h3>
+        <button class="copy" type="button">복사</button>
+      </header>
+      <pre>©{사업부}_{상품약칭}_v.{n}_{YYYY.MM} CESCO Co.,Ltd All rights reserved.</pre>
+    </div>
+    <ul class="plain" style="margin:14px 0 0">
+      <li><span style="font-family:var(--mono);font-size:13px">©VBC_FLU_v.2_2024.08</span> <span style="color:var(--ink3)">343</span></li>
+      <li><span style="font-family:var(--mono);font-size:13px">©IPM_FruitFly_v.1_2025.11</span> <span style="color:var(--ink3)">400</span></li>
+      <li><span style="font-family:var(--mono);font-size:13px">© BODYCARE_BID_V.1.2024.03</span> <span style="color:var(--ink3)">327</span></li>
+    </ul>
+    <p class="note"><strong style="color:var(--ink)">[명함스티커 부착]</strong> — 푸터 아래 고정.</p>
+
+    <div class="block" style="margin-top:22px">
+      <header>
+        <h3>면책 각주 문구 — 그대로 복사</h3>
+        <button class="copy" type="button">복사</button>
+      </header>
+      <pre>※ 상기 살균율은 제한된 실험 조건에서 측정한 결과이며, 실제 사용 환경(공간 크기, 공기 유입량, 설치 위치 등)에 따라 성능이나 효과가 달라질 수 있습니다.</pre>
+    </div>
+    <p class="note">343. 서비스형 변형 — “* 해충 서식 정도와 사업장 환경 진단에 따라 단계별 솔루션은 일부 달라질 수 있습니다.” (400)</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="sec" id="s5">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>변형 규칙</h2>
+    </div>
+    <ul class="plain">
+      <li><strong>가격 유무</strong> — B형은 대부분 무가격. 제휴카드 할인 등 금융 혜택 고지는 예외적으로 허용(343 해시태그의 제휴카드 맥락).</li>
+      <li><strong>가전형 vs 서비스형</strong> — 가전형(327·343)은 기능 1~8 + 인증 각주 축. 서비스형(400)은 생태 수치 카드 + SOLUTION 1~3 + 서비스 조건 각주(“(기본 3회 서비스, 매주 방문)”) 축.</li>
+      <li><strong>연락처 예외</strong> — 라이프케어 상품(에어컨 클리닝 등)만 1661-0119 (512).</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section class="sec" id="s6">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>빈 스켈레톤<span class="sub">지면 순서 그대로. 보라색 슬롯을 채워 초안을 만든다.</span></h2>
+    </div>
+
+    <div class="skel-wrap">
+      <header>
+        <h3>skeleton · 단일 상품·서비스형</h3>
+        <button class="copy" type="button">전문 복사</button>
+      </header>
+      <div class="skel" id="skel"><span class="b">[말풍선]</span> <span class="slot">{뉴스 헤드라인 1}</span>
+<span class="b">[말풍선]</span> <span class="slot">{뉴스 헤드라인 2}</span>
+<span class="b">[말풍선]</span> <span class="slot">{뉴스 헤드라인 3}</span>
+
+<span class="slot">{병원체/문제 나열}</span> <span class="slot">{살균하는/제어하는}</span>
+세스코 <span class="slot">{상품명}</span>
+
+✅ <span class="slot">{문제 요약 서술}</span>. <span class="slot">{상품 카테고리}</span>가 필요한 시대입니다.
+
+" <span class="slot">{효능 수치 선언 1}</span>,
+<span class="slot">{효능 수치 선언 2}</span>
+<span class="slot">{효능 수치 선언 3}</span> "
+
+<span class="slot">{유행·생태 근거 서술 (출처: {공적 기관} {연도})}</span>. <span class="slot">{상품}</span>은 <span class="slot">{위협}</span>이 당신을
+공격하기 전에 <span class="slot">{기술 고유명사}</span>이 가동되어 <span class="slot">{대상}</span>을 선제공격합니다!
+
+<span class="slot">{문제 특성}</span>에 맞춘 <span class="slot">{방식}</span>를 통해 <span class="slot">{효과}</span>를 제공하는
+세스코 <span class="slot">{상품명/솔루션명}</span>
+
+1 <span class="slot">{혜택 헤드}</span>
+· <span class="slot">{상세 설명}</span>
+· <span class="slot">{인증: 기관 균종 수치}</span>
+2 <span class="slot">{혜택 헤드}</span>
+· <span class="slot">{상세 설명}</span>
+… (3~8 반복 / 서비스형은 SOLUTION 1~3)
+
+공인시험기관(<span class="slot">{기관명(약칭)}</span>) 시험완료
+※ <span class="slot">{기관}</span>에서 <span class="slot">{균종(학명) 표준번호}</span>에 대해 시험분석, <span class="slot">{조건·방법}</span>, <span class="slot">{결과 수치}</span>% <span class="slot">{감소/살균}</span>
+※ … (수치 주장 수만큼 반복)
+※ 상기 <span class="slot">{수치명}</span>은 제한된 실험 조건에서 측정한 결과이며, 실제 사용 환경(<span class="slot">{변수 나열}</span>)에 따라 성능이나 효과가 달라질 수 있습니다.
+
+<span class="slot">{방문객/사용자}</span>라면 <span class="slot">{확인 행동}</span>하세요.
+<span class="slot">{사업장}</span>이라면 <span class="slot">{차별화 가치}</span>를 보여줄 수 있는 홍보물을 제공해 드립니다.
+<span class="b">[스티커]</span> 이곳은 <span class="slot">{목적}</span>를 위해 세스코 <span class="slot">{상품}</span>이 가동 중입니다. CESCO Science. ON Life
+
+CESCO <span class="slot">{서브브랜드}</span>
+주소 : 서울시 강동구 상일로10길 46(상일동) 세스코 타워센터 (우)05288
+대표전화 : 1588-1119  고객센터(월~금 08:30~18:00 / 토 09:00~13:00 / 일·공휴일 휴무)
+Fax : 02-488-1720  홈페이지 : www.cesco.co.kr / www.cescomall.co.kr
+
+©<span class="slot">{사업부}</span>_<span class="slot">{상품약칭}</span>_v.<span class="slot">{n}</span>_<span class="slot">{YYYY.MM}</span> CESCO Co.,Ltd All rights reserved.
+
+<span class="b">[명함스티커 부착]</span></div>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<footer class="pagefoot">
+  <span>리플렛 템플릿 03 · 단일 상품·서비스형 (B형)</span>
+  <span>근거 원문 343 / 400 / 327</span>
+</footer>
+
+<script>
+(function(){
+  // 복사 버튼
+  document.querySelectorAll('button.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var box = btn.closest('.block, .skel-wrap');
+      var src = box.querySelector('pre, .skel');
+      var text = src.innerText;
+      var done = function(){
+        var prev = btn.textContent;
+        btn.textContent = '복사됨';
+        btn.dataset.done = '1';
+        setTimeout(function(){ btn.textContent = prev; btn.removeAttribute('data-done'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch(e){ btn.textContent='복사 실패'; }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  // 목차 현재 위치 표시
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  var secs  = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function mark(id){
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + id); });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) mark(e.target.id); });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    secs.forEach(function(s){ if (s) io.observe(s); });
+  }
+  mark('s1');
+})();
+</script>
+</body>
+</html>
