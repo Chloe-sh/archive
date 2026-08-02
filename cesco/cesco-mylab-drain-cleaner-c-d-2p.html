@@ -1,0 +1,444 @@
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세스코 마이랩 배수구클리너 — C형 프로모션 2P / D형 로켓별 2P 시안</title>
+<style>
+  :root{
+    --bg:#ffffff;--surface:#f5f6f8;--surface-2:#eceef1;
+    --line:#e3e6ea;--line-strong:#c9ced4;
+    --ink:#191c1f;--ink-2:#3f454b;--muted:#7a8087;
+    --acc:#3f4fa8;--acc-soft:#eef0fa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#fafbfc;color:var(--ink-2);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    font-size:15px;line-height:1.72;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:40px 20px 80px}
+
+  .top{margin-bottom:22px}
+  .top .k{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .top h1{margin:0;font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+  .top p{margin:7px 0 0;font-size:13px;color:var(--muted)}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0 24px}
+  .tab{appearance:none;border:1px solid var(--line-strong);background:#fff;color:var(--ink-2);
+    font:inherit;font-size:13.5px;padding:9px 15px;border-radius:2px;cursor:pointer;transition:.15s}
+  .tab:hover{background:var(--surface)}
+  .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
+  .tab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+  .panel[hidden]{display:none}
+
+  .spread{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  @media (max-width:880px){.spread{grid-template-columns:1fr}}
+  .pg{position:relative;background:#fff;border:1px solid var(--line);border-radius:3px;padding:34px 30px 30px}
+  .pgb{position:absolute;top:20px;right:22px;width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--acc);color:var(--acc);font-size:12px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;background:#fff}
+
+  .chk{font-style:normal;background:#fff;border:1px dashed var(--line-strong);
+    color:var(--muted);font-size:11.5px;padding:1px 6px;border-radius:2px;white-space:nowrap}
+
+  .season{display:inline-block;border:1px solid var(--acc);color:var(--acc);
+    font-size:11px;font-weight:700;letter-spacing:.2em;padding:5px 12px;border-radius:2px;margin-bottom:14px}
+  .prom{margin:0 0 4px;font-size:15px;font-weight:600;color:var(--ink)}
+  .period{margin:0 0 20px;font-size:13px;color:var(--muted)}
+
+  .hl{margin:0 0 18px;font-size:25px;line-height:1.42;font-weight:700;color:var(--ink);letter-spacing:-.032em}
+  .hl em{font-style:normal;color:var(--acc);display:block}
+  @media (max-width:520px){.hl{font-size:21px}}
+
+  .pbadge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:600;
+    padding:7px 14px;border-radius:3px;margin-bottom:20px;letter-spacing:-.01em}
+  .pbadge span{font-weight:400;opacity:.85;margin-left:7px;font-size:12px}
+
+  .sect{margin:24px 0 12px;font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+  .sect:first-child{margin-top:0}
+  .div{border-top:1px solid var(--line);margin:22px 0}
+
+  .bene{margin:0;padding:0;list-style:none}
+  .bene li{border:1px solid var(--line);border-radius:3px;padding:14px 16px;margin-bottom:8px}
+  .bene .bno{display:inline-block;background:var(--acc);color:#fff;font-size:11px;font-weight:700;
+    padding:2px 8px;border-radius:2px;margin-bottom:7px;letter-spacing:.02em}
+  .bene b{display:block;color:var(--ink);font-weight:600;font-size:15px;margin-bottom:6px;letter-spacing:-.02em}
+  .bene p{margin:0 0 3px;font-size:12.5px;color:var(--muted);padding-left:9px;position:relative}
+  .bene p::before{content:"·";position:absolute;left:0}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:0 0 10px}
+  @media (max-width:600px){.steps{grid-template-columns:1fr}}
+  .steps div{background:var(--acc-soft);border-radius:3px;padding:12px 12px 13px;font-size:12.5px;color:var(--ink-2)}
+  .steps i{display:block;font-style:normal;color:var(--acc);font-weight:700;font-size:12px;margin-bottom:4px}
+
+  .prod{border-top:2px solid var(--ink);padding-top:14px;margin-bottom:22px}
+  .prod h4{margin:0 0 3px;font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+  .prod h4::before{content:"☑ ";color:var(--acc)}
+  .prod .vol{font-weight:400;color:var(--muted);font-size:13px;margin-left:5px}
+  .prod ul{margin:9px 0 14px;padding:0;list-style:none}
+  .prod ul li{font-size:13px;color:var(--muted);padding-left:10px;position:relative;margin-bottom:3px}
+  .prod ul li::before{content:"·";position:absolute;left:0}
+  .price{background:var(--surface);border-radius:3px;padding:12px 15px;margin-bottom:7px;
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+  .price .cond{font-size:13px;color:var(--acc);font-weight:600;width:100%}
+  .price .amt{font-size:14.5px;color:var(--ink);font-weight:700;letter-spacing:-.02em}
+  .price .amt s{color:var(--muted);font-weight:400;font-size:13px;margin-right:5px}
+  .price .code{font-size:12px;color:var(--muted);margin-left:auto}
+
+  .use{margin:0 0 22px;padding:0;list-style:none;border-top:1px solid var(--line)}
+  .use li{padding:12px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .use b{display:block;color:var(--ink);font-weight:600;font-size:14px;margin-bottom:3px}
+  .use b::before{content:"☑ ";color:var(--acc)}
+
+  .cau{background:var(--surface);border-radius:3px;padding:15px 17px;margin:0 0 20px}
+  .cau p{margin:0 0 5px;font-size:11px;line-height:1.8;color:var(--muted)}
+  .cau p:last-child{margin:0}
+  .cau .org{font-size:12.5px;color:var(--ink);font-weight:600;margin:0 0 8px}
+  .cau .hold{border:1px dashed var(--line-strong);background:#fff;border-radius:3px;
+    padding:14px;text-align:center;font-size:11.5px;color:var(--muted);margin:0 0 10px;line-height:1.8}
+
+  .bubs{margin:0 0 20px;padding:0;list-style:none}
+  .bubs li{display:inline-block;background:var(--surface);color:var(--ink-2);
+    font-size:12.5px;padding:5px 11px;border-radius:14px;margin:0 5px 5px 0}
+  .crows{margin:0 0 20px;padding:0;list-style:none}
+  .crows li{background:var(--acc-soft);border-radius:3px;padding:12px 15px 12px 40px;margin-bottom:7px;
+    position:relative;font-size:13.5px;color:var(--ink-2)}
+  .crows li::before{content:"✓";position:absolute;left:14px;top:12px;width:17px;height:17px;
+    background:var(--acc);color:#fff;border-radius:3px;font-size:11px;line-height:17px;text-align:center}
+  .crows li b{color:var(--ink);font-weight:600}
+  .becau{margin:0 0 22px;font-size:15px;line-height:1.75;color:var(--ink-2)}
+  .becau strong{display:block;color:var(--ink);font-weight:700;margin-top:9px;letter-spacing:-.02em}
+
+  .soln{border:1px solid var(--acc);border-radius:3px;padding:18px 18px 16px;margin-bottom:22px}
+  .soln h4{margin:0 0 2px;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.025em}
+  .soln .en{margin:0 0 10px;font-size:11.5px;color:var(--acc);letter-spacing:.04em}
+  .soln p{margin:0;font-size:14px;color:var(--ink-2)}
+  .soln ul{margin:12px 0 0;padding:12px 0 0;list-style:none;border-top:1px solid var(--line)}
+  .soln ul li{font-size:13px;color:var(--muted);padding-left:10px;position:relative;margin-bottom:3px}
+  .soln ul li::before{content:"·";position:absolute;left:0}
+
+  .give{margin:0 0 8px;padding:0;list-style:none;border-top:1px solid var(--line)}
+  .give li{padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+  .give b{display:block;color:var(--ink);font-weight:600;font-size:14.5px;margin-bottom:4px}
+  .give b::before{content:"☑ ";color:var(--acc)}
+  .plate{margin-top:9px;border:1px dashed var(--line-strong);border-radius:3px;
+    padding:12px 14px;font-size:12.5px;color:var(--ink-2);line-height:1.85;background:#fff}
+  .plate span{display:block;font-size:10.5px;color:var(--muted);margin-bottom:5px;letter-spacing:.04em}
+  .excl{font-size:12px;color:var(--muted);padding-left:10px;position:relative;margin:0 0 20px}
+  .excl::before{content:"•";position:absolute;left:0}
+
+  .decl{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    padding:22px 10px;margin:24px 0 16px;text-align:center;
+    font-size:18px;line-height:1.62;font-weight:700;color:var(--ink);letter-spacing:-.03em}
+  .tagline{text-align:center;margin:0 0 22px;font-size:13px;color:var(--acc);font-weight:600}
+  .tagline span{display:block;font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:400;margin-top:3px}
+
+  .imgph{border:1px solid var(--line);background:var(--surface);border-radius:3px;
+    padding:40px 20px;text-align:center;font-size:12.5px;color:var(--muted);line-height:1.9;margin-bottom:20px}
+  .imgph b{display:block;color:var(--ink-2);font-weight:600;margin-bottom:3px}
+
+  .qrrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .qrbox{width:56px;height:56px;border:1px solid var(--line-strong);border-radius:3px;background:var(--surface);
+    font-size:9.5px;color:var(--muted);display:flex;align-items:center;justify-content:center}
+  .qrrow span{font-size:12.5px;color:var(--ink-2)}
+
+  .f4{border-top:1px solid var(--line);padding-top:16px;font-size:11px;line-height:1.85;color:var(--muted)}
+  .f4 .bd{font-size:14px;color:var(--ink);font-weight:700;letter-spacing:-.01em;margin-bottom:7px}
+  .f4 p{margin:0}
+  .f4 .cr{margin-top:8px}
+  .f4 .st{display:inline-block;margin-top:9px;border:1px dashed var(--line-strong);
+    padding:6px 12px;border-radius:2px;font-size:11px}
+  .logoclose{border-top:1px solid var(--line);padding-top:18px;text-align:center;
+    font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+
+  .note{margin-top:18px;padding:15px 17px;background:#fff;border:1px solid var(--line);
+    border-left:2px solid var(--acc);font-size:12.5px;color:var(--muted);border-radius:2px;line-height:1.8}
+  .note b{color:var(--ink-2);font-weight:600}
+  .note ol{margin:8px 0 0;padding-left:18px}
+  .note li{margin-bottom:5px}
+</style>
+
+<div class="wrap">
+
+  <div class="top">
+    <p class="k">Mylab Drain Cleaner · C-type &amp; D-type · 2P print layout</p>
+    <h1>세스코 마이랩 배수구클리너 — 프로모션(C형) 2P / 로켓별(D형) 2P 시안</h1>
+    <p>단품 기준입니다. C형은 1면 문제·혜택 / 2면 방법·가격, D형은 1면 대상·공감 / 2면 해법·전용 자산으로 나눴습니다. 점선 태그는 확보되지 않은 값입니다.</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="리플렛 유형 선택">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="c" id="tc">C형 프로모션 2P</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="d" id="td">D형 로켓별 2P — 숙박·생활시설</button>
+  </div>
+
+  <!-- ============================================ C형 ============================================ -->
+  <div class="panel" id="c" role="tabpanel" aria-labelledby="tc">
+    <div class="spread">
+
+      <!-- C 1p -->
+      <div class="pg">
+        <div class="pgb">1p</div>
+
+        <div class="season">PEAK SEASON</div>
+        <p class="prom">세스코 마이랩 배수구클리너 / 성수기 프로모션</p>
+        <p class="period">2026년 8월 3일(월) ~ 2026년 10월 31일(토) <i class="chk">기간 확정 필요</i></p>
+
+        <h2 class="hl">최대 <i class="chk">N</i>% 할인, 무료 배송 혜택까지.<em>여름철 배수구 악취와 날벌레, 지금 바로 대비하세요</em></h2>
+
+        <div class="pbadge">세스코 마이랩 배수구클리너 <span>40 g × 5개입</span></div>
+
+        <ul class="bubs">
+          <li>"청소는 했는데 왜 냄새가 다시 올라와요?"</li>
+          <li>"배수구에서 작은 날벌레가 계속 나와요"</li>
+          <li>"뚜껑 열 때마다 냄새가 확 올라와요"</li>
+        </ul>
+
+        <ul class="crows">
+          <li><b>재축적 주기 약 2주</b> — 청소 후 유기물이 다시 쌓이는 시간은 약 2주입니다. 성수기에는 사용량이 늘어 이 주기가 짧아질 수 있습니다.</li>
+          <li><b>은밀한 서식지</b> — 나방파리는 외부 유입보다 배수구 속 유기물에서 발생하는 경우가 많습니다.</li>
+        </ul>
+
+        <p class="sect">프로모션 혜택</p>
+        <ul class="bene">
+          <li>
+            <span class="bno">혜택 1</span>
+            <b>수량 구간별 최대 <i class="chk">N</i>% 할인</b>
+            <p>3개 구간 / 24개 구간으로 할인율 차등 적용</p>
+            <p>현장 주문서 등록 고객 대상</p>
+          </li>
+          <li>
+            <span class="bno">혜택 2</span>
+            <b>아무 조건 없이 배송비 무료</b>
+          </li>
+          <li>
+            <span class="bno">혜택 3</span>
+            <b>세스코몰 <i class="chk">N</i> 포인트 즉시 지급</b>
+            <p>신규 가입 시 <i class="chk">N</i> 포인트 + 고객 프로필 멤버스 인증 시 추가 <i class="chk">N</i> 포인트</p>
+            <p>ID 당 1회</p>
+          </li>
+        </ul>
+
+        <div class="imgph">
+          <b>[ 싱크대 배수구에 1포를 붓는 손 ]</b>
+          1p 메인 이미지 자리 (카탈로그 7p 컷 재사용)
+        </div>
+      </div>
+
+      <!-- C 2p -->
+      <div class="pg">
+        <div class="pgb">2p</div>
+
+        <p class="sect">주문 방법</p>
+        <div class="steps">
+          <div><i>01</i>담당 세스코 컨설턴트에게 주문 요청</div>
+          <div><i>02</i>현장 주문서에 주문코드 등록</div>
+          <div><i>03</i>배송, 끝!</div>
+        </div>
+        <div class="cau">
+          <p>* 프로모션 가격은 현장 주문서 등록 건에만 적용됩니다.</p>
+          <p>* 취소 후 재구매 시 할인 재적용 불가</p>
+        </div>
+
+        <div class="div"></div>
+
+        <p class="sect">상품 특징 및 프로모션 가격</p>
+
+        <div class="prod">
+          <h4>세스코 마이랩 배수구클리너<span class="vol">40 g × 5개입</span></h4>
+          <ul>
+            <li>배수구 깊숙이 침투하는 조밀한 거품</li>
+            <li>기름막과 유기물, 악취 원인 물질과 벌레 알까지 세정</li>
+            <li>도구 없이 1포 투입으로 끝나는 관리</li>
+            <li>느려진 배수 흐름 개선에도 도움</li>
+            <li>기름을 많이 쓰는 주방부터 공용 샤워실까지</li>
+            <li>세스코몰 마이랩 전체 판매 1위<sup>1)</sup></li>
+          </ul>
+          <div class="price">
+            <span class="cond">3개 구매 시 <i class="chk">N</i>% 할인</span>
+            <span class="amt"><s><i class="chk">정상가</i>원</s> → <i class="chk">행사가</i>원</span>
+            <span class="code">주문코드 <i class="chk">코드</i></span>
+          </div>
+          <div class="price">
+            <span class="cond">24개 구매 시 <i class="chk">N</i>% 할인</span>
+            <span class="amt"><s><i class="chk">정상가</i>원</s> → <i class="chk">행사가</i>원</span>
+            <span class="code">주문코드 <i class="chk">코드</i></span>
+          </div>
+        </div>
+
+        <p class="sect">사용 방법</p>
+        <ul class="use">
+          <li><b>1. 사용 전 따뜻한 물을 붓습니다</b>배수구 주변에 따뜻한 물을 부으면 거품이 배수구 입구와 타일 틈까지 퍼져 잔여 유기물 제거 효율이 높아집니다.</li>
+          <li><b>2. 1포를 붓고 그대로 둡니다</b>40 g 1포를 배수구에 붓기만 하면 됩니다. 솔이나 도구가 필요하지 않습니다.</li>
+          <li><b>3. 2주 뒤 다시 붓습니다</b>유기물이 다시 쌓이는 시간은 약 2주. 저녁 설거지 또는 샤워 후 한 포면 정기 관리가 됩니다.</li>
+        </ul>
+
+        <div class="cau">
+          <div class="hold">[ 시험 각주 자리 ]<br>공인시험기관 세정력 시험 결과 확보 후 삽입</div>
+          <p class="org">판매 근거</p>
+          <p>1) ‘세스코 마이랩 전체 판매 1위’는 2024년 1월~2025년 9월 세스코몰 판매 이력 데이터 기준입니다.</p>
+          <p>※ 사용 효과는 배수구 구조, 오염 정도, 물 온도 등 사용 환경에 따라 달라질 수 있습니다.</p>
+          <p>※ 생활화학제품 신고번호 및 사용상 주의사항 — <i class="chk">확보 후 삽입</i></p>
+        </div>
+
+        <div class="cau">
+          <p class="org">유의사항</p>
+          <p>* 현장 주문서 등록으로만 구매할 수 있으며, 담당 세스코 직원을 통해 주문해주세요.</p>
+          <p>* 상기 가격 및 할인율은 정상가(비회원가) 기준으로 표기되었습니다.</p>
+          <p>* 본 프로모션은 제품 품절 등 이슈에 따라 고지된 기간이나 조건이 종료될 수 있습니다.</p>
+          <p>* 한정 수량으로 물량에 따라 조기 품절될 수 있습니다.</p>
+        </div>
+
+        <div class="qrrow">
+          <div class="qrbox">QR</div>
+          <span>상품 자세히 보기</span>
+        </div>
+
+        <div class="logoclose">CESCO Mylab</div>
+      </div>
+    </div>
+
+    <p class="note"><b>C형 검수 메모</b>
+      <ol>
+        <li>가격 2세트와 주문코드 2개가 C형의 성립 조건입니다. 확보되지 않으면 이 리플렛은 C형이 아닙니다.</li>
+        <li>④를 앱 스텝(01~04)에서 <b>현장 주문서 3스텝</b>으로 바꿨습니다 — 수량 구간 할인은 사업장 대량 구매 유도이고, 근거 원문(848)도 현장 주문서 경로였습니다. 세스코몰 앱 판매를 함께 열 경우 01~04 앱 스텝으로 되돌려야 합니다.</li>
+        <li>'최대'와 '{N}개 구매 시 {N}% 할인' 조건부 표기를 유지했습니다. 조건 없는 절대 표현은 금지입니다.</li>
+        <li>혜택 3의 헤드 포인트 = 신규 가입 + 멤버스 인증 포인트의 합이 되도록 값을 채워야 합니다.</li>
+        <li>흥분은 혜택·가격 층위에만 두고, 상품 특징 불릿은 B형 시안의 명사구 종결을 그대로 유지했습니다. 사용 방법 3스텝은 B형의 멤버스 TIP을 옮긴 것으로, 셀프 관리 정보를 같은 지면에 두는 역할입니다.</li>
+      </ol>
+    </p>
+  </div>
+
+  <!-- ============================================ D형 ============================================ -->
+  <div class="panel" id="d" role="tabpanel" aria-labelledby="td" hidden>
+    <div class="spread">
+
+      <!-- D 1p -->
+      <div class="pg">
+        <div class="pgb">1p</div>
+
+        <h2 class="hl">펜션·고시원 객실 배수구,<em>왜 세스코여야 할까요?</em></h2>
+
+        <p class="becau">
+          손님이 객실 문을 열고 가장 먼저 맡는 것이 냄새이기에<br>
+          청소 담당이 바뀌어도 같은 상태를 유지해야 하기에<br>
+          객실 욕실과 공용 샤워실 배수구는 매일 확인할 수 없는 곳이기에
+          <strong>눈에 보이지 않는 모든 곳의 위생, 우리 시설의 신뢰를 위해 세스코가 지켜줍니다.</strong>
+        </p>
+
+        <p class="sect">☑ 이런 고민을 가진 사장님들께 추천드려요</p>
+        <ul class="bubs">
+          <li>"청소는 다 했는데 냄새 얘기가 후기에 올라와요"</li>
+          <li>"객실마다 상태가 달라서 어디부터 봐야 할지 모르겠어요"</li>
+          <li>"작은 날벌레가 나온다고 손님이 말씀하셨어요"</li>
+          <li>"위생 관리하고 있다는 걸 예약 전에 보여주고 싶어요"</li>
+        </ul>
+
+        <ul class="crows">
+          <li><b>청소 후 약 2주</b> — 배수구를 청소해도 음식물 찌꺼기·기름때·세제 잔여물 같은 유기물이 다시 쌓이는 데 걸리는 시간은 약 2주입니다. 객실 회전이 빠른 성수기에는 이 주기가 짧아질 수 있습니다.</li>
+          <li><b>은밀한 서식지</b> — 나방파리는 외부 유입보다 배수구 속 유기물에서 발생하는 경우가 많습니다. 객실 욕실과 공용 샤워실이 여기에 해당할 수 있습니다.</li>
+          <li><b>느려지는 배수</b> — 유기물이 쌓이면 배수 흐름이 느려지고, 물이 고여 있는 시간이 길어지면 냄새가 더 올라올 수 있습니다.</li>
+        </ul>
+
+        <div class="imgph">
+          <b>[ 마감 후 객실 욕실 배수구에 1포를 붓는 사장님 ]</b>
+          D형 1p 연출컷 — 서비스 수행 신이 아니라 '사장님이 직접 하는 장면'
+        </div>
+      </div>
+
+      <!-- D 2p -->
+      <div class="pg">
+        <div class="pgb">2p</div>
+
+        <div class="soln">
+          <h4>세스코 숙박·생활시설 배수구 위생 케어 <i class="chk">솔루션명 확인 필요</i></h4>
+          <p class="en">CESCO DRAIN HYGIENE CARE <i class="chk">영문명 확인 필요</i></p>
+          <p>50여 년 세스코 위생 전문성은 그대로 유지하면서,
+             객실마다 반복해야 하는 관리는 1포 투입으로 낮춘 배수구 위생 솔루션입니다.</p>
+          <ul>
+            <li>세스코 정기 관리 — 배관·공용 배수구 등 전문 관리가 필요한 구간</li>
+            <li>세스코 마이랩 배수구클리너 — 객실별 2주 주기 셀프 관리(40 g × 5개입)</li>
+            <li>관리 주기표 — 청소 담당이 바뀌어도 같은 주기로 유지</li>
+          </ul>
+        </div>
+
+        <p class="sect">숙박·생활시설 전용 홍보물·인증 지원</p>
+        <ul class="give">
+          <li>
+            <b>숙박시설 전용 위생관리 인증 표시</b>
+            우리 시설이 세스코 위생 관리를 받는 공간임을 손님에게 알릴 수 있습니다. 프런트·객실 입구에 부착하실 수 있습니다.
+            <div class="plate">
+              <span>[ 인증 표시판 문안 ]</span>
+              CESCO 배수구 위생 관리<br>
+              이곳은 세스코 환경위생 전문가가<br>
+              정기적으로 관리하는<br>
+              사업장입니다.
+            </div>
+          </li>
+          <li>
+            <b>네이버 멤버스 마크 노출</b>
+            네이버 지도 내 정보에 세스코 멤버스 마크를 노출하여, 우리 시설이 세스코의 위생관리를 받고 있음을 예약 전에 알릴 수 있습니다.
+          </li>
+          <li>
+            <b>객실·공용공간 부착용 관리 주기표 POP</b>
+            객실 욕실과 공용 샤워실의 관리 주기를 적어 부착할 수 있는 POP를 지원해드립니다.
+            <div class="plate">
+              <span>[ POP 문안 ]</span>
+              이 공간은 세스코 과학으로 관리합니다<br>
+              배수구 세정 2주 1회 / 배관 관리 <i class="chk">주기 확인 필요</i>
+            </div>
+          </li>
+        </ul>
+        <p class="excl"><i class="chk">등급별 미지원 홍보물이 있는 경우 이 자리에 명시</i></p>
+
+        <div class="decl">
+          " 손님이 하룻밤<br>머무는 공간이니까<br>세스코 과학으로<br>엄격하게 관리합니다. "
+        </div>
+
+        <p class="tagline">세스코 과학으로 관리합니다<span>CESCO SCIENCE. ON LIFE</span></p>
+
+        <div class="qrrow">
+          <div class="qrbox">QR</div>
+          <span>상담문의 1588-1119 I 홈페이지 문의 www.cesco.co.kr</span>
+        </div>
+
+        <div class="f4">
+          <div class="bd">CESCO 세스코</div>
+          <p>주소 : 서울시 강동구 상일로10길 46(상일동) 세스코 타워센터 (우)05288</p>
+          <p>대표전화 : 1588-1119 &nbsp;고객센터(월~금 08:30 ~ 18:00 / 토 09:00 ~ 13:00 / 일·공휴일 휴무)</p>
+          <p>Fax : 02-488-1720 &nbsp;홈페이지 : www.cesco.co.kr</p>
+          <p class="cr">©Rocket_Stay_V.1_2026.08 CESCO CO.,Ltd All rights reserved.</p>
+          <span class="st">[명함스티커 부착]</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="note"><b>D형 검수 메모</b>
+      <ol>
+        <li><b>되돌려주기 자산의 지급 조건</b> — 인증 표시·네이버 멤버스 마크는 원문(316·334)에서 서비스 계약 고객의 자산입니다. 배수구클리너 구매만으로 지급되지 않는다면 이 섹션이 성립하지 않고, 그 경우 D형이 아니라 B형입니다. 그래서 ③을 '세스코 정기 관리 + 셀프 케어' 묶음으로 구성했습니다.</li>
+        <li><b>무가격 전면 적용</b> — 제품명과 용량은 나오지만 가격·할인은 한 곳도 없습니다. 가격이 필요하면 C형으로 분리합니다.</li>
+        <li>위해요소 3개 모두 유보 표현을 유지했습니다 — '~경우가 많습니다 / ~해당할 수 있습니다 / ~올라올 수 있습니다'.</li>
+        <li>후기·리뷰를 위해요소로 쓰지 않았습니다. 근거 데이터가 없으면 사장님 대사(②)로만 다루는 것이 안전합니다.</li>
+        <li>©코드의 업종 영문 <code>Stay</code>는 임시입니다. 빈대 3종(320 숙박 관련 시설)에 쓰인 사내 코드 체계 확인이 필요합니다.</li>
+        <li>푸터 주소를 로켓별 원문의 '세스코 <b>타워</b>센터'로 적었습니다. B형 시안은 '세스코 <b>터치</b>센터'입니다 — 정본 확인 필요.</li>
+      </ol>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function select(tab){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      var i = tabs.indexOf(t), n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (n) { e.preventDefault(); n.focus(); select(n); }
+    });
+  });
+</script>
