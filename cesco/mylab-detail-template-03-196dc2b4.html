@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상품 상세페이지 템플릿 3 · 마이랩 소비재형 (CESCO Mylab)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --card:#FBFCFC;
+  --ink:#131B23;
+  --ink2:#4A5761;
+  --ink3:#7C888F;
+  --rule:#CDD5D6;
+  --uv:#6C4BD8;
+  --uv-soft:#EEE9FC;
+  --keep:#12695A;
+  --avoid:#A32D3B;
+
+  --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --display:var(--sans);
+  --body:var(--sans);
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad:clamp(20px,4vw,48px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.72;
+  letter-spacing:-.008em;
+  word-break:keep-all;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+
+/* ---------- shell ---------- */
+.shell{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 var(--pad) 96px;
+  display:grid;
+  grid-template-columns:172px minmax(0,1fr);
+  gap:clamp(28px,5vw,64px);
+  align-items:start;
+}
+@media (max-width:900px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:0}
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:1px solid var(--ink);
+  padding:clamp(48px,8vw,88px) var(--pad) clamp(30px,4vw,44px);
+  max-width:1180px;
+  margin:0 auto;
+}
+.eyebrow{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.16em;
+  color:var(--uv);
+  margin:0 0 22px;
+}
+.eyebrow span{color:var(--ink3)}
+h1{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:clamp(34px,6.6vw,62px);
+  line-height:1.12;
+  letter-spacing:-.035em;
+  margin:0 0 6px;
+}
+h1 em{
+  font-style:normal;
+  display:block;
+  font-size:.36em;
+  font-weight:400;
+  letter-spacing:-.01em;
+  color:var(--ink2);
+  margin-top:14px;
+  line-height:1.5;
+  max-width:46ch;
+}
+.mast-meta{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+  margin:clamp(34px,5vw,54px) 0 0;
+  transform:translateY(1px);
+}
+.mast-meta div{background:var(--paper);padding:16px 18px 18px}
+.mast-meta dt{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.06em;
+  color:var(--ink3);
+  margin:0 0 6px;
+}
+.mast-meta dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.ids{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.id{
+  font-family:var(--mono);
+  font-size:11.5px;
+  padding:2px 7px;
+  border:1px solid var(--uv);
+  color:var(--uv);
+  border-radius:2px;
+}
+.id b{font-weight:500}
+.id small{font-family:var(--sans);color:var(--ink3);font-size:11.5px;margin-left:5px;font-weight:400}
+
+/* ---------- rail ---------- */
+.rail{
+  position:sticky;
+  top:0;
+  padding-top:clamp(40px,6vw,72px);
+}
+.rail-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.1em;
+  color:var(--ink3);
+  padding-bottom:10px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:10px;
+}
+.rail a{
+  display:block;
+  font-size:13.5px;
+  color:var(--ink2);
+  text-decoration:none;
+  padding:5px 0 5px 14px;
+  border-left:2px solid transparent;
+  transition:color .18s,border-color .18s;
+}
+.rail a:hover{color:var(--ink)}
+.rail a.on{color:var(--uv);border-left-color:var(--uv);font-weight:500}
+.rail a .n{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-right:7px}
+.rail a.on .n{color:var(--uv)}
+@media (max-width:900px){
+  .rail{
+    position:sticky;top:0;z-index:20;
+    background:var(--paper);
+    padding:10px 0;
+    border-bottom:1px solid var(--rule);
+    margin:0 calc(var(--pad)*-1);
+    padding-inline:var(--pad);
+  }
+  .rail-title{display:none}
+  .rail nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+  .rail nav::-webkit-scrollbar{display:none}
+  .rail a{
+    flex:0 0 auto;padding:4px 11px;border:1px solid var(--rule);border-left-width:1px;
+    border-radius:2px;font-size:12.5px;white-space:nowrap;
+  }
+  .rail a.on{border-color:var(--uv);background:var(--uv-soft)}
+}
+
+/* ---------- sections ---------- */
+main{padding-top:clamp(40px,6vw,72px);min-width:0}
+.sec{margin:0 0 clamp(56px,8vw,96px);scroll-margin-top:24px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.sec-num{
+  font-family:var(--mono);
+  font-size:12.5px;
+  color:var(--uv);
+  letter-spacing:.02em;
+  padding-top:7px;
+}
+h2{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:clamp(22px,3.2vw,30px);
+  letter-spacing:-.025em;
+  line-height:1.3;
+  margin:0;
+}
+h2 .sub{
+  display:block;font-family:var(--sans);font-weight:400;font-size:14.5px;
+  color:var(--ink3);letter-spacing:-.005em;margin-top:9px;line-height:1.6;
+}
+p{margin:0 0 1em}
+.lede{font-size:17px;color:var(--ink2);max-width:62ch}
+
+/* ---------- table ---------- */
+.tw{overflow-x:auto;border:1px solid var(--rule);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;
+  color:var(--ink3);font-weight:600;background:var(--paper);
+}
+tbody tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--mono);color:var(--uv);width:44px;text-align:center}
+td:nth-child(2){font-weight:500;white-space:nowrap}
+td:nth-child(4){color:var(--ink2);font-size:13.5px}
+tbody tr:hover{background:var(--uv-soft)}
+
+/* ---------- spec blocks ---------- */
+.spec{
+  border:1px solid var(--rule);
+  background:var(--card);
+  margin-bottom:20px;
+}
+.spec > header{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px 22px;
+  border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--paper),var(--card));
+}
+.glyph{
+  font-size:22px;line-height:1;color:var(--uv);
+  flex:0 0 auto;padding-top:2px;
+}
+.spec h3{
+  margin:0;font-family:var(--sans);font-weight:600;
+  font-size:18.5px;line-height:1.4;letter-spacing:-.02em;
+}
+.spec h3 .tag{
+  display:inline-block;margin-left:9px;vertical-align:2px;
+  font-family:var(--sans);font-size:11.5px;letter-spacing:.02em;font-weight:500;
+  color:var(--uv);border:1px solid var(--uv);border-radius:2px;padding:1px 7px;
+}
+.spec-body{padding:6px 22px 22px}
+
+.sub{margin-top:18px}
+.sub-label{
+  display:flex;align-items:center;gap:9px;
+  font-family:var(--sans);font-weight:600;font-size:12.5px;letter-spacing:.04em;
+  color:var(--ink3);margin-bottom:9px;
+}
+.sub-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+.sub-label b{color:var(--uv);font-weight:600;font-family:var(--mono);font-size:11.5px}
+.sub p{margin:0 0 .6em;font-size:15px;color:var(--ink2)}
+.sub p:last-child{margin-bottom:0}
+.sub p strong{color:var(--ink);font-weight:500}
+
+/* formula */
+.f{list-style:none;margin:0;padding:0}
+.f li{
+  font-family:var(--mono);font-size:13px;line-height:1.85;
+  background:var(--paper);border-left:2px solid var(--uv);
+  padding:10px 14px;margin-bottom:6px;
+  overflow-wrap:anywhere;
+}
+.f li:last-child{margin-bottom:0}
+.f .k{color:var(--ink3)}
+.slot{background:var(--uv-soft);color:var(--uv);padding:0 3px;border-radius:2px}
+
+/* examples */
+.ex{margin:0;padding:0;list-style:none}
+.ex li{
+  position:relative;padding:2px 0 14px 20px;
+  border-left:1px solid var(--rule);
+  padding-left:20px;margin-bottom:12px;
+}
+.ex li:last-child{margin-bottom:0;padding-bottom:0}
+.ex q{font-size:14.5px;line-height:1.85;color:var(--ink);quotes:'"' '"'}
+.ex .src{
+  display:inline-block;margin-left:7px;
+  font-family:var(--mono);font-size:11px;color:var(--ink3);
+  border-bottom:1px dotted var(--ink3);
+  white-space:nowrap;
+}
+.ex .kind{
+  display:block;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.03em;
+  color:var(--uv);margin-bottom:5px;
+}
+.bubble{
+  display:inline-block;font-family:var(--sans);font-weight:500;font-size:11px;
+  background:var(--ink);color:var(--paper);padding:1px 6px;border-radius:9px;
+  margin:0 4px 0 0;vertical-align:1px;letter-spacing:.04em;
+}
+
+/* keep / avoid */
+.ka{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media (max-width:620px){.ka{grid-template-columns:1fr}}
+.ka.one{grid-template-columns:1fr}
+.ka > div{background:var(--card);padding:14px 16px}
+.ka h4{
+  margin:0 0 7px;font-family:var(--sans);font-size:12.5px;letter-spacing:.03em;
+  font-weight:600;display:flex;align-items:center;gap:7px;
+}
+.ka .keep h4{color:var(--keep)}
+.ka .avoid h4{color:var(--avoid)}
+.ka h4::before{content:"";width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+.ka .keep h4::before{background:var(--keep)}
+.ka .avoid h4::before{background:var(--avoid)}
+.ka p{margin:0;font-size:14px;line-height:1.7;color:var(--ink2)}
+
+/* density gauge — signature detail for §5 */
+.gauge{margin:18px 0 0;border:1px solid var(--uv);background:var(--uv-soft);padding:14px 16px}
+.gauge .lab{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.04em;
+  color:var(--uv);margin-bottom:9px;
+}
+.bar{display:flex;height:10px;border:1px solid var(--uv)}
+.bar i{display:block}
+.bar .foot{width:33.33%;background:repeating-linear-gradient(45deg,var(--uv),var(--uv) 2px,transparent 2px,transparent 5px);border-right:1px solid var(--uv)}
+.bar .rest{flex:1;background:transparent}
+.gauge small{display:block;margin-top:8px;font-size:12.5px;color:var(--ink2);line-height:1.6}
+
+/* lists */
+ul.plain{margin:0;padding:0;list-style:none}
+ul.plain li{
+  position:relative;padding-left:18px;margin-bottom:9px;font-size:15px;color:var(--ink2);
+}
+ul.plain li::before{
+  content:"";position:absolute;left:0;top:.7em;width:7px;height:1px;background:var(--uv);
+}
+ul.plain li:last-child{margin-bottom:0}
+ul.plain strong{color:var(--ink);font-weight:500}
+
+/* code / fixed blocks */
+.block{border:1px solid var(--rule);background:var(--card);margin-bottom:20px}
+.block > header{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:11px 16px;border-bottom:1px solid var(--rule);background:var(--paper);
+}
+.block h3{
+  margin:0;font-family:var(--sans);font-size:13px;letter-spacing:.02em;
+  color:var(--ink2);font-weight:600;
+}
+pre{
+  margin:0;padding:18px 16px;overflow-x:auto;
+  font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink);
+  white-space:pre-wrap;word-break:break-word;
+}
+button.copy{
+  font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.02em;
+  background:transparent;color:var(--uv);border:1px solid var(--uv);border-radius:2px;
+  padding:4px 10px;cursor:pointer;flex:0 0 auto;transition:background .16s,color .16s;
+}
+button.copy:hover{background:var(--uv);color:#fff}
+button.copy[data-done="1"]{background:var(--keep);border-color:var(--keep);color:#fff}
+:focus-visible{outline:2px solid var(--uv);outline-offset:2px}
+
+/* skeleton — signature */
+.skel-wrap{border:1px solid var(--ink);background:var(--card)}
+.skel-wrap > header{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:13px 18px;background:var(--ink);color:var(--paper);
+}
+.skel-wrap > header h3{
+  margin:0;font-family:var(--sans);font-size:13px;letter-spacing:.04em;font-weight:600;
+}
+.skel-wrap > header button.copy{color:var(--paper);border-color:rgba(242,244,243,.45)}
+.skel-wrap > header button.copy:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.skel{
+  padding:clamp(20px,4vw,40px) clamp(16px,3vw,34px);
+  max-width:62ch;margin:0 auto;
+  font-family:var(--mono);font-size:12.5px;line-height:2;
+  white-space:pre-wrap;word-break:break-word;
+}
+.skel .b{color:var(--ink);font-weight:600}
+.skel .slot{background:transparent;padding:0;border-bottom:1px solid rgba(108,75,216,.28)}
+.skel hr{border:0;border-top:1px dashed var(--rule);margin:20px 0}
+
+.note{
+  font-size:13.5px;color:var(--ink3);line-height:1.7;
+  border-left:2px solid var(--rule);padding-left:14px;margin:16px 0 0;
+}
+footer.pagefoot{
+  border-top:1px solid var(--ink);margin-top:8px;padding:22px var(--pad) 44px;
+  max-width:1180px;margin-inline:auto;
+  display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.01em;color:var(--ink3);
+}
+
+/* ---------- 마이랩 추가 컴포넌트 ---------- */
+.callout{
+  border:1px solid var(--uv);background:var(--uv-soft);
+  padding:18px 20px;margin:24px 0 0;
+}
+.callout h3{
+  margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--uv);
+}
+.callout p{margin:0;font-size:15px;line-height:1.8;color:var(--ink)}
+.callout strong{font-weight:600}
+
+.kv{border:1px solid var(--rule);background:var(--card)}
+.kv div{display:grid;grid-template-columns:112px minmax(0,1fr);border-bottom:1px solid var(--rule)}
+.kv div:last-child{border-bottom:0}
+.kv dt{
+  padding:13px 16px;font-size:13px;font-weight:600;color:var(--ink3);
+  background:var(--paper);border-right:1px solid var(--rule);
+}
+.kv dd{margin:0;padding:13px 16px;font-size:14.5px;line-height:1.65}
+@media (max-width:520px){
+  .kv div{grid-template-columns:1fr}
+  .kv dt{border-right:0;border-bottom:1px solid var(--rule);padding:9px 14px}
+}
+
+.checks{margin:0;padding:0;list-style:none;border:1px solid var(--rule);background:var(--card)}
+.checks li{padding:14px 18px;border-bottom:1px solid var(--rule)}
+.checks li:last-child{border-bottom:0}
+.checks b{
+  display:block;font-size:15.5px;font-weight:600;margin-bottom:4px;
+  color:var(--ink);letter-spacing:-.015em;
+}
+.checks b::before{content:"☑ ";color:var(--uv)}
+.checks span{display:block;font-size:14px;color:var(--ink2);line-height:1.7}
+.checks .fixed{
+  float:right;font-size:11.5px;font-weight:500;color:var(--uv);
+  border:1px solid var(--uv);border-radius:2px;padding:0 6px;margin-left:8px;
+}
+
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin:14px 0 0;
+}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+.stats div{background:var(--card);padding:14px 16px;text-align:center}
+.stats b{display:block;font-family:var(--mono);font-size:21px;font-weight:500;color:var(--uv);letter-spacing:-.02em}
+.stats span{display:block;font-size:12.5px;color:var(--ink3);margin-top:3px}
+
+.seq{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.seq li{
+  display:flex;align-items:baseline;gap:7px;flex:1 1 150px;
+  border:1px solid var(--rule);background:var(--card);padding:9px 12px;font-size:14px;
+}
+.seq li i{font-family:var(--mono);font-size:11.5px;color:var(--uv);font-style:normal}
+
+.pair{display:grid;grid-template-columns:1fr;gap:20px;margin-top:0}
+.pair .block{margin-bottom:0;height:100%;display:flex;flex-direction:column}
+.pair .block pre{flex:1}
+table.rules td:first-child{
+  font-family:var(--sans);color:var(--ink);font-weight:600;
+  width:auto;text-align:left;white-space:nowrap;
+}
+table.rules td:nth-child(2){font-weight:400;white-space:normal;color:var(--ink2);width:22%}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <p class="eyebrow">상품 상세페이지 템플릿 03 <span>/ CESCO Mylab</span></p>
+  <h1>마이랩 소비재형
+    <em>화자가 ‘세스코 ○○연구소’로 의인화되어 ~해요체로 말하는 유일한 유형. 의심 → 검증 → 안심 구조로 설계한다.</em>
+  </h1>
+
+</header>
+
+<div class="shell">
+
+  <aside class="rail">
+    <div class="rail-title">목차</div>
+    <nav>
+      <a href="#s0"><span class="n">00</span>개요</a>
+      <a href="#s1"><span class="n">01</span>전체 구조</a>
+      <a href="#s2"><span class="n">02</span>섹션별 스펙</a>
+      <a href="#s3"><span class="n">03</span>톤앤매너</a>
+      <a href="#s4"><span class="n">04</span>고정 요소</a>
+      <a href="#s5"><span class="n">05</span>변형 규칙</a>
+      <a href="#s6"><span class="n">06</span>빈 스켈레톤</a>
+    </nav>
+  </aside>
+
+  <main>
+
+  <!-- 0 -->
+  <section class="sec" id="s0">
+    <div class="sec-head">
+      <span class="sec-num">00</span>
+      <h2>개요<span class="sub">공통 규칙은 <code style="font-family:var(--mono);font-size:13px">../00-공통-랭귀지-규칙.md</code>를 상속한다. 이 문서에는 마이랩 고유 규칙만 쓴다.</span></h2>
+    </div>
+
+    <dl class="kv">
+      <div><dt>용도</dt><dd>세스코 마이랩 생활위생용품(택배 배송 소비재)의 세스코몰 상세페이지</dd></div>
+      <div><dt>타깃</dt><dd>B2C 전용. 성분·안전성에 민감한 3040 주부, 영유아·반려동물 가구, 자취 1인 가구</dd></div>
+      <div><dt>표준 분량</dt><dd>이미지 6~15장. 본문 약 3,000~5,000자 + 법정 고정 블록 약 1,500~2,500자</dd></div>
+      <div><dt>적용 상품군</dt><dd>기피제·살균소독제·클리너·세제·티슈 등 마이랩 전 제품 <span style="color:var(--ink3)">— 03-detail-pages 내 19건, 최다 유형</span></dd></div>
+      <div><dt>근거 원문</dt><dd class="ids">
+        <span class="id"><b>07</b><small>모기기피제</small></span>
+        <span class="id"><b>16</b><small>배수구클리너</small></span>
+        <span class="id" style="border-color:var(--rule);color:var(--ink3)"><b>13·37·40·42</b><small>보조</small></span>
+      </dd></div>
+    </dl>
+
+    <div class="callout">
+      <h3>핵심 정체성</h3>
+      <p><strong>화자가 ‘세스코 ○○연구소’로 의인화</strong>되어 ~해요체로 말하는 유일한 유형. “누구나. 집에서. 스스로.” 브랜드 스테이트먼트 + 3연 체크박스(엄격한 기준으로 / 까다로운 검증을 거쳐 / 완벽하게 기능하도록) 프레임이 상품군 전체를 관통한다. 모든 효능 주장은 시험성적서 실물 이미지로 증빙하고, 마감은 법정 고정 4블록(보관방법 → 용법·용량 → 사용상 주의사항 → 응급처치)으로 닫는다.</p>
+    </div>
+  </section>
+
+  <!-- 1 -->
+  <section class="sec" id="s1">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>전체 구조<span class="sub">12개 섹션 순서 — ①에서 ⑫까지가 상세페이지의 스크롤 순서다</span></h2>
+    </div>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr><th>#</th><th>섹션명</th><th>역할</th><th>분량 가이드</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>①</td><td>표지</td><td><code style="font-family:var(--mono)">CESCO Mylab</code> + “세스코 과학연구소를 내 손 안으로” + 영문 제품군명 + 제품명·용량·제형 + 연구소 뱃지</td><td>6~8줄</td></tr>
+          <tr><td>②</td><td>패키지 문구 전사</td><td>실물 패키지에 인쇄된 연구소 제안문 + 효익 3불릿</td><td>패키지당 8~10줄</td></tr>
+          <tr><td>③</td><td>브랜드 스테이트먼트</td><td>“누구나. 집에서. 스스로.” 고정문</td><td>고정 블록 (§4-1)</td></tr>
+          <tr><td>④</td><td>연구소 제안문</td><td>“세스코 ○○연구소에서 ~를 제안합니다”</td><td>4~6줄</td></tr>
+          <tr><td>⑤</td><td>3연 체크박스</td><td>☑엄격한 기준으로 / ☑까다로운 검증을 거쳐 / ☑완벽하게 기능하도록 + 각 2줄 요약</td><td>고정 프레임 (§4-2)</td></tr>
+          <tr><td>⑥</td><td>아이콘 6종 요약</td><td>⑤를 6칸으로 분해 + 불검출 각주</td><td>명사구 6개 + 각주</td></tr>
+          <tr><td>⑦</td><td>POINT 01~06</td><td>고객 자기 의심 질문 → ❝연구소 답변(~해요) → 근거</td><td>POINT당 1~3블록</td></tr>
+          <tr><td>⑧</td><td>근거 자료 실물</td><td>시험성적서·인증서·그래프·연구일지</td><td>POINT 사이 분산</td></tr>
+          <tr><td>⑨</td><td>성분 설명서</td><td>“들어있어요 / 들어있지 않아요(불검출)” 표</td><td>표 1개 + 각주</td></tr>
+          <tr><td>⑩</td><td>사용법</td><td>STEP 1~4 + 사용 루틴 제안</td><td>표 1개 + 루틴 1블록</td></tr>
+          <tr><td>⑪</td><td>라인업 비교</td><td>동일 카테고리 2~3종 비교 (공통 검증 체크 + 제품별 특징)</td><td>제품당 4~6불릿</td></tr>
+          <tr><td>⑫</td><td>법정 고정 블록</td><td>보관방법 → 용법·용량 → 사용상 주의사항 → 응급처치</td><td>품목 인허가 문안 그대로</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">POINT 개수는 제품 복잡도에 따라 3~6개 — 기피제 6개, 클리너는 3연 체크박스 자체가 본문 축 역할.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="sec" id="s2">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>섹션별 상세 스펙<span class="sub">각 섹션은 (a) 역할 · (b) 카피 공식 · (c) 실제 예문 · (d) 지킬 것과 피할 것 순으로 정의된다</span></h2>
+    </div>
+
+    <!-- ① -->
+    <article class="spec">
+      <header><span class="glyph">①</span><h3>표지</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할·구성</div>
+          <p><code style="font-family:var(--mono)">CESCO Mylab</code> 로고 → 슬로건 “세스코 과학연구소를 내 손 안으로” → 영문 제품군 프로그램명(대문자) → 제품명 → 용량·제형·향 → 원형 연구소 뱃지(<em>CESCO SCIENCE 생활과학 연구소 LABORATORY</em>). 인증 뱃지(더마테스트·APEC 등)는 보유 시 표지에 선노출.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li>CESCO Mylab / 세스코 과학연구소를 내 손 안으로 / <span class="slot">{영문 프로그램명}</span> / 세스코 마이랩 <span class="slot">{제품명}</span> / <span class="slot">{용량}</span> | <span class="slot">{제형·향}</span> | <span class="slot">{품목 분류}</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li><q>CESCO Mylab / 세스코 과학연구소를 내 손 안으로 / DRAIN CLEANER POWDER / 세스코 마이랩 배수구클리너 / 200 g (40 g x 5개입) | 분말 타입</q><span class="src">16</span></li>
+            <li><q>세스코 마이랩 모기 기피제 / FLYING INSECT CONTROL PROGRAM / 소용량 스프레이 타입으로 기내 반입이 가능합니다. / 70 ml ㅣ 스프링로즈향 ㅣ 모기·진드기 기피제</q><span class="src">07</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>영문 프로그램명은 통제어휘(FLYING INSECT CONTROL PROGRAM 등) 재사용, 용량·제형은 ㅣ 구분자.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>표지에서 효능 주장 — 표지는 정체성만.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ② -->
+    <article class="spec">
+      <header><span class="glyph">②</span><h3>패키지 문구 전사</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할</div>
+          <p>실물 파우치·박스에 인쇄된 문구를 그대로 촬영·전사해 노출. “패키지에 이미 사용법·제안문이 담겨 있다”는 마이랩 철학(“제품을 사용하는 올바른 방법까지 담았습니다”)의 시각 증거.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">16 파우치</span>
+              <q>세스코 마이랩 배수구클리너 / 세스코 생활과학 연구소에서 순식간에 발생하는 풍성한 거품으로 배수구 속 깊숙이 쌓인 찌꺼기부터 악취를 유발하는 오염 물질과 찌든 때 속의 벌레 알까지 세정해 주는 배수구클리너를 제안합니다. / - 강력한 발포 세정력 / - 물 막힘, 악취 유발 물질 손쉽게 제거 / - 벌레 서식 차단 효과</q>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>패키지 문구와 상세 본문의 제안문은 동일 문장 유지 — 교차 검증 인상.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>본문에서만 제안문을 윤문해 패키지와 어긋나게 두기.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ③ -->
+    <article class="spec">
+      <header><span class="glyph">③</span><h3>브랜드 스테이트먼트<span class="tag">무수정 고정</span></h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할</div>
+          <p><a href="#f41" style="color:var(--uv)">§4-1 고정 블록</a>을 원문 그대로 삽입. 한 글자도 고치지 않는다.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ④ -->
+    <article class="spec">
+      <header><span class="glyph">④</span><h3>연구소 제안문</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할</div>
+          <p>제품의 존재 이유를 연구소 1인칭 제안으로 선언. 담당 연구소명은 제품 성격에 따라 분화 — 해충 관련 = <strong>해충방제 연구소</strong>, 생활위생 = <strong>생활과학 연구소</strong>.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li>세스코 <span class="slot">{담당}</span>연구소에서 + <span class="slot">{작동 원리 수식}</span> + <span class="slot">{문제 나열}</span>까지 <span class="slot">{동사}</span>해 주는 + <span class="slot">{제품명}</span>를 제안합니다.</li>
+          </ul>
+          <p style="margin-top:8px">제안 대상은 항상 <strong>3중 축적</strong> — 찌꺼기부터 + 오염 물질과 + 벌레 알까지.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li><q>세스코 생활과학 연구소에서 순식간에 발생하는 풍성한 거품으로 배수구 속 깊숙이 쌓인 찌꺼기부터 악취를 유발하는 오염 물질과 찌든 때 속의 벌레 알까지 세정해 주는 배수구클리너를 제안합니다.</q><span class="src">16</span></li>
+            <li><q>세스코 과학연구소에서 주성분 WHO ‘U’등급(독성이 가장 낮음)의 인체용 해충 기피제를 제안합니다.</q><span class="src">07 라벨</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>동사는 “제안합니다”. “~부터 ~까지” 범위 축적 구문.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>“판매합니다·출시합니다” — 화자는 MD가 아니라 연구소다.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑤ -->
+    <article class="spec">
+      <header><span class="glyph">⑤</span><h3>3연 체크박스<span class="tag">고정 프레임 §4-2</span></h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할</div>
+          <p>마이랩 전 제품 공통 설득 프레임. 세 슬로건은 고정, 각 항목 아래 2줄 요약만 제품별로 작성. 리드 문형 <em>{고민} + 마이랩으로 해결하세요!</em>와 함께 배치.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식 — 요약 2줄</div>
+          <ul class="checks">
+            <li>
+              <b>엄격한 기준으로<span class="fixed">문구 고정</span></b>
+              <span><span class="slot">{문제 유발원}</span>을 <span class="slot">{간편 세정 | 정확 처방}</span> — 핵심 기능</span>
+            </li>
+            <li>
+              <b>까다로운 검증을 거쳐<span class="fixed">문구 고정</span></b>
+              <span><span class="slot">{리스크 고려}</span>하여 <span class="slot">{이슈 성분·안전성}</span>을 까다롭게 검증 — 안전 증빙</span>
+            </li>
+            <li>
+              <b>완벽하게(강력하게) 기능하도록<span class="fixed">문구 고정</span></b>
+              <span><span class="slot">{난처 조건}</span>도 <span class="slot">{기술}</span>으로 <span class="slot">{해결}</span> — 성능 보증</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">16</span>
+              <q>청소해도 냄새나는 배수구 마이랩으로 해결하세요! / ☑ 엄격한 기준으로 — 퀴퀴한 집안 냄새를 유발하는 배수구 유기물 간편 세정 / ☑ 까다로운 검증을 거쳐 — 공기 중 날림까지 고려하여 가습기 살균제 이슈 성분*을 까다롭게 검증 / ☑ 완벽하게 기능하도록 — 깊고 굴곡진 배수관 찌든때도 순식간에 발생하는 거품으로 세정 / * CMIT, MIT, BKC, DDAC</q>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>세 슬로건 문구·순서 불변. 이슈 성분 언급 시 * 각주로 성분명 열거. 본문 중반에 ☑ 헤드를 다시 반복해 각 챕터의 소제목으로 재사용(16 방식).</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>슬로건 개조(“철저한 기준으로” 등), 2연·4연 변형.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑥ -->
+    <article class="spec">
+      <header><span class="glyph">⑥</span><h3>아이콘 6종 요약</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li>명사구 6칸 = 기능 2~3 + 제형·편의 1~2 + 불검출·안전 2 <span class="k">(불검출 항목은 반드시 각주 연결)</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">16</span>
+              <q>악취유발 오염물질 간편 세정 / 유기물 속 벌레알 간편 세정 / 강력한 발포 기술 / 가루날림 적은 입자 / 가습기 살균제 이슈성분 불검출* / 7종 파라벤류 방부제 불검출** / * CMIT, MIT, BKC, DDAC / ** p-하이드록시벤조익애씨드, 메칠파라벤, 에칠파라벤, 프로필파라벤, 부틸파라벤, 이소프로필파라벤, 이소부틸파라벤</q>
+            </li>
+            <li>
+              <span class="kind">07</span>
+              <q>소용량 스프레이 타입 기내 반입 OK / 스프링로즈향으로 상쾌한 사용 / IR 3535® / WHO 독성기준 등급 ‘U’ 등급 / 모기기피 효과 4시간 지속 / 영아¹⁾부터 노령층까지 온 가족 사용 가능 / 독일 더마테스트²⁾ EXCELLENT 등급 / 1) 6개월 미만 영아는 사용 전 의사와 상담해주세요. 2) 1차 피부자극 시험기준/피험자 : 성인남녀 30명</q>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>효능 수치·대상 연령 주장엔 위첨자 각주(1), 2)) 필수.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>각주 없는 불검출·지속시간 표기.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑦ -->
+    <article class="spec">
+      <header><span class="glyph">⑦</span><h3>POINT 01~06 — 자기 의심 질문 → ❝연구소 답변<span class="tag">본문 핵심 리듬</span></h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할·구성</div>
+          <p>각 POINT = ① 고객의 자기 의심 질문(괜찮을까?) 또는 상황 고민 → ② ❝ 인용부호를 단 연구소의 ~해요체 답변 → ③ 근거(성분 원리·시험 데이터·공적 출처).</p>
+          <ul class="seq">
+            <li><i>01</i> 개발 권위</li>
+            <li><i>02</i> 효과·지속력</li>
+            <li><i>03</i> 사용 대상(온 가족)</li>
+            <li><i>04</i> 저자극·안전</li>
+            <li><i>05</i> 사용 팁</li>
+            <li><i>06</i> 편의·휴대</li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="k">의심 질문</span> <span class="slot">{보호 대상}</span>에, <span class="slot">{내 상황}</span>에 바로 <span class="slot">{사용 동사}</span>도 + 괜찮을까? <span class="k">(2~4줄 분절 배치)</span></li>
+            <li><span class="k">❝답변</span> ❝ <span class="slot">{의심 요소}</span>이요? + 세스코 <span class="slot">{담당}</span>연구소에서 + 엄격한 기준으로 <span class="slot">{처방 | 검증}</span>했어요.</li>
+            <li><span class="k">원리 서술</span> <span class="slot">{대상}</span>는 <span class="slot">{습성 서술}</span>해요. → 세스코 <span class="slot">{담당}</span>연구소는 <span class="slot">{습성}</span>을 연구하여 <span class="slot">{제품}</span>에 <span class="slot">{성분·기술}</span>을 처방했어요.</li>
+            <li><span class="k">권위 수치 리드</span> 숫자가 말해줍니다. 세스코가 <span class="slot">{분야}</span> 전문가인 이유.</li>
+          </ul>
+          <div class="stats">
+            <div><b>713</b><span>종 해충연구</span></div>
+            <div><b>2,193</b><span>가지 해충방제 솔루션</span></div>
+            <div><b>300</b><span>가지 BIO약제 개발</span></div>
+          </div>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li><q>내 아이 피부에, 내 피부에 바로 뿌려도 괜찮을까? / ❝ 성분이요? 세스코 해충방제 연구소에서 엄격한 기준으로 처방했어요. / 세계보건기구 WHO ‘U’ 등급 IR3535® 성분으로 처방하고 안전성 검사까지 완료했어요.</q><span class="src">07</span></li>
+            <li><q>작은 끈적임에도 예민한 피부 괜찮을까? / ❝ 매일 사용도 부담없도록 산뜻한 수성 타입으로 처방하고 독일 더마테스트¹⁾에서 ‘엑설런트’ 등급을 획득했어요</q><span class="src">07</span></li>
+            <li>
+              <span class="kind">원리 서술</span>
+              <q>모기는 후각이 발달하여 사람의 이산화탄소와 땀 냄새에 반응하고 피부 아무곳이나 물지 못하고 모세혈관을 통해서만 피를 빨아서 날아가요.</q><span class="src">07</span>
+            </li>
+            <li><q>이렇게 강력하게 세정되는데 성분이 신경 쓰이진 않으셨나요? / 세스코 생활과학 연구소는 혹시나 하는 제품 사용 중 공기 날림까지 고려하여 가루 형태가 아닌 과립 형태로 제형을 처방하고 반드시 확인해야 하는 불검출 성분도 까다롭게 검증했어요.</q><span class="src">16</span></li>
+            <li><q>❝ 이제, 뿌리기만 하세요! / 모기로부터 4시간, 진드기로부터 3시간 편하게 해방돼요. / ※ 제품효력시험결과보고서</q><span class="src">07</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>약제·성분에는 “처방”(연구소 화법의 의료 은유), 효능 주장 직후 ※출처 병기, 효과 지속 시간 등 수치는 시험 조건 명시.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>연구소 화자인데 ~합니다체로 서술(권위 블록 인용 제외), 근거 없는 “괜찮아요” 안심.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑧ -->
+    <article class="spec">
+      <header><span class="glyph">⑧</span><h3>근거 자료 실물</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할</div>
+          <p>시험성적서·인증서 실물 이미지 + 캡션 각주 + 연구일지(연출 실험). 마이랩 신뢰의 물증 장치.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="k">그래프 캡션</span> [ <span class="slot">{시험 항목}</span> - <span class="slot">{시험 대상 학명 병기}</span> 시험 ㅣ 시험방법 : <span class="slot">{가이드라인}</span> ㅣ 시험기관 : <span class="slot">{기관}</span> ]</li>
+            <li><span class="k">연구일지</span> 세스코 과학연구소 연구일지 + <span class="slot">{실험명}</span> + ❝ <span class="slot">{전문 연구원이 ○○한 실험 서술, ~했어요}</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li><q>[ 모기 기피력 - 빨간집모기(Culex piplens)와 흰줄숲모기(Aedes albopictus) 시험 ㅣ 시험방법 : 식품의약품안전평가원(2017), 모기기피제 효력평가법 가이드라인 ㅣ 시험기관 : 서울대학교 ]</q><span class="src">07</span></li>
+            <li><q>세스코 과학연구소 연구일지 / 세스코 모기 기피제 효능 실험 / ❝ 세스코 해충방제 연구소 전문 연구원이 흰 줄 숲 모기 500 마리가 날아다니는 상자에 팔을 넣고 세스코 모기 기피제의 효과를 검증했어요.</q><span class="src">07</span></li>
+            <li><q>세스코 생활과학 연구소에서 정말 배수구 깊은 곳까지 세정이 되는지 깐깐하게 검증합니다 / 미세한 배수관 주름에 낀 고춧가루까지 빼내기 위해</q><span class="src">16</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>시험기관·시험방법·표본수(성인남녀 30명 등)를 각주 체계(*, 1))로 병기. 학명 병기는 전문성 신호이므로 유지.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>출처 없는 그래프, 학명 생략.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑨ -->
+    <article class="spec">
+      <header><span class="glyph">⑨</span><h3>성분 설명서 “들어있어요 / 들어있지 않아요”</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li>헤드: 세스코 <span class="slot">{담당}</span>연구소의 깐깐한 성분 설명서</li>
+            <li>표 2행: 들어있어요 <span class="slot">{유효 성분}</span> / 들어있지 않아요 불검출 <span class="slot">{이슈 성분군 N종¹⁾}</span> <span class="k">(각주에 성분명 전체 열거)</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">16</span>
+              <q>세스코 생활과학 연구소의 깐깐한 성분 설명서 / 들어있지 않아요 불검출 — ☐ 가습기 살균제 이슈 성분 4종¹⁾ ☐ 파라벤류 방부제 7종²⁾ / 1) CMIT, MIT, BKC, DDAC / 2) 메칠파라벤, 에칠파라벤, 프로필파라벤, 부틸파라벤, 이소프로필파라벤, 이소부틸파라벤, p-하이드록시벤조익애씨드</q>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>불검출 성분군 표기는 통제어휘 — CMIT/MIT/BKC/DDAC(가습기 살균제 이슈 4종), 파라벤 7종. 성분명 나열 순서까지 기존 상세와 통일.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>성분군 명칭·나열 순서 임의 변경.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑩ -->
+    <article class="spec">
+      <header><span class="glyph">⑩</span><h3>사용법 STEP + 루틴</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="k">루틴 제안</span> <span class="slot">{주기}</span> <span class="slot">{행동}</span> 만으로 + <span class="slot">{효익}</span> 끝!</li>
+            <li><span class="k">루틴 근거</span> 사용 후 <span class="slot">{기간}</span>이 지나면 <span class="slot">{재발 사유}</span> 때문에 + <span class="slot">{주기}</span>에 한 번, <span class="slot">{용량}</span> 사용으로 <span class="slot">{문제}</span>를 세정하세요.</li>
+            <li><span class="k">STEP 표</span> 명령형 ~해 주세요체 + 주의 각주</li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">루틴 — 16</span>
+              <q>배수구 청소 2주 루틴 만으로 집안 곳곳 배수구 냄새 관리 끝! / 사용 후 2주가 지나면 이물질이 다시 축적되기 때문에 2주에 한 번, 1포 사용으로 악취와 벌레의 서식지가 되는 유기물을 세정하세요.</q>
+            </li>
+            <li>
+              <span class="kind">STEP — 16</span>
+              <q>STEP 1 배수구의 이물질을 제거하고, 미온수 1컵을 부어 적셔주세요. / STEP 2 배수구클리너 한포를 부어주세요. / STEP 3 준비한 물을 조금씩 부어 발포시켜 주세요. * 너무 많은 양의 물을 흘려보낼 경우 세정력이 저하됩니다. / STEP 4 3~4 시간 후, 흐르는 물로 깨끗이 씻어내 주세요.</q>
+            </li>
+            <li>
+              <span class="kind">사용 팁 변형 — 07 (#TIP 1~4 해시태그 넘버링)</span>
+              <q>#TIP 1 피크닉, 야외 카페 방문 등 일상 속 기피제 사용을 생활화 해주세요.</q>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>루틴(주기 반복)을 심어 재구매를 설계 — “1개월에 2회 사용권장” 등 권장 주기를 법정 사용방법과 일치시킬 것.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>본문 권장 주기와 법정 블록 사용주기가 어긋나기.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑪ -->
+    <article class="spec">
+      <header><span class="glyph">⑪</span><h3>라인업 비교</h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할</div>
+          <p>동일 카테고리 2~3종을 “공통 검증 체크 블록 + 제품별 특징 카드”로 비교해 용도별 선택 유도.</p>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>b</b> 카피 공식</div>
+          <ul class="f">
+            <li><span class="k">공통 블록</span> ✔ 불릿으로 카테고리 공통 검증 사항 나열(각주 포함)</li>
+            <li><span class="k">제품 카드</span> ### <span class="slot">{제품명}</span>　<span class="slot">{제형}</span> ㅣ <span class="slot">{용량}</span> + ✔ 특징 3~5개 <span class="k">(마지막 불릿은</span> <span class="slot">{추천 용도}</span>용/추천<span class="k">)</span></li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>c</b> 실제 예문</div>
+          <ul class="ex">
+            <li>
+              <span class="kind">07</span>
+              <q>세스코 마이랩 모기기피 LINE UP / 단 1회 분사로 모기와 진드기 접근을 차단합니다. / ✔ 국내 화장품 성분으로도 쓰이는 WHO ‘U’ 등급의 모기기피 주성분 IR3535® (…) / ### 아웃도어 미스트 에어로솔　미스트 타입 ㅣ 100 ml / ✔ 부드러운 미세안개 분사로 뭉침 없이 고르게 커버 / ✔ 5시간 모기 기피 효과 지속 / ✔ 캠핑 레저, 낚시 등산 등 아웃도어 활동용 / ### 모기 기피제(대용량)　스프레이 건 타입 ㅣ 290 ml / ✔ 사용량이 많은 가정, 업소, 단체 시설에 추천</q>
+            </li>
+          </ul>
+        </div>
+        <div class="sub">
+          <div class="sub-label"><b>d</b> 체크</div>
+          <div class="ka">
+            <div class="keep"><h4>지킬 것</h4><p>카드 간 차이는 제형·용량·지속시간·용도 4축으로만 서술.</p></div>
+            <div class="avoid"><h4>피할 것</h4><p>우열 비교 — 같은 브랜드다.</p></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ⑫ -->
+    <article class="spec">
+      <header><span class="glyph">⑫</span><h3>법정 고정 블록<span class="tag">§4-3</span></h3></header>
+      <div class="spec-body">
+        <div class="sub">
+          <div class="sub-label"><b>a</b> 역할</div>
+          <p>순서 고정 — 보관방법 → 용법·용량 → 사용상 주의사항 → 응급처치. 문안은 <a href="#f43" style="color:var(--uv)">§4-3</a>의 품목 인허가 원문을 그대로 옮긴다.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 3 -->
+  <section class="sec" id="s3">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>톤앤매너</h2>
+    </div>
+    <ul class="plain">
+      <li><strong>화자 — 연구소 의인화</strong> “세스코 생활과학 연구소에서 ~를 제안합니다”, “~연구하여 ~를 처방했어요”. 상세페이지 전 채널 중 유일하게 <em>~해요체</em>가 본문 기본.</li>
+      <li><strong>어미 배분</strong> 연구소 답변·원리 설명·안심 서술 = <em>~해요/~돼요/~했어요</em>. 브랜드 스테이트먼트·권위 선언·검증 완료 선언(“검증 완료했습니다”, “탄생했습니다”) = <em>~합니다</em>(격 상승 지점에만). 사용법 STEP = <em>~해 주세요</em>. 법정 블록 = <em>~하십시오</em>(법정 문안 그대로).</li>
+      <li><strong>❝ (굽은 큰따옴표)</strong> 연구소 발화 표시 기호. 고객 의심 질문에는 물음표만.</li>
+      <li><strong>어휘</strong> “처방했어요”(성분), “깐깐한/까다로운/엄격한”(검증 3형용사), “노하우를 한 통에 통째로”, “꿀 TIP”, “필수템”, “쟁여두세요” 등 생활 밀착 고유어 허용 — 전 유형 중 가장 캐주얼.</li>
+    </ul>
+    <div class="ka one" style="margin-top:22px">
+      <div class="avoid">
+        <h4>금지</h4>
+        <p>공포 소구의 수치 협박 — 마이랩은 ‘의심 → 검증 → 안심’ 구조이지 ‘공포 → 구원’ 구조가 아니다.<br>
+        MD 추천 표현, 근거 없는 최상급.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="sec" id="s4">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>고정 요소<span class="sub">그대로 복사할 블록. 임의 수정 금지.</span></h2>
+    </div>
+
+    <div class="block" id="f41">
+      <header>
+        <h3>4-1. 브랜드 스테이트먼트 — 마이랩 전 제품 공통, 무수정</h3>
+        <button class="copy" type="button">복사</button>
+      </header>
+      <pre>(띠 배너) 세스코가 만든 환경위생 솔루션
+
+CESCO Mylab
+
+누구나. 집에서. 스스로.
+전문가 수준의 위생을 누릴 수 있어야 한다는
+세스코의 생각이 세스코 마이랩으로 탄생했습니다.
+
+성분 하나까지 엄격한 기준으로 고르고
+누구나 전문가처럼 제품을 사용할 수 있도록
+제품을 사용하는 올바른 방법까지 담았습니다.
+
+세스코 과학연구소의 노하우를
+한 통에 통째로 담은
+
+CESCO Mylab</pre>
+    </div>
+    <p class="note">07·16 동일 원문 그대로.</p>
+
+    <div class="block" style="margin-top:22px" id="f42">
+      <header>
+        <h3>4-2. 3연 체크박스 프레임 — 슬로건 고정, 요약만 교체</h3>
+        <button class="copy" type="button">복사</button>
+      </header>
+      <pre>세스코 전문 연구원의 맞춤 위생 솔루션
+(원형 스탬프 뱃지) CESCO SCIENCE 생활과학 연구소 LABORATORY
+
+{고민 한 줄}
+마이랩으로 해결하세요!
+
+☑ 엄격한 기준으로
+{핵심 기능 2줄 요약}
+
+☑ 까다로운 검증을 거쳐
+{안전 검증 2줄 요약 (*이슈 성분 각주)}
+
+☑ 완벽하게 기능하도록
+{성능 보증 2줄 요약}
+
+* {각주: 이슈 성분명 열거}</pre>
+    </div>
+    <p class="note">16 구조 그대로 — “완벽하게”는 제품에 따라 “강력하게”로만 교체 허용.</p>
+
+    <h3 id="f43" style="font-size:17px;font-weight:600;letter-spacing:-.02em;margin:34px 0 8px;scroll-margin-top:24px">4-3. 법정 고정 4블록</h3>
+    <p class="lede" style="font-size:15px;margin-bottom:16px">순서 고정: 보관방법 → 용법·용량 → 사용상 주의사항 → 응급처치. 의약외품(기피제 등)과 생활화학제품(클리너 등)의 문안이 다르다. <strong style="color:var(--ink);font-weight:600">품목 허가·신고 문안을 그대로 옮긴다</strong> — 마케팅 윤문 절대 금지.</p>
+
+    <div class="pair">
+      <div class="block">
+        <header>
+          <h3>의약외품형 — 07 기준</h3>
+          <button class="copy" type="button">복사</button>
+        </header>
+        <pre>### 보관방법 및 사용기준
+1. 직사광선을 피하여 실온(1~30℃) 에서 보관하십시오.
+2. 어린이의 손이 닿지 않는 곳에 보관하십시오.
+3. 의약외품을 원래 용기에서 꺼내어 다른 용기에 보관하는 것은 의약외품 오용에 의한
+   사고 발생이나 의약외품 품질저하의 원인이 될 수 있으므로 원래의 용기에 넣고 꼭 닫아 보관하십시오.
+
+### 용법 · 용량
+사용전 반드시 아래 사항을 읽어주십시오.
+{품목 허가 용법·용량 전문}
+
+### 사용상의 주의사항
+{품목 허가 주의사항 전문 — 번호 불릿}
+
+### 응급처치
+{알레르기 반응 / 눈 접촉 / 삼켰을 때 — 품목 허가 문안 전문}</pre>
+      </div>
+
+      <div class="block">
+        <header>
+          <h3>생활화학제품형 — 16 기준</h3>
+          <button class="copy" type="button">복사</button>
+        </header>
+        <pre>사용방법
+{번호 불릿 + ※ 사용주기 : ○개월에 ○회 사용권장}
+
+사용상 주의사항
+※ {위험 성분 함유 고지 — 예: 염소계 표백성분이 함유되어 있으므로, 밀폐된 공간에서
+   사용 시 환기를 충분히 하시기 바랍니다.}
+1. 다른 제품과 섞어 사용할 경우 인체에 치명적인 손상을 입힐 수 있으니 섞어 사용하지 마십시오.
+{이하 품목 신고 문안 전문}
+
+응급처치
+1. 내용물이 눈이나 피부에 닿으면 깨끗하게 물로 씻고 이상이 있을 경우 의사와 상의하십시오.
+2. 내용물을 먹었을 경우 응급조치를 하고 즉시의사와 상의하십시오.</pre>
+      </div>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;letter-spacing:-.02em;margin:34px 0 12px">4-4. 통제 상수 · 각주 문형</h3>
+    <ul class="plain">
+      <li><strong>권위 수치 3연</strong> “713 종 해충연구 | 2,193 가지 해충방제 솔루션 | 300 가지 BIO약제 개발” + “숫자가 말해줍니다. 세스코가 해충방제 전문가인 이유.” <span style="color:var(--ink3)">07</span></li>
+      <li><strong>불검출 통제어휘</strong> 가습기 살균제 이슈 성분 4종(CMIT, MIT, BKC, DDAC) / 파라벤류 방부제 7종</li>
+      <li><strong>영아 각주</strong> “* 6개월 미만 영아는 사용 전 의사와 상담해주세요.” <span style="color:var(--ink3)">07 — 온 가족 사용 주장 시 필수</span></li>
+      <li><strong>더마테스트 각주</strong> “1) 1차 피부자극 시험기준/피험자 : 성인남녀 30명” <span style="color:var(--ink3)">07</span></li>
+      <li><strong>연구소 뱃지</strong> “(원형 스탬프 뱃지) CESCO SCIENCE 생활과학 연구소 LABORATORY”</li>
+    </ul>
+
+    <h3 style="font-size:17px;font-weight:600;letter-spacing:-.02em;margin:34px 0 12px">4-5. 무이자할부 블록</h3>
+    <ul class="plain">
+      <li>상세 최하단에 토스페이먼츠 제공 당월 무이자할부 안내 이미지 공통 삽입 <span style="color:var(--ink3)">(00_공통 참조)</span>.</li>
+    </ul>
+  </section>
+
+  <!-- 5 -->
+  <section class="sec" id="s5">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>변형 규칙</h2>
+    </div>
+    <div class="tw">
+      <table class="rules">
+        <thead><tr><th>변형</th><th>조건</th><th>처리</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>프로모션 랩 <span style="color:var(--ink3);font-weight:400">07</span></td>
+            <td>인플루언서 특가·기간 한정 행사</td>
+            <td>표지 위에 프로모션 배너 선배치 — “{구독자 수} 유튜버 {이름}가 추천하는 + 세스코 마이랩 {제품명}! + {월} 한정 특가 혜택” + 영상 자막·말풍선 인용. 본문 템플릿은 그대로 유지</td>
+          </tr>
+          <tr>
+            <td>선물세트 집합형 <span style="color:var(--ink3);font-weight:400">42</span></td>
+            <td>다품목 세트 상품</td>
+            <td>“Seven Moments” 식 랭킹 서사(1~7위 + 데이터 각주)로 도입 후, 단품 상세 블록을 순서대로 집합 배치. 브랜드 스테이트먼트는 1회만</td>
+          </tr>
+          <tr>
+            <td>POINT 개수 축소</td>
+            <td>저관여·단순 기능 제품(클리너류)</td>
+            <td>POINT 넘버링 생략하고 3연 체크박스(☑헤드)를 본문 챕터 축으로 사용 <span style="color:var(--ink3)">16 방식</span></td>
+          </tr>
+          <tr>
+            <td>의약외품 여부</td>
+            <td>기피제·소독제 등</td>
+            <td>라벨에 “(뱃지) 의약외품 인체용” 표기 + 법정 블록을 의약외품형으로. 효능 시험은 식약처 가이드라인 명 병기</td>
+          </tr>
+          <tr>
+            <td>인증 보유</td>
+            <td>더마테스트·APEC 등</td>
+            <td>표지·아이콘·POINT·라인업 4곳에 반복 노출 + 인증서 실물 이미지 삽입</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="sec" id="s6">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>빈 스켈레톤<span class="sub">스크롤 순서 그대로. 보라색 슬롯을 채워 초안을 만든다.</span></h2>
+    </div>
+
+    <div class="skel-wrap">
+      <header>
+        <h3>skeleton · 마이랩 소비재형</h3>
+        <button class="copy" type="button">전문 복사</button>
+      </header>
+      <div class="skel">(선택 — 프로모션 랩) <span class="slot">{인플루언서/특가 배너}</span>
+
+CESCO Mylab
+세스코 과학연구소를 내 손 안으로
+
+<span class="slot">{ENGLISH PROGRAM NAME}</span>
+
+세스코 마이랩
+<span class="slot">{제품명}</span>
+
+<span class="slot">{용량}</span> | <span class="slot">{제형·향}</span> | <span class="slot">{품목 분류}</span>
+(원형 스탬프 뱃지) CESCO SCIENCE 생활과학 연구소 LABORATORY
+(보유 시) <span class="slot">{인증 뱃지}</span>
+
+(패키지 문구 전사)
+세스코 마이랩 <span class="slot">{제품명}</span>
+세스코 <span class="slot">{담당}</span>연구소에서
+<span class="slot">{원리 수식}</span>으로
+<span class="slot">{문제 1}</span>부터 <span class="slot">{문제 2}</span>과
+<span class="slot">{문제 3}</span>까지 <span class="slot">{동사}</span>해 주는
+<span class="slot">{제품명}</span>를 제안합니다.
+- <span class="slot">{효익 불릿 1}</span> - <span class="slot">{효익 불릿 2}</span> - <span class="slot">{효익 불릿 3}</span>
+
+<span class="b">{§4-1 브랜드 스테이트먼트 — 원문 그대로}</span>
+
+세스코 <span class="slot">{담당}</span>연구소에서
+<span class="slot">{원리 수식}</span>으로 <span class="slot">{문제 축적: ~부터 ~과 ~까지}</span>
+<span class="slot">{동사}</span>해 주는 <span class="slot">{제품명}</span>를 제안합니다.
+
+<span class="b">{§4-2 3연 체크박스 — 슬로건 고정, 요약 교체}</span>
+
+(아이콘 6종)
+- <span class="slot">{기능 1 명사구}</span> - <span class="slot">{기능 2 명사구}</span> - <span class="slot">{기술 명사구}</span>
+- <span class="slot">{제형·편의 명사구}</span> - <span class="slot">{이슈성분 불검출*}</span> - <span class="slot">{N종 ○○ 불검출**}</span>
+* <span class="slot">{성분 열거}</span>  ** <span class="slot">{성분 열거}</span>
+
+<span class="b">POINT 01</span>
+<span class="slot">{개발 권위 헤드 — "○○를 가장 잘 아는 {분야} 전문가 세스코가 개발한 {제품}"}</span>
+713 종 해충연구 | 2,193 가지 해충방제 솔루션 | 300 가지 BIO약제 개발
+숫자가 말해줍니다. 세스코가 <span class="slot">{분야}</span> 전문가인 이유.
+
+❝ 세스코 <span class="slot">{담당}</span>연구소 제안
+<span class="slot">{원리 애칭 헤드}</span>
+<span class="slot">{대상 습성 서술 — ~해요}</span> → 세스코 <span class="slot">{담당}</span>연구소는 <span class="slot">{습성}</span>을 연구하여
+<span class="slot">{제품}</span>에 <span class="slot">{성분·기술}</span>을 처방했어요.
+
+<span class="b">POINT 02</span>
+<span class="slot">{효과·지속력 헤드}</span>
+<span class="slot">{고민 질문 — "~걱정되세요? ~괴로우셨나요?"}</span>
+❝ 이제, <span class="slot">{행동}</span>만 하세요!
+<span class="slot">{효과 수치 — ~돼요.}</span>
+※ <span class="slot">{시험 출처}</span>
+<span class="slot">{시험성적서·그래프 실물 + [ 시험항목 ㅣ 시험방법 ㅣ 시험기관 ] 캡션}</span>
+
+<span class="b">POINT 03</span>
+<span class="slot">{사용 대상 헤드 — 온 가족/영아 등}</span>  * <span class="slot">{연령 각주}</span>
+<span class="slot">{의심 질문 — "내 아이 피부에, 내 피부에 바로 ~도 괜찮을까?"}</span>
+❝ <span class="slot">{의심 요소}</span>이요? 세스코 <span class="slot">{담당}</span>연구소에서 엄격한 기준으로 처방했어요.
+<span class="slot">{성분 등급·공적 출처 서술 — ~해요}</span>
+
+<span class="b">POINT 04</span>
+<span class="slot">{저자극·안전 헤드}</span>
+❝ <span class="slot">{검증 서술 — 인증 등급 획득했어요}</span>
+<span class="slot">{인증서 실물 + 각주}</span>
+
+<span class="b">POINT 05</span>
+세스코 과학연구소 제안
+#<span class="slot">{시즌·상황}</span> 꿀 TIP
+#TIP 1~4 <span class="slot">{상황별 사용 팁 — ~해주세요}</span>
+
+<span class="b">POINT 06</span>
+<span class="slot">{편의·휴대 헤드}</span>
+<span class="slot">{라이프스타일 서술 — ~이에요/~해요}</span>
+
+세스코 <span class="slot">{담당}</span>연구소의 깐깐한 성분 설명서
+| 들어있어요 | <span class="slot">{유효 성분}</span> |
+| 들어있지 않아요 불검출 | ☐ <span class="slot">{이슈 성분군 N종¹⁾}</span> ☐ <span class="slot">{성분군 N종²⁾}</span> |
+1) <span class="slot">{열거}</span>  2) <span class="slot">{열거}</span>
+
+<span class="slot">{루틴 헤드 — "{주기} {행동} 만으로 {효익} 끝!"}</span>
+<span class="slot">{재축적 사유 → 주기 권장 — ~하세요}</span>
+
+| STEP 1 | <span class="slot">{행동 — ~해 주세요}</span> |
+| STEP 2~4 | <span class="slot">{행동 (+ * 주의 각주)}</span> |
+
+세스코 마이랩 <span class="slot">{카테고리}</span> LINE UP
+<span class="slot">{공통 검증 ✔ 불릿 + 각주}</span>
+### <span class="slot">{제품 A}</span>　<span class="slot">{제형}</span> ㅣ <span class="slot">{용량}</span>
+✔ <span class="slot">{특징}</span> ✔ <span class="slot">{특징}</span> ✔ <span class="slot">{추천 용도}</span>
+### <span class="slot">{제품 B}</span> / <span class="slot">{제품 C}</span> <span class="slot">{동일 구조}</span>
+
+<span class="b">{§4-3 법정 고정 4블록 — 품목 인허가 문안 전문 그대로}</span>
+
+[공통] 당월 무이자할부 행사안내 (토스페이먼츠 제공 이미지)</div>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<footer class="pagefoot">
+  <span>상품 상세페이지 템플릿 03 · 마이랩 소비재형 (CESCO Mylab)</span>
+  <span>근거 원문 07 / 16 · 보조 13·37·40·42</span>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('button.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var box = btn.closest('.block, .skel-wrap');
+      var src = box.querySelector('pre, .skel');
+      var text = src.innerText;
+      var done = function(){
+        var prev = btn.textContent;
+        btn.textContent = '복사됨';
+        btn.dataset.done = '1';
+        setTimeout(function(){ btn.textContent = prev; btn.removeAttribute('data-done'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch(e){ btn.textContent='복사 실패'; }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  var secs  = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function mark(id){
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + id); });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) mark(e.target.id); });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    secs.forEach(function(s){ if (s) io.observe(s); });
+  }
+  mark('s0');
+})();
+</script>
+</body>
+</html>
