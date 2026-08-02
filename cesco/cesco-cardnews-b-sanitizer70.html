@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카드뉴스 B형 — 마이랩 살균소독제 70 / 전체 장표 보기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{
+  --ink:#0B1524; --ink-2:#132437;
+  --paper:#EEF3F6; --paper-2:#FFFFFF;
+  --blue:#0B5CB5; --blue-deep:#063E7C;
+  --signal:#FF5A2D; --steel:#8FA3B5; --steel-dk:#5A7186;
+  --bg:#E4E9EF; --line:#C9D3DB;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Noto Sans KR",monospace;
+  --cols:4;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--ink);padding-bottom:80px}
+
+/* ---------- 헤더 ---------- */
+.bar{
+  position:sticky;top:0;z-index:40;background:rgba(228,233,239,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+.bar-in{max-width:1560px;margin:0 auto;padding:16px 26px;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.brand{display:flex;flex-direction:column;gap:4px;margin-right:auto}
+.brand .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--signal)}
+.brand h1{margin:0;font-size:17px;font-weight:800;letter-spacing:-.03em}
+.brand h1 span{color:var(--steel-dk);font-weight:600}
+.meta{display:flex;gap:16px;font-family:var(--mono);font-size:10.5px;color:var(--steel-dk);letter-spacing:.06em}
+.meta b{display:block;color:var(--ink);font-size:12px;letter-spacing:0;margin-top:3px}
+.ctl{display:flex;gap:8px;align-items:center}
+.tgl{
+  appearance:none;border:1px solid #B4C2CD;background:#fff;color:var(--ink);
+  font-family:var(--mono);font-size:11px;letter-spacing:.07em;padding:8px 12px;border-radius:2px;cursor:pointer;
+}
+.tgl:hover{border-color:var(--blue)}
+.tgl[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tgl:focus-visible,.cell:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.seg{display:flex;border:1px solid #B4C2CD;border-radius:2px;overflow:hidden;background:#fff}
+.seg button{
+  appearance:none;border:0;background:transparent;font-family:var(--mono);font-size:11px;
+  padding:8px 11px;cursor:pointer;color:var(--steel-dk);border-right:1px solid #DCE3E9;
+}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+/* ---------- 시트 ---------- */
+.sheet{
+  max-width:1560px;margin:0 auto;padding:26px;
+  display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:26px 20px;
+}
+.cell{margin:0;cursor:zoom-in;transition:transform .16s ease}
+.cell:hover{transform:translateY(-3px)}
+.cell.is-hidden{display:none}
+.cell-bar{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.cell-bar .role{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--steel-dk);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.cell-bar .role em{font-style:normal;color:var(--signal);font-weight:700}
+.cell-bar .no{
+  margin-left:auto;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.05em;
+  background:#fff;border:1px solid var(--line);color:var(--ink);padding:2px 6px;border-radius:2px;
+}
+.cell[data-internal] .cell-bar .no{background:var(--signal);border-color:var(--signal);color:#fff}
+.cell[data-internal] .cell-bar .role{color:var(--signal)}
+.cell-note{display:none}
+
+/* ---------- 카드 ---------- */
+.card{
+  container-type:inline-size;position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;
+  border-radius:3px;display:flex;flex-direction:column;padding:7.5cqw 7cqw 6.5cqw;
+  background:var(--ink);color:#fff;
+  box-shadow:0 1px 2px rgba(11,21,36,.16),0 14px 30px -18px rgba(11,21,36,.5);
+}
+.card.paper{background:var(--paper);color:var(--ink)}
+.card.paper-2{background:var(--paper-2);color:var(--ink)}
+.card.cover{background:
+  radial-gradient(120% 90% at 78% 8%,rgba(11,92,181,.55) 0,rgba(11,21,36,0) 62%),
+  linear-gradient(168deg,#0E2438 0,#08111C 74%);}
+
+.imgtag{
+  position:absolute;right:0;top:0;z-index:3;font-family:var(--mono);font-size:2cqw;line-height:1.45;
+  background:rgba(255,90,45,.92);color:#fff;padding:1.4cqw 1.8cqw;max-width:54%;border-bottom-left-radius:2px;
+}
+.card.paper .imgtag,.card.paper-2 .imgtag{background:rgba(11,21,36,.9)}
+
+.sig{font-family:var(--mono);font-size:2.5cqw;letter-spacing:.2em;font-weight:600;color:#9EB7CC;margin:0 0 auto}
+.card.paper .sig,.card.paper-2 .sig{color:var(--blue)}
+.sig b{color:#fff;font-weight:700;letter-spacing:.16em}
+.card.paper .sig b,.card.paper-2 .sig b{color:var(--blue-deep)}
+
+.eyebrow{font-family:var(--mono);font-size:2.2cqw;letter-spacing:.14em;color:var(--signal);margin:0 0 2.6cqw;font-weight:600}
+
+h2.head{font-size:6.9cqw;line-height:1.22;letter-spacing:-.045em;font-weight:800;margin:0 0 3.4cqw;text-wrap:balance}
+.card.cover h2.head{font-size:8.4cqw;line-height:1.18;margin-bottom:0}
+.card.cover .lead{
+  font-family:var(--mono);font-size:2.7cqw;color:#8FB6DA;margin:4.5cqw 0 0;padding-top:3.4cqw;
+  border-top:1px solid rgba(255,255,255,.22);
+}
+p.body{font-size:3.15cqw;line-height:1.72;letter-spacing:-.015em;margin:0 0 2.4cqw;color:#D3DEE8}
+.card.paper p.body,.card.paper-2 p.body{color:#33475A}
+p.body b{color:#fff;font-weight:700}
+.card.paper p.body b,.card.paper-2 p.body b{color:var(--ink)}
+
+.stat{font-size:13cqw;line-height:.92;font-weight:800;letter-spacing:-.05em;color:var(--signal);font-variant-numeric:tabular-nums;margin:0 0 1cqw}
+.stat small{font-size:.42em;margin-left:.12em}
+.stat-cap{font-family:var(--mono);font-size:2.4cqw;letter-spacing:.06em;color:#9EB7CC;margin:0 0 4cqw}
+
+.fn{margin-top:auto;padding-top:3cqw;border-top:1px solid rgba(255,255,255,.16);font-family:var(--mono);font-size:2.05cqw;line-height:1.6;color:#8FA3B5}
+.card.paper .fn,.card.paper-2 .fn{border-top-color:var(--line);color:#6E8394}
+.fn span{display:block;margin-bottom:.9cqw}
+.fn span:last-child{margin-bottom:0}
+
+ol.tips{list-style:none;counter-reset:t;margin:0;padding:0}
+ol.tips li{counter-increment:t;position:relative;padding:0 0 2.9cqw 7cqw;font-size:3cqw;line-height:1.62;color:#33475A}
+ol.tips li::before{content:counter(t) ".";position:absolute;left:0;top:-.1cqw;font-family:var(--mono);font-size:3.4cqw;font-weight:700;color:var(--blue)}
+ol.tips li b{color:var(--ink);font-weight:700}
+.bridge{margin:1.6cqw 0 0;padding:3.2cqw;background:#DEE8EE;border-left:.7cqw solid var(--blue);font-size:2.95cqw;line-height:1.66;color:#22384B;font-weight:600}
+
+ul.spec{list-style:none;margin:0 0 auto;padding:0}
+ul.spec li{position:relative;padding:0 0 2.5cqw 5.6cqw;font-size:2.95cqw;line-height:1.55;color:#33475A}
+ul.spec li::before{content:"✔";position:absolute;left:0;top:.1cqw;color:var(--blue);font-size:3cqw}
+ul.spec li b{color:var(--ink);font-weight:700}
+ul.spec sup{font-family:var(--mono);font-size:2.1cqw;color:var(--signal);font-weight:700}
+
+.pname{font-size:4.1cqw;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin:0 0 3cqw;padding-bottom:2.4cqw;border-bottom:.35cqw solid var(--ink)}
+.pname i{display:block;font-style:normal;font-family:var(--mono);font-size:2.2cqw;font-weight:500;letter-spacing:.1em;color:var(--blue);margin-bottom:1.2cqw}
+
+.permit{display:flex;gap:2cqw;margin:0 0 3.6cqw}
+.permit b{flex:1;font-family:var(--mono);font-size:2.15cqw;font-weight:600;line-height:1.5;padding:2cqw 2.2cqw;background:#DEE8EE;color:var(--blue-deep);border-top:.5cqw solid var(--blue)}
+.permit b.off{opacity:.34}
+.permit b em{display:block;font-style:normal;font-size:1.9cqw;color:#5A7186;margin-top:.6cqw}
+
+/* 시그니처 경로 스트립 */
+.path{position:relative;margin-top:4cqw;padding-top:5.4cqw;border-top:1px solid rgba(255,255,255,.16)}
+.card.paper .path,.card.paper-2 .path{border-top-color:var(--line)}
+.path .track{position:relative;display:flex;justify-content:space-between}
+.path .track::before{content:"";position:absolute;left:3%;right:3%;top:1.1cqw;border-top:.3cqw dotted rgba(255,255,255,.4)}
+.card.paper .path .track::before,.card.paper-2 .path .track::before{border-top-color:#A7BAC7}
+.path .node{position:relative;z-index:2;flex:1;text-align:center;font-family:var(--mono);font-size:1.95cqw;color:#7A93A8;line-height:1.4}
+.path .node::before{content:"";display:block;width:2.3cqw;height:2.3cqw;margin:0 auto 1.4cqw;border-radius:50%;background:var(--ink);border:.35cqw solid #7A93A8}
+.card.paper .path .node::before,.card.paper-2 .path .node::before{background:var(--paper-2);border-color:#A7BAC7}
+.path .node.on{color:var(--signal);font-weight:700}
+.path .node.on::before{background:var(--signal);border-color:var(--signal)}
+.path .loop{position:absolute;left:50%;width:20%;top:2.1cqw;height:2.6cqw;border:.35cqw solid var(--signal);border-bottom:0;border-radius:3cqw 3cqw 0 0}
+.path .loop::after{content:"";position:absolute;left:-.9cqw;bottom:-1.5cqw;border:.85cqw solid transparent;border-top-color:var(--signal)}
+.path .loopcap{font-family:var(--mono);font-size:2cqw;color:var(--signal);margin:2.2cqw 0 0;text-align:center}
+
+/* 부속 */
+.card.annex{background:linear-gradient(160deg,#132437 0,#0A1420 100%);justify-content:center;align-items:flex-start}
+.card.annex .atype{font-family:var(--mono);font-size:2.3cqw;letter-spacing:.2em;color:var(--steel);margin:0 0 4cqw}
+.card.annex .alabel{font-size:7.4cqw;line-height:1.24;letter-spacing:-.04em;font-weight:800;margin:0}
+.card.annex .alabel span{display:block;color:#6FB4FF}
+.card.annex.internal{background:linear-gradient(160deg,#2A1108 0,#160804 100%)}
+.card.annex.internal .alabel span{color:var(--signal)}
+.card.annex .astamp{position:absolute;left:7cqw;bottom:6.5cqw;font-family:var(--mono);font-size:2.1cqw;letter-spacing:.08em;color:var(--signal);border:.3cqw solid var(--signal);padding:1.2cqw 1.8cqw}
+.repeat-flag{position:absolute;left:0;bottom:0;z-index:3;font-family:var(--mono);font-size:2cqw;letter-spacing:.1em;background:#fff;color:var(--ink);padding:1.3cqw 1.8cqw;border-top-right-radius:2px}
+
+/* ---------- 읽기 보기: 열 수와 무관하게 폰트 고정 ---------- */
+/* cqw 비례 타이포를 px 고정값으로 덮어쓴다. 카드 높이는 같은 행 안에서만 통일되므로
+   (grid-auto-rows 균등화를 쓰지 않는다) 짧은 카드 아래로 여백이 길게 남지 않는다.
+   최종 1080x1350 비율은 '비율 보기' 또는 카드 확대에서 확인한다. */
+body.read .sheet{align-items:stretch}
+body.read .sheet .cell{display:flex;flex-direction:column}
+body.read .sheet .card{aspect-ratio:auto;flex:1 1 auto;min-height:0;padding:20px 20px 17px}
+body.read .sheet .sig{font-size:10px;letter-spacing:.18em;margin-bottom:13px}
+body.read .sheet .eyebrow{font-size:10.5px;letter-spacing:.09em;margin-bottom:8px}
+body.read .sheet h2.head{font-size:20px;line-height:1.3;margin-bottom:11px}
+body.read .sheet .card.cover h2.head{font-size:23px;line-height:1.26}
+body.read .sheet .card.cover .lead{font-size:11px;margin-top:13px;padding-top:11px}
+body.read .sheet p.body{font-size:13.2px;line-height:1.66;margin-bottom:8px}
+body.read .sheet .stat{font-size:44px;margin-bottom:3px}
+body.read .sheet .stat-cap{font-size:10.5px;margin-bottom:12px}
+body.read .sheet ol.tips li{font-size:13px;line-height:1.6;padding:0 0 10px 24px}
+body.read .sheet ol.tips li::before{font-size:14px}
+body.read .sheet .bridge{font-size:12.5px;line-height:1.6;padding:12px;border-left-width:3px;margin-top:4px}
+body.read .sheet ul.spec li{font-size:12.8px;line-height:1.52;padding:0 0 9px 21px}
+body.read .sheet ul.spec li::before{font-size:13px;top:1px}
+body.read .sheet ul.spec sup{font-size:9.5px}
+body.read .sheet .pname{font-size:16.5px;margin-bottom:11px;padding-bottom:9px;border-bottom-width:2px}
+body.read .sheet .pname i{font-size:9.5px;margin-bottom:4px}
+body.read .sheet .permit{gap:7px;margin-bottom:12px}
+body.read .sheet .permit b{font-size:9.5px;line-height:1.45;padding:8px 9px;border-top-width:2px}
+body.read .sheet .permit b em{font-size:9px;margin-top:3px}
+body.read .sheet .fn{font-size:10px;line-height:1.55;padding-top:11px;margin-top:12px}
+body.read .sheet .fn span{margin-bottom:3px}
+body.read .sheet .path{margin-top:14px;padding-top:18px}
+body.read .sheet .path .track::before{top:4px;border-top-width:2px}
+body.read .sheet .path .node{font-size:9px}
+body.read .sheet .path .node::before{width:9px;height:9px;border-width:2px;margin-bottom:6px}
+body.read .sheet .path .loop{top:7px;height:11px;border-width:2px;border-radius:12px 12px 0 0}
+body.read .sheet .path .loop::after{left:-3.5px;bottom:-6px;border-width:3.5px}
+body.read .sheet .path .loopcap{font-size:9.5px;margin-top:8px}
+/* 라벨형 부속 카드는 남는 공간을 위아래로 나눠 가운데 정렬 — 아래만 비지 않게 */
+body.read .sheet .card.annex{justify-content:center}
+body.read .sheet .card.annex .atype{font-size:10px;margin-bottom:12px}
+body.read .sheet .card.annex .alabel{font-size:23px;line-height:1.28}
+body.read .sheet .card.annex .astamp{position:static;align-self:flex-start;font-size:9px;padding:5px 7px;margin:12px 0 0;border-width:1px}
+body.read .sheet .imgtag{font-size:9px;padding:5px 7px;max-width:64%}
+body.read .sheet .repeat-flag{font-size:9px;padding:4px 7px}
+
+/* ---------- 확대 뷰 ---------- */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(8,17,28,.82);display:none;padding:28px}
+.lb[data-open="true"]{display:flex;align-items:center;justify-content:center}
+.lb-in{display:grid;grid-template-columns:auto 320px;gap:26px;align-items:start;max-height:92vh}
+.lb .card{width:min(560px,66vh);aspect-ratio:4/5;box-shadow:0 30px 70px -20px rgba(0,0,0,.7)}
+.lb-note{
+  background:#fff;border-radius:3px;padding:20px 22px;font-family:var(--mono);font-size:11.5px;
+  line-height:1.75;color:var(--steel-dk);max-height:min(92vh,700px);overflow:auto;
+}
+.lb-note .idx{display:inline-block;font-size:10.5px;letter-spacing:.14em;color:#fff;background:var(--ink);padding:4px 9px;border-radius:2px;margin-bottom:12px}
+.lb-note .idx.solution{background:var(--blue)}
+.lb-note .idx.annex{background:var(--steel-dk)}
+.lb-note .idx.internal{background:var(--signal)}
+.lb-note h3{font-family:var(--sans);font-size:16px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin:0 0 10px;line-height:1.35}
+.lb-note h3 em{font-style:normal;color:var(--signal);font-size:12px;font-family:var(--mono);letter-spacing:.06em}
+.lb-note ul{list-style:none;margin:10px 0 0;padding:0}
+.lb-note li{padding-left:13px;position:relative;margin-bottom:6px}
+.lb-note li::before{content:"·";position:absolute;left:2px;color:var(--steel)}
+.lb-note li.warn{color:#B23A12}
+.lb-note li.warn::before{content:"!";color:var(--signal);font-weight:700}
+.lb-note .spec{border-top:1px dashed var(--line);margin-top:14px;padding-top:11px;color:#7C8FA0}
+.lb-nav{position:fixed;right:28px;top:28px;display:flex;gap:8px}
+.lb-nav button{
+  appearance:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;
+  font-family:var(--mono);font-size:12px;padding:9px 13px;border-radius:2px;cursor:pointer;
+}
+.lb-nav button:hover{background:rgba(255,255,255,.2)}
+.lb-nav button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.lb-count{position:fixed;left:28px;top:32px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:#9EB7CC}
+
+/* ---------- 하단 ---------- */
+.foot{max-width:1560px;margin:0 auto;padding:10px 26px;font-family:var(--mono);font-size:11.5px;line-height:1.85;color:var(--steel-dk)}
+.foot b{color:var(--ink)}
+
+@media (max-width:1240px){:root{--cols:3}}
+@media (max-width:900px){
+  :root{--cols:2}
+  .sheet{padding:18px;gap:20px 14px}
+  .lb{padding:14px}
+  .lb-in{grid-template-columns:minmax(0,1fr);max-height:none;overflow:auto}
+  .lb .card{width:min(100%,74vw)}
+}
+@media (max-width:560px){:root{--cols:1}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="brand">
+      <span class="k">TEMPLATE B · 위해요소형</span>
+      <h1>마이랩 살균소독제 70 <span>· 여름철 식중독 교차오염 / 2026.07</span></h1>
+    </div>
+    <div class="meta">
+      <span>TOTAL<b id="mTotal">18장</b></span>
+      <span>본편<b>10장</b></span>
+      <span>부속<b>7장</b></span>
+      <span>규격<b>1080×1350</b></span>
+    </div>
+    <div class="ctl">
+      <div class="seg" id="modeSeg">
+        <button data-m="read" aria-pressed="true">읽기 보기</button>
+        <button data-m="ratio">비율 보기</button>
+      </div>
+      <div class="seg" id="colSeg">
+        <button data-c="5">5열</button>
+        <button data-c="4" aria-pressed="true">4열</button>
+        <button data-c="3">3열</button>
+        <button data-c="2">2열</button>
+      </div>
+      <button class="tgl" id="btnSend" aria-pressed="false">고객 발송본만</button>
+    </div>
+  </div>
+</div>
+
+<main class="sheet" id="sheet">
+
+  <!-- 01 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 1 커버 훅 확대">
+    <div class="cell-bar"><span class="role">커버 · 훅</span><span class="no">01</span></div>
+    <article class="card cover">
+      <span class="imgtag">IMG · 조리 직후 도마·집게 클로즈업, 상단 70% 어둡게</span>
+      <p class="sig"><b>CESCO</b></p>
+      <h2 class="head">충분히 익혔는데도<br>여름마다<br>반복되는 식중독<br>남은 경로는<br>손과 표면입니다</h2>
+      <p class="lead">세스코가 제안하는 여름철 교차오염 관리 솔루션</p>
+    </article>
+    <div class="cell-note">
+      <span class="idx">장 1</span><h3>커버 훅</h3>
+      <ul><li>훅 패턴: 통념 반전 + 현재진행 위협</li><li>부제 1행으로 콘텐츠 정체성 명시</li><li class="warn">제품명 노출 금지 (B형 규칙)</li></ul>
+      <p class="spec">대형 카피 5행 / 행당 4~12자 · 부제 15~30자</p>
+    </div>
+  </figure>
+
+  <!-- 02 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 2 문제 통계 확대">
+    <div class="cell-bar"><span class="role">문제① · 시의성 통계</span><span class="no">02</span></div>
+    <article class="card">
+      <span class="imgtag">IMG · 여름 주방 온도계 또는 달걀·육류 진열</span>
+      <p class="sig"><b>CESCO</b></p>
+      <p class="stat">52<small>%</small></p>
+      <p class="stat-cap">살모넬라 식중독 204건 중 107건 — 7~9월</p>
+      <h2 class="head">여름 3개월에<br>절반이 몰립니다</h2>
+      <p class="body">식품의약품안전처가 2020년부터 2024년까지의 살모넬라 식중독을 분석한 결과, 전체 204건 가운데 약 52%인 107건이 7월에서 9월 사이에 발생했습니다. 같은 기간 환자 7,788명 중 4,542명이 이 시기에 집중됐습니다.</p>
+      <p class="body">고온·다습한 환경에서는 식중독균의 증식이 빨라질 수 있어, 식재료의 보관과 조리 과정에 더욱 주의가 필요합니다.</p>
+      <p class="fn"><span>*출처 : 식품의약품안전처 「여름철 '살모넬라' 식중독 52% 발생」 (2020~2024년 분석)</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx">장 2</span><h3>문제① 시의성·통계</h3>
+      <ul><li>공적 수치로 "왜 지금 7월인가" 확정</li><li>새 정보 1개 + 출처 각주</li><li class="warn">수치 주장은 유보형 종결 유지</li></ul>
+      <p class="spec">헤드 2행 / 본문 80~200자 · *출처 필수</p>
+    </div>
+  </figure>
+
+  <!-- 03 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 3 통념 붕괴 확대">
+    <div class="cell-bar"><span class="role">문제② · 통념 붕괴</span><span class="no">03</span></div>
+    <article class="card">
+      <span class="imgtag">IMG · 배식 트레이에 음식 담는 손, 집게 강조</span>
+      <p class="sig"><b>CESCO</b></p>
+      <h2 class="head">익히는 순간이<br>마지막이 아닙니다</h2>
+      <p class="body">식품은 조리되는 순간뿐 아니라 <b>보관되고, 운반되고, 진열되고, 배식되는</b> 과정에서도 여러 기구와 표면에 반복적으로 접촉합니다.</p>
+      <p class="body">충분히 익힌 음식이라도 이후 오염된 손이나 집게, 국자, 보관용기와 닿으면 미생물이 다시 옮겨갈 수 있습니다. 조리가 끝난 뒤에도 경로는 계속 이어집니다.</p>
+      <div class="path"><div class="track">
+        <div class="node">식재료</div><div class="node">손</div><div class="node on">조리기구</div><div class="node">주변 표면</div><div class="node">조리된 음식</div>
+      </div></div>
+    </article>
+    <div class="cell-note">
+      <span class="idx">장 3</span><h3>문제② 통념 붕괴</h3>
+      <ul><li>"익히면 끝"이라는 통념을 조리 이후 공정으로 깨뜨림</li><li>경로 스트립 첫 등장 — 조리기구 노드 활성</li></ul>
+      <p class="spec">헤드 2행 / 본문 80~150자 · 경로 스트립 하단 고정</p>
+    </div>
+  </figure>
+
+  <!-- 04 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 4 손의 왕복 경로 확대">
+    <div class="cell-bar"><span class="role">문제③ · 손의 왕복 경로 <em>★</em></span><span class="no">04</span></div>
+    <article class="card">
+      <span class="imgtag">IMG · 냉장고 손잡이를 잡는 손 (조리 중 상태)</span>
+      <p class="sig"><b>CESCO</b></p>
+      <h2 class="head">손은 주방 밖으로<br>나갔다 돌아옵니다</h2>
+      <p class="body">생고기나 달걀, 어패류를 만진 손으로 <b>냉장고 손잡이, 수전, 문손잡이</b>를 만지면 미생물은 주변 표면으로 옮겨갈 수 있습니다.</p>
+      <p class="body">이후 그 표면을 만진 손이 다시 조리도구나 조리된 음식에 닿으면 간접적인 교차오염 경로가 됩니다. 표면이 식중독을 일으키는 것이 아니라, 손과 기구를 거쳐 식품으로 오염이 이동하는 통로가 되는 것입니다.</p>
+      <div class="path">
+        <div class="track">
+          <span class="loop"></span>
+          <div class="node">식재료</div><div class="node on">손</div><div class="node">조리기구</div><div class="node on">주변 표면</div><div class="node">조리된 음식</div>
+        </div>
+        <p class="loopcap">주변 표면 → 다시 손 → 조리기구·음식</p>
+      </div>
+    </article>
+    <div class="cell-note">
+      <span class="idx">장 4</span><h3>문제③ 손의 왕복 경로 <em>★핵심</em></h3>
+      <ul><li>이 장이 "주방 전용 아님"을 만드는 지점</li><li>경로 스트립에 되돌아오는 화살표 표시</li><li class="warn">일반 표면이 식중독을 직접 일으킨다고 쓰지 않음 — 간접 경로 범위로만</li></ul>
+      <p class="spec">헤드 2행 / 본문 100~180자 · 표현 범위 단서 필수</p>
+    </div>
+  </figure>
+
+  <!-- 05 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 5 취약 품목 확대">
+    <div class="cell-bar"><span class="role">문제④ · 취약 품목·공간</span><span class="no">05</span></div>
+    <article class="card">
+      <span class="imgtag">IMG · 김밥·도시락 포장 라인 또는 배달 용기</span>
+      <p class="sig"><b>CESCO</b></p>
+      <h2 class="head">여러 손을 거친<br>음식일수록<br>접촉 지점이 많습니다</h2>
+      <p class="body">여름철 김밥·도시락·샐러드·배달 음식처럼 여러 식재료를 사용하고 조리 후 일정 시간 보관·운반하는 음식은 조리도구뿐 아니라 보관용기, 집게, 국자, 배식 트레이, 운반용기까지 접촉 지점이 그만큼 늘어납니다.</p>
+      <p class="body">살모넬라 식중독 발생 장소는 <b>음식점이 63%, 집단급식소가 17%</b>였고, 달걀 조리식품과 김밥·도시락 같은 복합조리식품이 주요 원인 식품으로 나타났습니다.</p>
+      <p class="fn"><span>*출처 : 식품의약품안전처 (2020~2024년 살모넬라 식중독 분석)</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx">장 5</span><h3>문제④ 취약 품목·공간</h3>
+      <ul><li>접촉 지점의 수로 위험을 설명 — 새 관점 추가</li><li>발생 장소 수치로 사업장·급식소 타깃 확보</li></ul>
+      <p class="spec">헤드 2행 / 본문 80~150자 · *출처 필수</p>
+    </div>
+  </figure>
+
+  <!-- 06 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 6 빠진 한 칸 확대">
+    <div class="cell-bar"><span class="role">문제⑤ · 빠진 한 칸</span><span class="no">06</span></div>
+    <article class="card">
+      <span class="imgtag">IMG · 물로만 헹구는 조리대 (소독 단계 부재 연출)</span>
+      <p class="sig"><b>CESCO</b></p>
+      <h2 class="head">수칙의 마지막 한 칸이<br>자주 비어 있습니다</h2>
+      <p class="body">식약처가 안내하는 여름철 식중독 예방 수칙은 <b>손 씻기 · 구분 사용 · 충분한 가열 · 적정온도 보관 · 세척과 소독</b>입니다.</p>
+      <p class="body">앞의 네 가지는 이미 습관으로 자리 잡았지만, 마지막 세척·소독은 조리대와 도구를 물로 헹구는 선에서 끝나는 경우가 많습니다. 접촉 경로를 끊는 단계가 바로 이 마지막 한 칸입니다.</p>
+      <p class="fn"><span>*출처 : 식품의약품안전처 「식중독 위험 높은 여름… '손보구가세' 실천」</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx">장 6</span><h3>문제⑤ 빠진 한 칸</h3>
+      <ul><li>B형 표준의 "자가 해결 한계" 장을 변형</li><li class="warn">식약처 수칙을 부정하지 않음 — 마지막 단계가 생략된다는 프레이밍</li><li class="warn">제품이 손 씻기·가열을 대체한다는 인상 금지</li></ul>
+      <p class="spec">헤드 2행 / 본문 80~150자</p>
+    </div>
+  </figure>
+
+  <!-- 07 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 7 셀프팁 확대">
+    <div class="cell-bar"><span class="role">셀프 팁 · 생략 금지</span><span class="no">07</span></div>
+    <article class="card paper">
+      <p class="sig"><b>세스코 솔루션</b></p>
+      <h2 class="head">이렇게 관리해 보세요</h2>
+      <ol class="tips">
+        <li><b>가열과 보관 온도를 지킵니다.</b> 육류와 달걀은 중심온도 75℃에서 1분 이상 가열하고, 냉장식품과 조리식품은 보관온도를 지킵니다.</li>
+        <li><b>구분해서 사용합니다.</b> 칼과 도마는 육류·어패류·채소로 용도를 나누고, 생식재료와 조리된 식품을 분리해 보관합니다.</li>
+        <li><b>세척 다음에 소독까지 마칩니다.</b> 조리 전후 손을 씻고, 식품이 닿는 면과 손이 반복적으로 닿는 표면은 용도에 맞는 살균소독 제품으로 관리합니다.</li>
+      </ol>
+      <p class="bridge">결국 여름철 식중독은 식재료 하나의 문제가 아니라, 식품과 손·기구·주변 표면이 연결된 접촉 경로를 점검해야 한다는 신호입니다.</p>
+      <p class="fn"><span>*출처 : 식품의약품안전처 여름철 식중독 예방 생활수칙</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx solution">장 7</span><h3>★셀프 팁 — 생략 금지</h3>
+      <ul><li>브랜드 서명 <b>세스코 솔루션</b>으로 전환</li><li class="warn">제품명 언급 금지. 3번 팁에서 제품 범주만 암시</li><li>수치 포함(75℃ 1분) + 전환 문장으로 닫기</li></ul>
+      <p class="spec">팁 3개 / 팁당 1~3행 · 전환 문장 1~2문장</p>
+    </div>
+  </figure>
+
+  <!-- 08 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 8 제품 식품접촉부 확대">
+    <div class="cell-bar"><span class="role">제품① · 식품 접촉부</span><span class="no">08</span></div>
+    <article class="card paper-2">
+      <p class="sig"><b>세스코 솔루션</b></p>
+      <p class="eyebrow">하나의 제품, 두 개의 허가 ① 식품 접촉부</p>
+      <h2 class="head">식품이 닿는 면은<br>식약처 기준으로</h2>
+      <div class="permit">
+        <b>식약처 · 기구등의 살균소독제<em>관련번호 20260629012102</em></b>
+        <b class="off">환경부 · 살생물제품 승인<em>다음 장에서 계속</em></b>
+      </div>
+      <p class="pname"><i>MY LAB</i>세스코 마이랩 살균소독제 70</p>
+      <ul class="spec">
+        <li><b>칼·도마·식기류·조리도구</b> 등 식품 접촉부에 사용</li>
+        <li>식품 보관용기, 집게·국자·<b>배식 도구</b>, 운반용기까지</li>
+        <li>사탕수수에서 발효한 식물성 주정 70V/V% — <b>전성분 식품첨가물 성분</b></li>
+        <li>식중독 관련 세균을 포함한 <b>세균 14종 99.999% 이상 감소</b> <sup>1)</sup></li>
+      </ul>
+      <p class="fn">
+        <span>1) 세균 14종 99.999% 이상 감소 | 내부 시험자료 기준. 정해진 시험 조건 및 시험 균주에 한한 결과입니다.</span>
+        <span>* 식품 및 식재료에 직접 사용하는 제품이 아닙니다. 제품 표시사항에 따라 사용하십시오.</span>
+      </p>
+    </article>
+    <div class="cell-note">
+      <span class="idx solution">장 8</span><h3>제품① 식품 접촉부</h3>
+      <ul><li>같은 제품을 허가 범위로 2장 분리 — <b>하나의 제품, 두 개의 허가</b></li><li>✔ 정확히 4개, 초과 항목은 각주로</li><li class="warn">99.999%는 시험 조건·시험 균주 한정 각주 필수</li><li class="warn">"식중독과 관련된 세균을 포함한 14종" 표현 고정</li></ul>
+      <p class="spec">헤드 2행 / ✔ 15~30자 · 각주 1) + 표시사항 단서</p>
+    </div>
+  </figure>
+
+  <!-- 09 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 9 제품 일반표면 확대">
+    <div class="cell-bar"><span class="role">제품② · 일반 표면 <em>★</em></span><span class="no">09</span></div>
+    <article class="card paper-2">
+      <p class="sig"><b>세스코 솔루션</b></p>
+      <p class="eyebrow">하나의 제품, 두 개의 허가 ② 일반 생활시설 표면</p>
+      <h2 class="head">손이 닿는 표면은<br>환경부 승인으로</h2>
+      <div class="permit">
+        <b class="off">식약처 · 기구등의 살균소독제<em>앞 장에서 확인</em></b>
+        <b>환경부 · 살생물제품 승인<em>승인번호 0125-0039</em></b>
+      </div>
+      <ul class="spec">
+        <li><b>어린이용품·장난감, 문손잡이, 운동기구</b> 등 허가된 일반 생활시설 표면</li>
+        <li><b>배수구, 변기, 에어컨, 벽과 바닥</b> 등 제품 표시사항에서 허용한 표면</li>
+        <li>인체 위해성 평가 완료 — <b>어린이 용품에도 사용 가능한 제품</b>으로 승인</li>
+        <li>락스 성분 및 가습기 살균제 이슈 성분 <b>4종 불검출</b> <sup>2)</sup>, 인체피부 일차 자극시험 <b>저자극 판정</b></li>
+      </ul>
+      <div class="path">
+        <div class="track">
+          <div class="node">식재료</div><div class="node on">손</div><div class="node on">조리기구</div><div class="node on">주변 표면</div><div class="node">조리된 음식</div>
+        </div>
+        <p class="loopcap">식품 접촉부와 일반 표면을 각각 올바르게 관리</p>
+      </div>
+      <p class="fn">
+        <span>2) 차아염소산나트륨 · CMIT · MIT · BKC · DDAC 불검출 | 시험한 성분 및 검출한계에 한합니다.</span>
+        <span>* 저자극 판정이 피부에 직접 사용하는 제품이라는 의미는 아닙니다.</span>
+      </p>
+    </article>
+    <div class="cell-note">
+      <span class="idx solution">장 9</span><h3>제품② 일반 생활시설 표면 <em>★확장 지점</em></h3>
+      <ul><li>장난감·문손잡이·변기를 한 화면에 모아 용도 인식 전환</li><li>4장 경로 논증을 여기서 회수 — 경로 스트립 재등장</li><li class="warn">"만능·어디에나·모든 세균" 표현 금지</li><li class="warn">불검출은 시험 성분·검출한계 한정 각주</li></ul>
+      <p class="spec">헤드 2행 / ✔ 4개 · 각주 2) + 승인번호</p>
+    </div>
+  </figure>
+
+  <!-- 10 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 10 마무리 확대">
+    <div class="cell-bar"><span class="role">마무리 · 기준 전환</span><span class="no">10</span></div>
+    <article class="card">
+      <span class="imgtag">IMG · 마감 후 정돈된 주방 + 손잡이·조리대 동시 프레임</span>
+      <p class="sig"><b>CESCO</b></p>
+      <h2 class="head">관리 범위가<br>여름의 안전을<br>결정합니다</h2>
+      <p class="body">여름철 식중독은 결국 '식품과 손, 기구, 주변 표면이 연결된 접촉 경로를 관리해야 한다'는 신호입니다.</p>
+      <p class="body">중요한 것은 오염이 이동할 수 있는 경로를 남겨두지 않는 것입니다. 세스코와 함께, 조리부터 배식까지 이어지는 여름철 위생 경로를 더 체계적으로 관리해 보세요.</p>
+      <p class="fn"><span>☞ 옆으로 넘겨 확인하세요</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx">장 10</span><h3>마무리 — 기준 전환</h3>
+      <ul><li>커버의 "남은 경로"를 한 문장으로 회수 (수미상관)</li><li class="warn">할인·가격·전화번호 넣지 않음 (그건 E형)</li><li>"세스코와 함께"가 유일한 브랜드 행동 유도</li></ul>
+      <p class="spec">헤드 2~3행 / 본문 100~180자</p>
+    </div>
+  </figure>
+
+  <!-- 11 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 11 세그먼트 확대">
+    <div class="cell-bar"><span class="role">부속 · 세그먼트 1</span><span class="no">11</span></div>
+    <article class="card annex">
+      <p class="atype">TARGET SEGMENT 01</p>
+      <p class="alabel">음식점·배달 전문점<span>살균소독제 70</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx annex">장 11</span><h3>부속 · 타겟 세그먼트</h3>
+      <ul><li>라벨 공식: {고객 유형} + {제안 제품}</li><li>유형당 1장, 문장 금지</li></ul>
+      <p class="spec">라벨 2~3단어 2행</p>
+    </div>
+  </figure>
+
+  <!-- 12 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 12 세그먼트 확대">
+    <div class="cell-bar"><span class="role">부속 · 세그먼트 2</span><span class="no">12</span></div>
+    <article class="card annex">
+      <p class="atype">TARGET SEGMENT 02</p>
+      <p class="alabel">집단급식소·어린이집<span>살균소독제 70</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx annex">장 12</span><h3>부속 · 타겟 세그먼트</h3>
+      <ul><li>급식 위생 증빙이 필요한 시설 대상</li><li>발송 시 시설용 컨설팅 플랜과 함께 사용</li></ul>
+      <p class="spec">라벨 2~3단어 2행</p>
+    </div>
+  </figure>
+
+  <!-- 13 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 13 세그먼트 확대">
+    <div class="cell-bar"><span class="role">부속 · 세그먼트 3</span><span class="no">13</span></div>
+    <article class="card annex">
+      <p class="atype">TARGET SEGMENT 03</p>
+      <p class="alabel">영유아 가구<span>살균소독제 70</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx annex">장 13</span><h3>부속 · 타겟 세그먼트</h3>
+      <ul><li>장난감·어린이용품 사용 가능 승인이 소구점</li><li class="warn">"안심·무해" 등 단정 표현 금지</li></ul>
+      <p class="spec">라벨 2~3단어 2행</p>
+    </div>
+  </figure>
+
+  <!-- 14 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 14 세그먼트 확대">
+    <div class="cell-bar"><span class="role">부속 · 세그먼트 4</span><span class="no">14</span></div>
+    <article class="card annex">
+      <p class="atype">TARGET SEGMENT 04</p>
+      <p class="alabel">달걀·육류 조리 가정<span>살균소독제 70</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx annex">장 14</span><h3>부속 · 타겟 세그먼트</h3>
+      <ul><li>살모넬라 원인 식품(달걀 조리식품)과 직결</li></ul>
+      <p class="spec">라벨 2~3단어 2행</p>
+    </div>
+  </figure>
+
+  <!-- 15 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 15 관련기사 확대">
+    <div class="cell-bar"><span class="role">부속 · 관련기사</span><span class="no">15</span></div>
+    <article class="card annex">
+      <p class="atype">NEWS CLIPPING</p>
+      <p class="alabel">여름철 식중독<span>관련기사</span></p>
+    </article>
+    <div class="cell-note">
+      <span class="idx annex">장 15</span><h3>부속 · 관련기사</h3>
+      <ul><li>시의성 증빙 — 7월 환자 최다 보도</li><li>매체명 + 기사 제목 원문 그대로</li></ul>
+      <p class="spec">표지 라벨 2~3단어 2행</p>
+    </div>
+  </figure>
+
+  <!-- 16 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="장 16 리플렛 확대">
+    <div class="cell-bar"><span class="role">부속 · 제품 리플렛</span><span class="no">16</span></div>
+    <article class="card annex">
+      <p class="atype">LEAFLET · 2026 / Ver.1</p>
+      <p class="alabel">마이랩 위생용품<span>제품 리플렛</span></p>
+      <p class="astamp">1588-1119 · www.cescomall.co.kr · QR</p>
+    </article>
+    <div class="cell-note">
+      <span class="idx annex">장 16</span><h3>부속 · 제품 리플렛</h3>
+      <ul><li>리플렛 원판 그대로 첨부</li><li>연도/Ver 표기, QR, 상담문의 1588-1119</li><li>명함스티커 부착 표기 위치 유지</li></ul>
+      <p class="spec">별도 원판 파일</p>
+    </div>
+  </figure>
+
+  <!-- 17 -->
+  <figure class="cell" tabindex="0" role="button" data-internal="true" aria-label="장 17 컨설턴트 전용 확대">
+    <div class="cell-bar"><span class="role">컨설턴트 전용 · 발송 제외</span><span class="no">17</span></div>
+    <article class="card annex internal">
+      <p class="atype">FOR CONSULTANT ONLY</p>
+      <p class="alabel">살균소독제 70 · 곡물발효<span>제품 구분 안내</span></p>
+      <p class="astamp">고객 발송본에서 제외</p>
+    </article>
+    <div class="cell-note">
+      <span class="idx internal">장 17</span><h3>컨설턴트 전용 · 제품 구분 안내</h3>
+      <ul><li class="warn">고객 발송본에서 제외</li><li>곡물발효 제품과 우열이 아니라 허가 범위 차이</li><li class="warn">2026.7.1 이후 곡물발효 제품을 일반 생활시설 표면 용도로 안내 금지</li></ul>
+      <p class="spec">영업 도구 · 발송 전 제거</p>
+    </div>
+  </figure>
+
+  <!-- 18 -->
+  <figure class="cell" tabindex="0" role="button" aria-label="끝장 커버 반복 확대">
+    <div class="cell-bar"><span class="role">끝장 · 커버 반복</span><span class="no">18</span></div>
+    <article class="card cover">
+      <span class="repeat-flag">= 장 01 동일</span>
+      <p class="sig"><b>CESCO</b></p>
+      <h2 class="head">충분히 익혔는데도<br>여름마다<br>반복되는 식중독<br>남은 경로는<br>손과 표면입니다</h2>
+      <p class="lead">세스코가 제안하는 여름철 교차오염 관리 솔루션</p>
+    </article>
+    <div class="cell-note">
+      <span class="idx">끝장</span><h3>커버 반복</h3>
+      <ul><li>1장과 동일 이미지 — 리스트·공유 썸네일 재사용</li><li>전 유형 공통 불변 규칙</li></ul>
+      <p class="spec">1장 그대로</p>
+    </div>
+  </figure>
+
+</main>
+
+<p class="foot">
+  <b>발송 전 확인</b> — ① 컨설턴트 전용 카드(17) 제거 ② 99.999%·불검출 각주 누락 여부 ③ 문손잡이·변기 서술이 간접 경로 범위를 넘지 않는지 ④ 펠린칼리시바이러스를 노로바이러스 효과로 연결한 문구가 없는지 ⑤ ※ 광고성 메시지는 마케팅 수신동의를 하지 않은 고객에게는 발송해서는 안됩니다.<br>
+  카드를 클릭하면 확대 + 제작 메모가 열립니다 · ← → 이동 · ESC 닫기<br>
+  <b>읽기 보기</b>는 열 수와 무관하게 폰트가 고정되고 같은 행 안에서 카드 높이가 통일됩니다(카피 검토용). 최종 1080×1350 비율은 <b>비율 보기</b> 또는 카드 확대에서 확인하세요.<br>
+  © 2026 CESCO Co., Ltd. All Rights Reserved.
+</p>
+
+<div class="lb" id="lb" data-open="false" role="dialog" aria-modal="true" aria-label="카드 확대 보기">
+  <p class="lb-count" id="lbCount"></p>
+  <div class="lb-nav">
+    <button type="button" id="lbPrev" aria-label="이전 장">←</button>
+    <button type="button" id="lbNext" aria-label="다음 장">→</button>
+    <button type="button" id="lbClose" aria-label="닫기">ESC 닫기</button>
+  </div>
+  <div class="lb-in">
+    <div id="lbCard"></div>
+    <aside class="lb-note" id="lbNote"></aside>
+  </div>
+</div>
+
+<script>
+(function(){
+  var sheet=document.getElementById('sheet');
+  var cells=Array.prototype.slice.call(sheet.querySelectorAll('.cell'));
+  var lb=document.getElementById('lb'),lbCard=document.getElementById('lbCard'),
+      lbNote=document.getElementById('lbNote'),lbCount=document.getElementById('lbCount');
+  var cur=-1,lastFocus=null;
+
+  function visible(){return cells.filter(function(c){return !c.classList.contains('is-hidden')})}
+
+  function open(i){
+    var list=visible(); if(!list.length) return;
+    cur=(i+list.length)%list.length;
+    var cell=list[cur];
+    lbCard.innerHTML=''; lbCard.appendChild(cell.querySelector('.card').cloneNode(true));
+    lbNote.innerHTML=cell.querySelector('.cell-note').innerHTML;
+    lbCount.textContent=String(cur+1).padStart(2,'0')+' / '+String(list.length).padStart(2,'0');
+    lb.setAttribute('data-open','true');
+    document.body.style.overflow='hidden';
+    document.getElementById('lbClose').focus();
+  }
+  function close(){
+    lb.setAttribute('data-open','false');
+    document.body.style.overflow='';
+    if(lastFocus) lastFocus.focus();
+  }
+
+  cells.forEach(function(cell){
+    function go(){lastFocus=cell;open(visible().indexOf(cell))}
+    cell.addEventListener('click',go);
+    cell.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}
+    });
+  });
+
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(){open(cur-1)});
+  document.getElementById('lbNext').addEventListener('click',function(){open(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){
+    if(lb.getAttribute('data-open')!=='true')return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')open(cur-1);
+    if(e.key==='ArrowRight')open(cur+1);
+  });
+
+  /* 보기 모드 — 읽기 보기가 기본값 (폰트 px 고정, 열 수와 무관) */
+  document.body.classList.add('read');
+  var modeSeg=document.getElementById('modeSeg');
+  modeSeg.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    modeSeg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+    document.body.classList.toggle('read',b.dataset.m==='read');
+  });
+
+  /* 열 수 */
+  var seg=document.getElementById('colSeg');
+  seg.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+    document.documentElement.style.setProperty('--cols',b.dataset.c);
+  });
+
+  /* 발송본 토글 */
+  var btnSend=document.getElementById('btnSend'),mTotal=document.getElementById('mTotal');
+  btnSend.addEventListener('click',function(){
+    var on=btnSend.getAttribute('aria-pressed')==='true';
+    btnSend.setAttribute('aria-pressed',String(!on));
+    btnSend.textContent=on?'고객 발송본만':'전체 보기';
+    cells.forEach(function(c){
+      if(c.hasAttribute('data-internal')) c.classList.toggle('is-hidden',!on);
+    });
+    mTotal.textContent=on?'18장':'17장';
+  });
+})();
+</script>
+</body>
+</html>
