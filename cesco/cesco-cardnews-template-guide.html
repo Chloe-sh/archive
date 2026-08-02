@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세스코 카드뉴스 템플릿 가이드 — 6유형 전체</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{
+  --ink:#0B1524; --ink-2:#132437;
+  --paper:#EEF3F6; --paper-2:#FFFFFF;
+  --blue:#0B5CB5; --blue-deep:#063E7C;
+  --signal:#FF5A2D; --steel:#8FA3B5; --steel-dk:#5A7186;
+  --bg:#E4E9EF; --line:#C9D3DB;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Noto Sans KR",monospace;
+  --cols:4;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--ink);padding-bottom:90px}
+
+/* ---------- 상단 ---------- */
+.bar{position:sticky;top:0;z-index:40;background:rgba(228,233,239,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1620px;margin:0 auto;padding:14px 26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.brand{margin-right:auto}
+.brand .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--signal);display:block;margin-bottom:4px}
+.brand h1{margin:0;font-size:16.5px;font-weight:800;letter-spacing:-.03em}
+.brand h1 span{color:var(--steel-dk);font-weight:600}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{
+  appearance:none;border:1px solid #B4C2CD;background:#fff;color:var(--steel-dk);cursor:pointer;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:8px 11px;border-radius:2px;
+}
+.tabs button b{color:var(--ink);font-weight:700;margin-right:5px}
+.tabs button:hover{border-color:var(--blue)}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tabs button[aria-pressed="true"] b{color:var(--signal)}
+.tabs button:focus-visible,.cell:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.seg{display:flex;border:1px solid #B4C2CD;border-radius:2px;overflow:hidden;background:#fff}
+.seg button{appearance:none;border:0;background:transparent;font-family:var(--mono);font-size:11px;padding:8px 10px;cursor:pointer;color:var(--steel-dk);border-right:1px solid #DCE3E9}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+.wrap{max-width:1620px;margin:0 auto;padding:26px}
+.panel{display:none}
+.panel.on{display:block}
+
+/* ---------- 유형 헤더 ---------- */
+.thead{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:30px;align-items:start;margin-bottom:30px}
+.thead .big{font-size:clamp(26px,3.4vw,44px);line-height:1.12;letter-spacing:-.04em;font-weight:800;margin:0 0 12px}
+.thead .big i{font-style:normal;font-family:var(--mono);font-size:.42em;letter-spacing:.1em;color:var(--signal);display:block;margin-bottom:10px}
+.thead .def{font-size:15.5px;line-height:1.7;color:#3C5468;max-width:60ch;margin:0}
+.thead .warn{
+  margin:16px 0 0;padding:14px 16px;background:#fff;border-left:3px solid var(--signal);
+  font-family:var(--mono);font-size:11.5px;line-height:1.75;color:#B23A12;
+}
+.tfacts{background:#fff;border-radius:3px;padding:6px 18px}
+.tfacts div{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.tfacts div:last-child{border-bottom:0}
+.tfacts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--steel-dk);flex:0 0 76px;padding-top:2px}
+.tfacts dd{margin:0;font-size:13px;line-height:1.55;font-weight:600}
+
+/* ---------- 섹션 라벨 ---------- */
+.slab{display:flex;align-items:baseline;gap:12px;margin:38px 0 16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.slab h2{margin:0;font-size:15px;font-weight:800;letter-spacing:-.02em}
+.slab span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--steel-dk)}
+.gtag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#fff;background:var(--blue);
+  padding:5px 10px;border-radius:2px;display:inline-block;margin:26px 0 12px;
+}
+
+/* ---------- 카드 그리드 ---------- */
+.sheet{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:26px 20px}
+.cell{margin:0;cursor:zoom-in;transition:transform .16s ease}
+.cell:hover{transform:translateY(-3px)}
+.cell-bar{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.cell-bar .role{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--steel-dk);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cell-bar .role em{font-style:normal;color:var(--signal);font-weight:700}
+.cell-bar .no{margin-left:auto;font-family:var(--mono);font-size:10.5px;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--ink);padding:2px 6px;border-radius:2px}
+.cell[data-opt] .cell-bar .no{background:#DEE8EE;border-color:#B6C7D3;color:var(--blue-deep)}
+.cell[data-int] .cell-bar .no{background:var(--signal);border-color:var(--signal);color:#fff}
+
+.card{
+  container-type:inline-size;position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:3px;
+  display:flex;flex-direction:column;padding:7.5cqw 7cqw 6.5cqw;background:var(--ink);color:#fff;
+  box-shadow:0 1px 2px rgba(11,21,36,.16),0 14px 30px -18px rgba(11,21,36,.5);
+}
+.card.paper{background:var(--paper);color:var(--ink)}
+.card.paper2{background:var(--paper-2);color:var(--ink)}
+.card.cover{background:radial-gradient(120% 90% at 78% 8%,rgba(11,92,181,.5) 0,rgba(11,21,36,0) 62%),linear-gradient(168deg,#0E2438 0,#08111C 74%)}
+.card.annex{background:linear-gradient(160deg,#132437 0,#0A1420 100%);justify-content:center;align-items:flex-start}
+.card.annex.int{background:linear-gradient(160deg,#2A1108 0,#160804 100%)}
+.card.opt{border:.5cqw dashed #9FB3C2;background:#E9EFF3;color:var(--ink);box-shadow:none}
+
+.sig{font-family:var(--mono);font-size:2.5cqw;letter-spacing:.18em;font-weight:600;color:#9EB7CC;margin:0 0 auto}
+.card.paper .sig,.card.paper2 .sig,.card.opt .sig{color:var(--blue)}
+.eyebrow{font-family:var(--mono);font-size:2.2cqw;letter-spacing:.13em;color:var(--signal);margin:0 0 2.6cqw;font-weight:600}
+h3.head{font-size:6.6cqw;line-height:1.22;letter-spacing:-.045em;font-weight:800;margin:0 0 3.2cqw;text-wrap:balance}
+.card.cover h3.head{font-size:7.8cqw;line-height:1.2}
+.card.annex h3.head{font-size:7cqw}
+.card.annex h3.head u{text-decoration:none;display:block;color:#6FB4FF}
+.card.annex.int h3.head u{color:var(--signal)}
+p.body{font-size:3.05cqw;line-height:1.68;letter-spacing:-.015em;margin:0 0 2.2cqw;color:#C6D4E0}
+.card.paper p.body,.card.paper2 p.body,.card.opt p.body{color:#3B5165}
+.card.opt .atype,.card.annex .atype{font-family:var(--mono);font-size:2.3cqw;letter-spacing:.2em;color:var(--steel);margin:0 0 3.6cqw}
+
+ul.lst,ol.lst{margin:0 0 2.4cqw;padding:0;list-style:none;counter-reset:n}
+ul.lst li,ol.lst li{position:relative;font-size:2.95cqw;line-height:1.58;padding:0 0 2.1cqw 6.4cqw;color:#C6D4E0}
+.card.paper ul.lst li,.card.paper2 ul.lst li,.card.opt ul.lst li,
+.card.paper ol.lst li,.card.paper2 ol.lst li,.card.opt ol.lst li{color:#3B5165}
+ul.lst li::before{content:attr(data-mk);position:absolute;left:0;top:0;font-family:var(--mono);font-size:2.5cqw;font-weight:700;color:var(--signal);letter-spacing:.02em}
+/* CHECK 1. / SOLUTION 1. 처럼 긴 마커는 본문 위 별행으로 — 절대배치 시 본문과 겹침 */
+ul.lst.wide li{padding-left:0}
+ul.lst.wide li::before{position:static;display:block;margin-bottom:.7cqw;font-size:2.4cqw;letter-spacing:.08em}
+ol.lst li{counter-increment:n}
+ol.lst li::before{content:counter(n) ".";position:absolute;left:0;top:0;font-family:var(--mono);font-size:3.2cqw;font-weight:700;color:var(--blue)}
+.card:not(.paper):not(.paper2):not(.opt) ol.lst li::before{color:#6FB4FF}
+
+.bridge{margin:1.2cqw 0 0;padding:3cqw;background:#DEE8EE;border-left:.7cqw solid var(--blue);font-size:2.85cqw;line-height:1.62;color:#22384B;font-weight:600}
+.tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:2.15cqw;margin-bottom:2.4cqw}
+.tbl th,.tbl td{border:1px solid #B6C7D3;padding:1.4cqw 1.2cqw;text-align:left;color:#3B5165}
+.tbl th{background:#DEE8EE;color:var(--blue-deep);font-weight:700}
+.fn{margin-top:auto;padding-top:2.8cqw;border-top:1px solid rgba(255,255,255,.16);font-family:var(--mono);font-size:2.05cqw;line-height:1.58;color:#8FA3B5}
+.card.paper .fn,.card.paper2 .fn,.card.opt .fn{border-top-color:var(--line);color:#6E8394}
+.fn span{display:block;margin-bottom:.8cqw}
+.stamp{position:absolute;left:7cqw;bottom:6.5cqw;font-family:var(--mono);font-size:2cqw;letter-spacing:.08em;color:var(--signal);border:.3cqw solid var(--signal);padding:1.1cqw 1.6cqw}
+.flag{position:absolute;left:0;bottom:0;z-index:3;font-family:var(--mono);font-size:2cqw;letter-spacing:.1em;background:#fff;color:var(--ink);padding:1.2cqw 1.7cqw;border-top-right-radius:2px}
+
+/* 플레이스홀더 */
+.ph{font-style:normal;color:var(--signal);font-weight:600}
+.card.paper .ph,.card.paper2 .ph,.card.opt .ph{color:#C2410C}
+
+/* ---------- 규칙 패널 ---------- */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:6px}
+.rule{background:#fff;border-radius:3px;padding:18px 20px}
+.rule h4{margin:0 0 12px;font-size:12.5px;font-weight:800;letter-spacing:.02em}
+.rule h4 i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--steel-dk);display:block;margin-bottom:5px}
+.rule ul{margin:0;padding:0;list-style:none;font-family:var(--mono);font-size:11.5px;line-height:1.75;color:var(--steel-dk)}
+.rule li{position:relative;padding-left:14px;margin-bottom:7px}
+.rule li::before{content:"·";position:absolute;left:3px;color:var(--steel)}
+.rule li.w{color:#B23A12}
+.rule li.w::before{content:"!";color:var(--signal);font-weight:700}
+.rule li b{color:var(--ink)}
+
+.dtable{width:100%;border-collapse:collapse;background:#fff;border-radius:3px;overflow:hidden;font-size:13px}
+.dtable th,.dtable td{padding:11px 14px;text-align:left;border-bottom:1px solid #E1E8ED;vertical-align:top;line-height:1.6}
+.dtable th{background:var(--ink);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;font-weight:600}
+.dtable td:first-child{font-weight:700;white-space:nowrap;width:1%}
+.dtable tr:last-child td{border-bottom:0}
+.dtable code{font-family:var(--mono);font-size:11.5px;color:var(--blue-deep);background:#EDF2F6;padding:1px 5px;border-radius:2px}
+
+/* 결정 트리 */
+.tree{display:flex;flex-direction:column;gap:0;max-width:900px}
+.q{background:#fff;border-radius:3px;padding:18px 20px;position:relative}
+.q .qn{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--signal);margin:0 0 8px}
+.q p.qt{margin:0 0 14px;font-size:15.5px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
+.q .ans{display:flex;flex-wrap:wrap;gap:10px}
+.q .ans a{
+  text-decoration:none;font-family:var(--mono);font-size:11.5px;padding:9px 13px;border-radius:2px;
+  background:var(--blue);color:#fff;letter-spacing:.04em;
+}
+.q .ans a.no{background:#E5EAEF;color:var(--steel-dk)}
+.q .ans a:hover{background:var(--ink)}
+.q .ans a.no:hover{background:#D3DBE2;color:var(--ink)}
+.link{height:26px;width:1px;background:var(--line);margin-left:34px}
+.edge{
+  margin:20px 0 0;padding:16px 18px;background:#fff;border-left:3px solid var(--signal);
+  font-family:var(--mono);font-size:11.5px;line-height:1.85;color:var(--steel-dk);max-width:900px;
+}
+.edge b{color:var(--ink)}
+
+/* ---------- 읽기 보기: 열 수와 무관하게 폰트 고정 ---------- */
+/* 그리드 안쪽에만 적용한다 — 확대 뷰는 항상 실물 4:5 비율 유지.
+   카드 높이는 같은 행 안에서만 통일되므로 짧은 카드 아래로 여백이 길게 남지 않는다. */
+body.read .sheet{align-items:stretch}
+body.read .sheet .cell{display:flex;flex-direction:column}
+body.read .sheet .card{aspect-ratio:auto;flex:1 1 auto;min-height:0;padding:20px 20px 17px}
+body.read .sheet .sig{font-size:10px;letter-spacing:.18em;margin-bottom:13px}
+body.read .sheet .eyebrow{font-size:10.5px;letter-spacing:.09em;margin-bottom:8px}
+body.read .sheet .atype{font-size:10px;letter-spacing:.16em;margin-bottom:12px}
+body.read .sheet h3.head{font-size:20px;line-height:1.32;margin-bottom:11px}
+body.read .sheet .card.cover h3.head{font-size:22.5px;line-height:1.28}
+body.read .sheet .card.annex h3.head{font-size:22px;line-height:1.28}
+body.read .sheet p.body{font-size:13.2px;line-height:1.66;margin-bottom:8px}
+body.read .sheet ul.lst li,body.read .sheet ol.lst li{font-size:12.8px;line-height:1.58;padding:0 0 10px 24px}
+body.read .sheet ul.lst li::before{font-size:11px}
+body.read .sheet ol.lst li::before{font-size:13.5px}
+body.read .sheet ul.lst.wide li{padding-left:0}
+body.read .sheet ul.lst.wide li::before{font-size:10.5px;margin-bottom:3.5px}
+body.read .sheet .bridge{font-size:12.5px;line-height:1.6;padding:12px;border-left-width:3px;margin-top:4px}
+body.read .sheet .tbl{font-size:10px;margin-bottom:11px}
+body.read .sheet .tbl th,body.read .sheet .tbl td{padding:5px 6px}
+body.read .sheet .fn{font-size:10px;line-height:1.55;padding-top:11px;margin-top:12px}
+body.read .sheet .fn span{margin-bottom:3px}
+body.read .sheet .stamp{position:static;align-self:flex-start;font-size:9px;padding:5px 7px;margin:12px 0 0;border-width:1px}
+body.read .sheet .flag{font-size:9px;padding:4px 7px}
+body.read .sheet .card.opt{border-width:2px}
+/* 라벨형 부속 카드는 남는 공간을 위아래로 나눠 가운데 정렬 */
+body.read .sheet .card.annex{justify-content:center}
+
+/* ---------- 확대 뷰 ---------- */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(8,17,28,.85);display:none;padding:28px}
+.lb[data-open="true"]{display:flex;align-items:center;justify-content:center}
+.lb .card{width:min(560px,66vh);box-shadow:0 30px 70px -20px rgba(0,0,0,.7)}
+.lb-nav{position:fixed;right:28px;top:28px;display:flex;gap:8px}
+.lb-nav button{appearance:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-family:var(--mono);font-size:12px;padding:9px 13px;border-radius:2px;cursor:pointer}
+.lb-nav button:hover{background:rgba(255,255,255,.2)}
+.lb-cap{position:fixed;left:28px;top:32px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:#9EB7CC}
+
+.foot{max-width:1620px;margin:0 auto;padding:26px;font-family:var(--mono);font-size:11.5px;line-height:1.9;color:var(--steel-dk)}
+.foot b{color:var(--ink)}
+
+@media (max-width:1300px){:root{--cols:3}.thead{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){:root{--cols:2}.wrap{padding:18px}.sheet{gap:20px 14px}.lb{padding:14px}.lb .card{width:min(100%,74vw)}}
+@media (max-width:560px){:root{--cols:1}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="brand">
+      <span class="k">CESCO CARD NEWS · TEMPLATE GUIDE</span>
+      <h1>카드뉴스 템플릿 6유형 <span>· 근거 원문 33건 구조 분석</span></h1>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button data-t="tree" aria-pressed="true">유형 선택</button>
+      <button data-t="common">공통 규칙</button>
+      <button data-t="A"><b>A</b>월간해충예보</button>
+      <button data-t="B"><b>B</b>위해요소</button>
+      <button data-t="C"><b>C</b>상품특장점</button>
+      <button data-t="D"><b>D</b>크로스셀</button>
+      <button data-t="E"><b>E</b>프로모션</button>
+      <button data-t="F"><b>F</b>타겟특화</button>
+    </nav>
+    <div class="seg" id="modeSeg">
+      <button data-m="read" aria-pressed="true">읽기 보기</button>
+      <button data-m="ratio">비율 보기</button>
+    </div>
+    <div class="seg" id="colSeg">
+      <button data-c="5">5열</button><button data-c="4" aria-pressed="true">4열</button>
+      <button data-c="3">3열</button><button data-c="2">2열</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- 유형 선택 -->
+  <section class="panel on" id="p-tree">
+    <div class="thead" style="grid-template-columns:minmax(0,1fr)">
+      <div>
+        <h2 class="big"><i>DECISION TREE</i>어떤 유형으로<br>제작할지 먼저 판정합니다</h2>
+        <p class="def">위에서부터 순서대로 답합니다. 먼저 걸리는 곳에서 멈추고 그 유형의 장표 구성표를 그대로 따릅니다. 유형을 섞으면 어미 규칙과 부속 구성이 충돌합니다.</p>
+      </div>
+    </div>
+    <div class="tree" id="tree"></div>
+    <div class="edge">
+      <b>경계 판정</b><br>
+      · 문제 장이 3장 이하로 줄면 B가 아니라 <b>C</b>로 제작<br>
+      · 가격표가 분량의 절반을 넘으면 C가 아니라 <b>E</b>로 제작<br>
+      · 시설 타깃(어린이집 등) 특화는 공적 지역 데이터가 없으면 F가 아니라 <b>B</b>(836 방식)
+    </div>
+  </section>
+
+  <!-- 공통 규칙 -->
+  <section class="panel" id="p-common">
+    <div class="thead" style="grid-template-columns:minmax(0,1fr)">
+      <div>
+        <h2 class="big"><i>SHARED RULES</i>전 유형 공통 규칙</h2>
+        <p class="def">유형에 관계없이 지켜지는 규칙입니다. 유형별 규칙과 충돌할 때는 유형별 규칙이 우선합니다(예: A형은 브랜드 서명 전환을 하지 않습니다).</p>
+      </div>
+    </div>
+    <div class="slab"><h2>어미 기능 분화</h2><span>장표 종류에 따라 종결어미가 결정된다</span></div>
+    <table class="dtable">
+      <thead><tr><th>장표 종류</th><th>어미</th></tr></thead>
+      <tbody>
+        <tr><td>문제 · 정보 · 논증 장</td><td>~합니다 (수치 주장은 <code>~할 수 있습니다</code> 유보형)</td></tr>
+        <tr><td>체크리스트</td><td>A형 CHECK: 평서 -다 / C형 ✓: 명사구 + 부연</td></tr>
+        <tr><td>스펙 (✔ · ✅ · SOLUTION)</td><td>명사형 종결</td></tr>
+        <tr><td>셀프 팁</td><td>~합니다 (수칙형)</td></tr>
+        <tr><td>CTA · 제안</td><td>~하세요 / ~해 보세요 <b>(해당 장 전용)</b></td></tr>
+        <tr><td>질문형 (~까요?)</td><td>도입 훅 · 반문 헤드 전용, 본문 서술 금지</td></tr>
+        <tr><td>서비스 설명 (E-2)</td><td>~해드립니다</td></tr>
+      </tbody>
+    </table>
+    <div class="slab"><h2>각주 · 출처 4계열</h2><span>해당 장에 필수</span></div>
+    <table class="dtable">
+      <tbody>
+        <tr><td>공적 출처</td><td><code>*출처: {기관/자료명}</code> — 문제 · 데이터 장</td></tr>
+        <tr><td>연구 서지</td><td>본문 위첨자 <code>1)</code> + 하단 <code>{저자, 연도, 논문명, 저널}</code></td></tr>
+        <tr><td>시험기관</td><td><code>{n}) {효과} | 시험기관: {기관명}</code> — 99.9% 계열 수치 전부</td></tr>
+        <tr><td>조건 단서</td><td>렌탈 등록비 / 의무사용기간, 타 할인 제외 고정문, 취소 후 재구매 불가 · 마케팅 수신 동의 필수</td></tr>
+      </tbody>
+    </table>
+    <div class="slab"><h2>구조 규칙</h2><span>커버 반복 · 부속 · 세그먼트 · 카드 3단</span></div>
+    <div class="rules" id="commonRules"></div>
+    <div class="slab"><h2>제작 체크리스트</h2><span>발송 전 전 유형 공통</span></div>
+    <div class="rules"><div class="rule" style="grid-column:1/-1">
+      <h4><i>PRE-FLIGHT</i>발송 직전 확인</h4>
+      <ul>
+        <li>유형 결정 트리 통과 후 해당 템플릿의 장표 구성표 준수</li>
+        <li>커버에 제품명 노출 금지(D · E 제외), 부제로 콘텐츠 정체성 명시(B · C)</li>
+        <li>문제 장마다 새 정보 1개 + 출처 각주</li>
+        <li>99.9% 계열 수치 전부 시험기관 각주 연결</li>
+        <li>제품 판매 전 셀프팁 / 활용팁 장 존재 여부 확인(B · D 필수)</li>
+        <li>마지막 장 = 커버 반복</li>
+        <li class="w">고객 발송본에서 컨설턴트 전용 부속(핵심전략 · 컨설팅 플랜 · 우수사례) 제거</li>
+        <li class="w">※ 광고성 메시지는 마케팅 수신동의를 하지 않은 고객에게는 발송해서는 안됩니다.</li>
+      </ul>
+    </div></div>
+  </section>
+
+  <!-- 유형별 패널 (JS 생성) -->
+  <section class="panel" id="p-A"></section>
+  <section class="panel" id="p-B"></section>
+  <section class="panel" id="p-C"></section>
+  <section class="panel" id="p-D"></section>
+  <section class="panel" id="p-E"></section>
+  <section class="panel" id="p-F"></section>
+</div>
+
+<p class="foot">
+  <b>범례</b> — 주황색 <span class="ph" style="font-family:var(--mono)">{중괄호}</span>는 치환 슬롯 · 점선 카드는 선택 장(조건부 삽입) · 주황 번호는 컨설턴트 전용(발송 제외) · 하늘색 번호는 선택 장<br>
+  <b>읽기 보기</b>는 열 수와 무관하게 폰트가 고정되고 같은 행 안에서 카드 크기가 통일됩니다(카피 검토용). 최종 1080×1350 비율은 <b>비율 보기</b> 또는 카드 확대에서 확인하세요.<br>카드를 클릭하면 확대됩니다 · ← → 이동 · ESC 닫기 · 근거: 00-mkp-portal 카드뉴스 33건 구조 분석 · © 2026 CESCO Co., Ltd. All Rights Reserved.
+</p>
+
+<div class="lb" id="lb" data-open="false" role="dialog" aria-modal="true" aria-label="카드 확대">
+  <p class="lb-cap" id="lbCap"></p>
+  <div class="lb-nav">
+    <button type="button" id="lbPrev" aria-label="이전">←</button>
+    <button type="button" id="lbNext" aria-label="다음">→</button>
+    <button type="button" id="lbClose">ESC 닫기</button>
+  </div>
+  <div id="lbCard"></div>
+</div>
+
+<script>
+/* ============ 데이터 ============ */
+var TREE=[
+  {q:'Q1',t:'팔 것 없이 정보만 주는 콘텐츠인가? (월 단위 해충 예보)',yes:'A 월간해충예보형',yt:'A'},
+  {q:'Q2',t:'수신 대상이 특정 제품 보유 고객으로 한정되는가?',yes:'D 기존고객 크로스셀형',yt:'D'},
+  {q:'Q3',t:'핵심 메시지가 가격 혜택 또는 무료체험 자체인가?',yes:'E 프로모션·무료체험형',yt:'E',ynote:'렌탈 할인·쿠폰 = E-1 / 체험·진단으로 관계 시작 = E-2'},
+  {q:'Q4',t:'특정 지역(또는 시즌)의 공적 데이터로 "여기는 기준이 달라야 한다"를 입증할 수 있는가?',yes:'F 타겟 특화형',yt:'F'},
+  {q:'Q5',t:'문제(위해요소) 인식부터 만들어야 하는가, 상품 차별점만 설득하면 되는가?',yes:'B 위해요소형',yt:'B',no:'C 상품특장점형',nt:'C',
+   ynote:'문제 인식부터 — 문제 장 4장 이상 필요',nnote:'니즈는 이미 있고 "왜 세스코인가"만'}
+];
+
+var COMMON=[
+  {t:'커버 반복 (마지막 장)',k:'RULE 3-1',li:[
+    '<b>마지막 이미지 = 1번 커버와 동일 이미지</b>. 목적은 리스트·공유 썸네일 재사용. 전 33건 공통',
+    '예외: E-1은 축약 변형 커버, C형은 A/B 변형 중 대표 커버 — 어느 경우든 커버 계열로 닫는 원칙은 불변',
+    '커버 성격: A=라벨(훅 없음) / B·C=카피 훅 / D=고객 호명 / E=혜택 고지 / F=지역 데이터 훅+리드 문단'
+  ]},
+  {t:'부속 카드 (영업 도구)',k:'RULE 3-2',li:[
+    '본편이 끝난 뒤, 커버 반복 앞에 배치. 표지 라벨은 2~3단어 2행, <b>문장 금지</b>',
+    '관련기사 / 해충예보(A형 고정) / 리플렛 / 이벤트 카드 / 비교 영상 표지',
+    '비교 영상 표지에는 <code>* 본 영상은 이해를 돕기 위해 제작된 영상입니다.</code> 면책 필수',
+    '<b>본편과 부속의 경계를 흐리지 않는다</b> — 본편에 리플렛식 스펙 나열을 끼워 넣지 않음',
+    '컨설팅 플랜 · 핵심전략 · 우수사례는 컨설턴트 전용 → 고객 발송본 제외'
+  ],warn:[4]},
+  {t:'타겟 세그먼트 카드',k:'RULE 3-3',li:[
+    '라벨 공식 <code>{고객 유형} + {제안 제품 1~3종}</code>. 부속 구간 맨 앞에 배치',
+    '세그먼트 축 3종: ①공간·가구 유형 ②민감 특성 ③업종·보유상태',
+    '유형당 1장, 제품 조합은 중복 가능. F형만 세그먼트를 본편 1장으로 흡수'
+  ]},
+  {t:'카드 1장 3단 표준',k:'RULE 3-4',li:[
+    '① 상단 카테고리 라벨/로고 → ② 굵은 헤드 2~3행 → ③ 본문 3~8행 → ④ 작은 각주/출처',
+    '브랜드 서명 전환: 문제·정보 장 <code>CESCO</code> → 솔루션·제품 장 <code>세스코 솔루션</code>(B·C·F)',
+    'A형은 전 장 <code>CESCO 세스코</code> 유지 — 전환 없음'
+  ]},
+  {t:'포털 게시 고정 요소',k:'RULE 3-7',li:[
+    '본문 안내 <code>☞ 옆으로 넘겨 확인하세요</code> / A형은 공식블로그 링크 추가',
+    '커버·끝장 저작권 <code>© {YYYY} CESCO Co., Ltd. All Rights Reserved.</code>',
+    '연락 자산 1588-1119 / www.cesco.co.kr / www.cescomall.co.kr (+QR)'
+  ]}
+];
+
+var TYPES={
+A:{code:'A',name:'월간해충예보형',def:'매월 이슈 해충 1종을 정해 예보·정보를 제공하는 완전 규격화 시리즈물. 컨설턴트가 "이번 달 조심할 해충"으로 공유하는 정보성(비판매) 콘텐츠.',
+ pages:'총 8~12장',body:'본편 6장 (커버1 + 정보 2~3 + CHECK 1 + SOLUTION 1)',annex:'부속 1~4장 + 커버 반복 1장',
+ target:'매장·사업장 운영 고객이 기본값 (CHECK 문안이 "우리 매장" 기준). 해충에 따라 가정 겸용',
+ src:'999 (7월 권연벌레, 8장) · 929 (6월 러브버그, 11장) / 동일 규격: 998, 930, 902, 901, 868, 867, 791',
+ warn:'유일하게 커버에 훅 카피가 없는 유형이며 CTA 카드도 없습니다. 포털 본문의 공식블로그 링크가 CTA를 대신합니다. 제품 직접 판매 문안은 본편에 넣지 않고 부속 리플렛으로 넘깁니다.',
+ tone:['정보 장(2~4): <b>~합니다</b> 100%. 수치 주장은 유보형 ~할 수 있습니다','CHECK 항목: <b>평서 -다 종결</b> (~한다 / ~있다). 명사형·구어체 금지','SOLUTION 항목: <b>명사형 종결</b> (보관 / 유지 / 제거 / 방제)','헤드의 "확인하세요 / 관리하세요"가 허용된 유일한 ~하세요','질문형(~까요?) <b>전면 금지</b> — 담백함 유지'],
+ fixed:['브랜드 서명: 전 장 <code>CESCO 세스코</code> (솔루션 라벨 전환 없음)','해충 사진 출처 <code>출처 : Flickr - {작가명}</code> — 커버 및 정보 장 모두','반드시 실사(현미경·클로즈업). <b>일러스트 금지</b>','부속: 해충예보(고정) + 관련기사·시설보완·리플렛(선택)'],
+ vary:['정보 압축형: 동정+생태를 1장으로 합쳐 본편 5장 (929)','가정 타깃 전환: CHECK 헤드 "우리 매장" → "우리 집"으로만 교체','시설 연계형: SOLUTION에 등장한 시설(도어씰 등) 리플렛을 부속 마지막에','<b>장수 확장은 부속에서만</b>. 본편 6장 규격은 유지'],
+ cards:[
+  {no:'01',role:'커버 · 라벨형',kind:'cover',sig:'',head:['{M}월 월간해충','{해충명}'],fn:['출처 : Flickr - {작가명}','© {YYYY} CESCO Co., Ltd. All Rights Reserved.']},
+  {no:'02',role:'동정 · 생김새',sig:'CESCO 세스코',body:['{해충명}은/는 {서식처1}, {서식처2}, {서식처3} 등에서 발견되는 {분류 규정}입니다.','성충은 약 {N}mm 크기의 {색}을 띠며, {식별 특징}이 특징입니다.'],fn:['출처 : Flickr - {작가명}'],note:'헤드 없이 본문만. 첫 문장에서 반드시 분류를 규정'},
+  {no:'03',role:'생태 · 번식 속도',sig:'CESCO 세스코',body:['{해충명}은/는 {환경 조건}에서 빠르게 번식합니다.','{온도}°C, {습도 조건}에서는 {발육 단계}까지 최단 {N}일 만에 발육할 수 있어, {M}월과 같은 {계절}에는 개체 수가 급격히 증가할 수 있습니다.'],fn:['출처 : Flickr - {작가명}'],note:'온도·습도·기간을 반드시 수치로'},
+  {no:'04',role:'피해 · 비즈니스 리스크',sig:'CESCO 세스코',body:['{해충명}은/는 {직접 피해}뿐 아니라 {확산 행동}하며 피해를 확산시킵니다.','{발견 맥락}일 경우 {사고 유형}으로 이어져 {민원·클레임 등 사업 리스크}로 확대될 수 있습니다.'],fn:['출처 : Flickr - {작가명}'],note:'위생 피해를 반드시 사업 언어로 번역'},
+  {no:'05',role:'자가진단 CHECK 1~5',sig:'CESCO 세스코',head:['우리 {매장/집}{ 주변},','이런 {환경/상황}은','아닌지 확인하세요'],list:{t:'mk',mk:'CHECK',items:['{먹이·서식 조건}한다.','{보관·시설 상태}하고 있다.','{관리 공백}이 미흡하다.','{잔여물·구조 조건}이 쌓여 있다.','{온습도·환기 / 과거 이력}이다.']},note:'5개 고정. 배열: 먹이 → 보관 → 관리 공백 → 환경 → 이력'},
+  {no:'06',role:'SOLUTION 1~3',kind:'paper',sig:'CESCO 세스코',head:['{해충명}','이렇게 관리하세요'],body:['{해충명} 방제는 {사후 조치}보다 {예방 조치}이 우선입니다.'],list:{t:'mk',mk:'SOLUTION',items:['{셀프 조치: 명사형}','{셀프 조치 + 수치: 명사형}','전문 진단을 통한 {장비 설치 / 약제 방제}']},note:'1·2는 셀프, 3에 전문 진단을 배치해 세스코 접점을 연다'},
+  {no:'07',role:'부속 · 해충예보(고정)',kind:'annex',atype:'ANNEX · FIXED',head:['해충예보','<u>{해충명}</u>']},
+  {no:'08',role:'부속 · 관련기사 / 리플렛',kind:'annex',opt:true,atype:'ANNEX · OPTION',head:['{해충명}','<u>관련기사 / 시설 보완 / 리플렛</u>'],stamp:'리플렛에 실험 데이터 + 실험기관 각주'},
+  {no:'끝',role:'커버 반복',kind:'cover',flag:'= 01 동일',head:['{M}월 월간해충','{해충명}'],fn:['출처 : Flickr - {작가명}']}
+ ]},
+
+B:{code:'B',name:'위해요소형',def:'카드뉴스 채널의 주력 유형(33건 중 12건). 생활 속 위해요소를 과학적 근거로 심화시켜 인식시키고, 제품 없는 셀프 팁으로 신뢰를 확보한 뒤 제품 솔루션으로 연결하는 풀 퍼널 설득 콘텐츠.',
+ pages:'총 11~23장',body:'본편 9~11장 (커버1 + 문제 심화 5 + 셀프팁 1 + 제품 1~3 + 마무리 1)',annex:'부속 2~10장 + 커버 반복 1장',
+ target:'가정 고객 중심(B2C), 시설(어린이집·사업장) 겸용. 부속 세그먼트 카드로 타깃별 재활용',
+ src:'969 (세탁물 위생, 17장) · 792 (매트리스 진드기, 21장) · 836 (영유아 위해요소, 23장)',
+ warn:'셀프 팁 장은 생략 금지 — 팔기 전에 알려주는 장치가 이 유형의 신뢰 코어입니다. 셀프 팁에는 제품명을 절대 넣지 않고, 마지막 팁에 제품군의 범주만 심습니다. 마무리 장에 할인·가격·전화번호를 넣지 않습니다(그건 E형).',
+ tone:['문제 장: <b>~합니다</b> 기본. 원인 추정은 ~일 수 있습니다, 인용은 ~로 보고되고 있습니다','공감 양념 "~올라가죠"는 문단당 최대 1회','도입 훅·헤드에만 <b>~까요?</b> 허용','셀프 팁: ~합니다 수칙형 / 제품 ✔: 명사형 종결','마무리: <b>~해 보세요</b> (동행 제안 전용)'],
+ fixed:['브랜드 서명: 문제 장 <code>CESCO</code> → 솔루션 장부터 <code>세스코 솔루션</code> 전환','문제 장마다 하단 <code>*출처</code> 필수 — 공공기관 + 해외 학술지를 섞는다','<code>{n}) {효과} | 시험기관: {기관}</code> — 99.9% 계열 수치에 필수','부속 순서: 세그먼트(2~4) → 관련기사(1~2) → 리플렛·매거진(0~2) → 이벤트(0~1)'],
+ vary:['<b>심화형</b>(969·792) ↔ <b>나열형</b>(836): 원인이 하나로 수렴하면 심화형, 위협이 병렬이면 나열형(커버에 "N가지" 선언)','제품 장 수 = 셀프 팁 수에 맞춰 1~3장. 서비스 상품은 서비스 정의 1장 + 기술 근거 1장','<b>문제 장은 최소 4장 유지</b> — 3장 이하면 C형으로 전환하는 것이 맞다','시설 특화 시 부속에 시설용 컨설팅 플랜·현판/POP 리플렛 추가'],
+ cards:[
+  {no:'01',role:'커버 · 훅',kind:'cover',sig:'CESCO',head:['{충격 수치 / 질문 훅','2~3행}','{현재진행 위협','2~3행}'],fn:['{부제: 세스코가 제안하는 ○○ 솔루션 / ○○, 원인은 ○○일 수 있습니다}'],note:'훅 = ①질문·반문 ②충격 수치 ③"지금 이 순간에도" 중 택1~2. 제품명 노출 금지'},
+  {no:'02',role:'문제① 원인 규명',sig:'CESCO',head:['{의외성 헤드','2행}'],body:['{현상 공감}… {원인} 때문일 수 있습니다.','{원인 메커니즘 2~3문장}'],fn:['*출처: {공공기관 / 가이드}']},
+  {no:'03',role:'문제② 방치 시 악화',sig:'CESCO',head:['{시간 압박 헤드','2행}'],body:['{짧은 시간}만 둬도 {악화}. {임계 시간} 이상 방치하면 {비가역 상태}.'],fn:['*출처: {기관}']},
+  {no:'04',role:'문제③ 연구 · 수치',sig:'CESCO',head:['{충격 수치 헤드','2행}'],body:['한 연구에 따르면 {조건}에서는 {수치 결과}했습니다. 1)','{수치 해석 문장}'],fn:['1) {저자, 연도, 논문명, 저널}']},
+  {no:'05',role:'문제④ 확산 · 시의성',sig:'CESCO',head:['{계절·공간 헤드','2행}'],body:['{계절 조건} → {확산 메커니즘: 유입·서식·확산}.'],fn:['*출처: {기관}'],note:'경로 어휘군(침입·유입·확산·서식) 사용'},
+  {no:'06',role:'문제⑤ 자가 해결 한계',sig:'CESCO',head:['{한계 선언 헤드','2행}'],body:['{일반 방법}로는 {한계}. 오히려 {역효과: 재비산 등}이 발생할 수 있습니다.'],fn:['*출처: {기관}']},
+  {no:'07',role:'★셀프 팁 · 생략 금지',kind:'paper',sig:'세스코 솔루션',head:['이렇게 관리해 보세요'],list:{t:'num',items:['{셀프 수칙}합니다.','{셀프 수칙 + 수치}합니다.','{셀프 수칙, 제품 범주 암시}합니다.']},bridge:'결국 {문제}는 {단편 문제}가 아니라, {환경}을 점검해야 한다는 신호입니다.',note:'제품명 언급 절대 금지. 팁에도 수치를 넣는다'},
+  {no:'08',role:'제품 솔루션 (1장 1제품)',kind:'paper2',sig:'세스코 솔루션',head:['{효익 헤드','2행}'],body:['<b>세스코 {제품명}</b>'],list:{t:'mk',mk:'✔',items:['{기능·성분 + 효과}','{수치 효과} 1)','{안전성·인증} 2)','{사용성·설계}']},fn:['1) {효과} | 시험기관: {기관}','2) {효과} | 시험기관: {기관}'],note:'✔는 정확히 4개. 초과 시 각주로 이동'},
+  {no:'09',role:'제품 솔루션 · 추가 (선택)',kind:'paper2',opt:true,sig:'세스코 솔루션',atype:'OPTION · 셀프 팁 수에 맞춰 1~3장',head:['{제품 2·3','반복}'],body:['제품 장 순서는 셀프 팁 1→2→3과 대응시킨다.','(팁: 빨리 세탁 → 제품: 세탁세제 / 팁: 세탁조 관리 → 제품: 세탁조클리너)']},
+  {no:'10',role:'마무리 · 기준 전환',sig:'CESCO',head:['{기준 전환 헤드','2행}'],body:['{문제}는 결국 "{환경 관리}"라는 신호입니다.','중요한 것은 {원칙}입니다.','세스코와 함께, {대상} 환경을 더 체계적으로 관리해 보세요.'],note:'커버의 질문에 대한 답을 한 문장으로 회수'},
+  {no:'11',role:'부속 · 세그먼트 ×2~4',kind:'annex',atype:'ANNEX · SEGMENT',head:['{고객 유형}','<u>{제품 1~3종}</u>']},
+  {no:'12',role:'부속 · 관련기사 / 리플렛 / 이벤트',kind:'annex',opt:true,atype:'ANNEX · OPTION',head:['{주제}','<u>관련기사 · 매거진 · 이벤트</u>'],stamp:'이벤트 카드는 E형 조건 각주 3종 준용'},
+  {no:'끝',role:'커버 반복',kind:'cover',flag:'= 01 동일',head:['{커버 훅','그대로}']}
+ ]},
+
+C:{code:'C',name:'상품특장점형',def:'특정 상품·서비스의 구매 필요성과 차별점을 정면으로 설득하는 세일즈 콘텐츠. 문제 환기는 짧게(2~3장), 특장점 넘버링이 본론.',
+ pages:'총 8~17장',body:'본편 6~12장 (커버1 + 문제 2~5 + 특장점 2~6 + 가격표 0~1 + CTA 1)',annex:'부속 0~4장 + 커버 반복 1장',
+ target:'사업장(매장 사장님) 중심. 제품에 따라 가정 겸용',
+ src:'1016 (방충망, 8장) · 903 (에어퍼퓸200, 17장) · 844 (주방후드 클리닝, 13장) / 동급: 709, 406, 245',
+ warn:'문제 구간이 3장을 넘어가면 B형으로 넘어간 것이므로 특장점을 앞당깁니다. 가격표가 콘텐츠 분량의 절반을 넘으면 E형으로 제작합니다. 권위 수치(업계 최초, 전국 120만개)는 근거 표기가 가능한 것만 사용합니다.',
+ tone:['문제 장: ~합니다 + 위험 서술은 <b>~로 이어질 수 있습니다</b>','문제 제기 헤드에만 ~하셨나요? / ~할까요? 허용','특장점 반문 헤드 <b>"왜 ~여야 할까요?"</b>는 고정 관용구','특장점 선언: ~했습니다 / ~합니다 (기술 주체 = 세스코 1인칭). 스펙 근거는 명사구','CTA 장에서만 ~보세요 / ~하세요'],
+ fixed:['브랜드 서명: 문제 장 <code>CESCO</code> → 특장점 구간 <code>세스코 솔루션</code> 또는 시리즈 헤드 고정','시험 각주 <code>[시험연구기관] {n}) {시험명}: {기관명}</code> 블록형','가격 각주: 취소선 정상가 + 렌탈 등록비 / 의무사용기간 + 제외 조건 고정문','뉴스 인용: 매체명 로고 + 기사 제목 원문 그대로','부속: 세그먼트 → 핵심전략(컨설턴트용) → 관련기사'],
+ vary:['<b>압축형</b>(총 8장 내외): 특장점 1장 2포인트 — 시설·보완 상품(방충망, 클리닝)','<b>전개형</b>(총 13~17장): 1장 1포인트 01~06 — 감성·경험 상품(향기, 공기). 넘버 5개 이상이면 전개형','<b>STEP형</b>: 시공·서비스 절차가 셀링포인트면 넘버를 STEP 1~5로 치환(709)','공포 소구가 약한 상품은 문제 구간을 "손실 회피"로 대체(기억의 80% 소실)'],
+ cards:[
+  {no:'01',role:'커버 · 훅',kind:'cover',sig:'CESCO',head:['{반전 · 은유 · 수치','훅 3~6행}'],fn:['{부제 1행: 콘텐츠 정체성 (선택)}'],note:'①반전·역설형 ②수치 은유형 ③위협 상존형. 커버 A/B 변형 운용 가능'},
+  {no:'02',role:'문제 제기 + 시의성',sig:'CESCO',head:['{위협}이 {활발해지는} 지금,','{점검 행동}은 하셨나요?'],body:['{문제 요소 나열}은 {위협 경로}입니다.','{기존 대응}도 중요하지만, {선제 대응}까지 함께 {차단}해야 합니다.'],note:'고객의 현재 대응을 "~도 중요하지만"으로 인정한 뒤 빈틈 제시'},
+  {no:'03',role:'문제 확장 ×1~3',sig:'CESCO',head:['{제품}의 역할은','{1차 기능}에서','끝나지 않습니다'],body:['{뉴스 헤드라인 인용 1} / {뉴스 헤드라인 인용 2}','{보호 대상}이 생활하는 공간이라면 {확장 위험}까지 세심하게 살펴야 합니다.'],note:'①뉴스 인용 ②리스크 누적 시리즈 ③과학 근거 중 택1. 손실의 층위를 바꿔가며 쌓는다'},
+  {no:'04',role:'자가진단 (선택)',kind:'opt',opt:true,atype:'OPTION',head:['우리 매장,','점검해 보셨나요?'],body:['항목 중 하나라도 해당된다면 {관리}가 필요합니다.'],list:{t:'mk',mk:'✓',items:['{증상 명사구} — {메커니즘 부연}','{증상 명사구} — {메커니즘 부연}','{증상 명사구} — {메커니즘 부연}','{증상 명사구} — {메커니즘 부연}']},note:'A형 CHECK(5개, 평서 -다)와 달리 ✓ 4개 + 명사구 + 부연'},
+  {no:'05',role:'특장점 넘버링 · 본론',kind:'paper',sig:'세스코 솔루션',head:['왜 {제품}도','세스코여야 할까요?'],list:{t:'num',items:['{차별 소제목} — {고객 상황}이니까/일수록, {기술 대응}했습니다. {검증 스펙 명사구}','{차별 소제목} — {고객 상황}이니까, {기술 대응}했습니다.']},fn:['[시험연구기관] {n}) {시험명}: {기관명}'],note:'배열 표준: ①설계·성분 ②안전성 ③원인 제거 ④기술 구조 ⑤환경 배려 ⑥사후 관리'},
+  {no:'06',role:'특장점 전개형 (01~06)',kind:'paper2',opt:true,atype:'OPTION · 1장 1포인트',head:['세스코 {솔루션명}은','{n}','{고객 상황}일수록,','{기술 대응}했습니다.'],body:['{검증 스펙: 수치·인증 명사구}'],note:'넘버가 5개 이상이면 전개형 권장. 마지막 포인트는 반드시 지속 관리·케어 서비스'},
+  {no:'07',role:'프로모션 가격표 (선택)',kind:'opt',opt:true,atype:'OPTION',head:['{제품명} {계기}','특별할인 + {부가 혜택}!'],table:{h:['의무사용','방문주기','정상가','프로모션가'],r:[['{N}개월','{N}개월','{금액}','{금액}']]},fn:['- 렌탈 등록비 {금액} / - 의무사용기간 {N}개월','타 할인 혜택을 받는 고객은 해당 프로모션 적용 제외됩니다.'],note:'정상가는 반드시 취소선. 절반 넘으면 E형으로'},
+  {no:'08',role:'마무리 CTA',sig:'CESCO',head:['{놓친 조건}이','{위험}의 시작이 됩니다.','{행동}, 바로 지금입니다.'],body:['NO.1 종합 환경위생 기업 세스코와 함께 {범위A}부터 {범위B}까지, {수식} 솔루션을 경험해 보세요.'],fn:['> 우리 매장 {니즈}, 무료 컨설팅 받아보기 (선택)'],note:'출구는 낮은 문턱 행동으로. "지금"을 최소 1회'},
+  {no:'09',role:'부속 · 세그먼트 / 핵심전략',kind:'annex',atype:'ANNEX',head:['{업종 / 보유상태}','<u>{제품} · 핵심전략</u>'],stamp:'핵심전략 = 컨설턴트 전용'},
+  {no:'끝',role:'커버 반복',kind:'cover',flag:'= 01 (A/B 변형 시 대표 커버)',head:['{커버 훅','그대로}']}
+ ]},
+
+D:{code:'D',name:'기존고객 크로스셀 TIP형',def:'특정 제품 보유 고객에게 기존 제품 활용 팁을 먼저 제공한 뒤, 인접 니즈로 전환해 추가 제품을 제안하는 크로스셀 콘텐츠. "팁을 주러 왔다가 하나 더 파는" 구조.',
+ pages:'총 7~8장',body:'본편 5장 (커버1 + 활용 팁1 + 잠깐 전환1 + 위험 심화1 + 상품 제안1)',annex:'부속 1~2장 + 커버 반복 1장',
+ target:'세스코 제품 기존 렌탈 고객(가정·사업장). 담당 컨설턴트가 직접 발송·상담에 활용',
+ src:'280 (판테온→공기살균기, 7장) · 286 (판테온→살균온 정수기, 8장)',
+ warn:'커버·2·3장이 두 원문에서 거의 동일합니다 — 앞 3장은 시리즈 공용 모듈이고 4~5장만 제안 상품에 맞춰 교체합니다. 전환은 보유 제품과 의미적으로 연결된 인접 니즈여야 하며 무관한 상품 전환은 금지입니다.',
+ tone:['전 장에 걸쳐 <b>기존 고객 존대 서비스 톤</b> — ~하세요/~해 보세요 비중이 높다','정보·논증부: ~합니다 / ~필요합니다','안부·통념 반문 헤드: ~계시나요? / ~할까요? (2·3장 전용)','✅ 스펙: 명사형 종결','제안·안내: ~하세요! / ~안내드립니다 — <b>느낌표 허용</b>(장당 1~2회)'],
+ fixed:['호명 배너 <code>{정식 제품명} 고객이라면 주목!</code> (커버·끝장 동일)','특가 박스 고정문 <code>담당 컨설턴트에게 문의주시면 상세하게 안내드립니다.</code>','<code>*의무사용기간 {N}개월, {제휴카드 조건} 충족시</code>','부속 리플렛: 제품군 라인업 원판 + QR + 1588-1119'],
+ vary:['<b>앞 3장 공용 모듈</b>: 커버·활용 팁·잠깐 리드는 재사용, 3장 후반~5장만 제안 상품별 교체','전환 논리: 공기→개별 공간 / 공기→물 / 공기→표면 등 "인접 위생 영역" 안에서만','뉴스 제목 인용은 시의성 강한 위험일 때, 통계 환산 비유는 생활 위험일 때','사업장 고객이면 사각지대 예시를 프라이빗 룸·엘리베이터로 치환'],
+ cards:[
+  {no:'01',role:'커버 · 고객 호명',kind:'cover',sig:'CESCO',eyebrow:'{정식 제품명} 고객이라면 주목!',head:['{펫네임}을','더 똑똑하게','사용하는 TIP'],fn:['{기능 키워드 배지}'],note:'커버에서 판매 기색을 완전히 지운다. 배너=정식명, 헤드=펫네임'},
+  {no:'02',role:'기존 제품 활용 팁',kind:'paper',sig:'CESCO',head:['{펫네임},','잘 사용하고 계시나요?'],body:['{계절 변화}로 {위협}이 많아지는 시기입니다.','{환경 악화 논증 2~3문장}','{1차 니즈}는 {펫네임}에게 맡기고, {제품 기능}이 {신호}를 알려줄 때 {행동}해 보세요.'],fn:['{기능 도해 + 캡션 1행}'],note:'팁은 반드시 보유 제품의 실제 기능(표시등·모드)을 활용한 것으로'},
+  {no:'03',role:'잠깐! 인접 니즈 전환 · 경첩',sig:'CESCO',eyebrow:'잠깐! {인접 위험 선언: 통계 1위 / 비교 환기}',head:['{통념 반문}?'],body:['{공적 통계 · 환산 비유 인용}','이제 {옛 기준}이 아닌 {새 기준}이 필요하겠습니다.'],fn:['*출처 : {기관} {연도} "{자료명}"','{뉴스 기사 제목 인용 ×2~3 (선택)}'],note:'전환 논리 = 보유 제품이 지키는 영역만큼 {인접 영역}도 중요하다'},
+  {no:'04',role:'인접 위험 심화',sig:'CESCO',head:['{사각지대 / 인접 대상}까지','{관리}가 필요합니다!'],body:['{취약 대상}이 생활하는 {구체 공간 나열}은 {위험 메커니즘}이므로 {관리와 예방}이 필요합니다.'],note:'보유 제품이 커버하지 못하는 사각지대를 구체 공간 이름으로 나열'},
+  {no:'05',role:'추가 상품 제안 · 1장 집중',kind:'paper2',sig:'CESCO',head:['{공용 공간}은 {보유 제품} 사용하시고','{사각지대}는 {제안 제품} 사용하세요!'],list:{t:'mk',mk:'✅',items:['{성능 수치}% {제거 / 감소}','{성능 수치}% {제거 / 감소}','{성능 수치}% {제거 / 감소}','{기술 차별 명사구}']},bridge:'{보유 제품} 고객 특가 — {펫네임} 이용 중이셔서 특별가 적용! {제휴카드 혜택}까지 가능!',fn:['담당 컨설턴트에게 문의주시면 상세하게 안내드립니다.','*의무사용기간 {N}개월, {제휴카드 조건} 충족시'],note:'가격표를 펼치지 않고 "특별가" 결과만. 상세는 컨설턴트 문의로'},
+  {no:'06',role:'부속 · 제품군 리플렛 / 컨설팅 플랜',kind:'annex',atype:'ANNEX',head:['{제품군}','<u>리플렛 · 컨설팅 플랜</u>'],stamp:'컨설팅 플랜 = 컨설턴트 전용'},
+  {no:'끝',role:'커버 반복',kind:'cover',flag:'= 01 동일',eyebrow:'{정식 제품명} 고객이라면 주목!',head:['{펫네임}을','더 똑똑하게','사용하는 TIP']}
+ ]},
+
+E:{code:'E',name:'프로모션 · 무료체험형',def:'가격 혜택 자체가 콘텐츠인 유형. E-1 렌탈 할인 프로모션(가격표 중심)과 E-2 무료체험 이벤트(문턱 제거 중심)로 나뉩니다.',
+ pages:'총 9~11장',body:'본편 6~9장',annex:'부속 1~4장 + 커버 반복 1장',
+ target:'E-1 신규·기존 렌탈 고객(가정 중심) / E-2 비고객 포함 전체 — "세스코 환경가전을 사용하지 않더라도 누구나"',
+ src:'759 (봄맞이 반값 프로모션, 11장 / E-1) · 282 (플러스알파케어 무료 체험, 9장 / E-2)',
+ warn:'유일하게 커버에서 혜택을 바로 말하는 유형입니다 — 숨기지 않습니다. 다만 가격표 앞에는 반드시 제품 가치 장을 1장 둡니다(가격만 나열 금지). 제외 조건 2문과 제휴카드 면책 각주는 가격표마다 고정 삽입합니다.',
+ tone:['혜택 고지: ~합니다 / ~진행합니다 + <b>헤드에 느낌표 적극 허용</b>(이 유형 고유)','제품 가치: ~하세요 (행동 유도 어미를 본문에서도 허용)','서비스 설명: <b>~해드립니다</b> (E-2 시그니처)','가격·조건: 건조한 명사형·표 + 각주는 ~됩니다 / ~불가합니다','클로징: ~세스코가 해결해드립니다.'],
+ fixed:['<code>프로모션 기간 : {YYYY}년 {M}월 {D}일 ~ {YYYY}년 {M}월 {D}일</code> — 가격표 장마다 상단 고정','제외 조건 2문: 타 할인 혜택 제외 / 운영 정책(현장할인가) 외 계약 적용 불가','제휴카드 면책 + 카드사 고객센터 안내','쿠폰·100원딜 조건: 취소 후 재구매 불가 · 추천인 입력 · 마케팅 수신 동의 필수','연락 채널 1588-1119 / 세스코몰 + QR'],
+ vary:['<b>E-1 ↔ E-2</b>: 파는 것이 렌탈 할인이면 E-1, 체험·진단(관계 시작)이면 E-2','E-1 제품군이 1개면 2·3장만 남기고 총 6~7장으로 축소','3개 이상이면 쿠폰팩 장을 별도 분리("+" 부록)','E-2가 기존 고객 전용이면 문턱 제거를 "멤버스 고객님께만 드리는"으로 반전 — 희소성 소구','커버 반복은 E-1에서 축약 변형 허용'],
+ cards:[
+  {g:'E-1 렌탈 할인형 (759)'},
+  {no:'01',role:'혜택 커버',kind:'cover',eyebrow:'{제품군A}와 {제품군B}, 더욱 특별한 혜택으로',head:['{제품군A} {N}종','& {제품군B} {N}종','{시즌} 반값 프로모션'],body:['{계절 명분 문장}. {대상}까지 최대 {N}% 특별 프로모션을 진행합니다.','지금, {프로모션명}으로 만나보세요.'],note:'"반값 / 최대 N%"는 커버에 반드시 노출. 시즌 명분으로 할인의 이유를 만든다'},
+  {no:'02',role:'제품 가치 (가격표 앞 필수)',kind:'paper',head:['{기본 스펙}은 기본','{확장 위협}까지','{강력 효익 명사구}ㅡ'],body:['{제품 풀네임}으로 {행동}하세요.'],list:{t:'mk',mk:'—',items:['{기술 차별 + 수치}','{기술 차별 + 수치}','{기술 차별 + 수치}']},note:'"○○는 기본, ○○까지" 확장 화법 + "케어ㅡ" 대시체가 시그니처'},
+  {no:'03',role:'가격표',kind:'paper2',eyebrow:'프로모션 기간 : {YYYY}년 {M}월 {D}일 ~ {YYYY}년 {M}월 {D}일',head:['{제품군} {N}종 최대 {N}개월 렌탈료 반값','{부가 조건} 시 {추가 혜택}까지!'],table:{h:['제품','계약','의무','정상가','판매가'],r:[['{제품}','{N}','{N}','{금액}','{금액}'],['{제품}','{N}','{N}','{금액}','{금액}']]},fn:['타 할인 혜택을 받는 고객은 해당 프로모션 적용 제외됩니다.','운영 정책(현장할인가) 외 계약은 적용 불가합니다.','자세한 현장할인가 관련 사항은 지금 담당 컨설턴트에게 문의해 보세요!'],note:'"정상가 | 이달의 판매가" 2열 대비 (취소선 대비는 C형 규격)'},
+  {no:'04',role:'제품B 가치 + 가격표 · 제휴카드',kind:'paper2',opt:true,atype:'OPTION · 제품군 수만큼 반복',head:['+ 제휴카드로','최대 {금액} 추가 SAVE!'],body:['대상 : 제휴카드로 세스코 이용료 정기 결제를 등록한 고객'],table:{h:['전월 실적','할인 금액','추가할인'],r:[['{금액}','{금액}','{금액}']]},fn:['* 제휴카드 프로모션은 카드사 사정에 의해 중지 및 변경될 수 있습니다.']},
+  {no:'05',role:'쿠폰팩 + 클로징',kind:'paper',eyebrow:'+ {캠페인명} {브랜드} {M}월 프로모션!',head:['{합산 금액} 상당','풍성한 쿠폰팩!'],list:{t:'mk',mk:'✓',items:['{할인율} {대상} {쿠폰명} — {조건}','{할인율} {대상} {쿠폰명} — {조건}','{할인 금액} {대상} {쿠폰명} — {조건}']},bridge:'지금 가장 관리가 필요한 고객님의 위생 고민, 세스코가 해결해드립니다.',fn:['지금 {채널}에서 맞춤 솔루션과 혜택 확인하러 가기 (QR코드)'],note:'합산 가치를 먼저 크게 제시한 뒤 개별 나열'},
+  {no:'06',role:'부속 + 커버 반복(축약 허용)',kind:'annex',atype:'ANNEX',head:['{제품군} 리플렛','<u>브랜드 카드</u>'],stamp:'끝장: 축약 변형 커버 허용'},
+  {g:'E-2 무료체험형 (282)'},
+  {no:'01',role:'위험 환기 커버 · 대비 구도',kind:'cover',head:['{통념: 세균이','가장 걱정되는 ○○}','{실상: ○○보다','많은 ○○}'],note:'혜택 전에 위험 환기 2장을 먼저 — 무료체험의 "왜 필요한가"를 만든다'},
+  {no:'02',role:'위험 환기 · TOP5',head:['{시즌} 가장 걱정되는','{위해요소} TOP5'],list:{t:'num',items:['{위해요소명} ({증상 2~3})','{위해요소명} ({증상 2~3})','{위해요소명} ({증상 2~3})','{위해요소명} ({증상 2~3})','{위해요소명} ({증상 2~3})']},body:['우리 주변에는 눈에 보이지 않는 {위협}이 항상 존재하며, {경증}부터 {중증}까지 다양한 건강 문제의 원인이 될 수 있습니다.']},
+  {no:'03',role:'이벤트 고지 · 문턱 제거',kind:'paper',eyebrow:'{권위 리드: 세스코 과학연구소의 위생 노하우!}',head:['{서비스명}','무료 체험 이벤트!'],body:['{문턱 제거: ~하지 않더라도 누구나 신청만 하면} {서비스명}를 무료 체험해 볼 수 있는 혜택!']},
+  {no:'04',role:'서비스 정의 (~란?)',kind:'paper2',head:['{공간 위생관리 서비스}','{서비스명}란?'],body:['{대상}께 제공되는 {범주} 서비스로 {차별 범위: 제품은 물론 공간까지} 관리해드리는 서비스입니다.'],note:'서비스명이 낯설면 반드시 "~란?" 장으로 정의'},
+  {no:'05',role:'진행 구성 · 3종 고정',kind:'paper2',head:['{서비스명} 무료 체험,','이렇게 진행됩니다.'],list:{t:'num',items:['{서비스 명칭} — {2행 설명}해드립니다.','{서비스 명칭} — {2행 설명}관리합니다.','{서비스 명칭} — {2행 설명}해드립니다.']}},
+  {no:'06',role:'추가 혜택',kind:'paper',head:['{서비스명} 체험 고객,','추가 혜택!'],list:{t:'num',items:['{제품 혜택 + (조건)}','{할인 혜택}']}},
+  {no:'07',role:'신청 유도 · 출구 3종',head:['지금 바로 신청하시고,','무료 체험해보세요.'],list:{t:'mk',mk:'▸',items:['무료진단신청','긴급진단신청 (24시간 내 출동)','전화상담연결 (고객센터 1588-1119)']},fn:['{신청 경로 화면: 네이버 검색창 "세스코"} — 스크린샷으로 실제 화면을 그대로 보여준다']},
+  {no:'끝',role:'커버 반복',kind:'cover',flag:'= 01 동일',head:['{대비 구도 커버','그대로}']}
+ ]},
+
+F:{code:'F',name:'타겟 특화형 (지역 / 시즌)',def:'특정 지역(또는 시즌·타깃 집단)의 공적 데이터를 훅으로 삼아 "여기는 관리 기준이 달라야 한다"를 논증하고 제품 프로모션으로 연결하는 하이브리드. B형의 설득 골격 + 지역 데이터 + 프로모션 출구.',
+ pages:'총 12~13장',body:'본편 9장 (커버1 + 데이터1 + 유입·위험2 + 재정의1 + 솔루션1 + 정밀 공간1 + 마무리1 + 프로모션1)',annex:'부속 2~4장 + 커버 반복 1장',
+ target:'해당 지역 거주 가정·사업장 고객. 지역 담당 컨설턴트의 로컬 영업 도구',
+ src:'863 (평택·화성 미세먼지, 13장) / 구형 참조: 279 (동절기 쥐)',
+ warn:'전 유형 중 유일하게 커버에 본문 리드 문단이 붙습니다 — 지역 고객에게 "우리 동네 이야기"임을 즉시 입증하기 위함입니다. 순위·수치는 공식 통계로 검증 가능한 것만 씁니다. 질문형 헤드는 사용하지 않습니다(데이터 논증의 단정 톤 유지).',
+ tone:['데이터·논증 장(2~5): ~합니다 / ~됩니다 + 영향 서술은 ~줄 수 있습니다','재정의·기준 선언(5·8): <b>~해야 합니다 / ~할 시점입니다</b> — 당위 종결이 허용되는 유형(F형 시그니처)','솔루션 장: ~했습니다 / ~구현했습니다 + 수치 스펙 명사형','프로모션 장: ~바랍니다 / 보러가기 — E형보다 절제된 격식 문의 유도','<b>질문형 헤드 사용 금지</b>'],
+ fixed:['데이터 출처 <code>* 출처 : {공공 데이터 포털 실명}, {자료명}</code> — 지역 순위 주장에 필수','솔루션 라벨: 6·7장 <code>CESCO 세스코 솔루션</code> 전환 (1~5장은 CESCO)','문의처 고정 <code>1588-1119 또는 www.cescomall.co.kr</code> + QR','기존 고객 단서 <code>* 세스코 기존 고객의 경우 담당 서비스 직원을 통해서 문의가 가능합니다.</code>','영상 면책 <code>* 본 영상은 이해를 돕기 위해 제작된 영상입니다.</code>'],
+ vary:['<b>지역 치환</b>: 1·2장의 지역명·순위·출처만 바꾸면 타 지역판 제작 가능(3~9장은 전국 공용)','<b>시즌 특화 전환</b>: 지역 데이터 대신 시즌 데이터를 훅으로 — 279 계열','타깃 집단(시설 유형)이 축이면 F가 아니라 B형(836)으로 제작하는 것이 맞다','프로모션 장을 E-1 가격표로 확장하면 총 14~15장 프로모션 강화판'],
+ cards:[
+  {no:'01',role:'커버 · 지역 데이터 훅',kind:'cover',sig:'CESCO',head:['{지역명} 일대','{지표} 전국 {N}위','{관리 기준}도','달라야 합니다'],fn:['{위협 요소 나열}… 이 때문에 {관리}가 필요하지만, {지역명} 주변 지역은 그 중요성이 더욱 높습니다.'],note:'"달라야 합니다"가 주제문 — 커버에서 선언하고 8장에서 회수'},
+  {no:'02',role:'지역 데이터 근거',sig:'CESCO',head:['{지표} 농도 최상위권','관리는 필수입니다'],body:['{지역}은 최근 {N}년간({기간}) {집계 기준} {지표} 전국 {N}위를 기록했습니다.','이는 평균값이라는 점에서 일시적 현상이 아니라, {지역 특성}으로 인해 {상태}가 지속되는 구조라는 것을 의미합니다.'],fn:['* 출처 : {공공 데이터 포털}, {자료명}'],note:'"일시적이 아니라 구조적"이라는 해석 문장이 핵심. 다년 평균을 쓰면 반박이 어렵다'},
+  {no:'03',role:'실내 유입',sig:'CESCO',head:['{외부 위협}은 그대로','실내까지 유입됩니다'],body:['{유입 경로: 틈새·환기}를 통해 끊임없이 실내로 들어옵니다.','{실내 정체 논증}. 여기에 {내부 요인}까지 더해지면 {악화}됩니다.']},
+  {no:'04',role:'위험 심화',sig:'CESCO',head:['{작을수록}','더 깊이 파고듭니다'],body:['{크기·수치 비유} 수준으로 {인체 침투 메커니즘},','{전신 영향}에도 영향을 줄 수 있습니다.','단순 {기존 대응}만으로는 한계가 있습니다.'],note:'끝 문장으로 다음 장 재정의의 발판을 놓는다'},
+  {no:'05',role:'재정의',sig:'CESCO',head:['단순 {통념 대응}만으로는','부족합니다'],body:['{1차 위협}만이 아닙니다.','{위협 확장 나열 + 충격 수치 1개}까지, 우리의 건강을 위협하는 {범주}는 생각보다 훨씬 다양합니다.'],note:'고객이 이미 하는 대응을 "부족하다"고 선언해 상위 기준을 세운다'},
+  {no:'06',role:'세스코 솔루션 · 기술 + 수치',kind:'paper',sig:'CESCO 세스코 솔루션',head:['이제 {기존 기능}을 넘어','{상위 기능}까지 설계해야 합니다'],body:['세스코의 {제품 풀네임}은 {작동 원리}하는 {기술명}을 적용했습니다.','그 결과 {펫네임}은,'],list:{t:'mk',mk:'—',items:['{수치 스펙 1}','{수치 스펙 2}','{수치 스펙 3}']},note:'원리(어떻게) → 결과(수치) 순서 고정. 수치는 3종으로 압축'},
+  {no:'07',role:'정밀 관리 공간 3 · 본편 내 세그먼트',kind:'paper2',sig:'CESCO 세스코 솔루션',head:['더욱 정밀한 관리가','필요한 공간이 있습니다'],list:{t:'num',items:['{취약 타깃1}이 머무는 공간 — {취약 근거: 생리적 특성}','{취약 타깃2} 생활 공간 — {취약 근거}','{취약 타깃3}가 거주하는 공간 — {취약 근거}']},note:'타깃 3개 고정: 영유아 → 고령자 → 유병자 순'},
+  {no:'08',role:'기준 전환 마무리',sig:'CESCO',head:['{관리 수준}이','{차이}를 만듭니다'],body:['{외부 조건}일수록 {실내 관리}가 더욱 중요합니다.','어떻게 관리하느냐에 따라 {1차 가치}은 물론 {삶의 질}까지 달라집니다.','이제는 {관리 기준}을 높여야 할 시점입니다.'],note:'커버의 "달라야 합니다"를 "높여야 할 시점입니다"로 회수 — 수미상관. 제품 언급 없이 닫는다'},
+  {no:'09',role:'프로모션 출구',kind:'paper2',sig:'CESCO',head:['{펫네임}','특별 프로모션'],body:['지금 {제품 풀네임}의 특별 할인을 적용할 수 있습니다.','{가치 재확인}을 적은 부담으로 시작할 수 있는 기회이므로 지금 바로 문의 바랍니다.'],list:{t:'mk',mk:'▸',items:['(QR코드) {혜택명} 보러가기']},fn:['문의처 : 1588-1119 또는 www.cescomall.co.kr','* 세스코 기존 고객의 경우 담당 서비스 직원을 통해서 문의가 가능합니다.'],note:'가격표 없이 "특별 할인 존재"만 고지하고 QR·전화로 넘긴다'},
+  {no:'10',role:'부속 · 비교 영상 / 핵심전략',kind:'annex',atype:'ANNEX',head:['세스코 VS 타사','<u>{제품군} {성능} 비교</u>'],stamp:'* 본 영상은 이해를 돕기 위해 제작된 영상입니다.'},
+  {no:'끝',role:'커버 반복 (리드 문단 포함)',kind:'cover',flag:'= 01 동일',head:['{지역명} 일대','{지표} 전국 {N}위','{관리 기준}도','달라야 합니다']}
+ ]}
+};
+
+/* ============ 렌더 ============ */
+function ph(s){return String(s).replace(/\{([^}]+)\}/g,'<i class="ph">{$1}</i>')}
+
+function cardHTML(c){
+  var k=c.kind||'', cls='card'+(k?' '+({cover:'cover',paper:'paper',paper2:'paper2',annex:'annex',opt:'opt'}[k]||''):'');
+  var h='';
+  if(c.flag) h+='<span class="flag">'+c.flag+'</span>';
+  if(c.atype) h+='<p class="atype">'+ph(c.atype)+'</p>';
+  if(c.sig) h+='<p class="sig">'+c.sig+'</p>';
+  else if(k!=='annex'&&k!=='opt'&&!c.atype) h+='<p class="sig">&nbsp;</p>';
+  if(c.eyebrow) h+='<p class="eyebrow">'+ph(c.eyebrow)+'</p>';
+  if(c.head) h+='<h3 class="head">'+c.head.map(ph).join('<br>')+'</h3>';
+  if(c.body) c.body.forEach(function(p){h+='<p class="body">'+ph(p)+'</p>'});
+  if(c.table){
+    h+='<table class="tbl"><thead><tr>'+c.table.h.map(function(x){return '<th>'+x+'</th>'}).join('')+'</tr></thead><tbody>'+
+       c.table.r.map(function(r){return '<tr>'+r.map(function(x){return '<td>'+ph(x)+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
+  }
+  if(c.list){
+    if(c.list.t==='num'){
+      h+='<ol class="lst">'+c.list.items.map(function(x){return '<li>'+ph(x)+'</li>'}).join('')+'</ol>';
+    }else{
+      var wide=(c.list.mk==='CHECK'||c.list.mk==='SOLUTION')?' wide':'';
+      h+='<ul class="lst'+wide+'">'+c.list.items.map(function(x,i){
+        var mk=c.list.mk==='CHECK'||c.list.mk==='SOLUTION'?c.list.mk+' '+(i+1)+'.':c.list.mk;
+        return '<li data-mk="'+mk+'">'+ph(x)+'</li>';
+      }).join('')+'</ul>';
+    }
+  }
+  if(c.bridge) h+='<p class="bridge">'+ph(c.bridge)+'</p>';
+  if(c.fn) h+='<p class="fn">'+c.fn.map(function(x){return '<span>'+ph(x)+'</span>'}).join('')+'</p>';
+  if(c.stamp) h+='<p class="stamp">'+ph(c.stamp)+'</p>';
+  return '<article class="'+cls+(k==='annex'&&c.int?' int':'')+'">'+h+'</article>';
+}
+
+function ruleBlock(title,kick,items,warnIdx){
+  return '<div class="rule"><h4><i>'+kick+'</i>'+title+'</h4><ul>'+
+    items.map(function(x,i){return '<li'+((warnIdx||[]).indexOf(i)>=0?' class="w"':'')+'>'+x+'</li>'}).join('')+'</ul></div>';
+}
+
+function renderType(t){
+  var d=TYPES[t],el=document.getElementById('p-'+t);
+  var h='<div class="thead"><div>'+
+    '<h2 class="big"><i>TYPE '+d.code+'</i>'+d.name+'</h2>'+
+    '<p class="def">'+d.def+'</p>'+
+    '<p class="warn">'+d.warn+'</p></div>'+
+    '<dl class="tfacts">'+
+      '<div><dt>표준 장수</dt><dd>'+d.pages+'</dd></div>'+
+      '<div><dt>본편</dt><dd>'+d.body+'</dd></div>'+
+      '<div><dt>부속</dt><dd>'+d.annex+'</dd></div>'+
+      '<div><dt>타깃</dt><dd>'+d.target+'</dd></div>'+
+      '<div><dt>근거 원문</dt><dd>'+d.src+'</dd></div>'+
+    '</dl></div>';
+
+  h+='<div class="slab"><h2>장표 구성 · 빈 스켈레톤</h2><span>카드를 클릭하면 확대됩니다</span></div>';
+  var open=false;
+  d.cards.forEach(function(c){
+    if(c.g){
+      if(open){h+='</div>';open=false}
+      h+='<p class="gtag">'+c.g+'</p>';
+      return; /* 그룹 구분자는 카드가 아니므로 여기서 종료 */
+    }
+    if(!open){h+='<div class="sheet">';open=true}
+    var role=c.role||'',no=c.no||'';
+    h+='<figure class="cell" tabindex="0" role="button"'+(c.opt?' data-opt="1"':'')+(c.int?' data-int="1"':'')+
+       ' aria-label="'+role+' 확대"><div class="cell-bar"><span class="role">'+role.replace(/★/g,'<em>★</em>')+
+       '</span><span class="no">'+no+'</span></div>'+cardHTML(c)+
+       (c.note?'<div class="cell-note" hidden>'+ph(c.note)+'</div>':'')+'</figure>';
+  });
+  if(open) h+='</div>';
+
+  h+='<div class="slab"><h2>규칙</h2><span>톤앤매너 · 고정 요소 · 변형</span></div><div class="rules">'+
+    ruleBlock('톤앤매너','TONE',d.tone)+
+    ruleBlock('고정 요소','FIXED',d.fixed)+
+    ruleBlock('변형 규칙','VARIANTS',d.vary)+
+  '</div>';
+  el.innerHTML=h;
+}
+['A','B','C','D','E','F'].forEach(renderType);
+
+/* 결정 트리 */
+(function(){
+  var h='';
+  TREE.forEach(function(q,i){
+    h+='<div class="q"><p class="qn">'+q.q+'</p><p class="qt">'+q.t+'</p><div class="ans">'+
+       '<a href="#" data-go="'+q.yt+'">예 → '+q.yes+'</a>'+
+       (q.no?'<a href="#" data-go="'+q.nt+'">아니오 → '+q.no+'</a>':'<a href="#" class="no" data-next="1">아니오 → 다음 질문</a>')+
+       '</div>'+
+       ((q.ynote||q.nnote)?'<p class="qn" style="margin:12px 0 0;color:var(--steel-dk);letter-spacing:.04em">'+
+         (q.ynote?'예: '+q.ynote:'')+(q.ynote&&q.nnote?' · ':'')+(q.nnote?'아니오: '+q.nnote:'')+'</p>':'')+
+       '</div>';
+    if(i<TREE.length-1) h+='<div class="link"></div>';
+  });
+  document.getElementById('tree').innerHTML=h;
+})();
+
+/* 공통 규칙 */
+document.getElementById('commonRules').innerHTML=COMMON.map(function(r){
+  return ruleBlock(r.t,r.k,r.li,r.warn);
+}).join('');
+
+/* 탭 */
+var tabs=document.getElementById('tabs');
+function show(t){
+  tabs.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.t===t))});
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id==='p-'+t)});
+  window.scrollTo(0,0);
+  bindCells();
+}
+tabs.addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.dataset.t)});
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a[data-go]');
+  if(a){e.preventDefault();show(a.dataset.go)}
+});
+
+/* 보기 모드 — 읽기 보기가 기본값 (폰트 px 고정, 열 수와 무관, 카드 크기 균등) */
+document.body.classList.add('read');
+var modeSeg=document.getElementById('modeSeg');
+modeSeg.addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  modeSeg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+  document.body.classList.toggle('read',b.dataset.m==='read');
+});
+
+/* 열 수 */
+var seg=document.getElementById('colSeg');
+seg.addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+  document.documentElement.style.setProperty('--cols',b.dataset.c);
+});
+
+/* 확대 */
+var lb=document.getElementById('lb'),lbCard=document.getElementById('lbCard'),lbCap=document.getElementById('lbCap');
+var list=[],cur=-1,lastFocus=null;
+function open(i){
+  if(!list.length)return;
+  cur=(i+list.length)%list.length;
+  var cell=list[cur];
+  lbCard.innerHTML='';lbCard.appendChild(cell.querySelector('.card').cloneNode(true));
+  var note=cell.querySelector('.cell-note');
+  lbCap.innerHTML=cell.querySelector('.role').textContent+'　'+String(cur+1)+' / '+list.length+
+    (note?'<br><span style="color:#FF5A2D">'+note.innerHTML+'</span>':'');
+  lb.setAttribute('data-open','true');document.body.style.overflow='hidden';
+  document.getElementById('lbClose').focus();
+}
+function close(){lb.setAttribute('data-open','false');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+function bindCells(){
+  var panel=document.querySelector('.panel.on');
+  list=Array.prototype.slice.call(panel.querySelectorAll('.cell'));
+  list.forEach(function(cell){
+    if(cell.dataset.bound)return;cell.dataset.bound='1';
+    function go(){lastFocus=cell;open(list.indexOf(cell))}
+    cell.addEventListener('click',go);
+    cell.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+  });
+}
+document.getElementById('lbClose').addEventListener('click',close);
+document.getElementById('lbPrev').addEventListener('click',function(){open(cur-1)});
+document.getElementById('lbNext').addEventListener('click',function(){open(cur+1)});
+lb.addEventListener('click',function(e){if(e.target===lb)close()});
+document.addEventListener('keydown',function(e){
+  if(lb.getAttribute('data-open')!=='true')return;
+  if(e.key==='Escape')close();
+  if(e.key==='ArrowLeft')open(cur-1);
+  if(e.key==='ArrowRight')open(cur+1);
+});
+bindCells();
+</script>
+</body>
+</html>
