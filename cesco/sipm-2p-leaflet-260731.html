@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 스마트 통합방제(S-IPM) — B형 2P 리플렛 시안 v0.2</title>
+<style>
+  :root{
+    --ink:#16202B; --sub:#57616D; --line:#E2E7ED;
+    --blue:#0A4FA6; --navy:#0E2A4A; --tint:#EEF4FB;
+    --warm:#F9EFEF; --warm-ink:#B4444E; --paper:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{background:#EDEFF2;}
+  body{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;
+    color:var(--ink);display:flex;flex-direction:column;align-items:center;
+    padding:32px 12px 64px;gap:28px;-webkit-font-smoothing:antialiased;}
+  .page{width:794px;min-height:1123px;background:var(--paper);
+    box-shadow:0 2px 18px rgba(14,42,74,.10);padding:52px 56px 40px;position:relative;
+    display:flex;flex-direction:column;}
+  @media print{html,body{background:#fff;padding:0;gap:0;}
+    .page{box-shadow:none;page-break-after:always;width:210mm;min-height:297mm;}}
+
+  .brandbar{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:30px;}
+  .wordmark{font-size:19px;font-weight:800;letter-spacing:.14em;color:var(--navy);}
+  .wordmark small{font-size:11px;font-weight:600;letter-spacing:.32em;color:var(--sub);margin-left:8px;}
+  .catlabel{font-size:10px;letter-spacing:.22em;color:var(--sub);font-weight:600;}
+
+  .check-h{display:flex;align-items:center;gap:9px;font-size:16.5px;font-weight:800;color:var(--navy);margin-bottom:11px;}
+  .check-h .cbx{width:17px;height:17px;border:2.5px solid var(--blue);border-radius:3px;position:relative;flex:none;}
+  .check-h .cbx::after{content:"";position:absolute;left:3px;top:0;width:6px;height:9px;
+    border:solid var(--blue);border-width:0 2.5px 2.5px 0;transform:rotate(40deg);}
+
+  .bubbles{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;}
+  .bubble{max-width:530px;background:#F5F7FA;border:1px solid var(--line);border-radius:14px;
+    padding:11px 17px;font-size:12px;line-height:1.6;color:#333C46;position:relative;}
+  .bubble b{color:var(--navy);}
+  .bubble::before{content:"\201C";position:absolute;left:-2px;top:-14px;font-size:26px;color:#B9C6D6;font-weight:800;}
+  .bubble.right{align-self:flex-end;background:#fff;}
+
+  .headline .pre{font-size:24px;font-weight:800;line-height:1.4;letter-spacing:-.02em;color:var(--ink);}
+  .headline .pre em{font-style:normal;color:var(--warm-ink);}
+  .headline .name{font-size:32px;font-weight:900;color:var(--navy);letter-spacing:-.02em;line-height:1.25;margin-top:10px;}
+  .headline .name em{font-style:normal;color:var(--blue);}
+  .headline .name small{display:block;font-size:12px;font-weight:600;color:var(--sub);letter-spacing:.02em;margin-top:5px;}
+  .headrule{height:3px;background:linear-gradient(90deg,var(--blue) 0 120px,var(--line) 120px);margin:18px 0 28px;}
+
+  .arith{font-size:13px;line-height:1.85;color:#2A3440;margin-bottom:12px;}
+  .arith b{color:var(--navy);}
+  .conclude{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;}
+  .conclude div{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.6;}
+  .conclude div::before{content:"";flex:none;width:11px;height:7px;margin-top:6px;
+    border:solid var(--blue);border-width:0 2.5px 2.5px 0;transform:rotate(40deg);}
+
+  /* 시그니처 : 관리 공백 타임라인 */
+  .gap{border:1px solid var(--line);border-radius:8px;padding:16px 18px 14px;background:#FBFCFE;margin-bottom:8px;}
+  .gap .gh{font-size:11px;font-weight:800;color:var(--sub);letter-spacing:.06em;margin-bottom:14px;}
+  .track{position:relative;height:52px;}
+  .track .rail{position:absolute;left:0;right:0;top:20px;height:3px;background:var(--line);}
+  .track .void{position:absolute;left:9%;right:9%;top:20px;height:3px;
+    background:repeating-linear-gradient(90deg,var(--warm-ink) 0 6px,transparent 6px 12px);}
+  .track .visit{position:absolute;top:12px;width:19px;height:19px;border-radius:50%;
+    background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 1px var(--blue);}
+  .track .visit.a{left:0;}
+  .track .visit.b{right:0;}
+  .track .lab{position:absolute;top:36px;font-size:9.5px;font-weight:700;color:var(--blue);white-space:nowrap;}
+  .track .lab.a{left:0;}
+  .track .lab.b{right:0;}
+  .track .mid{position:absolute;left:50%;top:0;transform:translateX(-50%);
+    font-size:11px;font-weight:800;color:var(--warm-ink);background:var(--warm);
+    padding:4px 12px;border-radius:20px;white-space:nowrap;}
+  .gap .note{font-size:10.5px;line-height:1.7;color:var(--sub);border-top:1px solid var(--line);padding-top:11px;margin-top:2px;}
+  .gap .note b{color:var(--warm-ink);}
+
+  .hinge{margin-top:auto;border-radius:8px;overflow:hidden;background:var(--navy);color:#fff;position:relative;}
+  .hinge .air{position:absolute;inset:0;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 2px,transparent 2px 26px);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.25));}
+  .hinge-inner{position:relative;padding:28px 34px 26px;}
+  .hinge .worry{font-size:12.5px;line-height:1.8;color:#C6D6EA;margin-bottom:12px;}
+  .hinge .worry b{color:#fff;}
+  .hinge .reframe{font-size:15px;font-weight:700;color:#8FC1FF;margin-bottom:6px;letter-spacing:-.01em;}
+  .hinge .reframe-main{font-size:25px;font-weight:900;letter-spacing:-.025em;line-height:1.4;margin-bottom:18px;}
+  .hinge .reframe-main em{font-style:normal;background:linear-gradient(transparent 62%,rgba(143,193,255,.32) 62%);}
+  .hinge .define .mod{font-size:12px;color:#AFC6E2;line-height:1.7;}
+  .hinge .define .pname{font-size:23px;font-weight:900;margin-top:2px;letter-spacing:-.01em;}
+  .hinge .desc{font-size:11.5px;line-height:1.8;color:#D4E1F1;margin-top:13px;
+    border-top:1px solid rgba(255,255,255,.18);padding-top:13px;}
+
+  .sol{display:grid;grid-template-columns:78px 1fr;gap:0 16px;padding:15px 0 13px;border-top:1px solid var(--line);}
+  .sol:first-of-type{border-top:none;padding-top:0;}
+  .sol .no{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--blue);line-height:1.5;}
+  .sol .no b{display:block;font-size:26px;letter-spacing:-.02em;line-height:1;margin-top:3px;}
+  .sol h3{font-size:14.5px;font-weight:800;color:var(--navy);line-height:1.45;margin-bottom:6px;}
+  .sol .body{font-size:11px;line-height:1.75;color:#3A4450;}
+  .sol .body p{margin-bottom:7px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px;}
+  .cell{border:1px solid var(--line);border-radius:6px;padding:9px 11px;background:#FBFCFE;}
+  .cell.hl{border-color:var(--blue);background:var(--tint);}
+  .cell.warn{border-color:#E9C9CC;background:var(--warm);}
+  .cell .tag{font-size:9px;font-weight:800;letter-spacing:.06em;color:var(--blue);margin-bottom:3px;}
+  .cell.warn .tag{color:var(--warm-ink);}
+  .cell h5{font-size:11px;font-weight:800;color:var(--ink);margin-bottom:3px;}
+  .cell .fig{font-size:19px;font-weight:900;color:var(--warm-ink);letter-spacing:-.02em;line-height:1.1;margin-bottom:3px;}
+  .cell .fig small{font-size:11px;font-weight:700;}
+  .cell p{font-size:9.5px;line-height:1.6;color:var(--sub);}
+  .quote{font-size:10.5px;line-height:1.7;color:var(--navy);background:var(--tint);border-radius:6px;
+    padding:9px 12px;margin-top:6px;font-weight:600;}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px;}
+  .chip{font-size:10px;color:#2A3440;background:var(--tint);border-radius:4px;padding:5px 9px;font-weight:600;}
+
+  .trust{border:1px solid var(--line);border-radius:8px;margin-top:16px;background:#FAFBFC;}
+  .trust .thead{padding:11px 16px;border-bottom:1px solid var(--line);font-size:12px;font-weight:800;color:var(--navy);}
+  .trust .thead small{font-weight:600;color:var(--sub);margin-left:8px;font-size:10px;}
+  .trust .tbody{padding:12px 16px 13px;}
+  .trust p{font-size:9.5px;line-height:1.75;color:var(--sub);margin-bottom:6px;}
+  .trust p:last-child{margin-bottom:0;}
+  .authority{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px;}
+  .authority div{background:#fff;border:1px solid var(--line);border-radius:5px;padding:8px 9px;text-align:center;}
+  .authority strong{display:block;font-size:14px;font-weight:900;color:var(--navy);letter-spacing:-.02em;}
+  .authority span{font-size:9px;color:var(--sub);}
+
+  .extra{font-size:10.5px;line-height:1.7;color:#3A4450;margin-top:13px;padding:11px 14px;background:var(--tint);border-radius:6px;}
+  .extra b{color:var(--navy);}
+  .cta{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .cta .say{font-size:14.5px;font-weight:800;color:var(--navy);line-height:1.5;}
+  .cta .contact{font-size:11px;font-weight:700;color:var(--blue);white-space:nowrap;
+    border:1.5px solid var(--blue);border-radius:6px;padding:9px 14px;}
+  .footer{margin-top:14px;border-top:2px solid var(--navy);padding-top:12px;display:flex;justify-content:space-between;gap:20px;}
+  .footer .corp{font-size:9.5px;line-height:1.7;color:var(--sub);}
+  .footer .corp b{font-size:12px;color:var(--navy);letter-spacing:.1em;display:block;margin-bottom:3px;}
+  .namecard{flex:none;width:170px;border:1px dashed #B7C2CE;border-radius:6px;display:flex;
+    align-items:center;justify-content:center;font-size:9.5px;color:#9AA6B2;}
+  .copyright{font-size:8.5px;color:#9AA6B2;margin-top:10px;}
+  .pageno{position:absolute;bottom:16px;right:56px;font-size:9px;color:#B0BAC5;letter-spacing:.1em;}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 : 문제 단정 → 한 달의 산술 → 재프레이밍 ============ -->
+<div class="page">
+  <div class="brandbar">
+    <div class="wordmark">CESCO<small>세 스 코</small></div>
+    <div class="catlabel">스마트 통합방제 솔루션</div>
+  </div>
+
+  <!-- ① 문제 제기 헤드 : 사장님 대사형 말풍선 3 + 문제 단정 -->
+  <div class="bubbles">
+    <div class="bubble">어쩌다 보인 한두 마리, <b>이 정도로 번식했을 줄은 몰랐습니다.</b></div>
+    <div class="bubble right"><b>고객이 있는 영업 시간에 해충이 나오는 게</b> 가장 걱정입니다.</div>
+    <div class="bubble">이미 여러 살충제를 써 봤는데 <b>효과가 일시적이라</b> 걱정입니다.</div>
+  </div>
+
+  <div class="headline">
+    <div class="pre">기존 해충방제의 가장 큰 한계는 <em>‘시간’</em>입니다.</div>
+    <div class="name">한 달을 기다리지 않는 <em>세스코 스마트 통합방제</em>
+      <small>세스코의 스마트 기술과 데이터가 미리 예측하고 선제 관리하는, 해충방제의 새로운 패러다임</small>
+    </div>
+  </div>
+  <div class="headrule"></div>
+
+  <!-- ② 근거·심각성 : 한 달의 산술 -->
+  <div class="check-h"><span class="cbx"></span>한 달에 한 번, 왜 충분하지 않을까요?</div>
+  <p class="arith">
+    성체 암컷 바퀴벌레 1마리는 한 번에 <b>3~40개의 알</b>을 낳고, 알은 <b>3~4주 내</b> 부화합니다.
+    그렇기 때문에 대부분의 서비스 주기인 <b>한 달이라는 시간</b>은
+  </p>
+  <div class="conclude">
+    <div>해충 한 마리가 수십 마리로 늘어나고 다음 세대를 준비하기에 충분한 시간입니다.</div>
+    <div>이미 1세대 이상 증식한 이후의 사후 대응이 될 수밖에 없습니다.</div>
+  </div>
+
+  <div class="gap">
+    <div class="gh">정기 방문 주기 위의 한 달</div>
+    <div class="track">
+      <div class="rail"></div>
+      <div class="void"></div>
+      <div class="visit a"></div>
+      <div class="visit b"></div>
+      <div class="lab a">정기 방문</div>
+      <div class="lab b">다음 방문</div>
+      <div class="mid">관리 공백 — 산란에서 부화까지 3~4주</div>
+    </div>
+    <p class="note">
+      방제가 끝난 자리에서 부화가 시작되고, 다음 방문이 도착할 때는 이미 <b>1세대가 증식을 마친 뒤</b>입니다.
+      문제는 약제의 힘이 아니라, 아무도 보지 않는 이 <b>공백의 길이</b>입니다.
+    </p>
+  </div>
+
+  <!-- ③ 전환 경첩 + 재프레이밍 + 상품 정의 -->
+  <div class="hinge">
+    <div class="air"></div>
+    <div class="hinge-inner">
+      <p class="worry">하지만 걱정 마세요. <b>세스코가 그 공백을 없애 드리니까요.</b></p>
+      <p class="reframe">세스코의 새로운 해충방제 패러다임</p>
+      <p class="reframe-main"><em>한 달을 기다리지 않는 것,</em><br>그것이 가장 큰 차이입니다.</p>
+      <div class="define">
+        <div class="mod">첨단 센서와 카메라를 탑재한 스마트 디바이스, 신선한 약제를 자동 공급하는<br>오토베이트 시스템으로 정기 방문 사이의 관리 공백을 제거하는</div>
+        <div class="pname">세스코 스마트 통합방제 솔루션</div>
+      </div>
+      <p class="desc">
+        해충의 24시간 침입 모니터링이 이루어지지 않으면 기하급수적 번식으로 막대한 경제적 손실 및 브랜드 훼손을 야기할 수 있습니다.
+        세스코 첨단과학으로 개발해 실시간 보행해충·비래해충·쥐 침입을 감지하고, 이상 신호를 실시간으로 확인해 필요한 순간 즉시 현장 대응이 이루어지도록 관리합니다.
+      </p>
+    </div>
+  </div>
+  <div class="pageno">1 / 2</div>
+</div>
+
+<!-- ============ PAGE 2 : 해법 → 신뢰 → 클로징 ============ -->
+<div class="page">
+  <div class="brandbar">
+    <div class="wordmark">CESCO<small>세 스 코</small></div>
+    <div class="catlabel">스마트 통합방제 솔루션</div>
+  </div>
+
+  <div class="check-h"><span class="cbx"></span>세스코 스마트 통합방제, 공백을 어떻게 없앨까요?</div>
+
+  <!-- ④ SOLUTION 1~3 : 진단 → 상시 감지·즉시 대응 → 약제 효력 유지 -->
+  <div class="sol">
+    <div class="no">SOLUTION<b>1</b></div>
+    <div>
+      <h3>공백이 생길 자리부터 찾는 정밀 진단</h3>
+      <div class="body">
+        <p>해충 전문가의 시설 진단을 통해 유입 차단 최적 위치에 장비를 설계합니다.
+           65가지 기법의 환경진단으로 문제 해충의 종류·생장 주기·서식지와 침입 및 이동 경로를 파악하고,
+           손님 눈에 띄기 전에 번식 가능성까지 점검합니다.</p>
+        <div class="grid2">
+          <div class="cell hl">
+            <div class="tag">긴급진단 서비스</div>
+            <h5>24시간 내 방문</h5>
+            <p>안 보이던 해충이 갑자기 발견되었거나 고객이 발견할까 걱정된다면, 빠르게 방문해 원인과 솔루션을 찾습니다.</p>
+          </div>
+          <div class="cell">
+            <div class="tag">무료진단 서비스</div>
+            <h5>전문 컨설턴트 진단</h5>
+            <p>발생 여부와 원인을 꼼꼼하게 파악하고 싶거나 같은 문제가 반복된다면, 사업장 환경부터 확인합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <div class="no">SOLUTION<b>2</b></div>
+    <div>
+      <h3>해충 관리의 공백을 없애는 24시간 상시 감지와 즉시 대응</h3>
+      <div class="body">
+        <p>AI 카메라 센서 기반 스마트 디바이스로 해충의 움직임을 24시간 실시간 모니터링하여 문제가 커지기 전에 차단합니다.
+           한 달에 한 번 정해진 일정이 아닌, 필요 시 수시로 출동하고 대응합니다.</p>
+        <div class="grid3">
+          <div class="cell">
+            <div class="tag">상시 감지</div>
+            <h5>시간대별 · 요일별</h5>
+            <p>포획 시 세스코 통합상황실로 실시간 감지·경보가 전송되고, 경향성 분석으로 원인과 장소를 정밀 파악합니다.</p>
+          </div>
+          <div class="cell">
+            <div class="tag">주변 권역 모니터링</div>
+            <h5>매장 밖의 위험까지</h5>
+            <p>주변에 설치된 스마트트랩을 통해 주변의 위험을 미리 예측하고 선제적으로 예방 관리합니다.</p>
+          </div>
+          <div class="cell hl">
+            <div class="tag">즉시 대응</div>
+            <h5>포획 CCTV 확인<sup>2)</sup></h5>
+            <p>이상 신호를 실시간으로 확인해 필요한 순간 즉시 현장 대응이 이루어지도록 관리합니다.</p>
+          </div>
+        </div>
+        <p class="quote">“해충 움직임이 16시 전후, 주말에 반복적으로 나타나고 있습니다. 해당 시간대에 어떤 원인이 있는지 방문하여 점검해 드리겠습니다.”</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <div class="no">SOLUTION<b>3</b></div>
+    <div>
+      <h3>번식할 환경을 만들지 않는 약제 효력 유지</h3>
+      <div class="body">
+        <p>오토베이트 시스템의 자동 약제 공급은 약제 부재 상황을 방지하고, 약제의 효력을 최상으로 유지해 해충이 번식할 환경을 만들지 않습니다.
+           저항성 트렌드와 서식 환경을 분석해 투약 공법을 적정 주기로 순환 적용합니다.</p>
+        <div class="grid2">
+          <div class="cell warn">
+            <div class="tag">관리하지 않으면</div>
+            <div class="fig">3개월 이내 재발 80<small>%</small></div>
+            <p>일시적으로 퇴치되더라도 생존한 개체가 숨은 곳에서 번식하거나 다시 발생합니다.</p>
+          </div>
+          <div class="cell warn">
+            <div class="tag">같은 약제를 반복하면</div>
+            <div class="fig">저항성 발현 94.2<small>%</small><sup style="font-size:9px">1)</sup></div>
+            <p>국내 독일바퀴 저항성 유무 분석 결과. 세스코는 125가지 투약 공법을 순환 적용해 저항성 발현을 차단합니다.</p>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">300여 가지 1:1 맞춤 방제 약제</span>
+          <span class="chip">Rotation 시스템</span>
+          <span class="chip">과학연구소 Always-on DNA 분석</span>
+          <span class="chip">환경부 안전성·유효성 심사 통과 약제</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ 신뢰 장치 -->
+  <div class="trust">
+    <div class="thead">근거 및 연구 기반<small>세스코 IPM 기술연구소 · 과학연구소 · 통합상황실</small></div>
+    <div class="tbody">
+      <div class="authority">
+        <div><strong>50여 년</strong><span>해충 연구·현장</span></div>
+        <div><strong>2,193가지</strong><span>과학적 맞춤 솔루션</span></div>
+        <div><strong>65가지</strong><span>기법 환경진단</span></div>
+        <div><strong>70여 건</strong><span>스마트 통합방제 특허</span></div>
+      </div>
+      <p>1) 국내 바퀴벌레 5종의 살충제 저항성 유전자 돌연변이 빈도 분자 분석(2025), 독일바퀴 저항성 발현 94.2% ㅣ 출처 : SCIE(Science Citation Index Expanded), Pesticide Biochemistry and Physiology(2025), 서울대 곤충생약 이시내 교수</p>
+      <p>2) 해충 포획 CCTV는 AI 카메라 센서가 내장된 디바이스에 한해 제공됩니다.</p>
+      <p>※ 상기 산란 수·부화 기간 및 재발 수치는 일반적인 해충 생태 기준이며, 사업장 환경 및 개체에 따라 상이할 수 있습니다.</p>
+      <p>※ 해충 서식 정도와 사업장 환경 진단에 따라 단계별 솔루션과 설치 장비는 일부 달라질 수 있습니다.</p>
+    </div>
+  </div>
+
+  <!-- ⑥ 부가 -->
+  <div class="extra">
+    함께 사용하면 매장이 더 쾌적해지는 <b>세스코 환경가전 · 마이랩 마스터 솔루션</b>도 제안해 드립니다 — 공기청정기 3UP, 살균온 정수기 5중안심, 마이랩 마스터 락스·주방세제·식기세척기 세제·린스.
+  </div>
+
+  <!-- ⑦ 클로징 -->
+  <div class="cta">
+    <div class="say">우리 사업장의 관리 공백이 어디에 있는지,<br>무료진단으로 먼저 확인하세요.</div>
+    <div class="contact">상담문의 1588-1119&nbsp;&nbsp;|&nbsp;&nbsp;www.cesco.co.kr</div>
+  </div>
+
+  <div class="footer">
+    <div class="corp">
+      <b>CESCO 세스코</b>
+      주소 : 서울시 강동구 상일로 10길 46(상일동) 세스코<br>
+      대표전화 : 1588-1119 | Fax : 02-488-1720 &nbsp;·&nbsp; 고객센터 : 월~금 08:30~18:00 | 토 09:00~13:00 | 일·공휴일 휴무<br>
+      홈페이지 : www.cesco.co.kr | www.cescomall.co.kr
+    </div>
+    <div class="namecard">명함스티커 부착</div>
+  </div>
+  <div class="copyright">©SIPM_2P_v.0.2_2026.07 CESCO Co.,Ltd All rights reserved.</div>
+  <div class="pageno">2 / 2</div>
+</div>
+
+</body>
+</html>
