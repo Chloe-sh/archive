@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 블루쉴드 에어커튼 — B형 2P 리플렛 시안</title>
+<style>
+  :root{
+    --ink:#16202B;
+    --sub:#57616D;
+    --line:#E2E7ED;
+    --blue:#0A4FA6;
+    --navy:#0E2A4A;
+    --tint:#EEF4FB;
+    --warm:#F9EFEF;
+    --warm-ink:#B4444E;
+    --paper:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{background:#EDEFF2;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;
+    color:var(--ink);
+    display:flex;flex-direction:column;align-items:center;
+    padding:32px 12px 64px;gap:28px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    width:794px;min-height:1123px;background:var(--paper);
+    box-shadow:0 2px 18px rgba(14,42,74,.10);
+    padding:52px 56px 40px;position:relative;
+    display:flex;flex-direction:column;
+  }
+  @media print{
+    html,body{background:#fff;padding:0;gap:0;}
+    .page{box-shadow:none;page-break-after:always;width:210mm;min-height:297mm;}
+  }
+
+  /* ---------- 공통 ---------- */
+  .brandbar{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:34px;}
+  .wordmark{font-size:19px;font-weight:800;letter-spacing:.14em;color:var(--navy);}
+  .wordmark small{font-size:11px;font-weight:600;letter-spacing:.32em;color:var(--sub);margin-left:8px;}
+  .catlabel{font-size:10px;letter-spacing:.22em;color:var(--sub);font-weight:600;}
+
+  .check-h{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:800;color:var(--navy);margin-bottom:12px;}
+  .check-h .cbx{width:17px;height:17px;border:2.5px solid var(--blue);border-radius:3px;position:relative;flex:none;}
+  .check-h .cbx::after{content:"";position:absolute;left:3px;top:0px;width:6px;height:9px;border:solid var(--blue);border-width:0 2.5px 2.5px 0;transform:rotate(40deg);}
+
+  /* ---------- P1 ① 말풍선 + 헤드 ---------- */
+  .bubbles{display:flex;flex-direction:column;gap:11px;margin-bottom:30px;}
+  .bubble{
+    max-width:520px;background:#F5F7FA;border:1px solid var(--line);
+    border-radius:14px;padding:12px 18px;font-size:12.5px;line-height:1.6;color:#333C46;position:relative;
+  }
+  .bubble b{color:var(--navy);}
+  .bubble::before{content:"\201C";position:absolute;left:-2px;top:-14px;font-size:26px;color:#B9C6D6;font-weight:800;}
+  .bubble.right{align-self:flex-end;background:#fff;}
+  .headline{margin-bottom:8px;}
+  .headline .pre{font-size:20px;font-weight:600;color:var(--ink);line-height:1.45;letter-spacing:-.01em;}
+  .headline .name{font-size:37px;font-weight:900;color:var(--navy);letter-spacing:-.02em;line-height:1.25;margin-top:4px;}
+  .headline .name em{font-style:normal;color:var(--blue);}
+  .headrule{height:3px;background:linear-gradient(90deg,var(--blue) 0 120px,var(--line) 120px);margin:20px 0 34px;}
+
+  /* ---------- P1 ② 근거 ---------- */
+  .lede{font-size:13px;line-height:1.85;color:#2A3440;margin-bottom:8px;}
+  .lede b{color:var(--navy);}
+  .answer{font-size:13.5px;font-weight:700;color:var(--blue);margin-bottom:14px;}
+  .probcards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0 8px;}
+  .pcard{border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:6px;padding:14px 14px 12px;background:#FBFCFE;}
+  .pcard h4{font-size:12.5px;font-weight:800;color:var(--navy);line-height:1.5;margin-bottom:8px;min-height:38px;}
+  .pcard p{font-size:10.5px;line-height:1.6;color:var(--sub);}
+  .pcard p b{color:#3A4450;font-weight:700;}
+
+  /* ---------- P1 ③ 전환 경첩 (시그니처: 공기 장벽 밴드) ---------- */
+  .hinge{
+    margin-top:auto;border-radius:8px;overflow:hidden;
+    background:var(--navy);color:#fff;position:relative;
+  }
+  .hinge .air{
+    position:absolute;inset:0;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 2px,transparent 2px 26px);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.25));
+  }
+  .hinge-inner{position:relative;padding:30px 34px 28px;}
+  .hinge .worry{font-size:13px;line-height:1.8;color:#C6D6EA;margin-bottom:14px;}
+  .hinge .worry b{color:#fff;}
+  .hinge .reframe{font-size:21px;font-weight:800;letter-spacing:-.01em;line-height:1.5;margin-bottom:18px;}
+  .hinge .reframe em{font-style:normal;color:#8FC1FF;}
+  .hinge .define .mod{font-size:12.5px;color:#AFC6E2;line-height:1.7;}
+  .hinge .define .pname{font-size:24px;font-weight:900;margin-top:2px;letter-spacing:-.01em;}
+  .hinge .desc{font-size:11.5px;line-height:1.8;color:#D4E1F1;margin-top:14px;border-top:1px solid rgba(255,255,255,.18);padding-top:14px;}
+
+  /* ---------- P2 기능 넘버링 ---------- */
+  .fn{display:grid;grid-template-columns:44px 1fr;gap:0 16px;padding:16px 0 14px;border-top:1px solid var(--line);}
+  .fn:first-of-type{border-top:none;padding-top:0;}
+  .fn .no{font-size:30px;font-weight:900;color:var(--blue);line-height:1;letter-spacing:-.03em;}
+  .fn h3{font-size:15px;font-weight:800;color:var(--navy);line-height:1.45;margin-bottom:6px;}
+  .fn .body{font-size:11px;line-height:1.75;color:#3A4450;}
+  .fn .body p{margin-bottom:8px;}
+
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+  .step{border:1px solid var(--line);border-radius:6px;padding:9px 11px;background:#FBFCFE;}
+  .step.hl{border-color:var(--blue);background:var(--tint);}
+  .step .tag{font-size:9px;font-weight:800;letter-spacing:.06em;color:var(--blue);margin-bottom:3px;}
+  .step h5{font-size:11px;font-weight:800;color:var(--ink);margin-bottom:3px;}
+  .step h5 small{font-weight:600;color:var(--sub);font-size:9.5px;}
+  .step p{font-size:9.5px;line-height:1.6;color:var(--sub);}
+
+  .points{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px;}
+  .point{border-left:3px solid var(--blue);background:#FBFCFE;border-radius:0 6px 6px 0;padding:9px 11px;}
+  .point .tag{font-size:9px;font-weight:800;letter-spacing:.08em;color:var(--blue);margin-bottom:3px;}
+  .point h5{font-size:11px;font-weight:800;margin-bottom:3px;}
+  .point p{font-size:9.5px;line-height:1.6;color:var(--sub);}
+
+  .specline{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px;}
+  .chip{font-size:10px;color:#2A3440;background:var(--tint);border-radius:4px;padding:5px 9px;font-weight:600;}
+  .fn.energy .no{color:var(--warm-ink);}
+  .fn.energy .big{font-size:13px;font-weight:800;color:var(--warm-ink);background:var(--warm);border-radius:6px;padding:9px 12px;display:inline-block;margin-top:2px;}
+  .fn.energy .big sup{font-weight:700;}
+
+  /* ---------- P2 신뢰 장치 ---------- */
+  .trust{border:1px solid var(--line);border-radius:8px;margin-top:18px;background:#FAFBFC;}
+  .trust .thead{padding:11px 16px;border-bottom:1px solid var(--line);font-size:12px;font-weight:800;color:var(--navy);}
+  .trust .thead small{font-weight:600;color:var(--sub);margin-left:8px;font-size:10px;}
+  .trust .tbody{padding:12px 16px 13px;}
+  .trust p{font-size:9.5px;line-height:1.75;color:var(--sub);margin-bottom:6px;}
+  .trust p:last-child{margin-bottom:0;}
+  table.spec{width:100%;border-collapse:collapse;margin:6px 0 12px;}
+  table.spec th,table.spec td{border:1px solid var(--line);font-size:9.5px;padding:5px 7px;text-align:center;color:#2A3440;}
+  table.spec th{background:var(--tint);font-weight:700;color:var(--navy);}
+  table.spec td:first-child{background:#F4F6F9;font-weight:700;text-align:left;}
+
+  .extra{font-size:10.5px;line-height:1.7;color:#3A4450;margin-top:14px;padding:11px 14px;background:var(--tint);border-radius:6px;}
+
+  /* ---------- 클로징 ---------- */
+  .cta{margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .cta .say{font-size:14.5px;font-weight:800;color:var(--navy);line-height:1.5;}
+  .cta .contact{font-size:11px;font-weight:700;color:var(--blue);white-space:nowrap;border:1.5px solid var(--blue);border-radius:6px;padding:9px 14px;}
+  .footer{margin-top:16px;border-top:2px solid var(--navy);padding-top:12px;display:flex;justify-content:space-between;gap:20px;}
+  .footer .corp{font-size:9.5px;line-height:1.7;color:var(--sub);}
+  .footer .corp b{font-size:12px;color:var(--navy);letter-spacing:.1em;display:block;margin-bottom:3px;}
+  .namecard{flex:none;width:170px;border:1px dashed #B7C2CE;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:#9AA6B2;}
+  .copyright{font-size:8.5px;color:#9AA6B2;margin-top:10px;letter-spacing:.02em;}
+  .pageno{position:absolute;bottom:16px;right:56px;font-size:9px;color:#B0BAC5;letter-spacing:.1em;}
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 : 문제 → 근거 → 전환 ==================== -->
+<div class="page">
+  <div class="brandbar">
+    <div class="wordmark">CESCO<small>세 스 코</small></div>
+    <div class="catlabel">비래해충 솔루션</div>
+  </div>
+
+  <!-- ① 문제 제기 헤드 : 고객 대사형 말풍선 3 -->
+  <div class="bubbles">
+    <div class="bubble">손님 유입을 위해 매장 문을 열어놓고 싶은데 <b>외부 먼지, 해충 유입 때문에</b> 문을 열어 둘 수가 없어요.</div>
+    <div class="bubble right"><b>사람들의 출입이 빈번한 매장</b>이어서 냉·난방기를 틀어도 소용이 없어요.</div>
+    <div class="bubble">1층 매장인데 <b>매연, 하수구 악취 때문에</b> 힘들어요.</div>
+  </div>
+
+  <div class="headline">
+    <div class="pre">열린 문으로 들어오는 비래해충·먼지·황사·냄새,<br>새어 나가는 냉·난방까지 차단하는</div>
+    <div class="name">세스코 <em>블루쉴드 에어커튼</em></div>
+  </div>
+  <div class="headrule"></div>
+
+  <!-- ② 근거·심각성 -->
+  <div class="check-h"><span class="cbx"></span>열어야 하는 문, 왜 문제가 될까요?</div>
+  <div class="answer">출입문이라는 구조에서 시작해야 근본 원인을 해결할 수 있습니다.</div>
+  <p class="lede">
+    출입문은 손님이 들어오는 길인 동시에, 하루살이·모기·파리 같은 <b>비래해충</b>과 매연·먼지·황사가 들어오는 길이기도 합니다.
+    그리고 문이 열려 있는 동안 냉·난방된 실내 공기는 계속 밖으로 빠져나갑니다.
+    문을 닫으면 영업이 막히고, 열어두면 위생과 비용이 새는 — 사람의 부주의가 아니라 <b>출입문이라는 구조가 만드는 문제</b>입니다.
+  </p>
+
+  <div class="probcards">
+    <div class="pcard">
+      <h4>날벌레 유입과 위생관리에<br>매우 민감한 공간</h4>
+      <p><b>외식업장 · 편의점 · 식품공장 및 제조시설</b> — 해충 한 마리가 사업장 이미지와 영업에 막대한 피해를 줄 수 있습니다.</p>
+    </div>
+    <div class="pcard">
+      <h4>방문객이 잦아 냉·난방<br>에너지 손실이 큰 공간</h4>
+      <p><b>1층 매장 · 대형마트 · 편의점</b> — 문이 여닫힐 때마다 실내 온도가 손실되어 냉·난방 비용이 늘어납니다.</p>
+    </div>
+    <div class="pcard">
+      <h4>외부 오염 공기 차단이<br>필요한 공간</h4>
+      <p><b>영유아시설 · 카페 · 병원 · 빌딩 로비</b> — 매연·먼지·황사의 실내 유입이 내부 공기질을 위협합니다.</p>
+    </div>
+  </div>
+
+  <!-- ③ 전환 경첩 + 상품명 정의 -->
+  <div class="hinge">
+    <div class="air"></div>
+    <div class="hinge-inner">
+      <p class="worry">하지만 걱정 마세요. 문을 닫지 않아도, <b>세스코가 열린 출입구에 공기 장벽을 세워드리니까요.</b></p>
+      <p class="reframe">닫는 문이 아니라, <em>공기로 세우는 문</em>입니다.</p>
+      <div class="define">
+        <div class="mod">세스코 비래해충 4단계 Defense Line System의 최전선,<br>강력하고 일정한 공기 장벽으로 열린 문을 지키는</div>
+        <div class="pname">세스코 블루쉴드 에어커튼</div>
+      </div>
+      <p class="desc">
+        출입구에 강력한 기류를 만들어 외부에서 유입되는 비래해충·먼지·황사·냄새를 막아 쾌적한 실내 환경을 유지하고,
+        실내 온도 손실까지 막아 냉·난방 비용 절감을 돕습니다. 설치 후 어려운 관리는 세스코만의 정기 케어 서비스가 해결해드립니다.
+      </p>
+    </div>
+  </div>
+  <div class="pageno">1 / 2</div>
+</div>
+
+<!-- ==================== PAGE 2 : 해법 → 신뢰 → 클로징 ==================== -->
+<div class="page">
+  <div class="brandbar">
+    <div class="wordmark">CESCO<small>세 스 코</small></div>
+    <div class="catlabel">블루쉴드 에어커튼</div>
+  </div>
+
+  <div class="check-h"><span class="cbx"></span>세스코 에어커튼, 무엇이 다를까요?</div>
+
+  <!-- ④ 기능 넘버링 1~4 (이중 넘버링: 기능 + 단계/POINT) -->
+  <div class="fn">
+    <div class="no">1</div>
+    <div>
+      <h3>포획을 넘어 유입 경로 전체를 막는, 비래해충 4단계 Defense Line System</h3>
+      <div class="body">
+        <p>단편적인 포획이 아닌 근본적인 해결책을 제시할 수 있도록 세스코만의 비래해충 솔루션을 운영합니다. 비래해충에 대한 모든 문제를 전문가가 컨설팅해 드립니다.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="tag">1단계 · 초외곽 방어</div>
+            <h5>외곽살충등 <small>썬더블루</small></h5>
+            <p>독보적인 유인력과 포획력으로 최외곽, 건물과 출입문 경계까지 방어합니다.</p>
+          </div>
+          <div class="step hl">
+            <div class="tag">2단계 · 외곽 방어 — 블루쉴드 에어커튼의 자리</div>
+            <h5>외곽살충등 + 에어커튼 <small>블루스톰 · 블루쉴드</small></h5>
+            <p>출입문에 강력한 기류를 만들어 외부에서 유입되는 하루살이, 모기, 파리 등 비래해충을 완벽하게 차단합니다.</p>
+          </div>
+          <div class="step">
+            <div class="tag">3단계 · 실내 방어</div>
+            <h5>실내포충등 <small>피닉스 프로 · 블루온 슬림 · 블루온 아트</small></h5>
+            <p>음식물 쓰레기, 식자재 창고 등 내부에서 발생하는 비래해충까지 체계적으로 관리합니다.</p>
+          </div>
+          <div class="step">
+            <div class="tag">4단계 · 셀프 케어</div>
+            <h5>세스코 마이랩 <small>플라이스틱&초파리 유인제 세트 · 멀티나방트랩</small></h5>
+            <p>간편하게 사용하는 마이랩 제품들로 언제 어디서든 비래해충 셀프 관리가 가능합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fn">
+    <div class="no">2</div>
+    <div>
+      <h3>설치 후 관리 걱정 없는, 국내 최초 에어커튼 정기 케어 서비스</h3>
+      <div class="body">
+        <p>비래해충 솔루션이 제대로 작동될 수 있도록, 고장이 잦은 에어커튼의 전반적인 작동 상태를 정기 점검하여 관리의 어려움을 한 번에 해결합니다.</p>
+        <div class="points">
+          <div class="point">
+            <div class="tag">POINT 1</div>
+            <h5>상태 점검 정기 서비스</h5>
+            <p>6개월에 한 번씩 서비스 컨설턴트가 직접 방문하여 제품의 전반적인 작동 상태를 주기적으로 점검합니다.</p>
+          </div>
+          <div class="point">
+            <div class="tag">POINT 2</div>
+            <h5>자동 센서 관리 서비스</h5>
+            <p>문 연동 센서의 작동 상태, 마모된 부분 확인까지 세밀하게 관리합니다.</p>
+          </div>
+          <div class="point">
+            <div class="tag">POINT 3</div>
+            <h5>오염 물질 관리 서비스</h5>
+            <p>높은 위치의 청소하기 어려운 외관 오염 관리까지 진행하여 청결하게 유지합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fn">
+    <div class="no">3</div>
+    <div>
+      <h3>두 개의 모터로 구현한 강한 풍속과 높은 내구성</h3>
+      <div class="body">
+        <p>두 개의 모터로 강한 풍속을 구현하여 비래해충 차단율을 높이고, 외부 환경을 고려하여 내구성을 강화한 프리미엄 에어커튼입니다.</p>
+        <div class="specline">
+          <span class="chip">실외용 풍속 21~25m/s · 차단 높이 2.0~3.0m</span>
+          <span class="chip">실내용 풍속 11~17m/s · 차단 높이 2.0~2.7m</span>
+          <span class="chip">풍량 3단계 강/중/약</span>
+          <span class="chip">KC 전기안전인증</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fn energy">
+    <div class="no">4</div>
+    <div>
+      <h3>바깥 공기는 막고, 냉·난방 비용까지 아끼는 에너지 절감</h3>
+      <div class="body">
+        <p>바깥 공기는 차단하고 내부 공기는 유지시켜 에너지 소비를 줄입니다. 여름과 겨울, 문이 열려 있어도 실내 온도가 지켜집니다.</p>
+        <span class="big">자체 실험결과, 난방기 전력 사용량 약 61% 절감<sup>*</sup></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ 신뢰 장치 -->
+  <div class="trust">
+    <div class="thead">제품 사양 · 실험 및 인증 정보<small>세스코 과학연구소 자체 실험 · KC 전기안전인증</small></div>
+    <div class="tbody">
+      <table class="spec">
+        <tr><th>구분</th><th>실외용 900</th><th>실외용 1000</th><th>실내용 900</th><th>실내용 1000</th></tr>
+        <tr><td>제품코드</td><td>FSEW112</td><td>FSEW212</td><td>FSFW113</td><td>FSFW213</td></tr>
+        <tr><td>크기(mm)</td><td>900(W)×217(D)×248(H)</td><td>1000(W)×217(D)×248(H)</td><td>900(W)×195(D)×230(H)</td><td>1000(W)×195(D)×230(H)</td></tr>
+        <tr><td>중량</td><td>15kg</td><td>16kg</td><td>14kg</td><td>14.8kg</td></tr>
+        <tr><td>풍속</td><td>21~25m/s</td><td>21~25m/s</td><td>11~17m/s</td><td>11~17m/s</td></tr>
+        <tr><td>차단 높이</td><td>2.0~3.0m</td><td>2.0~3.0m</td><td>2.0~2.7m</td><td>2.0~2.7m</td></tr>
+        <tr><td>풍량 단수</td><td colspan="4">3단계 (강/중/약) · 전 모델 KC 전기안전인증</td></tr>
+      </table>
+      <p>* 해당 실험은 세스코 과학연구소의 특정 실험 조건(13평 공간, 출입문 20분 상시 개방 후 기준 설정 온도 25℃ 도달 기준, 난방기 3kW 사용) 하에 세스코 블루쉴드 에어커튼(실내용)을 가동했을 때, 미가동 대비 난방기 전력 사용량 약 61% 감소한 결과에 근거합니다.</p>
+      <p>※ 상기 절감 수치는 제한된 실험 조건에서 측정한 결과이며, 실제 사용 환경(실내외 온도, 출입 빈도, 매장 구조, 설치 조건 등)에 따라 전력 절감 효과는 달라질 수 있습니다.</p>
+      <p>※ 본 제품은 설치 기사가 방문 설치하는 상품이며, 벽 마운트 설치 방식으로 석고보드·유리 등 일부 벽면에는 설치가 어려울 수 있습니다. 설치 가능 여부는 사전 상담으로 확인해 드립니다.</p>
+    </div>
+  </div>
+
+  <!-- ⑥ 부가 혜택 (무가격 상대 표현까지만) -->
+  <div class="extra">
+    에어커튼은 <b>통합해충방제 솔루션·비래해충 솔루션과 결합 계약 시 추가 혜택</b>과 함께 제안됩니다. 자세한 결합 조건은 담당 컨설턴트에게 확인하세요.
+  </div>
+
+  <!-- ⑦ 클로징 -->
+  <div class="cta">
+    <div class="say">우리 매장 출입문에 맞는 모델과 설치 가능 여부,<br>무료 상담으로 확인하세요.</div>
+    <div class="contact">상담문의 1588-1119&nbsp;&nbsp;|&nbsp;&nbsp;www.cesco.co.kr</div>
+  </div>
+
+  <div class="footer">
+    <div class="corp">
+      <b>CESCO 세스코</b>
+      주소 : 서울시 강동구 상일로 10길 46(상일동) 세스코 터치센터<br>
+      대표전화 : 1588-1119 | Fax : 02-488-1720 &nbsp;·&nbsp; 고객센터 : 월~금 08:30~18:00 | 토 09:00~13:00 | 일·공휴일 휴무<br>
+      홈페이지 : www.cesco.co.kr | www.cescomall.co.kr
+    </div>
+    <div class="namecard">명함스티커 부착</div>
+  </div>
+  <div class="copyright">©FIC_AC-2P_v.0.1_2026.07 CESCO Co.,Ltd All rights reserved.</div>
+  <div class="pageno">2 / 2</div>
+</div>
+
+</body>
+</html>
