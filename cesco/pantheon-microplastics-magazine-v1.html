@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>판테온 미세플라스틱 라이프케어 매거진 시안 v1 (표준 3단형)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:"Pretendard Variable", Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif;
+    background:#dfe2e6; color:#182339; word-break:keep-all; overflow-wrap:break-word;
+    line-height:1.65; padding:36px 16px 90px;
+  }
+  .deskhead { max-width:1180px; margin:0 auto 18px; }
+  .deskhead h1 { font-size:17px; font-weight:800; color:#2a2d31; }
+  .deskhead p { font-size:12.5px; color:#5c6167; margin-top:4px; }
+
+  .board { max-width:1180px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fill, minmax(400px, 1fr)); gap:30px 24px; align-items:start; }
+  .pglbl { font-size:12px; font-weight:800; color:#5c6167; letter-spacing:.08em; margin-bottom:8px; }
+
+  .mag {
+    background:#fff; box-shadow:0 6px 24px rgba(18,26,40,.18);
+    aspect-ratio:3/4; padding:40px 38px 32px; display:flex; flex-direction:column; overflow:hidden;
+  }
+  @media (max-width:520px){ .mag { aspect-ratio:auto; min-height:540px; padding:28px 22px; } }
+
+  .logoblock { font-size:15px; font-weight:900; color:#0b2247; line-height:1.35; letter-spacing:.01em; }
+  .logoblock small { display:block; font-size:10px; font-weight:700; color:#8b96a4; letter-spacing:.18em; margin-top:2px; }
+
+  /* 표지 */
+  .cover { background:linear-gradient(172deg,#ffffff 0%,#eef4fa 55%,#dfeaf5 100%); }
+  .cover .vol { margin-top:26px; font-size:13px; font-weight:800; color:#0a6cc4; letter-spacing:.14em; }
+  .cover h2 { font-size:27px; line-height:1.4; font-weight:900; color:#0b2247; margin-top:10px; }
+  .cover .toc { margin-top:auto; border-top:2px solid #0b2247; padding-top:18px; }
+  .cover .toc .ti { margin-bottom:16px; }
+  .cover .toc .no { font-size:12px; font-weight:900; color:#0a6cc4; letter-spacing:.1em; }
+  .cover .toc .en { font-size:15px; font-weight:900; color:#0b2247; }
+  .cover .toc .ko { font-size:12px; color:#4a5866; margin-top:2px; line-height:1.55; }
+  .cover .kr { margin-top:14px; font-size:11px; font-weight:700; color:#8b96a4; letter-spacing:.1em; }
+
+  /* 본문 페이지 공통 */
+  .secno { font-size:26px; font-weight:900; color:#0a6cc4; letter-spacing:.04em; }
+  .sectitle { font-size:18px; font-weight:900; color:#0b2247; line-height:1.45; margin-top:4px; }
+  .secsub { font-size:12px; color:#6b7788; margin-top:4px; }
+  .rule { border:none; border-top:2px solid #0b2247; margin:16px 0 4px; }
+
+  .qa { margin-top:14px; }
+  .qa .q { font-size:13.5px; font-weight:800; color:#0b2247; margin-top:14px; }
+  .qa .q::before { content:"Q. "; color:#0a6cc4; }
+  .qa .a { font-size:11.8px; color:#42505e; margin-top:5px; line-height:1.68; }
+  .foot { margin-top:auto; padding-top:10px; font-size:9.5px; color:#98a2ac; line-height:1.6; }
+
+  ol.self { margin-top:16px; }
+  ol.self li { list-style:none; position:relative; padding:11px 0 11px 40px; border-bottom:1px dashed #e2e8ee; }
+  ol.self li .n { position:absolute; left:0; top:12px; width:28px; height:28px; border-radius:50%; background:#0b2247; color:#fff; font-size:13px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+  ol.self li h4 { font-size:13.5px; font-weight:800; color:#16233b; }
+  ol.self li p { font-size:11.8px; color:#4a5866; margin-top:3px; line-height:1.6; }
+  .hinge { margin-top:16px; background:#f2f7fc; border-radius:10px; padding:14px 18px; font-size:12.5px; color:#0b2247; font-weight:700; line-height:1.7; }
+
+  .pro .propose { margin-top:16px; font-size:13.5px; color:#33414f; line-height:1.75; }
+  .pro .propose b { color:#0b2247; }
+  .pro .pname { margin-top:12px; font-size:16.5px; font-weight:900; color:#0a6cc4; }
+  .pro ul { margin-top:12px; }
+  .pro ul li { list-style:none; font-size:12px; color:#374453; padding:6px 0 6px 20px; position:relative; border-bottom:1px dashed #e2e8ee; }
+  .pro ul li::before { content:"✔"; position:absolute; left:0; color:#0a6cc4; font-weight:800; }
+  .pro .imgph { margin-top:14px; border:1.5px dashed #c3cfda; border-radius:10px; background:#f7fafc; color:#93a0ad; font-size:10.5px; font-weight:600; text-align:center; padding:22px 14px; line-height:1.6; }
+
+  /* 포털 게시 틀 */
+  .portal { max-width:1180px; margin:40px auto 0; background:#fff; border-radius:10px; box-shadow:0 2px 12px rgba(18,26,40,.1); padding:36px 42px; }
+  @media (max-width:640px){ .portal { padding:26px 20px; } }
+  .portal .crumb { font-size:12px; color:#8b939c; }
+  .portal .crumb b { color:#0a6cc4; }
+  .portal h2 { font-size:21px; font-weight:800; color:#111; margin-top:10px; line-height:1.45; }
+  .portal .meta { font-size:12px; color:#9aa2ab; margin-top:8px; }
+  .portal .tags { margin-top:10px; font-size:12.5px; color:#0a6cc4; font-weight:600; line-height:1.8; }
+  .portal .embed { margin-top:20px; border:1.5px dashed #c9d2da; border-radius:10px; background:#f7f9fa; color:#98a2ac; font-size:12px; text-align:center; padding:30px; }
+  .pblock { margin-top:22px; border:1px solid #e4e9ee; border-radius:10px; padding:18px 22px; }
+  .pblock h5 { font-size:13px; font-weight:800; color:#0b2247; margin-bottom:8px; }
+  .pblock p, .pblock li { font-size:12px; color:#5b6778; line-height:1.75; }
+  .pblock ul { padding-left:2px; }
+  .pblock ul li { list-style:none; padding-left:14px; position:relative; }
+  .pblock ul li::before { content:"·"; position:absolute; left:2px; font-weight:900; }
+  .fixchip { display:inline-block; font-size:10px; font-weight:800; background:#eef1f4; color:#5b6a78; border:1px solid #dbe2e8; border-radius:5px; padding:1px 7px; margin-left:6px; vertical-align:middle; }
+
+  .todo { color:#c46a00; font-weight:700; }
+  .anno {
+    max-width:1180px; margin:22px auto 0; padding:12px 18px;
+    border-left:4px solid #ff9800; background:#fff7ec; color:#7a5200;
+    font-size:12.5px; border-radius:0 8px 8px 0; line-height:1.7;
+  }
+  .anno b { color:#5c3d00; }
+</style>
+</head>
+<body>
+
+<div class="deskhead">
+  <h1>판테온 미세플라스틱 라이프케어 매거진 : 시안 v1 (표준 3단형 · 4면 + 포털 게시 틀)</h1>
+  <p>매거진 이미지 4면이 본체, 아래 포털 페이지는 게시 틀(고정 블록 편집 금지) · 주황 글씨 = 확정 필요</p>
+</div>
+
+<div class="board">
+
+  <!-- 표지 -->
+  <div>
+    <p class="pglbl">P1 · 표지</p>
+    <div class="mag cover">
+      <div class="logoblock">CESCO Lifecare Magazine<small>BY CESCO SCIENCE</small></div>
+      <p class="vol">VOL {14 <span class="todo">연번 확정</span>}</p>
+      <h2>숨만 쉬어도<br>하루 68,000개?!<br>공기 중 미세플라스틱,<br>우리 집에서 줄이는 방법</h2>
+      <div class="toc">
+        <div class="ti">
+          <p class="no">01 <span class="en">Q&amp;A</span></p>
+          <p class="ko">All about 미세플라스틱,<br>세스코에게 묻고 답하다</p>
+        </div>
+        <div class="ti">
+          <p class="no">02 <span class="en">Self Solution</span></p>
+          <p class="ko">세스코가 알려드리는<br>공기 중 미세플라스틱 관리 방법</p>
+        </div>
+        <div class="ti">
+          <p class="no">03 <span class="en">CESCO Professional Solution</span></p>
+        </div>
+      </div>
+      <p class="kr">세스코 라이프케어 매거진</p>
+    </div>
+  </div>
+
+  <!-- 01 Q&A -->
+  <div>
+    <p class="pglbl">P2 · 01 Q&amp;A</p>
+    <div class="mag">
+      <p class="secno">01</p>
+      <p class="sectitle">Q&amp;A</p>
+      <p class="secsub">All about 미세플라스틱, 세스코에게 묻고 답하다</p>
+      <hr class="rule">
+      <div class="qa">
+        <p class="q">미세플라스틱, 정확히 무엇인가요?</p>
+        <p class="a">일반적으로 5mm 이하 크기의 플라스틱 입자를 말합니다. 그중 공기 중에 떠 있는 '부유 미세플라스틱'은 1~10㎛, 머리카락 굵기의 약 100분의 1 수준으로 작은 것으로 알려져 있습니다. 눈에 보이지 않아 인식하기 어렵지만, 호흡을 통해 몸속으로 들어올 수 있습니다.</p>
+        <p class="q">우리 집에서도 생긴다고요?</p>
+        <p class="a">특별한 환경이 아니라 생활 공간 어디서나 발생할 수 있습니다. 의류·카펫에서 떨어져 나오는 미세 섬유, 생활용품의 플라스틱 마모, 포장재·비닐 같은 소비재까지. YTN 보도에 따르면 실내 공기 중에서 성인이 하루 들이마시는 입자는 평균 약 68,000개에 달합니다.*</p>
+        <p class="q">물이나 음식으로 먹는 게 더 위험하지 않나요?</p>
+        <p class="a">섭취된 미세플라스틱의 상당수는 소화기관을 거쳐 배설되는 것으로 보고됩니다. 하지만 공기로 흡입된 입자는 폐포에 붙거나 혈관으로 들어가 몸속에 쌓일 확률이 훨씬 높은 것으로 알려져 있어, 최근에는 '흡입 노출'이 새로운 관리 대상으로 주목받고 있습니다.</p>
+        <p class="q">환기만 자주 하면 해결되지 않을까요?</p>
+        <p class="a">환기는 기본 관리법입니다. 다만 실내에서는 내려앉은 입자가 걷기나 침구 정리 같은 일상 움직임만으로 다시 떠오를 수 있습니다. 부유, 침착, 재부유, 재흡입이 반복되기 때문에 한 번의 환기로 끝나기 어렵습니다.</p>
+      </div>
+      <p class="foot">* 출처 : YTN 사이언스, "집·자동차 등 실내 공기 속 하루 6만 8,000개 미세플라스틱 흡입"</p>
+    </div>
+  </div>
+
+  <!-- 02 Self Solution -->
+  <div>
+    <p class="pglbl">P3 · 02 Self Solution</p>
+    <div class="mag">
+      <p class="secno">02</p>
+      <p class="sectitle">Self Solution</p>
+      <p class="secsub">세스코가 알려드리는 공기 중 미세플라스틱 관리 방법</p>
+      <hr class="rule">
+      <ol class="self">
+        <li>
+          <span class="n">1</span>
+          <h4>하루 2~3회, 10분 이상 자연 환기하세요.</h4>
+          <p>공기 중 농도를 낮추는 가장 기본적인 방법입니다.</p>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <h4>침구·커튼은 면·린넨 같은 천연 소재를 선택하세요.</h4>
+          <p>합성섬유 제품은 사용 과정에서 미세 섬유가 떨어져 나올 수 있습니다.</p>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <h4>실내 습도를 50% 수준으로 유지하세요.</h4>
+          <p>가라앉은 입자가 가볍게 날아다니지 않고 바닥에 머물도록 돕습니다.</p>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <h4>침구·패브릭은 주기적으로 세탁하고, 표면은 물걸레로 닦아 주세요.</h4>
+          <p>마른 청소만 할 경우 입자가 다시 떠오를 수 있습니다.</p>
+        </li>
+      </ol>
+      <p class="hinge">
+        다만 눈에 보이지 않는 1~10㎛ 입자를<br>
+        생활 수칙만으로 계속 낮게 유지하기는 어렵습니다.<br>
+        여기까지가 스스로 할 수 있는 관리라면,<br>
+        그다음은 세스코가 부담을 덜어드립니다.
+      </p>
+    </div>
+  </div>
+
+  <!-- 03 Professional -->
+  <div>
+    <p class="pglbl">P4 · 03 CESCO Professional Solution</p>
+    <div class="mag pro">
+      <p class="secno">03</p>
+      <p class="sectitle">CESCO Professional Solution</p>
+      <hr class="rule">
+      <p class="propose">
+        세스코는 공기 중 미세먼지부터 바이러스·세균까지<br>
+        보이지 않는 유해물질을 연구해 왔습니다.<br><br>
+        <b>세스코 과학연구소</b>에서<br>
+        공기 중 미세플라스틱 저감 성능까지 검증한<br>
+        공기질 솔루션을 제안합니다.
+      </p>
+      <p class="pname">세스코 트루살균 공기청정기 판테온</p>
+      <ul>
+        <li>공기 중 미세플라스틱 저감 인증 1)</li>
+        <li>부유 미세플라스틱 99.9% 제거 2)</li>
+        <li>하이엔드 헤파필터, 극초미세먼지 99.999% 제거 3)</li>
+        <li>공기 중 바이러스·세균·곰팡이 99.9% 살균 4)</li>
+      </ul>
+      <div class="imgph">실험 비교 비주얼 : 판테온 가동 / 미가동 환경의<br>부유 입자 농도 비교 그래프 또는 촬영 컷</div>
+      <p class="foot">
+        * 본 실험 결과는 제한된 조건에서 진행된 실험으로 다른 환경에서의 성능은 사용 환경에 따라 다를 수 있습니다.<br>
+        * 실험 조건 : <span class="todo">챔버 크기·입자 농도·가동 시간·시험기관 확정 필요</span><br>
+        1) <span class="todo">인증 기관·기준 확정 필요</span> 2) 3) <span class="todo">시험기관 확정 필요</span> 4) 고려대의대 바이러스병연구소 효능 분석 연구 결과 <span class="todo">세부 표기 확정 필요</span>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- 포털 게시 틀 -->
+<div class="portal">
+  <p class="crumb">리플렛 › <b>라이프케어 매거진</b></p>
+  <h2>숨만 쉬어도 하루 68,000개?! 공기 중 미세플라스틱, 우리 집에서 줄이는 방법</h2>
+  <p class="meta">게재일 {발행일} · 조회수 {n}</p>
+  <p class="tags">#라이프케어매거진 #lifecaremagazine #미세플라스틱 #부유미세플라스틱 #공기질관리 #공기청정기 #판테온</p>
+
+  <div class="embed">[매거진 이미지 임베드 : 위 4면]</div>
+
+  <div class="pblock">
+    <h5>인사이트 남기기 <span class="fixchip">문안 고정</span></h5>
+    <p>해당 주제와 관련된 좋은 인사이트 사례가 있으실까요?<br>
+    ※ 이런 내용이 도움이 돼요<br>
+    "오늘 상담 중에 이 내용으로 말했더니... 고객은..." · "고객이 자주 헷갈리는 부분이 있는데..." · "이 내용에 OO부분을 추가하면 더 좋을 것 같아요!"<br>
+    * 좋은 인사이트를 나눠주신 분께 추첨을 통해 스타벅스 커피를 제공해드립니다.</p>
+  </div>
+
+  <div class="pblock">
+    <h5>연관 콘텐츠</h5>
+    <ul>
+      <li>카드뉴스 : 판테온 미세플라스틱 카드뉴스 (본 세트)</li>
+      <li>블로그 : [세스코 공기솔루션] 실내 공기 속 미세플라스틱 편 (본 세트) + 기존 [EVENT] 게시글</li>
+      <li>관련기사 : YTN 사이언스, 실내 공기 속 미세플라스틱 보도</li>
+      <li><span class="todo">[고객 공유용] 실험영상 보유 시 추가</span></li>
+    </ul>
+  </div>
+
+  <div class="pblock">
+    <h5>콘텐츠 공유하기 <span class="fixchip">문안 고정</span></h5>
+    <p>※ 광고성 메시지는 마케팅 수신동의를 하지 않은 고객에게는 발송해서는 안됩니다. 꼭 고객이 요청한 경우에만 공유해 주세요.<br>
+    카카오톡으로 공유하기 / 문자 메시지로 공유하기 / 세스코 '공식 카카오톡 채널' 안내 함께 공유하기</p>
+  </div>
+</div>
+
+<div class="anno">
+  <b>확정 필요</b> : ① vol 연번 ② 저감 인증 기관·기준 / 99.9%·99.999% 시험기관 / 고려대의대 각주 세부 ③ 실험 비주얼용 실측 데이터·조건 ④ 연관 콘텐츠 실링크(카드뉴스·블로그 게시 후).
+  퍼널 순서(Q&A → Self → Professional)와 포털 고정 블록 문안은 템플릿 규칙상 변경 금지.
+</div>
+
+</body>
+</html>
