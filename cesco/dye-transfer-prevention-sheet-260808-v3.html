@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 마이랩 이염방지시트 상세페이지 시안 v3 (수정본 엑셀 + 브리프 v2)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:"Pretendard Variable", Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif;
+    background:#f0f2f5; color:#1c2733;
+    word-break:keep-all; overflow-wrap:break-word;
+    line-height:1.65;
+  }
+
+  nav {
+    position:sticky; top:0; z-index:50;
+    background:#0b2247; padding:0 16px;
+    display:flex; gap:2px; justify-content:center; flex-wrap:wrap;
+  }
+  nav a { color:#bcd3ef; text-decoration:none; font-size:12.5px; font-weight:600; padding:11px 9px; display:block; }
+  nav a:hover { color:#fff; }
+
+  .anno {
+    max-width:860px; margin:26px auto 10px;
+    padding:12px 18px; border-left:4px solid #ff9800;
+    background:#fff7ec; color:#7a5200; font-size:13px; border-radius:0 8px 8px 0;
+    line-height:1.75;
+  }
+  .anno b { color:#5c3d00; }
+
+  .page { max-width:860px; margin:0 auto 8px; background:#fff; box-shadow:0 1px 4px rgba(15,35,60,.08); }
+  section { padding:54px 48px; border-bottom:1px solid #eef1f4; position:relative; }
+  @media (max-width:640px){ section { padding:38px 22px; } }
+
+  .eyebrow { font-size:13px; letter-spacing:.14em; font-weight:700; color:#0a6cc4; text-transform:uppercase; margin-bottom:14px; }
+  h2 { font-size:29px; line-height:1.4; font-weight:800; margin-bottom:16px; }
+  h3 { font-size:20.5px; line-height:1.45; font-weight:800; margin-bottom:12px; }
+  p.lead { font-size:16.5px; color:#33414f; }
+  p.body { font-size:15px; color:#42505e; margin-top:10px; }
+  .foot { font-size:12px; color:#93a0ad; margin-top:16px; line-height:1.7; }
+  .foot li { list-style:none; padding-left:12px; text-indent:-12px; }
+
+  .slate { background:linear-gradient(165deg,#0b2247 0%,#12335f 70%,#164077 100%); color:#fff; }
+  .slate .eyebrow { color:#7db4e8; }
+  .slate h2, .slate h3 { color:#fff; }
+  .slate p.lead { color:#cfe0f2; }
+  .slate p.body { color:#b7cbe2; }
+  .slate .foot { color:#8fa9c6; }
+
+  .stamp {
+    width:110px; height:110px; border-radius:50%;
+    border:2px solid rgba(255,255,255,.6);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-size:10px; letter-spacing:.12em; color:#dcebfa; text-align:center;
+    margin-top:22px; gap:3px;
+  }
+  .stamp b { font-size:12px; letter-spacing:.18em; }
+  .stamp.dark { border-color:#0b2247aa; color:#0b2247; }
+
+  .tag { display:inline-block; font-size:10.5px; font-weight:800; border-radius:5px; padding:2px 8px; vertical-align:middle; margin:0 3px 2px 0; }
+  .tag.file { background:#e7f3ea; color:#1f6b38; border:1px solid #c9e4d1; }
+  .tag.ai   { background:#fff0e0; color:#b45f00; border:1px solid #f3d3ad; }
+  .tag.tpl  { background:#eef1f4; color:#5b6a78; border:1px solid #dbe2e8; }
+  .slate .tag.file { background:rgba(76,175,110,.18); color:#a8e2bc; border-color:rgba(76,175,110,.4); }
+  .slate .tag.ai   { background:rgba(255,152,0,.16); color:#ffd39b; border-color:rgba(255,152,0,.4); }
+  .slate .tag.tpl  { background:rgba(255,255,255,.12); color:#c9d6e4; border-color:rgba(255,255,255,.25); }
+
+  .imgph {
+    margin-top:20px; border:2px dashed #c3d2e0; border-radius:12px;
+    background:repeating-linear-gradient(45deg,#f8fafc,#f8fafc 12px,#f2f6fa 12px,#f2f6fa 24px);
+    color:#7b8b9a; font-size:13px; font-weight:600;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    min-height:140px; padding:20px; line-height:1.7;
+  }
+  .slate .imgph { border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.06); color:#a9c4de; }
+
+  .cmp { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+  @media (max-width:640px){ .cmp { grid-template-columns:1fr; } }
+  .cmp .cell { border-radius:12px; padding:18px; text-align:center; font-size:13.5px; font-weight:700; }
+  .cmp .before { background:#f6f8fa; border:1px solid #e2e9f0; color:#5b6a78; }
+  .cmp .after { background:#0b2247; color:#fff; }
+  .cmp .cell .sheet { width:84px; height:104px; border-radius:6px; margin:0 auto 12px; }
+  .cmp .before .sheet { background:#fff; border:1px solid #dbe2e8; }
+  .cmp .after .sheet { background:linear-gradient(160deg,#7d8ba0 0%,#4a5a74 60%,#37465e 100%); }
+
+  .bubbles { display:grid; grid-template-columns:1fr 1fr; gap:18px 14px; margin-top:24px; }
+  @media (max-width:640px){ .bubbles { grid-template-columns:1fr; } }
+  .bubble { background:#f2f6fa; border-radius:14px; padding:20px; position:relative; }
+  .bubble::before {
+    content:""; position:absolute; top:-9px; left:26px;
+    border-left:9px solid transparent; border-right:9px solid transparent; border-bottom:10px solid #f2f6fa;
+  }
+  .bubble .who { font-size:14.5px; font-weight:800; color:#0b2247; }
+  .bubble .gain { font-size:13.5px; color:#42505e; margin-top:8px; padding-left:16px; position:relative; }
+  .bubble .gain::before { content:"→"; position:absolute; left:0; color:#0a6cc4; font-weight:800; }
+
+  .ckbox { margin-top:22px; }
+  .ckbox .ck { border:1px solid #dbe6f1; border-radius:14px; padding:20px 22px; margin-bottom:12px; background:#fbfdff; }
+  .ckbox .ck h4 { font-size:16.5px; font-weight:800; color:#0b2247; margin-bottom:6px; }
+  .ckbox .ck h4::before { content:"☑ "; color:#0a6cc4; }
+  .ckbox .ck p { font-size:14px; color:#4a5866; }
+
+  .chap {
+    display:inline-block; font-size:13px; font-weight:800; letter-spacing:.06em;
+    color:#fff; background:#0a6cc4; border-radius:8px; padding:6px 14px; margin-bottom:14px;
+  }
+  .chap::before { content:"☑ "; }
+
+  .icons { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px; }
+  @media (max-width:640px){ .icons { grid-template-columns:1fr 1fr; } }
+  .icons div {
+    background:#f2f7fc; border-radius:12px; padding:18px 14px; text-align:center;
+    font-size:13.5px; font-weight:700; color:#16324d; line-height:1.5;
+  }
+
+  .quote { margin-top:18px; padding-left:34px; position:relative; }
+  .quote::before { content:"❝"; position:absolute; left:0; top:-4px; font-size:30px; color:#0a6cc4; font-weight:900; }
+  .quote p { font-size:17px; font-weight:800; color:#0b2247; line-height:1.55; }
+  .slate .quote p { color:#fff; }
+  .slate .quote::before { color:#7db4e8; }
+
+  ol.steps { margin-top:14px; counter-reset:step; }
+  ol.steps li {
+    list-style:none; counter-increment:step; position:relative;
+    padding:14px 0 14px 52px; font-size:14.5px; color:#3b4956; border-bottom:1px dashed #e8edf2;
+  }
+  ol.steps li::before {
+    content:"STEP " counter(step);
+    position:absolute; left:0; top:16px;
+    font-size:11px; font-weight:800; color:#0a6cc4; letter-spacing:.04em;
+    width:46px;
+  }
+  ol.steps li b { color:#16324d; display:block; margin-bottom:4px; }
+  ol.steps li small { color:#7b8b9a; font-size:13px; line-height:1.6; display:block; }
+
+  .numline { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+  .numline div { background:#f2f7fc; border-radius:12px; padding:16px 20px; min-width:150px; }
+  .numline .v { font-size:26px; font-weight:800; color:#0a5fae; }
+  .numline .k { font-size:12.5px; color:#5b6a78; margin-top:2px; }
+  .slate .numline div { background:rgba(255,255,255,.08); }
+  .slate .numline .v { color:#8ec9ff; }
+  .slate .numline .k { color:#a9c4de; }
+
+  table.ingr { width:100%; border-collapse:collapse; margin-top:18px; font-size:14px; }
+  table.ingr th, table.ingr td { border:1px solid #e2e9f0; padding:14px 16px; vertical-align:middle; text-align:left; }
+  table.ingr th { background:#f2f6fa; color:#0b2247; font-weight:800; width:190px; }
+  table.ingr td { color:#42505e; }
+
+  .usage { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:20px; }
+  @media (max-width:640px){ .usage { grid-template-columns:1fr; } }
+  .usage div { border:1px solid #e2e9f0; border-radius:12px; padding:20px; text-align:center; }
+  .usage .sw { width:34px; height:34px; border-radius:50%; margin:0 auto 10px; }
+  .usage .sw.l { background:#e8ecf1; border:1px solid #d5dbe2; }
+  .usage .sw.m { background:#8fa0b5; }
+  .usage .sw.d { background:#0b2247; }
+  .usage .k { font-size:13.5px; color:#5b6a78; }
+  .usage .v { font-size:19px; font-weight:800; color:#0b2247; margin-top:4px; }
+
+  .legal { background:#fbfcfd; border:1px solid #e8edf2; border-radius:14px; padding:26px; font-size:13.5px; color:#5b6a78; }
+  .legal h4 { font-size:15px; font-weight:800; color:#16324d; margin-bottom:10px; }
+  .legal ol { margin:8px 0 0 2px; }
+  .legal ol li { list-style:none; padding:5px 0 5px 4px; line-height:1.7; }
+
+  ul.feat { margin-top:12px; }
+  ul.feat li { list-style:none; font-size:14.5px; color:#3b4956; padding:9px 0 9px 26px; position:relative; border-bottom:1px dashed #e8edf2; }
+  ul.feat li::before { content:"✓"; position:absolute; left:2px; top:9px; color:#0a6cc4; font-weight:800; }
+  ul.feat li b { color:#16324d; }
+
+  .usp { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
+  @media (max-width:640px){ .usp { grid-template-columns:1fr; } }
+  .usp .card { border:1px solid #dbe6f1; border-radius:14px; padding:22px 20px; background:#fbfdff; }
+  .usp .card .no { font-size:11px; font-weight:800; letter-spacing:.1em; color:#0a6cc4; }
+  .usp .card h4 { font-size:16px; font-weight:800; color:#0b2247; margin:6px 0 8px; }
+  .usp .card p { font-size:13.5px; color:#4a5866; }
+
+  .sizecmp { display:flex; gap:26px; align-items:flex-end; justify-content:center; margin-top:24px; flex-wrap:wrap; }
+  .sizecmp .col { text-align:center; }
+  .sizecmp .rect { border-radius:8px; margin:0 auto 10px; }
+  .sizecmp .r1 { width:66px; height:168px; background:#e2e6ea; border:1px solid #d0d6dc; }
+  .sizecmp .r2 { width:120px; height:150px; background:#fff; border:3px solid #0a6cc4; box-shadow:0 2px 10px rgba(10,108,196,.18); }
+  .sizecmp .k { font-size:13px; color:#5b6a78; font-weight:700; }
+  .sizecmp .v { font-size:13.5px; color:#0b2247; font-weight:800; }
+
+  .protocol { margin-top:28px; border:2px solid #0a6cc4; border-radius:16px; padding:26px 28px; background:#f4f9fe; }
+  .protocol h3 { color:#0b2247; }
+  .protocol p.body { color:#33414f; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#cover">표지</a>
+  <a href="#hook">도입 훅</a>
+  <a href="#why">왜 필요할까요</a>
+  <a href="#ck">뭐가 다를까요</a>
+  <a href="#c1">원리·검증</a>
+  <a href="#flag">피부 기준</a>
+  <a href="#c3">원단</a>
+  <a href="#usp">편의성</a>
+  <a href="#howto">사용법</a>
+  <a href="#legal">주의사항</a>
+  <a href="#todo">확정 필요</a>
+</nav>
+
+<div class="anno">
+  <b>v3</b> : 수정본 엑셀("제작 요청용(수정)") 단독 사실근거 + 디벨롭 브리프 v2 강조 지도 + 마이랩 소비재형 템플릿(03) 구조로 재구성<br>
+  <b>v2 대비 변경</b> : ① 양이온(±)·정전기 서술 전면 제거(수정본 지시) ② 미세먼지 훅 도입부 신설 ③ "피부 기준 검증" 깃발 선언 섹션 신설
+  ④ 편의 USP 3종(빅사이즈·원터치·컴팩트) 공식 복귀 ⑤ 새 옷 프로토콜(전환 트리거) 신설 ⑥ 사용상 주의사항 9항 전문 반영<br>
+  <b>표기 보류</b> : 원문의 "알레르기·아토피" 표현은 심의 근거 확보 전 미사용(→ 원문에 함께 있는 "피부 자극" 표현으로 통일)<br>
+  <b>출처 표기</b> :
+  <span class="tag file">파일</span> 수정본 엑셀 원문(어미 통일 포함) ·
+  <span class="tag ai">AI</span> AI 작성/재구성(근거 병기) ·
+  <span class="tag tpl">템플릿</span> 마이랩 고정 블록(수정 금지)
+</div>
+
+<div class="page">
+
+  <!-- ① 표지 -->
+  <section class="slate" id="cover">
+    <div class="eyebrow">CESCO Mylab</div>
+    <h2>세스코 과학연구소를<br>내 손 안으로</h2>
+    <p class="lead" style="letter-spacing:.1em; font-size:14px; margin-top:4px;">LAUNDRY CARE PROGRAM <span class="tag ai">AI : 영문 프로그램명 신규 제안 : 통제어휘 등록 필요</span></p>
+    <h3 style="margin-top:28px; font-size:26px;">세스코 마이랩 이염방지시트</h3>
+    <p class="lead" style="font-size:15px;">{매수}매입 ㅣ 시트 타입 ㅣ {규격}</p>
+    <p style="margin-top:6px;"><span class="tag file">파일</span> 명칭 기준 <span class="tag ai">AI : 매수·규격·포장 단위 미기재 : 확정 필요</span></p>
+    <div class="stamp"><span>CESCO SCIENCE</span><b>생활과학 연구소</b><span>LABORATORY</span></div>
+    <div class="imgph">제품 이미지 영역 : 이염방지시트 메인 컷 (박스 + 시트 연출 · 세탁기 배경)<br>* 표지는 정체성만, 효능 주장 없음 (템플릿 규칙)</div>
+  </section>
+
+  <!-- ② 패키지 문구 전사 (= ④ 연구소 제안문, 동일 문장 유지) -->
+  <section>
+    <div class="eyebrow">PACKAGE</div>
+    <h3>패키지 문구 (본문 제안문과 동일 문장으로 인쇄)</h3>
+    <div class="quote">
+      <p>세스코 생활과학 연구소에서<br>
+      민감한 피부에 바로 닿는 섬유의<br>
+      세탁 과정까지 고려하여<br>
+      세탁 중 빠져나온 염료부터<br>
+      피부 자극의 원인이 될 수 있는 형광증백제와<br>
+      생활 속 미세먼지까지 붙잡아 주는<br>
+      이염방지시트를 제안합니다.</p>
+    </div>
+    <p style="margin-top:12px;">
+      <span class="tag file">파일</span> "민감한 피부에 바로 닿는 섬유의 세탁 과정까지 고려" · 염료/형광증백제/생활 속 미세먼지 흡착 사실
+      <span class="tag ai">AI : 템플릿 제안문 공식("~부터 ~와 ~까지" 3중 축적)으로 조합 · 원문의 "알레르기·아토피"는 심의 보류, 원문 병기 표현 "피부 자극"으로 통일</span>
+    </p>
+    <ul class="feat">
+      <li>이염방지효과 <b>91% 검증*</b></li>
+      <li>형광증백제·미세먼지까지 <b>흡착</b></li>
+      <li>합성 플라스틱 없는 <b>비스코스 100% 원단</b></li>
+    </ul>
+    <p style="margin-top:10px;"><span class="tag file">파일</span> 효익 3불릿 원문</p>
+    <ul class="foot"><li>* 시험성적서 기준. 시험기관·시험방법 표기 확정 필요</li></ul>
+    <div class="imgph" style="min-height:110px;">이미지 영역 : 패키지 실물 촬영 컷 (인쇄 문구가 보이도록)</div>
+  </section>
+
+  <!-- ③ 브랜드 스테이트먼트 -->
+  <section style="background:#f7fafd; text-align:center;">
+    <p style="display:inline-block; background:#0b2247; color:#fff; font-size:12.5px; font-weight:700; border-radius:999px; padding:6px 18px;">세스코가 만든 환경위생 솔루션</p>
+    <h3 style="margin-top:22px; font-size:24px; color:#0b2247;">CESCO Mylab</h3>
+    <p class="lead" style="margin-top:18px; font-weight:800; color:#0b2247; font-size:19px;">누구나. 집에서. 스스로.</p>
+    <p class="body" style="max-width:520px; margin:10px auto 0;">
+      전문가 수준의 위생을 누릴 수 있어야 한다는<br>
+      세스코의 생각이 세스코 마이랩으로 탄생했습니다.
+    </p>
+    <p class="body" style="max-width:520px; margin:14px auto 0;">
+      성분 하나까지 엄격한 기준으로 고르고<br>
+      누구나 전문가처럼 제품을 사용할 수 있도록<br>
+      제품을 사용하는 올바른 방법까지 담았습니다.
+    </p>
+    <p class="body" style="max-width:520px; margin:14px auto 0; font-weight:700; color:#0b2247;">
+      세스코 과학연구소의 노하우를<br>
+      한 통에 통째로 담은 CESCO Mylab
+    </p>
+    <p style="margin-top:14px;"><span class="tag tpl">템플릿</span> 마이랩 전 제품 공통 고정 블록(무수정)</p>
+  </section>
+
+  <!-- 도입 훅 : 미세먼지 의외성 + 세탁수 가시화 (브리프 v2 신설) -->
+  <section id="hook">
+    <div class="eyebrow">LAUNDRY CHECK</div>
+    <h2>옷에 묻은 생활 속 미세먼지,<br>세탁기 안에서 어디로 갈까요?</h2>
+    <p class="lead">
+      다른 빨래에 옮겨 앉기 전에, 시트가 먼저 붙잡습니다.<br>
+      옷은 세탁이 도는 내내 그 물속에서 함께 구릅니다.
+    </p>
+    <p style="margin-top:10px;">
+      <span class="tag ai">AI : 브리프 v2 훅. 근거 = 파일 제안문 "생활 속 미세먼지까지 흡착" + 체크박스 원문 "세탁 중 떠다니는 오염을 다시 옷에 달라붙지 않도록 설계"</span>
+    </p>
+
+    <p class="lead" style="margin-top:26px; font-weight:800; color:#0b2247;">
+      하얗던 시트가 세탁 후 어둡게 변한 모습을 보고 나면<br>
+      "그동안 이 오염이 다 내 옷으로 갔던 거야?" 하고 놀라실 거예요.
+      <span class="tag file">파일</span>
+    </p>
+
+    <div class="cmp">
+      <div class="cell before"><div class="sheet"></div>세탁 전 : 하얀 시트</div>
+      <div class="cell after"><div class="sheet"></div>세탁 후 : 오염을 흡착해 어두워진 시트</div>
+    </div>
+    <ul class="foot">
+      <li>* 흡착 전/후 시연 컷은 자사 제품 촬영으로 제작 (파일 동봉 레퍼런스는 타사 제품 : 교체 필요)</li>
+      <li>* 미세먼지 흡착 성능 테스트 완료 : 시험성적서 기준, 수치 인용 여부 확정 필요</li>
+    </ul>
+  </section>
+
+  <!-- ④ 우리 집엔 왜 필요할까요? -->
+  <section style="background:#f7fafd;" id="why">
+    <div class="eyebrow">WHY</div>
+    <h2>★ 우리 집엔 왜 필요할까요?</h2>
+    <p class="lead" style="font-weight:800; color:#0b2247;">
+      어른 외출복과 아이 옷, 같이 돌려도 될까 망설였다면.
+      <span class="tag ai">AI : 브리프 v2 : 통세탁의 위생 불안을 페르소나 도입으로 승격</span>
+    </p>
+    <p style="margin-bottom:4px; margin-top:14px;"><span class="tag file">파일</span> 말풍선 4연·효익 전부 엑셀 원문 (배치 순서 그대로)</p>
+
+    <div class="bubbles">
+      <div class="bubble">
+        <p class="who">"분리 세탁이 부담스러운 1인 가구"</p>
+        <p class="gain">적은 빨래 양 때문에 세탁기를 여러 번 돌리는 물·전기세와 시간이 절약됩니다.</p>
+      </div>
+      <div class="bubble">
+        <p class="who">"퇴근 후 빠르고 효율적인 세탁이 필요한 맞벌이/신혼부부"</p>
+        <p class="gain">귀찮았던 '색상별 분류 작업'과 세탁 횟수를 획기적으로 줄여줍니다.</p>
+      </div>
+      <div class="bubble">
+        <p class="who">"아이 옷 위생과 형광증백제 이염이 걱정되는 육아 가구"</p>
+        <p class="gain">어른 옷이나 새 옷의 형광증백제와 염료가 아이 옷으로 옮겨가는 것을 막아줍니다.</p>
+      </div>
+      <div class="bubble">
+        <p class="who">"매일 대용량 빨래가 쏟아지는 대식구"</p>
+        <p class="gain">쏟아지는 수건, 교복, 운동복, 외출복도 구분 없이 한 번에 통세탁하여 세탁기 효율을 높여줍니다.</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:26px; font-weight:800; color:#0b2247;">
+      옷감에서 빠져나오는 염료는 물론,<br>
+      형광증백제와 미세먼지까지 깔끔하게 싹- 잡아주니까.<br>
+      그동안 몰라서 못 썼다면, 이제 세탁의 신세계를 경험해 보세요!
+      <span class="tag file">파일</span>
+    </p>
+  </section>
+
+  <!-- ⑤ 뭐가 다를까요 + 3연 체크박스 -->
+  <section id="ck">
+    <div class="eyebrow">DIFFERENCE</div>
+    <h2>★ 세스코 이염방지는 뭐가 다를까요?</h2>
+    <p style="margin-bottom:10px;"><span class="tag file">파일</span> 상위 헤드 위치·표기 원문 그대로</p>
+
+    <h3 style="margin-top:20px;">세스코 전문 연구원의 맞춤 위생 솔루션 <span class="tag tpl">템플릿</span></h3>
+    <div class="stamp dark" style="margin-top:14px;"><span>CESCO SCIENCE</span><b>생활과학 연구소</b><span>LABORATORY</span></div>
+
+    <p class="lead" style="margin-top:24px; font-weight:800; color:#0b2247;">
+      빨래 갤 때마다 발견하는 얼룩덜룩 이염 자국,<br>
+      마이랩으로 해결하세요!
+      <span class="tag ai">AI : 템플릿 리드 공식 "{고민}+마이랩으로 해결하세요!"</span>
+    </p>
+
+    <div class="ckbox">
+      <div class="ck">
+        <h4>엄격한 기준으로</h4>
+        <p>세탁 과정부터 이후 환경까지 고려하여 합성 플라스틱을 포함하지 않은 원단을 사용했습니다.</p>
+      </div>
+      <div class="ck">
+        <h4>까다로운 검증을 거쳐</h4>
+        <p>민감한 피부에 맞닿는 섬유에 사용하기에 세탁 후 남을 수 있는 성분까지 고려하였습니다.</p>
+      </div>
+      <div class="ck">
+        <h4>강력하게 기능하도록</h4>
+        <p>세탁 중 떠다니는 오염을 다시 옷에 달라붙지 않도록 설계하였습니다.</p>
+      </div>
+    </div>
+    <p><span class="tag file">파일</span> 슬로건 3종·요약문 전부 엑셀 원문 ("강력하게" 변형은 템플릿 허용) : 이하 본문 챕터의 축으로 재사용 (템플릿 16 방식)</p>
+  </section>
+
+  <!-- ⑥ 아이콘 6종 -->
+  <section style="background:#f7fafd;">
+    <div class="eyebrow">AT A GLANCE</div>
+    <h3>한눈에 보는 이염방지시트</h3>
+    <div class="icons">
+      <div>이염방지효과<br>91% 검증*</div>
+      <div>형광증백제·미세먼지<br>흡착</div>
+      <div>특수 가공<br>기능성 원단</div>
+      <div>일반/드럼<br>세탁기 겸용</div>
+      <div>비스코스 100%<br>식물성 원단 · 국내 제조</div>
+      <div>파라벤 6종·가습기 살균제<br>이슈 성분·형광증백제 불검출**</div>
+    </div>
+    <p style="margin-top:14px;"><span class="tag file">파일</span> 6칸 전부 엑셀 기반 <span class="tag ai">AI : "특수 양이온 처리 원단" → "특수 가공 기능성 원단"으로 교체 (수정본에서 이온 서술 삭제)</span></p>
+    <ul class="foot">
+      <li>* 시험성적서 기준 (시험기관·방법 표기 확정 필요)</li>
+      <li>** 불검출 성분 목록 각주 확정 필요 (파라벤 6종 열거 / 가습기 살균제 이슈 성분 종수)</li>
+    </ul>
+  </section>
+
+  <!-- ⑦ 챕터 1 : 강력하게 기능하도록 -->
+  <section id="c1">
+    <span class="chap">강력하게 기능하도록</span>
+    <h2>'이염'은 왜 생길까요? <span class="tag ai">AI : 질문형 소제목만 추가 (소제목 전용 규칙)</span></h2>
+    <p class="lead">
+      세탁 과정에서 일부 의류의 수용성 염료는 물속으로 빠져나옵니다.<br>
+      이 염료가 다른 의류에 다시 흡착되면 '이염'이 발생하게 됩니다.
+      <span class="tag file">파일</span>
+    </p>
+
+    <div class="quote">
+      <p>그래서 세탁수부터 연구했어요.<br>
+      세스코 생활과학 연구소는 빠져나온 염료가<br>
+      물속을 떠다니다 다른 옷에 다시 붙는다는 점에 주목해,<br>
+      염료를 끌어당겨 붙잡도록 원단 표면을 특수 가공했어요.</p>
+    </div>
+    <p style="margin-top:10px;"><span class="tag ai">AI : 마이랩 POINT 공식(습성 서술 → 연구 → 처방)의 세탁 버전. 사실은 전부 파일 STEP 1·2 부연 : 수정본 기준으로 이온·정전기 표현 미사용</span></p>
+
+    <ol class="steps">
+      <li>
+        <b>세탁 중 빠져나온 염료가 물속을 떠다닙니다.</b>
+        <small>세탁 과정에서 일부 의류의 수용성 염료는 물속으로 빠져나오며, 이 염료가 다른 의류에 다시 흡착되면 '이염'이 발생하게 됩니다.</small>
+      </li>
+      <li>
+        <b>특수 가공된 시트가 염료를 선택적으로 포집합니다.</b>
+        <small>이염방지시트의 원단 표면은 염료를 끌어당기도록 특수 가공되어 있습니다. 세탁수 속을 떠다니는 염료를 효과적으로 끌어당겨 시트 표면에 흡착시킵니다.</small>
+      </li>
+      <li>
+        <b>포집된 염료를 붙잡아 재이염을 방지합니다.</b>
+        <small>흡착된 염료는 시트의 기능성 표면에 안정적으로 결합되어 세탁수로 다시 쉽게 방출되지 않습니다. 다른 의류에 염료가 재흡착되는 것을 줄여 이염을 효과적으로 방지합니다.</small>
+      </li>
+    </ol>
+    <p style="margin-top:10px;"><span class="tag file">파일</span> STEP 헤드·부연 수정본 원문 (어미만 종결형 통일 · 파일 지시 "이미지랑 같이 표현")</p>
+    <div class="imgph">이미지 영역 : 원리 3 STEP 도해 (물속 염료 → 시트 포집 → 결합 고정)</div>
+  </section>
+
+  <section style="background:#f7fafd;">
+    <h2>단순한 흡수 부직포가 아닙니다!</h2>
+    <p class="lead">
+      특수 가공된 시트가 물속을 떠다니는 염료를<br>
+      선택적으로 포집해 재이염을 줄여주는 기능성 시트입니다.
+    </p>
+    <p style="margin-top:8px;"><span class="tag file">파일</span> 부정형 정의 수정본 원문 그대로 : 세스코 자기정의 문법("~가 아닙니다")과 일치</p>
+
+    <div class="quote" style="margin-top:32px;"><p>수치로도 확인했어요. <span class="tag ai">AI : 연구소 발화 연결문</span></p></div>
+    <div class="numline">
+      <div><div class="v">91%</div><div class="k">이염방지효과 검증 <span class="tag file" style="margin-left:2px;">파일</span></div></div>
+    </div>
+    <ul class="foot">
+      <li>[ 이염방지효과 시험 ㅣ 시험방법 : {확정 필요} ㅣ 시험기관 : {확정 필요} ]</li>
+    </ul>
+    <div class="imgph" style="min-height:170px;">이미지 영역 : 이염방지효과 시험성적서 실물 (파일 지시 : "시험성적서로 보여주기")</div>
+
+    <h3 style="margin-top:36px;">한 번 붙잡은 염료는 놓치지 않습니다. <span class="tag ai">AI : STEP 3 "다시 쉽게 방출되지 않습니다" 재구성 헤드 (브리프 서브 3)</span></h3>
+    <p class="body">
+      흡착된 염료는 시트 표면에 안정적으로 결합되어<br>
+      세탁수로 다시 쉽게 방출되지 않습니다.
+      <span class="tag file">파일</span>
+    </p>
+    <div class="imgph" style="min-height:170px;">이미지 영역 : 흡착 시트를 눌러도 묻어나지 않는 시연 컷 + "한 번 흡착한 염료는 재배출하지 않아 2차 오염을 방지합니다" 자막<br>(파일 동봉 레퍼런스는 타사 제품 : 자사 촬영 교체 필요)</div>
+  </section>
+
+  <!-- ⑧ 챕터 2 : 까다로운 검증을 거쳐 (깃발 챕터) -->
+  <section id="c2">
+    <span class="chap">까다로운 검증을 거쳐</span>
+    <h2>염료뿐만 아니라<br>피부 자극을 유발할 수 있는<br>미세먼지와 형광증백제까지 흡착해 줍니다.</h2>
+    <p style="margin-top:8px;"><span class="tag file">파일</span> 원문(어미만 통일)</p>
+    <ul class="feat">
+      <li>미세먼지 흡착 성능 테스트 완료 <b>(시험성적서 실물 삽입)</b></li>
+      <li>세척 성능 테스트 완료 <b>(시험성적서 실물 삽입)</b></li>
+    </ul>
+    <p style="margin-top:8px;"><span class="tag file">파일</span> "ㄴ 미세먼지 흡착 성능 테스트 / 세척 성능 테스트 완료 (시험성적서로 보여주기)"</p>
+
+    <h3 style="margin-top:36px;">&lt; 형광증백제 흡착 테스트 &gt; 세탁 전 / 세탁 후</h3>
+    <p class="body">
+      흰 옷을 세탁했을 때 이염방지시트가<br>
+      형광증백제를 흡착한 모습을 UV 촬영으로 비교했습니다.
+      <span class="tag file">파일 : image4 구성 준용(제품명은 자사명으로 교체)</span>
+    </p>
+    <ul class="foot">
+      <li>* 이해를 돕기 위한 자사 실험입니다. (파일 원문 면책 : 유지 필수)</li>
+    </ul>
+    <div class="imgph" style="min-height:180px;">이미지 영역 : UV 조명 아래 세탁 전/후 비교 컷 (자사 촬영 교체)</div>
+
+    <!-- 새 옷 프로토콜 : 전환 트리거 -->
+    <div class="protocol">
+      <div class="eyebrow" style="margin-bottom:8px;">NEW CLOTHES</div>
+      <h3>새 옷은 빨고 입히세요.<br>그 첫 세탁에도 한 장 넣으세요.</h3>
+      <p class="body">
+        새 옷에서 처음 빠져나오는 형광증백제와 여분의 염료를<br>
+        시트가 붙잡습니다.
+      </p>
+      <p style="margin-top:10px;"><span class="tag ai">AI : 브리프 v2 전환 트리거. 근거 = 파일 페르소나 "새 옷의 형광증백제와 염료가 아이 옷으로 옮겨가는 것을 방지" + UV 자사 실험</span></p>
+      <ul class="foot">
+        <li>* 물 빠짐이 심한 새 옷·청바지는 흰 빨래와 분리 세탁을 권장드려요. 그 세탁에도 시트 한 장이면 빠져나온 염료까지 붙잡습니다. (사용상 주의사항 ④ 반영)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="background:#f7fafd;">
+    <div class="quote"><p>세탁 후 옷에 남는 것까지 생각했어요. <span class="tag ai">AI : 체크박스 요약문 "세탁 후 남을 수 있는 성분까지 고려" 재구성</span></p></div>
+    <h3 style="margin-top:16px;">파라벤 6종 · 가습기 살균제 이슈 성분 · 형광증백제<br>불검출 검증 <span class="tag file">파일</span></h3>
+    <ul class="foot">
+      <li>1) 파라벤 6종 : {성분명 열거 확정 필요 : 마이랩 통제어휘는 7종(p-하이드록시벤조익애씨드 포함). 본 제품 시험 기준으로 종수·목록 확정}</li>
+      <li>2) 가습기 살균제 이슈 성분 : {시험 종수 확정 필요 : 마이랩 통제어휘 4종 CMIT, MIT, BKC, DDAC}</li>
+      <li>3) 시험기관 : {확정 필요}</li>
+    </ul>
+    <div class="imgph" style="min-height:140px;">이미지 영역 : 불검출 시험성적서 실물</div>
+  </section>
+
+  <!-- 깃발 선언 : 피부 기준 검증 (브리프 v2 신설) -->
+  <section class="slate" id="flag">
+    <div class="eyebrow">CESCO STANDARD</div>
+    <h2>옷의 색만 지키는 시트가 아닙니다.<br>세탁 후 피부에 닿는 것까지<br>관리하는 시트입니다.</h2>
+    <p class="lead" style="margin-top:18px;">
+      이 시트는 세탁이 도는 내내 옷과 함께 구르고,<br>
+      그 옷은 세탁이 끝나면 피부에 닿습니다.<br>
+      그래서 잡는 것도, 남기지 않는 것도 검증했습니다.
+    </p>
+    <div class="numline">
+      <div><div class="v">91%</div><div class="k">잡는 힘 : 이염방지효과 검증*</div></div>
+      <div><div class="v">불검출</div><div class="k">남기는 성분 : 3개 성분군 검증**</div></div>
+    </div>
+    <p style="margin-top:14px;"><span class="tag ai">AI : 브리프 v2 깃발 선언 : 부정형 자기정의 + 숫자 페어링. 사실 근거는 전부 파일(91% · 불검출 · 흡착 범위)</span></p>
+    <ul class="foot">
+      <li>* 이염방지효과 시험성적서 기준. 시험기관·방법 {확정 필요}</li>
+      <li>** 불검출 범위 : 파라벤 6종 · 가습기 살균제 이슈 성분 · 형광증백제 (시험성적서 기준)</li>
+    </ul>
+  </section>
+
+  <!-- ⑨ 챕터 3 : 엄격한 기준으로 -->
+  <section id="c3">
+    <span class="chap">엄격한 기준으로</span>
+    <div class="quote"><p>원단이요? 세스코 생활과학 연구소에서<br>엄격한 기준으로 엄선했어요. <span class="tag ai">AI : 템플릿 ❝답변 공식("성분이요? ~처방했어요")의 원단 버전</span></p></div>
+    <p class="lead" style="margin-top:18px;">
+      매 세탁마다 버리는 물건이라, 소재를 더 따졌습니다.
+      <span class="tag ai">AI : 브리프 v2 서브(소모품의 소재 책임)</span>
+    </p>
+    <ul class="feat" style="margin-top:18px;">
+      <li>합성 플라스틱 없는 <b>비스코스 100% 원단</b> (섬유 혼용률 시험성적서 실물 삽입)</li>
+      <li>자연에서 생분해되는 <b>식물성 소재</b> (생분해도 테스트 완료 시험성적서 실물 삽입)</li>
+      <li><b>100% 국내 제조 상품</b></li>
+      <li>피부 자극에 예민한 <b>아이 옷까지 생각한 원재료</b></li>
+    </ul>
+    <p style="margin-top:10px;">
+      <span class="tag file">파일</span> 원단 3종 사실 + "피부나 자극에 예민한 아이 옷" 표현
+      <span class="tag ai">AI 권고 2건 : ① 원문 "중국 제조가 아닌"은 특정 국가 지목 회피 원칙에 따라 "100% 국내 제조"로 ② 원문 "걱정없이 사용할 수 있는"은 절대 안심 표현 회피 원칙에 따라 "아이 옷까지 생각한"으로 조정 : 원문 사용 여부 결정 필요</span>
+    </p>
+
+    <h3 style="margin-top:36px;">세스코 생활과학 연구소의 깐깐한 원단 설명서 <span class="tag ai">AI : 템플릿 "들어있어요/들어있지 않아요" 공식의 원단형 변형</span></h3>
+    <table class="ingr">
+      <tr><th>들어 있어요</th><td>비스코스 100% (식물성 유래 원단) · 100% 국내 제조</td></tr>
+      <tr><th>들어 있지 않아요<br>(불검출)</th><td>☐ 파라벤 6종¹⁾ ☐ 가습기 살균제 이슈 성분²⁾ ☐ 형광증백제</td></tr>
+    </table>
+    <ul class="foot"><li>1), 2) : 챕터 2 불검출 각주와 동일 (확정 필요)</li></ul>
+  </section>
+
+  <!-- 편의 USP 3종 (수정본 복귀 항목) -->
+  <section style="background:#f7fafd;" id="usp">
+    <div class="eyebrow">USABILITY</div>
+    <h2>세탁실에서의 1초를 아껴드리는<br>사용 편의성과 효율성</h2>
+    <p style="margin-bottom:6px;"><span class="tag file">파일</span> 수정본 신규 반영 : "이염방지시트를 쓰는 진짜 이유, 소비자 마음 깊은 곳까지 고민했습니다" 챕터의 USP 3종 (배치 순서는 브리프 v2 서열 : 빅사이즈 우선)</p>
+
+    <div class="usp">
+      <div class="card">
+        <p class="no">USP 01</p>
+        <h4>확실한 1장</h4>
+        <p>널찍한 빅사이즈라 빨래 양이 많아도 여러 장 겹쳐 쓸 필요 없이 한 장으로도 충분합니다.</p>
+      </div>
+      <div class="card">
+        <p class="no">USP 02</p>
+        <h4>손쉬운 원터치</h4>
+        <p>뜯어 쓰는 번거로움 없이, 톡- 뽑아서 던져 넣으면 끝!</p>
+      </div>
+      <div class="card">
+        <p class="no">USP 03</p>
+        <h4>슬림한 보관</h4>
+        <p>'두 번 접은 컴팩트 포장'으로 시트의 넓은 면적은 유지하고, 세탁실 공간은 최소한으로 차지합니다.</p>
+      </div>
+    </div>
+
+    <div class="sizecmp">
+      <div class="col">
+        <div class="rect r1"></div>
+        <p class="k">일반 이염시트</p>
+        <p class="v">110 × 280 mm</p>
+      </div>
+      <div class="col">
+        <div class="rect r2"></div>
+        <p class="k">세스코 마이랩 이염방지시트</p>
+        <p class="v">200 × 250 mm</p>
+      </div>
+    </div>
+    <ul class="foot">
+      <li>* 사이즈 비교 시각화는 파일 동봉 레퍼런스(image5) 구성 준용 : 타사 제품명 노출분은 자사 제작으로 교체</li>
+      <li>* 비교 대상은 "일반 이염시트"(익명·관행 단위)로만 표기 : 경쟁사 실명 금지 원칙</li>
+    </ul>
+  </section>
+
+  <!-- ⑩ 사용법 + 권장 사용량 -->
+  <section id="howto">
+    <div class="eyebrow">HOW TO USE</div>
+    <h3>효과적인 사용 방법 <span class="tag file">파일</span></h3>
+    <ul class="feat">
+      <li>일반/드럼 세탁기 겸용 제품입니다.</li>
+      <li>세탁물과 함께 잘 회전될 수 있도록 이염방지시트를 세탁물 사이에 펼쳐 넣어주세요.</li>
+      <li>세탁물의 양과 색상에 따라 시트 사용량을 조절해 주세요.</li>
+    </ul>
+
+    <h3 style="margin-top:36px;">권장 사용량 <span class="tag file">파일 : image1 원문</span></h3>
+    <div class="usage">
+      <div><div class="sw l"></div><p class="k">연한색 의류</p><p class="v">1~2매</p></div>
+      <div><div class="sw m"></div><p class="k">중간색 의류</p><p class="v">2~3매</p></div>
+      <div><div class="sw d"></div><p class="k">진한색 의류</p><p class="v">3~4매</p></div>
+    </div>
+
+    <p class="lead" style="margin-top:32px; font-weight:800; color:#0b2247;">
+      진한 색 옷이 섞이는 날, 새 옷이 들어가는 날.<br>
+      빨래 넣는 김에 한 장, 잊지 마세요.
+      <span class="tag ai">AI : 템플릿 루틴 공식(주기 행동 제안)의 세탁 버전 : 파일 권장 사용량·페르소나 근거</span>
+    </p>
+    <p class="lead" style="margin-top:18px; font-weight:800; color:#0b2247;">
+      모두가 이염방지시트를 고집하는 이유,<br>
+      직접 확인해 보세요.
+      <span class="tag file">파일</span>
+    </p>
+  </section>
+
+  <!-- 라인업 : 미적용 주석 -->
+  <section style="padding:28px 48px;">
+    <p class="body" style="color:#93a0ad;">
+      ⑪ 라인업 비교 섹션 : 미적용 (LAUNDRY CARE 단일 품목).
+      세탁 라인 확장 시 템플릿 ⑪ 공식(공통 검증 ✔ + 제품 카드)으로 추가.
+      <span class="tag tpl">템플릿</span>
+    </p>
+  </section>
+
+  <!-- ⑫ 법정 고정 블록 -->
+  <section id="legal" style="background:#f7fafd;">
+    <div class="eyebrow">NOTICE</div>
+    <h3>사용상 주의사항 <span class="tag file">파일 : 수정본에서 전문 확보 : 인허가 문안 그대로, 마케팅 윤문 금지</span></h3>
+    <div class="legal">
+      <ol>
+        <li>① 사용 전 반드시 의류의 세탁 방법, 물세탁 가능 여부를 확인해 주십시오.</li>
+        <li>② 본 제품은 세탁 보조용품으로 의류의 세탁 방법에 따라 세제와 함께 사용해 주십시오.</li>
+        <li>③ 세탁조 회전 시 염료 및 부유물을 흡수하므로 과도한 세탁물은 피해 주십시오.</li>
+        <li>④ 본 제품은 이염 방지를 100% 보장하지 않으므로, 흰색 제품은 단독 세탁하시고, 의류 최초 세탁 및 물 빠짐이 심한 의류(청바지 등)의 경우는 분리하여 세탁할 것을 권장해 드립니다.</li>
+        <li>⑤ 일회용 제품으로 재사용이 어려우며 건조기에는 넣지 말아 주십시오.</li>
+        <li>⑥ 시트는 세탁기의 강한 회전에 의해 염료가 흡착되는 원리로 손빨래 시 사용은 권장하지 않습니다.</li>
+        <li>⑦ 용도 외에는 사용하지 마세요.</li>
+        <li>⑧ 어린이 손이 닿지 않는 곳에 보관해 주십시오.</li>
+        <li>⑨ 직사광선을 피해 보관해 주십시오.</li>
+      </ol>
+    </div>
+    <ul class="foot">
+      <li>* 품목 분류(안전확인대상생활화학제품 여부) 확인 후 생활화학제품형 법정 블록(사용방법 → 사용상 주의사항 → 응급처치) 완성 : 응급처치 문안 {확정 필요}</li>
+    </ul>
+  </section>
+
+  <!-- 무이자할부 -->
+  <section>
+    <div class="imgph" style="min-height:100px;">[공통] 당월 무이자할부 행사안내 : 토스페이먼츠 제공 이미지 삽입 <span class="tag tpl" style="margin-left:8px;">템플릿</span></div>
+  </section>
+</div>
+
+<!-- 확정 필요 체크리스트 (기획 주석) -->
+<div class="anno" id="todo" style="margin-bottom:60px;">
+  <b>발행 전 확정 필요 9건</b> :
+  ① 정식 상품명 · 영문 프로그램명(LAUNDRY CARE PROGRAM 통제어휘 등록)
+  ② 매수 · 시트 규격 · 포장 단위 · 가격
+  ③ 91% 시험의 기관·방법
+  ④ 미세먼지 흡착·세척 성능 수치 인용 여부
+  ⑤ 파라벤 6종 목록(마이랩 통제어휘 7종과 대조)
+  ⑥ 가습기 살균제 이슈 성분 종수(통제어휘 4종 대조)
+  ⑦ 품목 분류·응급처치 문안(주의사항 9항은 확보 완료)
+  ⑧ 레퍼런스 이미지 자사 촬영 교체(타사 제품 노출분 전체)
+  ⑨ "알레르기·아토피" 표현 사용 여부(심의 근거 확보 시 반영) 및 "중국 제조가 아닌"·"걱정없이" 원문 유지 여부
+</div>
+
+</body>
+</html>
