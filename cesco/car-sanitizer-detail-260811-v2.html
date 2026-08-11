@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 마이랩 카케어 — 살균소독제 상세페이지 v2 (필수 관리 구조)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --dark:#171C24; --dark-deep:#0F131A;
+    --accent:#2F5BE7; --accent-soft:#EAF0FE;
+    --ink:#1A2330; --sub:#5A6675; --line:#E3E8EF;
+    --paper:#FFFFFF; --bg:#F5F7FA;
+    --chip-src:#8B96A3; --chip-ai:#E07B2A; --chip-tpl:#2E6DA8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:720px;margin:0 auto;background:var(--paper);box-shadow:0 0 40px rgba(15,19,26,.1);}
+  .chip{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;border-radius:4px;padding:2px 7px;vertical-align:middle;margin-left:6px;color:#fff;}
+  .chip.src{background:var(--chip-src);}
+  .chip.ai{background:var(--chip-ai);}
+  .chip.tpl{background:var(--chip-tpl);}
+  .fn{font-size:.72em;color:#A6B1BE;font-weight:700;vertical-align:super;}
+
+  /* ① 표지 : 카케어 다크 */
+  .cover{background:linear-gradient(180deg,var(--dark) 0%,var(--dark-deep) 100%);color:#fff;text-align:center;padding:74px 34px 66px;position:relative;}
+  .cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--accent);}
+  .cover .mylab{font-size:26px;font-weight:800;letter-spacing:.04em;}
+  .cover .mylab em{font-style:normal;font-weight:400;}
+  .cover .slogan{font-size:13.5px;color:#9AA7B8;margin-top:6px;font-weight:500;}
+  .cover .program{margin:36px 0 10px;font-size:13px;font-weight:800;letter-spacing:.3em;color:#6E8BE8;}
+  .cover h1{font-size:34px;font-weight:800;line-height:1.3;letter-spacing:-0.01em;}
+  .cover .meta{margin-top:14px;font-size:14px;color:#B7C1CE;font-weight:500;}
+  .cover .badge{
+    margin:38px auto 0;width:104px;height:104px;border-radius:50%;
+    border:2px solid rgba(255,255,255,.5);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-size:10px;letter-spacing:.12em;color:#C9D2DE;font-weight:700;
+  }
+  .cover .badge b{font-size:12.5px;letter-spacing:.06em;color:#fff;}
+
+  /* ② 패키지 전사 */
+  .package{background:var(--accent-soft);padding:54px 34px;}
+  .package .frame{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:32px 30px;position:relative;}
+  .package .frame::before{
+    content:"패키지 문구";position:absolute;top:-11px;left:22px;background:var(--dark);color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.1em;border-radius:5px;padding:3px 10px;
+  }
+  .package h3{font-size:16px;font-weight:800;margin-bottom:12px;color:var(--dark);}
+  .package p{font-size:14.5px;color:#38424F;}
+  .package ul{list-style:none;margin-top:14px;display:grid;gap:5px;}
+  .package li{font-size:14px;font-weight:600;color:var(--accent);}
+  .package li::before{content:"- ";}
+
+  /* ③ 스테이트먼트 */
+  .statement{text-align:center;padding:70px 34px;border-bottom:1px solid var(--line);}
+  .statement .band{display:inline-block;background:var(--dark);color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:6px 18px;margin-bottom:26px;}
+  .statement .mylab{font-size:22px;font-weight:800;color:var(--dark);margin-bottom:22px;}
+  .statement h2{font-size:26px;font-weight:800;line-height:1.4;margin-bottom:20px;}
+  .statement p{font-size:15px;color:var(--sub);margin-bottom:16px;}
+  .statement .close{font-size:15px;font-weight:700;color:var(--dark);}
+
+  /* ④ 제안문 */
+  .proposal{padding:64px 34px;text-align:center;border-bottom:1px solid var(--line);}
+  .proposal .lab{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--accent);margin-bottom:18px;}
+  .proposal p{font-size:17px;font-weight:600;line-height:1.85;}
+  .proposal p b{color:var(--accent);}
+
+  /* ⑤ 3연 체크박스 */
+  .checks{padding:64px 34px;border-bottom:1px solid var(--line);}
+  .checks .lead{text-align:center;font-size:21px;font-weight:800;line-height:1.5;margin-bottom:8px;}
+  .checks .lead .hl{color:var(--accent);}
+  .checks .lead-sub{text-align:center;font-size:20px;font-weight:800;color:var(--dark);margin-bottom:34px;}
+  .check-item{border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:12px;}
+  .check-item h3{font-size:16.5px;font-weight:800;color:var(--dark);margin-bottom:6px;display:flex;align-items:center;gap:9px;}
+  .check-item h3 .bx{flex:none;width:22px;height:22px;border-radius:6px;background:var(--dark);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;}
+  .check-item p{font-size:14.5px;color:var(--sub);}
+  .checks .foot{font-size:12px;color:#A6B1BE;margin-top:12px;}
+
+  /* ⑥ 아이콘 */
+  .icons{padding:60px 34px;border-bottom:1px solid var(--line);}
+  .sec-label{font-size:11px;font-weight:800;letter-spacing:.18em;color:#A6B1BE;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .sec-label::before{content:"";width:18px;height:2px;background:#C9D4E0;}
+  .icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .icon-cell{background:var(--accent-soft);border-radius:14px;padding:22px 14px;text-align:center;}
+  .icon-cell .pic{font-size:26px;margin-bottom:10px;}
+  .icon-cell p{font-size:13px;font-weight:700;color:var(--dark);line-height:1.5;}
+  .icons .foot{font-size:12px;color:#A6B1BE;margin-top:14px;line-height:1.7;}
+
+  /* 본문 챕터 */
+  .chapter{padding:66px 34px;border-bottom:1px solid var(--line);}
+  .num-tag{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:800;color:var(--accent);margin-bottom:14px;letter-spacing:.06em;}
+  .num-tag .check{width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;line-height:1;}
+  .chapter h2{font-size:clamp(22px,4.2vw,29px);font-weight:800;line-height:1.35;margin-bottom:10px;letter-spacing:-0.015em;}
+  .quote{font-size:15px;color:var(--sub);font-weight:500;padding-left:14px;border-left:3px solid var(--accent);margin:16px 0 30px;}
+  .doubt{text-align:center;font-size:19px;font-weight:800;line-height:1.55;margin:34px 0 18px;}
+  .doubt .q{color:var(--accent);}
+  .answer{background:var(--accent-soft);border-radius:14px;padding:24px 26px;margin-bottom:18px;}
+  .answer .mark{font-size:26px;color:var(--accent);font-weight:800;line-height:1;margin-bottom:8px;}
+  .answer h4{font-size:16.5px;font-weight:800;color:var(--dark);margin-bottom:8px;}
+  .answer p{font-size:14.5px;color:#38424F;}
+  .body-txt{font-size:15.5px;color:#38424F;margin-bottom:14px;}
+  .body-txt strong{font-weight:700;color:var(--ink);}
+
+  .scene-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px;}
+  .scene{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .scene .t{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.06em;margin-bottom:6px;}
+  .scene p{font-size:14px;color:#38424F;font-weight:600;}
+
+  .stat-band{background:var(--paper);border:2px solid var(--accent);border-radius:18px;text-align:center;padding:34px 24px;margin:28px 0 10px;box-shadow:0 14px 34px -18px rgba(47,91,231,.3);}
+  .stat-band .pct{font-size:clamp(34px,7vw,48px);font-weight:800;color:var(--accent);letter-spacing:-0.02em;line-height:1.15;}
+  .stat-band .pct em{font-style:normal;font-size:.5em;}
+  .stat-band p{font-size:15px;color:var(--sub);font-weight:600;margin-top:8px;}
+  .cert-cap{font-size:12.5px;color:#8B96A3;background:var(--bg);border:1px dashed #C9D4E0;border-radius:10px;padding:12px 16px;margin-top:10px;}
+
+  .feat-list{display:grid;gap:12px;margin-top:24px;}
+  .feat{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .feat .ico{flex:none;width:38px;height:38px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:19px;}
+  .feat h3{font-size:15.5px;font-weight:800;margin-bottom:3px;}
+  .feat p{font-size:14.5px;color:var(--sub);}
+  .feat p b{color:var(--ink);font-weight:700;}
+
+  /* 33 브릿지 */
+  .bridge{background:var(--dark);color:#fff;padding:64px 34px;text-align:center;}
+  .bridge .n33{font-size:13px;font-weight:800;letter-spacing:.24em;color:#6E8BE8;margin-bottom:16px;}
+  .bridge h2{font-size:22px;font-weight:800;line-height:1.5;margin-bottom:14px;color:#fff;}
+  .bridge p{font-size:14.5px;color:#B7C1CE;margin-bottom:8px;}
+  .bridge .pts{display:flex;justify-content:center;gap:14px;margin:26px 0;}
+  .bridge .pt{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:18px 16px;min-width:96px;}
+  .bridge .pt .num{font-size:26px;font-weight:800;color:#fff;}
+  .bridge .pt .lbl{font-size:12px;color:#9AA7B8;margin-top:4px;font-weight:600;}
+  .bridge .pt.hot{background:var(--accent);border-color:var(--accent);}
+  .bridge .pt.hot .lbl{color:#DCE5FB;}
+  .bridge .this{margin-top:10px;font-size:15px;font-weight:700;color:#fff;}
+  .bridge .this b{color:#8FA9F2;}
+
+  /* 사용법 */
+  .steps{display:grid;gap:10px;margin:24px 0;}
+  .step{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:var(--paper);}
+  .step .no{flex:none;font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:4px 9px;margin-top:2px;white-space:nowrap;}
+  .step p{font-size:14.5px;color:#38424F;}
+  .tips{margin-top:22px;display:grid;gap:10px;}
+  .tip{display:flex;gap:12px;align-items:flex-start;background:var(--accent-soft);border-radius:12px;padding:16px 20px;}
+  .tip .h{flex:none;font-size:12.5px;font-weight:800;color:var(--accent);white-space:nowrap;margin-top:2px;}
+  .tip p{font-size:14px;color:#38424F;}
+
+  /* 라인업 */
+  .lineup{padding:64px 34px;border-bottom:1px solid var(--line);}
+  .lineup h2{font-size:21px;font-weight:800;text-align:center;line-height:1.5;margin-bottom:6px;}
+  .lineup .sub{text-align:center;font-size:14px;color:var(--sub);margin-bottom:28px;}
+  .lu-row{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:10px;}
+  .lu-row.me{border-color:var(--accent);background:var(--accent-soft);}
+  .lu-row .no{flex:none;width:30px;height:30px;border-radius:9px;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;}
+  .lu-row.me .no{background:var(--accent);}
+  .lu-row .t{font-size:13px;color:var(--sub);font-weight:600;margin-bottom:2px;}
+  .lu-row h3{font-size:15px;font-weight:800;color:var(--dark);}
+  .lu-row .badge-me{margin-left:8px;font-size:11px;font-weight:800;color:var(--accent);}
+
+  /* NOTICE */
+  .legal{padding:64px 34px 40px;}
+  .legal h2{font-size:20px;font-weight:800;text-align:center;margin-bottom:30px;}
+  .legal h3{font-size:15px;font-weight:800;color:var(--dark);margin:26px 0 12px;}
+  .legal li{list-style:none;font-size:13.5px;color:var(--sub);margin-bottom:8px;}
+  .legal li::before{content:"· ";color:var(--accent);font-weight:800;}
+  .pay{margin:20px 34px 0;background:var(--bg);border:1px dashed #C9D4E0;border-radius:12px;padding:22px;text-align:center;font-size:13px;color:#8B96A3;font-weight:600;}
+  .footnotes{padding:34px 34px 46px;font-size:12.5px;color:#8B96A3;line-height:1.8;}
+  .footnotes p{margin-bottom:4px;}
+  .memo{margin:0 34px 60px;border:2px dashed #E8B87F;border-radius:14px;padding:24px;background:#FFF9F2;}
+  .memo h4{font-size:13px;font-weight:800;color:var(--chip-ai);margin-bottom:12px;}
+  .memo li{font-size:13px;color:#6B5F52;margin-bottom:7px;margin-left:16px;line-height:1.6;}
+
+  @media (max-width:560px){
+    .cover,.package,.statement,.proposal,.checks,.icons,.chapter,.bridge,.lineup,.legal{padding-left:20px;padding-right:20px;}
+    .icon-grid{grid-template-columns:1fr 1fr;}
+    .scene-grid{grid-template-columns:1fr;}
+    .bridge .pts{flex-wrap:wrap;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ① 표지 -->
+  <header class="cover">
+    <div class="mylab">CESCO <em>Mylab</em></div>
+    <div class="slogan">세스코 과학연구소를 내 손 안으로</div>
+    <div class="program">CAR CARE PROGRAM</div>
+    <h1>세스코 마이랩<br>살균소독제</h1>
+    <div class="meta">500 ml ㅣ 분무형 ㅣ 생활시설 표면 살균·살바이러스용</div>
+    <div class="badge"><span>CESCO SCIENCE</span><b>생활과학 연구소</b><span>LABORATORY</span></div>
+  </header>
+
+  <!-- ② 패키지 문구 전사 -->
+  <section class="package">
+    <div class="frame">
+      <h3>세스코 마이랩 살균소독제</h3>
+      <p>{패키지·라벨 제안문 원문 전사 자리 : 라벨 파일(20260721_살균소독제_500ml_라벨) 원문 수령 후 그대로 기입} <span class="chip src">가이드</span></p>
+      <ul>
+        <li>세균 14종 + 바이러스 2종, 16종 감소 효과<span class="fn">1</span></li>
+        <li>환경부 살생물제품 승인번호 0125-0038</li>
+        <li>비다공성 표면 사용<span class="fn">2</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ③ 브랜드 스테이트먼트 (고정 블록, 무수정) -->
+  <section class="statement">
+    <div class="band">세스코가 만든 환경위생 솔루션 <span class="chip tpl">템플릿</span></div>
+    <div class="mylab">CESCO Mylab</div>
+    <h2>누구나. 집에서. 스스로.</h2>
+    <p>전문가 수준의 위생을 누릴 수 있어야 한다는<br>세스코의 생각이 세스코 마이랩으로 탄생했습니다.</p>
+    <p>성분 하나까지 엄격한 기준으로 고르고<br>누구나 전문가처럼 제품을 사용할 수 있도록<br>제품을 사용하는 올바른 방법까지 담았습니다.</p>
+    <p class="close">세스코 과학연구소의 노하우를<br>한 통에 통째로 담은<br><br>CESCO Mylab</p>
+  </section>
+
+  <!-- ④ 연구소 제안문 -->
+  <section class="proposal">
+    <div class="lab">CESCO SCIENCE · 생활과학 연구소</div>
+    <p>세스코 생활과학 연구소에서<br>
+    하루에도 몇 번씩 손이 닿는 <b>핸들</b>부터<br>
+    <b>기어</b>와 <b>도어 손잡이</b>까지<br>
+    검증된 범위로 살균해 주는<br>
+    살균소독제를 제안합니다. <span class="chip ai">AI</span></p>
+  </section>
+
+  <!-- ⑤ 3연 체크박스 -->
+  <section class="checks">
+    <div class="lead">보이는 먼지는 닦았는데<br><span class="hl">보이지 않는 위생이 신경 쓰인다면,</span></div>
+    <div class="lead-sub">마이랩으로 해결하세요! <span class="chip tpl">템플릿</span></div>
+    <div class="check-item">
+      <h3><span class="bx">✓</span>엄격한 기준으로</h3>
+      <p>하루에도 몇 번씩 손이 닿는 핸들·기어·도어 손잡이, 반복 접촉 표면 집중 살균 <span class="chip ai">AI</span></p>
+    </div>
+    <div class="check-item">
+      <h3><span class="bx">✓</span>까다로운 검증을 거쳐</h3>
+      <p>환경부 살생물제품 승인(승인번호 0125-0038), 표시사항 기준으로 사용 범위까지 명확하게 <span class="chip src">가이드</span></p>
+    </div>
+    <div class="check-item">
+      <h3><span class="bx">✓</span>강력하게 기능하도록</h3>
+      <p>세균 14종 + 바이러스 2종, 총 16종 세균·바이러스 감소 효과<span class="fn">1</span> <span class="chip src">가이드</span></p>
+    </div>
+  </section>
+
+  <!-- ⑥ 아이콘 6종 -->
+  <section class="icons">
+    <div class="sec-label">한눈에 보기 <span class="chip ai">AI</span></div>
+    <div class="icon-grid">
+      <div class="icon-cell"><div class="pic">🦠</div><p>세균 14종<br>감소 효과<span class="fn">1</span></p></div>
+      <div class="icon-cell"><div class="pic">🛡️</div><p>바이러스 2종<br>감소 효과<span class="fn">1</span></p></div>
+      <div class="icon-cell"><div class="pic">✅</div><p>환경부 살생물제품<br>승인 0125-0038</p></div>
+      <div class="icon-cell"><div class="pic">🚗</div><p>핸들·기어·도어<br>접촉 표면 집중</p></div>
+      <div class="icon-cell"><div class="pic">💨</div><p>분무형 500ml<br>간편 사용</p></div>
+      <div class="icon-cell"><div class="pic">📋</div><p>비다공성 표면<br>표시사항 기준<span class="fn">2</span></p></div>
+    </div>
+    <p class="foot">1) 2) 각주는 페이지 하단 참조</p>
+  </section>
+
+  <!-- 본문 1 : 생활 장면 (REAL LIFE SITUATION) -->
+  <section class="chapter">
+    <div class="num-tag"><span class="check">✓</span>이런 순간</div>
+    <h2>이 핸들,<br>오늘 몇 번 잡았을까요?</h2>
+    <p class="quote">"매일 잡는 곳인데 마지막으로 닦은 건 언제였지?" <span class="chip src">가이드</span></p>
+    <div class="scene-grid">
+      <div class="scene"><div class="t">매일</div><p>하루에도 여러 번 잡는 핸들과 기어가 문득 신경 쓰일 때</p></div>
+      <div class="scene"><div class="t">가족</div><p>가족이 함께 쓰는 차에서 손이 자주 닿는 곳을 따로 관리하고 싶을 때</p></div>
+      <div class="scene"><div class="t">공유</div><p>여러 사람이 탔던 차량을 사용한 뒤 접촉 표면이 찝찝할 때</p></div>
+      <div class="scene"><div class="t">여행 뒤</div><p>장거리 운전이나 여행 뒤 차량 내부를 한 번 정리하고 싶을 때</p></div>
+    </div>
+  </section>
+
+  <!-- 본문 2 : 원인 + USP/Proof -->
+  <section class="chapter">
+    <div class="num-tag"><span class="check">✓</span>왜 관리가 필요할까요</div>
+    <h2>한 번 닦아도,<br>운전하는 순간 다시 시작돼요</h2>
+    <div class="steps">
+      <div class="step"><span class="no">반복</span>
+        <div><p style="font-size:14.5px;color:#38424F;">핸들·기어·도어 손잡이는 운전할 때마다 다시 손이 닿아요. 한 번 닦아도, 차를 쓰는 순간 반복 접촉이 다시 시작돼요. <span class="chip src">가이드</span></p></div>
+      </div>
+      <div class="step"><span class="no">한계</span>
+        <div><p style="font-size:14.5px;color:#38424F;">먼지나 손자국은 눈에 보이지만, 세균과 바이러스는 눈으로 확인할 수 없어요. 닦는 것만으로는 위생 상태를 알기 어려워요. <span class="chip src">가이드</span></p></div>
+      </div>
+      <div class="step"><span class="no">그래서</span>
+        <div><p style="font-size:14.5px;color:#38424F;"><b>반복해서 손이 닿는 곳은, 반복해서 위생 관리가 필요해요.</b> <span class="chip src">가이드</span></p></div>
+      </div>
+    </div>
+
+    <div class="doubt"><span class="q">그럼, 뭘 기준으로<br>믿고 쓰면 될까?</span> <span class="chip ai">AI</span></div>
+    <div class="answer">
+      <div class="mark">❝</div>
+      <h4>범위요? 숫자로 확인하고 쓰세요.</h4>
+      <p>세스코 생활과학 연구소는 '살균이 됐다'는 말 대신,
+      어떤 세균과 바이러스가 얼마나 줄었는지 검증된 범위를 그대로 보여드려요. <span class="chip ai">AI</span></p>
+    </div>
+
+    <div class="stat-band">
+      <div class="pct">14<em>종</em> + 2<em>종</em></div>
+      <p>세균 14종 + 바이러스 2종 : 총 16종 세균·바이러스 감소 효과<span class="fn">1</span></p>
+    </div>
+    <p class="cert-cap">바이러스 : Influenza A virus H1N1, SARS-CoV-2 XBB.1.5 ㅣ [시험 근거 실물 이미지 자리 : 표시사항·성적서 {확인}]</p>
+
+    <div class="feat-list">
+      <div class="feat">
+        <div class="ico">✅</div>
+        <div>
+          <h3>환경부 살생물제품 승인</h3>
+          <p>승인번호 <b>0125-0038</b> : 생활시설 표면 살균·살바이러스용으로 승인받았어요 <span class="chip src">가이드</span></p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="ico">🎯</div>
+        <div>
+          <h3>접촉 표면 집중 관리</h3>
+          <p>핸들·기어·도어 손잡이·대시보드처럼 <b>손이 반복해서 닿는 자리</b>에 쓰는 제품이에요 <span class="chip src">가이드</span></p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="ico">📋</div>
+        <div>
+          <h3>사용 범위도 표시사항 기준</h3>
+          <p>사용 대상은 표시사항 기준 <b>비다공성 표면</b>이에요. 쓸 수 있는 곳과 아닌 곳을 구분해 안내해요<span class="fn">2</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥' 카케어 브릿지 : 33 POINT -->
+  <section class="bridge">
+    <div class="n33">CESCO CAR CARE · 33 HYGIENE POINTS</div>
+    <h2>세스코는 차 안을<br>33개의 위생 관리 포인트로 나눠 살펴봤습니다 <span class="chip src">가이드</span></h2>
+    <p>손이 닿는 곳, 오염이 쌓이는 곳, 냄새가 배는 곳마다<br>관리해야 하는 이유가 다르기 때문입니다.</p>
+    <div class="pts">
+      <div class="pt hot"><div class="num">13</div><div class="lbl">손이 닿는 곳</div></div>
+      <div class="pt"><div class="num">11</div><div class="lbl">오염이 쌓이는 곳</div></div>
+      <div class="pt"><div class="num">9</div><div class="lbl">냄새가 남는 곳</div></div>
+    </div>
+    <p class="this">이 제품은 그중 <b>손이 자주 닿는 고오염 접촉 구역 13 Point</b>를 관리합니다.</p>
+  </section>
+
+  <!-- 사용법 -->
+  <section class="chapter">
+    <div class="num-tag"><span class="check">✓</span>사용 방법</div>
+    <h2>신호 대기만큼<br>짧게 끝나요</h2>
+    <div class="steps">
+      <div class="step"><span class="no">STEP 1</span><p>핸들·기어·도어 손잡이 등 비다공성 표면에 20~30cm 거리에서 분사해 주세요. {라벨 용법 확인} <span class="chip ai">AI</span></p></div>
+      <div class="step"><span class="no">STEP 2</span><p>마른 천으로 고르게 닦아 주세요. {라벨 용법 확인} <span class="chip ai">AI</span></p></div>
+      <div class="step"><span class="no">STEP 3</span><p>여러 사람이 탄 날, 장거리 운전 뒤에는 한 번 더 관리해 주세요. <span class="chip ai">AI</span></p></div>
+    </div>
+    <div class="tips">
+      <div class="tip"><span class="h">#TIP</span><p>가죽·직물 등 다공성 소재는 표시사항의 사용 가능 범위를 먼저 확인해 주세요.<span class="fn">2</span></p></div>
+    </div>
+  </section>
+
+  <!-- ⑪ 라인업 -->
+  <section class="lineup">
+    <h2>차 안 어디를,<br>무엇으로 관리하면 좋을까요? <span class="chip src">가이드</span></h2>
+    <p class="sub">손이 닿는 곳, 냄새가 배는 곳, 습기가 머무는 곳.<br>차 안은 자리마다 생기는 문제가 다릅니다.</p>
+    <div class="lu-row">
+      <div class="no">01</div>
+      <div><div class="t">환기해도 시트에 남아 있는 담배 냄새·체취</div><h3>마스터 차량용 전문탈취제</h3></div>
+    </div>
+    <div class="lu-row">
+      <div class="no">02</div>
+      <div><div class="t">에어컨을 켤 때 올라오는 냄새, 손이 닿지 않는 공조 안쪽</div><h3>마스터 차량용 탈취캔</h3></div>
+    </div>
+    <div class="lu-row me">
+      <div class="no">03</div>
+      <div><div class="t">하루에도 몇 번씩 손이 닿는 핸들·기어·도어 손잡이</div><h3>살균소독제<span class="badge-me">← 이 페이지</span></h3></div>
+    </div>
+    <div class="lu-row">
+      <div class="no">04</div>
+      <div><div class="t">컵홀더의 얼룩, 대시보드의 먼지, 디스플레이의 손자국</div><h3>다용도 살균클리닝 티슈</h3></div>
+    </div>
+    <div class="lu-row">
+      <div class="no">05</div>
+      <div><div class="t">비 오는 날 젖은 신발과 우산 뒤, 차 안에 남은 습기</div><h3>슬림형 탈취제습제</h3></div>
+    </div>
+  </section>
+
+  <!-- ⑫ NOTICE -->
+  <section class="legal">
+    <h2>사용 전 꼭 확인해 주세요 <span class="chip ai">AI</span></h2>
+    <h3>사용 조건·주의사항</h3>
+    <ul>
+      <li>{패키지 표시사항 원문 수령 후 전문 그대로 기입 : 용법·용량, 사용상 주의사항, 응급처치, 보관방법}</li>
+      <li>사용 대상은 표시사항 기준 비다공성 표면입니다.</li>
+      <li>본 제품은 생활시설 표면 살균·살바이러스용입니다.</li>
+    </ul>
+  </section>
+
+  <div class="pay">[공통] 당월 무이자할부 행사안내 : 토스페이먼츠 제공 이미지 자리 <span class="chip tpl">템플릿</span></div>
+
+  <footer class="footnotes">
+    <p>1) 세균 14종 + 바이러스 2종(Influenza A virus H1N1, SARS-CoV-2 XBB.1.5) 감소 효과 : 패키지·표시사항 확인 근거(근거 등급 A). 시험기관·시험조건 {표시사항 원문 확인 후 병기}. 실제 사용 환경에 따라 결과는 다를 수 있습니다.</p>
+    <p>2) 사용 대상은 표시사항 기준 비다공성 표면입니다. 사용 가능 소재는 최종 표시사항 기준으로 확인해 주십시오.</p>
+    <p>※ 환경부 살생물제품 승인번호 0125-0038</p>
+  </footer>
+
+  <div class="memo">
+    <h4>내부 검토 메모 (전달 전 삭제)</h4>
+    <ul>
+      <li><b>v2</b> : 마케팅 가이드 개정판 반영. '왜 그럴까요'를 필수 관리 논리 체인(반복 발생 → 확인 한계 → 반복 관리 필요)으로 재구성(§0-3 '비타민이 아니라 필수 관리'). 편의 소구보다 필수성 논리 우선.</li>
+      <li><b>골격</b> : 마이랩 소비재형 12섹션(표지→패키지 전사→스테이트먼트→제안문→3연 체크박스→아이콘→본문→33 브릿지→사용법→라인업→NOTICE→무이자) + 카케어 가이드 템플릿 A 흐름(Situation→Why→USP/Proof→Bridge→Line-up)을 본문 챕터에 배치.</li>
+      <li><b>화자</b> : 연구소 의인화 ~해요체(마이랩 표준). 격 상승 지점(스테이트먼트·33 브릿지)만 ~합니다.</li>
+      <li><b>근거 등급 준수</b> : A등급(14+2종·승인번호·비다공성)만 본문 주장. B등급(유해물질 불검출 성적서·피부자극 시험)은 표현 범위 확인 전이라 미사용(가이드 4-1 지침).</li>
+      <li><b>보류·확인</b> : 패키지 제안문 원문(라벨 pdf 미수령), 용법·용량 상세, 담당 연구소명(생활과학 연구소 가안), 성분 정보, 판매가. 사용법 STEP은 AI 가안이므로 라벨 원문으로 교체 필요.</li>
+      <li><b>33 Point</b> : 가이드 지침대로 개별 페이지에서는 브릿지 1개 섹션으로 짧게만 사용(메인 USP 아님).</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
