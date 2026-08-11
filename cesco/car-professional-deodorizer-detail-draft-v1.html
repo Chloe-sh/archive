@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세스코 마이랩 차량용 전문탈취제 - 상세페이지 목업 v1</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --ink:#161B26;          /* graphite */
+    --ink-soft:#4C5568;
+    --navy:#0B1E45;
+    --steel:#3E6FB0;        /* steel blue accent */
+    --steel-deep:#2C4F84;
+    --ice:#EDF3FA;
+    --mist:#F5F6F8;
+    --line:#DFE3EA;
+    --paper:#FFFFFF;
+    --note:#8A6D00; --note-bg:#FFF7DC; --note-line:#E4C65B;
+    --maxw:720px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    color:var(--ink); background:var(--mist); font-size:16px; line-height:1.7; word-break:keep-all;
+  }
+  .page{max-width:var(--maxw); margin:0 auto; background:var(--paper); box-shadow:0 0 40px rgba(11,30,69,.07);}
+  section{padding:60px 26px;}
+  sup{color:var(--steel-deep); font-weight:700; font-size:.64em;}
+  h2{font-size:24px; font-weight:800; line-height:1.45; letter-spacing:-.015em; color:var(--navy);}
+  .eyebrow{font-size:11.5px; letter-spacing:.18em; font-weight:700; color:var(--steel-deep); text-transform:uppercase; margin-bottom:12px;}
+  .lead{color:var(--ink-soft); font-size:15px; line-height:1.85;}
+  .block-tag{
+    position:absolute; top:10px; left:10px; z-index:5; font-size:10.5px; font-weight:600;
+    background:rgba(11,30,69,.85); color:#fff; padding:3px 9px; border-radius:3px; letter-spacing:.04em;
+  }
+  .sec-wrap{position:relative;}
+  .mock-note{
+    margin:18px 0 0; padding:11px 14px; border:1.5px dashed var(--note-line);
+    background:var(--note-bg); color:var(--note); font-size:12.5px; line-height:1.6; border-radius:6px;
+  }
+  .mock-banner{background:var(--navy); color:#fff; font-size:13px; text-align:center; padding:10px 16px;}
+  .mock-banner strong{color:#FFD766;}
+
+  /* ①-A 도입부 3안 */
+  .intro-variant{border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:18px;}
+  .intro-variant .v-tag{
+    display:flex; justify-content:space-between; align-items:center;
+    background:var(--mist); padding:8px 16px; font-size:11.5px; font-weight:700; color:var(--ink-soft);
+    border-bottom:1px solid var(--line); letter-spacing:.03em;
+  }
+  .v-tag .pick{color:#fff; background:var(--steel); padding:2px 10px; border-radius:100px; font-size:10.5px;}
+  .v-tag .hold{color:var(--note); background:var(--note-bg); padding:2px 10px; border-radius:100px; font-size:10.5px;}
+  .intro-body{padding:44px 30px 40px; text-align:center;}
+  .intro-body.dark{background:linear-gradient(178deg,#0B1E45 0%, #14305F 70%, #1B3B70 100%); color:#fff;}
+  .intro-body.dark h1{color:#fff;}
+  .intro-body h1{font-size:27px; font-weight:800; line-height:1.5; letter-spacing:-.02em; color:var(--navy);}
+  .intro-body .i-sub{margin-top:20px; font-size:15px; line-height:1.95;}
+  .intro-body.dark .i-sub{color:#D5E0F5;}
+  .intro-body:not(.dark) .i-sub{color:var(--ink-soft);}
+  .intro-body .i-close{margin-top:20px; font-size:15.5px; font-weight:700;}
+  .intro-body.dark .i-close{color:#fff;}
+  .zero-label{
+    display:inline-block; margin-top:26px; padding:11px 26px; border:1.5px solid currentColor;
+    font-size:16px; font-weight:800; letter-spacing:.02em;
+  }
+  .intro-body.dark .zero-label{color:#fff;}
+  .intro-body:not(.dark) .zero-label{color:var(--navy);}
+  .car-en{display:block; margin-top:12px; font-size:11.5px; letter-spacing:.3em; font-weight:700;}
+  .intro-body.dark .car-en{color:#9FB6E2;}
+  .intro-body:not(.dark) .car-en{color:var(--steel-deep);}
+  .zero-fn{margin-top:16px; font-size:10.5px; line-height:1.6;}
+  .intro-body.dark .zero-fn{color:#8FA4CC;}
+  .intro-body:not(.dark) .zero-fn{color:#98A0B2;}
+
+  /* ①-B 표지 */
+  .cover{text-align:center; background:var(--paper);}
+  .cover .c-brand{font-size:15px; font-weight:800; letter-spacing:.08em; color:var(--navy);}
+  .cover .c-slogan{font-size:12.5px; color:var(--ink-soft); margin-top:4px;}
+  .cover .c-program{margin-top:26px; font-size:12px; letter-spacing:.34em; color:var(--steel-deep); font-weight:700;}
+  .cover .c-name{font-size:30px; font-weight:800; color:var(--navy); margin-top:8px; letter-spacing:-.01em;}
+  .cover .c-spec{margin-top:12px; font-size:13.5px; color:var(--ink-soft);}
+  .cover .lab-badge{
+    width:96px; height:96px; margin:28px auto 0; border-radius:50%; border:1.6px solid var(--navy);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+    font-size:8.5px; letter-spacing:.12em; color:var(--navy); font-weight:700;
+  }
+  .lab-badge b{font-size:11px; letter-spacing:.04em;}
+  .cover .prod-ph{
+    margin:30px auto 0; max-width:380px; aspect-ratio:1/1.15; border-radius:14px;
+    background:linear-gradient(180deg,var(--ice),#fff); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:12.5px; line-height:1.7; padding:20px; text-align:center;
+  }
+
+  /* ② 패키지 전사 */
+  .pack{background:var(--mist);}
+  .pack-frame{
+    background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:34px 30px;
+    text-align:center; position:relative;
+  }
+  .pack-frame::before{
+    content:"PACKAGE"; position:absolute; top:12px; left:16px; font-size:9.5px; letter-spacing:.2em; color:#B6BDCB; font-weight:700;
+  }
+  .pack-frame .p-name{font-size:14px; font-weight:800; color:var(--navy);}
+  .pack-frame .p-propose{margin-top:14px; font-size:15.5px; line-height:1.95; color:var(--ink);}
+  .pack-frame .p-propose b{color:var(--navy);}
+  .pack-frame ul{margin-top:18px; display:inline-block; text-align:left; list-style:none;}
+  .pack-frame li{font-size:13.5px; color:var(--ink-soft); padding:3px 0;}
+  .pack-frame li::before{content:"—"; margin-right:8px; color:var(--steel);}
+
+  /* ③ 스테이트먼트 */
+  .statement{background:var(--navy); color:#fff; text-align:center;}
+  .statement .s-band{display:inline-block; font-size:11.5px; letter-spacing:.1em; border:1px solid rgba(255,255,255,.4); padding:4px 14px; border-radius:100px; color:#C9D6F0;}
+  .statement .s-brand{font-size:18px; font-weight:800; letter-spacing:.08em; margin-top:24px;}
+  .statement .s-key{font-size:25px; font-weight:800; margin-top:18px; letter-spacing:.02em;}
+  .statement p{margin-top:18px; font-size:14.5px; color:#D5E0F5; line-height:1.95;}
+  .statement .s-final{margin-top:22px; font-size:16px; font-weight:700; color:#fff;}
+
+  /* ⑤ 체크박스 3연 */
+  .checks{background:var(--paper); text-align:center;}
+  .checks .worry{font-size:20px; font-weight:800; color:var(--navy); line-height:1.5;}
+  .checks .solve{font-size:20px; font-weight:800; color:var(--steel-deep); margin-top:2px;}
+  .check-list{max-width:520px; margin:30px auto 0; text-align:left;}
+  .check-item{padding:18px 0; border-bottom:1px solid var(--line);}
+  .check-item .ck-head{font-size:16.5px; font-weight:800; color:var(--navy);}
+  .check-item .ck-head::before{content:"☑"; color:var(--steel); margin-right:9px;}
+  .check-item p{margin-top:6px; font-size:13.5px; color:var(--ink-soft); padding-left:27px; line-height:1.7;}
+  .checks .fn{margin-top:16px; font-size:11px; color:#98A0B2;}
+
+  /* ⑥ 아이콘 6종 */
+  .icons6{background:var(--mist);}
+  .icon-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .icon-cell{
+    background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:20px 10px; text-align:center;
+  }
+  .icon-cell .ic{
+    width:46px; height:46px; margin:0 auto 10px; border-radius:50%; border:1.5px solid var(--steel);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .icon-cell svg{width:22px; height:22px; stroke:var(--steel-deep); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;}
+  .icon-cell .t{font-size:12.5px; font-weight:700; color:var(--navy); line-height:1.5;}
+  .fn-block{margin-top:16px; font-size:10.5px; color:#8B93A6; line-height:1.7;}
+
+  /* POINT 공통 */
+  .point{background:var(--paper);}
+  .point.alt{background:var(--mist);}
+  .pt-no{font-size:12px; letter-spacing:.22em; color:var(--steel-deep); font-weight:800;}
+  .pt-no::after{content:""; display:block; width:26px; height:2px; background:var(--steel); margin-top:8px;}
+  .point h2{margin-top:14px;}
+  .doubt{margin-top:18px; font-size:17px; font-weight:700; color:var(--ink); line-height:1.7;}
+  .lab-say{
+    margin-top:18px; padding:20px 22px; background:var(--ice); border-left:3px solid var(--steel);
+    border-radius:0 10px 10px 0; font-size:15.5px; color:var(--navy); font-weight:600; line-height:1.8;
+  }
+  .lab-say::before{content:"\u275D "; color:var(--steel); font-weight:800;}
+  .lab-say small{display:block; margin-top:8px; font-size:11.5px; color:var(--steel-deep); font-weight:600;}
+  .point .body{margin-top:18px; font-size:14.5px; color:var(--ink-soft); line-height:1.9;}
+  .point .body b{color:var(--ink);}
+
+  .targets{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:20px;}
+  .target{
+    background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:16px 10px; text-align:center;
+  }
+  .target .t-chem{font-size:13.5px; font-weight:800; color:var(--navy);}
+  .target .t-role{font-size:11.5px; color:var(--ink-soft); margin-top:4px;}
+  .flow3{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:22px; flex-wrap:wrap;}
+  .flow3 .f-step{
+    background:var(--paper); border:1.5px solid var(--navy); border-radius:100px; padding:8px 18px;
+    font-size:13px; font-weight:800; color:var(--navy);
+  }
+  .flow3 .f-arr{color:var(--steel); font-weight:800;}
+  .flow3 .f-note{flex-basis:100%; text-align:center; font-size:11.5px; color:var(--ink-soft); margin-top:6px;}
+
+  .cert-ph{
+    margin-top:22px; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  }
+  .cert-ph .ph{
+    aspect-ratio:16/8; background:linear-gradient(135deg,#E8EEF7,#D4DEEC);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:12.5px; text-align:center; line-height:1.7; padding:16px;
+  }
+  .cert-ph figcaption{font-size:11px; color:var(--ink-soft); background:var(--mist); padding:9px 14px; line-height:1.6;}
+
+  .safe-list{list-style:none; margin-top:18px;}
+  .safe-list li{font-size:14px; color:var(--ink); padding:7px 0 7px 26px; position:relative; border-bottom:1px solid var(--line);}
+  .safe-list li::before{content:"✔"; position:absolute; left:2px; color:var(--steel); font-weight:800;}
+
+  .tips{margin-top:20px;}
+  .tip{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-top:10px; font-size:13.5px; color:var(--ink);}
+  .tip b{color:var(--steel-deep); margin-right:6px;}
+
+  /* 연구일지 */
+  .journal{background:var(--navy); color:#fff;}
+  .journal .j-label{font-size:11.5px; letter-spacing:.2em; color:#9FB6E2; font-weight:700;}
+  .journal h2{color:#fff; margin-top:12px;}
+  .journal .lab-say{background:rgba(255,255,255,.07); border-left-color:#9FB6E2; color:#EAF0FB;}
+  .journal .lab-say small{color:#9FB6E2;}
+  .journal .ph-row{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:22px;}
+  .journal .jph{
+    aspect-ratio:1/0.8; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); border-radius:10px;
+    display:flex; align-items:center; justify-content:center; font-size:11px; color:#B9C8E6; text-align:center; padding:10px; line-height:1.5;
+  }
+  .journal .j-fn{margin-top:14px; font-size:11px; color:#8FA4CC;}
+
+  /* 성분 설명서 */
+  .ing-table{width:100%; border-collapse:collapse; margin-top:22px; font-size:13.5px;}
+  .ing-table th{
+    width:150px; background:var(--ice); color:var(--navy); font-weight:800; padding:14px 12px;
+    border:1px solid var(--line); text-align:left; vertical-align:top;
+  }
+  .ing-table td{border:1px solid var(--line); padding:14px 12px; color:var(--ink); line-height:1.8;}
+
+  /* 사용법 */
+  .steps .step-row{display:flex; gap:14px; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:15px 16px; margin-top:10px;}
+  .steps .st-no{flex:0 0 58px; font-size:12px; font-weight:800; color:var(--steel-deep); letter-spacing:.06em; padding-top:2px;}
+  .steps .st-body{font-size:14px; color:var(--ink);}
+  .routine{margin-top:22px; background:var(--ice); border-radius:12px; padding:20px 22px; font-size:14px; color:var(--navy); line-height:1.8;}
+  .routine b{font-weight:800;}
+
+  /* 라인업 */
+  .lineup-table{width:100%; border-collapse:collapse; margin-top:20px; font-size:13px;}
+  .lineup-table th{background:var(--navy); color:#fff; font-weight:700; padding:11px 10px; border:1px solid var(--navy); font-size:12.5px; text-align:left;}
+  .lineup-table td{border:1px solid var(--line); padding:12px 10px; vertical-align:top; line-height:1.65; color:var(--ink);}
+  .lineup-table td:first-child{font-weight:800; color:var(--navy);}
+  .lineup-table .wait{color:#98A0B2; font-weight:600;}
+
+  /* 법정 */
+  .legal{background:var(--mist);}
+  details{margin-top:12px; border:1px solid var(--line); border-radius:10px; background:var(--paper); overflow:hidden;}
+  summary{cursor:pointer; padding:15px 18px; font-weight:700; font-size:14px; color:var(--navy); list-style:none; display:flex; justify-content:space-between;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+"; color:var(--steel);}
+  details[open] summary::after{content:"−";}
+  details .d-body{padding:0 18px 16px; font-size:13px; color:var(--ink-soft); line-height:1.8;}
+  .pay-band{margin-top:26px; border:1px solid var(--line); border-radius:10px; padding:14px; text-align:center; font-size:12px; color:var(--ink-soft); background:var(--paper);}
+
+  /* ② 라인업 맵 */
+  .map-zone{
+    position:relative; margin-top:26px; border-radius:14px; overflow:hidden;
+    aspect-ratio:4/4.4; background:
+      radial-gradient(90% 70% at 50% 80%, #C7CFDC 0%, transparent 60%),
+      linear-gradient(180deg,#EEF2F8 0%, #DDE4EF 100%);
+    border:1px solid var(--line);
+  }
+  .map-zone .m-ph{
+    position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center;
+    padding:18px; font-size:11px; color:#8B93A6; text-align:center; line-height:1.6;
+  }
+  .pin{
+    position:absolute; width:30px; height:30px; border-radius:50%;
+    background:var(--steel); color:#fff; font-size:12px; font-weight:800;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(44,79,132,.35);
+  }
+  .role-list{margin-top:26px;}
+  .role{display:flex; gap:14px; padding:13px 0; border-bottom:1px solid var(--line); align-items:flex-start;}
+  .role .r-no{
+    flex:0 0 26px; height:26px; border-radius:50%; background:var(--steel); color:#fff;
+    font-size:11.5px; font-weight:800; display:flex; align-items:center; justify-content:center; margin-top:2px;
+  }
+  .role .r-body .r-where{font-size:13px; color:var(--ink-soft); line-height:1.6;}
+  .role .r-body .r-name{font-size:15px; font-weight:800; color:var(--navy); margin-top:2px;}
+  .role .r-body .r-wait{font-size:11px; color:#B08A00; background:var(--note-bg); border-radius:100px; padding:1px 9px; margin-left:7px; font-weight:700;}
+  .map-badge{
+    position:absolute; right:14px; bottom:14px; width:74px; height:74px; border-radius:50%;
+    background:var(--navy); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-size:9px; font-weight:700; letter-spacing:.04em;
+  }
+  .map-badge b{font-size:13px; letter-spacing:.02em;}
+
+  /* ③ 제품 줌인 브리지 */
+  .zoom{background:var(--navy); color:#fff; text-align:center;}
+  .zoom .z-kicker{font-size:11.5px; letter-spacing:.2em; color:#9FB6E2; font-weight:700;}
+  .zoom h2{color:#fff; margin-top:14px;}
+  .zoom p{margin-top:18px; font-size:15px; color:#D5E0F5; line-height:1.95;}
+  .zoom p b{color:#fff;}
+
+  @media (max-width:480px){
+    section{padding:48px 18px;}
+    .icon-grid,.targets{grid-template-columns:1fr 1fr;}
+    .journal .ph-row{grid-template-columns:1fr;}
+    .intro-body h1{font-size:22px;}
+    h2{font-size:21px;}
+    .cover .c-name{font-size:25px;}
+    .ing-table th{width:104px;}
+  }
+</style>
+</head>
+<body>
+<div class="mock-banner">📐 <strong>내부 검토용 목업 v1</strong> - 도입부는 1~3안 비교 구성(발행 시 1개 채택). 이미지 플레이스홀더·노란 메모·[확인 필요]는 확정 후 교체/제거.</div>
+
+<div class="page">
+
+  <!-- ═══════ ①-A 카케어 공통 도입부 - 3안 비교 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">①-A 카케어 공통 도입 모듈 · 3안 비교 (1개 채택)</span>
+    <section style="background:var(--mist);">
+      <p class="eyebrow">WHY CESCO CAR CARE</p>
+      <h2>도입부 시안 - 세스코가 왜 카케어를?</h2>
+      <p class="lead" style="margin-top:8px;">첫 화면은 제품명이 아니라 세스코의 관점을 말합니다. 아래 3안 중 1개 채택 - 채택안이 카케어 6종 공통 상단 모듈이 됩니다.</p>
+
+      <!-- 1안 (개정) 관점 선언형 -->
+      <div class="intro-variant">
+        <div class="v-tag"><span>1안 · 관점 선언형 - "관리하는 이유"</span><span class="pick">추천 본안 (개정)</span></div>
+        <div class="intro-body dark">
+          <h1>세스코가 차량 실내까지<br>관리하는 이유</h1>
+          <p class="i-sub">
+            차량 안에는 외부 오염이 들어오고,<br>
+            손이 반복해서 닿는 곳이 있으며,<br>
+            시트와 공조기에는 냄새 원인물질이 남습니다.
+          </p>
+          <p class="i-close">세스코는 차량 실내의 관리 요소를 연구해<br>카케어 제품을 설계했습니다.</p>
+          <span class="zero-label">차량 실내 위해요소 제로환경*</span>
+          <span class="car-en">CESCO CAR CARE</span>
+          <p class="zero-fn">* 세스코 카케어가 지향하는 차량 실내 관리 목표입니다.</p>
+        </div>
+      </div>
+
+      <!-- 2안 공간 선언형 -->
+      <div class="intro-variant">
+        <div class="v-tag"><span>2안 · 공간 선언형 - "관리 대상입니다"</span></div>
+        <div class="intro-body dark" style="background:linear-gradient(178deg,#14305F 0%, #1B3B70 100%);">
+          <h1>차량 실내도<br>세스코의 관리 대상입니다</h1>
+          <p class="i-sub">
+            사람이 머물고, 외부 오염이 유입되고,<br>
+            손이 반복해서 닿고, 공기가 순환하는 차량 실내.<br>
+            이곳에도 관리해야 할 위해요소가 있습니다.
+          </p>
+          <p class="i-close">세스코 과학으로<br>차량 실내의 위해요소를 관리합니다.</p>
+          <span class="zero-label">차량 실내 위해요소 제로환경*</span>
+          <span class="car-en">CESCO MYLAB CAR CARE</span>
+          <p class="zero-fn">* 세스코 카케어가 지향하는 차량 실내 관리 목표입니다.</p>
+        </div>
+      </div>
+
+      <!-- 3안 질문형 -->
+      <div class="intro-variant">
+        <div class="v-tag"><span>3안 · 질문형 - 후킹 우선 (SNS·배너 변형 겸용)</span></div>
+        <div class="intro-body">
+          <h1>매일 머무는 차 안,<br>위생은 어떻게 관리하고 계신가요?</h1>
+          <p class="i-sub">
+            세스코가 차 안까지 관리하는 이유 -<br>
+            차량 실내도 위해요소가 생기는 환경이기 때문입니다.<br><br>
+            외부에서 들어오는 먼지와 오염,<br>
+            손이 반복해서 닿는 표면,<br>
+            공조기와 시트에 남는 냄새 원인까지.
+          </p>
+          <p class="i-close" style="color:var(--navy);">세스코가 연구해 온 환경위생 관리 기준을<br>차량 실내에도 적용했습니다.</p>
+          <span class="zero-label">차량 실내 위해요소 제로환경*</span>
+          <span class="car-en">CESCO MYLAB CAR CARE</span>
+          <p class="zero-fn">* 세스코 카케어가 지향하는 차량 실내 관리 목표입니다.</p>
+        </div>
+      </div>
+
+      <!-- 공통 후속 블록 (채택안과 무관하게 도입부 직후 공통 배치) -->
+      <div style="margin-top:22px; padding:38px 26px; background:var(--paper); border:1px solid var(--line); border-radius:12px; text-align:center;">
+        <p style="font-size:10.5px; letter-spacing:.16em; color:#98A0B2; font-weight:700; margin-bottom:12px;">공통 후속 블록 · 어느 안이 채택돼도 이어서 사용</p>
+        <h2>차량 관리는 실내에서도 계속됩니다</h2>
+        <p class="lead" style="margin-top:14px;">
+          도장면과 유리처럼 눈에 잘 보이는 곳은<br>
+          세차할 때 바로 확인할 수 있습니다.<br><br>
+          차량 안에는 시트와 매트, 공조기,<br>
+          손이 자주 닿는 접촉면처럼<br>
+          따로 관리해야 하는 곳이 있습니다.
+        </p>
+      </div>
+
+      <div class="mock-note"><b>운영 메모:</b> 3안 비교 유지 - 1안(관점 선언형·개정 카피)을 추천 본안으로, 2안(공간 선언형)·3안(질문형)은 후보 병행. 기존 "세차만으로는" 문제제기형은 근거 이슈로 후보에서 제외하고, 외관/실내 메시지는 하단 공통 후속 블록("차량 관리는 실내에서도 계속됩니다")이 담당 - 외관 관리를 깎지 않는 병렬 서술, 개별 제품 본문에서 반복 금지. '보이지 않는' 류 관용 카피 미사용. '제로환경'은 헤드·라벨 전용(본문 풀어쓰기·수치 결합 금지).</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ② 카케어 LINE-UP MAP ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">② LINE-UP MAP · 공간 지도(스펙 서술 금지)</span>
+    <section style="background:var(--mist);">
+      <p class="eyebrow">CESCO CAR CARE LINE-UP</p>
+      <h2>차 안 어디를, 무엇으로<br>관리하면 좋을까요?</h2>
+
+      <div class="map-zone">
+        <span class="pin" style="left:26%; top:38%;">01</span>
+        <span class="pin" style="left:58%; top:16%;">02</span>
+        <span class="pin" style="left:44%; top:52%;">03</span>
+        <span class="pin" style="left:20%; top:66%;">04</span>
+        <span class="pin" style="left:66%; top:64%;">05</span>
+        <div class="map-badge"><b>제로환경</b>차량 실내<br>위해요소</div>
+        <div class="m-ph">[ 차량 실내 전체 컷 - 화장실 360° 페이지와 동일한 공간 조감 문법 ]<br>시트·대시보드·공조구·도어가 한 화면에 보이는 실내 촬영/렌더 · 번호 핀 합성</div>
+      </div>
+
+      <div class="role-list">
+        <div class="role"><span class="r-no">01</span><div class="r-body">
+          <p class="r-where">시트·내장재·공기 중에 남는 담배냄새·체취 등 냄새 원인물질 관리</p>
+          <p class="r-name">차량용 전문탈취제</p>
+        </div></div>
+        <div class="role"><span class="r-no">02</span><div class="r-body">
+          <p class="r-where">손이 닿기 어려운 에어컨·히터 공조 순환로의 냄새 관리</p>
+          <p class="r-name">차량용 탈취캔</p>
+        </div></div>
+        <div class="role"><span class="r-no">03</span><div class="r-body">
+          <p class="r-where">스티어링 휠·기어 노브·도어 핸들 등 손이 자주 닿는 접촉면 관리</p>
+          <p class="r-name">살균소독제<span class="r-wait">역할 문구 확정 대기</span></p>
+        </div></div>
+        <div class="role"><span class="r-no">04</span><div class="r-body">
+          <p class="r-where">틈새와 표면의 오염을 닦아내는 다용도 관리</p>
+          <p class="r-name">다용도 살균클리닝 티슈<span class="r-wait">역할 문구 확정 대기</span></p>
+        </div></div>
+        <div class="role"><span class="r-no">05</span><div class="r-body">
+          <p class="r-where">습기가 차기 쉬운 곳의 습기·냄새 관리</p>
+          <p class="r-name">슬림형 탈취제습제<span class="r-wait">역할 문구 확정 대기</span></p>
+        </div></div>
+        <div class="role"><span class="r-no">+</span><div class="r-body">
+          <p class="r-where">차량 실내 전체를 한 번에 - 위해요소 제로환경* 목표 관리 세트</p>
+          <p class="r-name">카케어 풀패키지</p>
+        </div></div>
+      </div>
+      <div class="mock-note"><b>구성 메모:</b> 화장실 360° 입체살균 페이지의 [공간 조감 + 번호 핀 + 역할 리스트] 문법 이식. 이 지도에서는 "어디를 → 무엇 때문에 → 어떤 제품으로"만 서술 - 99%·무향·24시간 등 스펙은 개별 상세의 몫(스펙 서술 금지). 03~05 역할 문구는 제품 실물 확인 기준 가안, 각 POD 수령 후 확정. 핀 위치는 실내 컷 확정 후 조정. '살균' 표현은 살균 효능 보유 제품(03·04)에만 사용.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ③ 제품 줌인 브리지 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">③ 제품 줌인 · 라인업 → 이 페이지 제품</span>
+    <section class="zoom">
+      <p class="z-kicker">CAR CARE 01</p>
+      <h2>그중 차량용 전문탈취제는<br>차 안에 남는 냄새 원인물질을 관리합니다</h2>
+      <p>
+        담배냄새가 밴 시트와 내장재,<br>
+        땀과 체취가 남기 쉬운 차량 실내.<br><br>
+        세스코 생활과학 연구소는<br>
+        <b>차 안에서 반복되는 냄새 원인물질</b>을 분석했습니다.
+      </p>
+    </section>
+  </div>
+
+  <!-- ═══════ ①-B 표지 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">①-B 표지 · 정체성 전용(효능 주장 없음)</span>
+    <section class="cover">
+      <p class="c-brand">CESCO Mylab</p>
+      <p class="c-slogan">세스코 과학연구소를 내 손 안으로</p>
+      <p class="c-program">CAR CARE PROGRAM</p>
+      <h1 class="c-name">세스코 마이랩<br>차량용 전문탈취제</h1>
+      <p class="c-spec">500 ml ㅣ 분사 타입 ㅣ 무향 ㅣ [확인 필요: 품목 분류 표기]</p>
+      <div class="lab-badge"><span>CESCO SCIENCE</span><b>생활과학 연구소</b><span>LABORATORY</span></div>
+      <div class="prod-ph">[ 제품 보틀 정면 컷 ]<br>화이트 배경 단독 촬영 · 분사 헤드 노출 각도</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ② 패키지 문구 전사 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">② 패키지 문구 전사</span>
+    <section class="pack">
+      <div class="pack-frame">
+        <p class="p-name">세스코 마이랩 차량용 전문탈취제</p>
+        <p class="p-propose">
+          세스코 생활과학 연구소에서<br>
+          차량 내장재에 잘 들러붙고 공기 중에 떠다니는<br>
+          <b>담배냄새 분자부터 땀·체취의 냄새 물질과<br>
+          밀폐된 차 안의 꿉꿉한 냄새까지</b><br>
+          화학적 중화 방식으로 탈취해 주는<br>
+          차량용 전문탈취제를 제안합니다.
+        </p>
+        <ul>
+          <li>담배냄새(에데닐피리딘) 탈취력 공인시험 확인<sup>1)</sup></li>
+          <li>24시간 지속 탈취력 확인<sup>1)</sup></li>
+          <li>인공향료를 배제한 무향 처방<sup>2)</sup></li>
+        </ul>
+      </div>
+      <div class="mock-note"><b>제작 메모:</b> 패키지 인쇄 문구와 ④ 연구소 제안문을 동일 문장으로 유지(교차 검증 인상). 실물 패키지 촬영본으로 교체.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ③ 브랜드 스테이트먼트 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">③ 브랜드 스테이트먼트 · 고정 블록(마감 문구 1행 조정)</span>
+    <section class="statement">
+      <span class="s-band">세스코가 만든 환경위생 솔루션</span>
+      <p class="s-brand">CESCO Mylab</p>
+      <p class="s-key">누구나. 집에서. 스스로.</p>
+      <p>전문가 수준의 위생을 누릴 수 있어야 한다는<br>세스코의 생각이 세스코 마이랩으로 탄생했습니다.</p>
+      <p>성분 하나까지 엄격한 기준으로 고르고<br>누구나 전문가처럼 제품을 사용할 수 있도록<br>제품을 사용하는 올바른 방법까지 담았습니다.</p>
+      <p class="s-final">세스코 과학연구소의 노하우를<br>통째로 담은<br><br>CESCO Mylab</p>
+      <div class="mock-note" style="text-align:left;"><b>표기 메모:</b> 마감 문구를 "한 통에 통째로 담은" → <b>"통째로 담은"</b>으로 조정. 원문의 "한 통에"는 제형 단위 변수(티슈=한 장에, 통형=한 통에)라 카케어 라인 전체 통일을 위해 단위 표현을 제외함. 나머지 스테이트먼트 본문은 §4-1 원문 그대로 유지 - 카케어 6종 공통 적용.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ⑤ 3연 체크박스 (④ 제안문은 ②와 동일하여 통합 노출) ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">⑤ 3연 체크박스 · 슬로건 고정 프레임</span>
+    <section class="checks">
+      <p class="eyebrow" style="text-align:center;">CESCO SCIENCE · 생활과학 연구소</p>
+      <p class="worry">환기해도 빠지지 않는 차 안 악취,</p>
+      <p class="solve">마이랩으로 해결하세요!</p>
+      <div class="check-list">
+        <div class="check-item">
+          <p class="ck-head">엄격한 기준으로</p>
+          <p>가장 지우기 어려운 담배냄새부터 땀·체취, 비린내까지 - 차 안 3대 불쾌취의 원인 물질을 표적으로 처방</p>
+        </div>
+        <div class="check-item">
+          <p class="ck-head">까다로운 검증을 거쳐</p>
+          <p>아이·반려동물이 함께 타는 공간까지 고려하여 인공향료를 배제하고 이슈 성분*을 까다롭게 검증</p>
+        </div>
+        <div class="check-item">
+          <p class="ck-head">강력하게 기능하도록</p>
+          <p>밀폐된 차 안에 다시 올라오는 냄새까지 고려하여 24시간 지속 탈취력<sup>1)</sup>을 확인</p>
+        </div>
+      </div>
+      <p class="fn">* 가습기 살균제 이슈 성분 4종(CMIT, MIT, BKC, DDAC), 파라벤류 방부제 7종, 형광증백제</p>
+      <div class="mock-note" style="text-align:left;"><b>범위 메모:</b> 리드를 "차 안 담배냄새" → <b>"차 안 악취"</b>로 확장 - ⑤는 제품 전체 범위(담배·땀·체취·비린내·꿉꿉한 냄새)를 선언하고, 담배냄새 특화(에데닐피리딘)는 POINT 02~03에서 좁혀 들어가는 구조. 서브타깃(체취·꿉꿉한 냄새 관리 수요)까지 포괄.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ⑥ 아이콘 6종 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">⑥ 아이콘 6종 요약</span>
+    <section class="icons6">
+      <div class="icon-grid">
+        <div class="icon-cell"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4V2M12 22v-2M4 12H2M22 12h-2"/></svg></div><p class="t">담배냄새 표적 탈취<br>(에데닐피리딘)<sup>1)</sup></p></div>
+        <div class="icon-cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 14c2-3 4-3 6 0s4 3 6 0"/><path d="M5 9c2-3 4-3 6 0s4 3 6 0"/></svg></div><p class="t">차 안 3대 불쾌취<br>99% 탈취 확인<sup>1)</sup></p></div>
+        <div class="icon-cell"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></div><p class="t">24시간 지속<br>탈취력 확인<sup>1)</sup></p></div>
+        <div class="icon-cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 4c-3 4-5 6.5-5 9.5a5 5 0 0010 0C17 10.5 15 8 12 4z"/><path d="M5 5l14 14"/></svg></div><p class="t">인공향료 배제<br>무향 처방<sup>2)</sup></p></div>
+        <div class="icon-cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div><p class="t">가습기 이슈 성분<br>4종 불검출<sup>3)</sup></p></div>
+        <div class="icon-cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 4h8v5l3 9a2 2 0 01-2 2H7a2 2 0 01-2-2l3-9V4z"/></svg></div><p class="t">파라벤 7종·형광증백제<br>불검출<sup>4)</sup></p></div>
+      </div>
+      <p class="fn-block">
+        1) 공인시험기관 탈취 시험 완료 - 에데닐피리딘(담배 냄새), 암모니아(땀·체취), 트리메틸아민(비린내) 각 99% 이상 탈취, 분사 2시간·24시간 시점 확인 ㅣ 시험기관 : [확인 필요 - 대외비 방침과 각주 표기 규범 충돌, 방침 결정 요망]<br>
+        2) 알레르기 유발 가능 인공향료를 배제한 처방입니다.&nbsp;
+        3) CMIT, MIT, BKC, DDAC&nbsp;
+        4) 메칠파라벤, 에칠파라벤, 프로필파라벤, 부틸파라벤, 이소프로필파라벤, 이소부틸파라벤, p-하이드록시벤조익애씨드 / 형광증백제
+      </p>
+    </section>
+  </div>
+
+  <!-- ═══════ POINT 01 개발 스토리 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">POINT 01 · 개발 스토리 (신제품 - 리뷰 대체 사회적 증거)</span>
+    <section class="point">
+      <p class="pt-no">POINT 01</p>
+      <h2>이 탈취제는 수많은 차량을 관리하는<br>현장의 의뢰에서 시작됐습니다</h2>
+      <div class="lab-say">
+        "반납 후에도 사라지지 않는 담배냄새와 차 안 악취를 해결해 주세요."
+        <small>국내 렌터카 업체의 의뢰 (재구성)</small>
+      </div>
+      <p class="body">
+        반납된 차량에 남은 냄새는 다음 고객의 불만이 되고, 차량의 가치까지 떨어뜨리고 있었어요.
+        세스코 생활과학 연구소는 차량 냄새의 원인 분석부터 시작했어요.
+        지우기 어려운 담배냄새를 분석하고, 성분을 개발하고,
+        차 안 온도가 높아지는 <b>여름부터 겨울까지 네 번의 필드테스트</b>와
+        반복 시험을 거쳐 일정한 저감 효과를 확인했어요.
+      </p>
+      <div class="lab-say">
+        시중 탈취제를 써 보니 향이 너무 세서 오히려 머리가 아프거나,
+        지속력이 짧아 금방 다 쓰게 된다는 목소리가 많았어요.
+        그래서 향 없이, 오래가는 탈취에 집중했어요.
+        <small>세스코 생활과학 연구소</small>
+      </div>
+      <div class="mock-note"><b>근거 메모:</b> 렌터카 업체 실명(SK렌터카)·필드테스트 데이터는 선방 가이드 확인 전 익명 처리. 인용 2건은 POD 기반 재구성 - 실발언 확인 시 실인용 전환.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ POINT 02 원리 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">POINT 02 · 원리 (마스킹 vs 중화 · 위해요소 재정의)</span>
+    <section class="point alt">
+      <p class="pt-no">POINT 02</p>
+      <h2>차량 악취,<br>냄새 원인물질부터 확인했습니다</h2>
+      <p class="doubt">방향제를 뿌려도 금방 다시 냄새를 느끼거나,<br>향과 악취가 섞여 더 거북했던 적 있으신가요?</p>
+      <p class="body">
+        담배냄새 분자는 시트와 내장재에 잘 들러붙고, 공기 중에도 떠다녀요.
+        향으로 덮는 마스킹 방식은 공기 중의 냄새만 잠시 가릴 뿐, 남은 냄새 물질은 그대로죠.
+        세스코는 이 냄새 물질을 '향의 문제'가 아니라
+        <b>차 안에 남아 있는 관리 대상, 위해요소</b>로 봤어요.
+      </p>
+      <div class="lab-say">
+        세스코 생활과학 연구소는 차 안 냄새를 만드는 3대 물질부터 표적으로 삼았어요.
+      </div>
+      <div class="targets">
+        <div class="target"><p class="t-chem">에데닐피리딘</p><p class="t-role">담배 냄새</p></div>
+        <div class="target"><p class="t-chem">암모니아</p><p class="t-role">땀·체취</p></div>
+        <div class="target"><p class="t-chem">트리메틸아민</p><p class="t-role">비린내</p></div>
+      </div>
+      <div class="flow3">
+        <span class="f-step">분사</span><span class="f-arr">→</span>
+        <span class="f-step">포획</span><span class="f-arr">→</span>
+        <span class="f-step">중화</span>
+        <span class="f-note">탈취 성분이 공기 중 냄새 분자를 그물망처럼 끌어들여 가두고(폴리옥시에틸렌계),<br>시트러스 성분이 냄새 분자와 반응해 자극적인 냄새 구조를 중화해요.</span>
+      </div>
+      <div class="mock-note"><b>관점 메모:</b> '외관 vs 실내' 대구는 상위 공통 모듈("차량 관리는 실내에서도 계속됩니다")로 이관 - 제품 본문에서는 반복하지 않음. POINT 02는 마스킹 한계 + 냄새 물질의 '위해요소' 재정의만 담당해 상단 제로환경 체계와 연결. '살균' 효능은 이 제품 시험 범위(탈취) 밖 - 실내 살균 관점은 살균소독제·클리닝 티슈 페이지가 담당.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ POINT 03 효과·지속 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">POINT 03 · 효과·지속력</span>
+    <section class="point">
+      <p class="pt-no">POINT 03</p>
+      <h2>뿌릴 때만 잠깐?<br>하루가 지나도 확인된 탈취력</h2>
+      <div class="lab-say">
+        이제, 뿌리기만 하세요.<br>
+        2시간 후에도, 24시간 후에도 탈취력 99% 이상을 확인했어요.<sup>1)</sup>
+      </div>
+      <figure class="cert-ph">
+        <div class="ph">[ 시험성적서 실물 이미지 ]<br>에데닐피리딘·암모니아·트리메틸아민 탈취 시험 성적서 스캔</div>
+        <figcaption>[ 탈취 시험 - 에데닐피리딘·암모니아·트리메틸아민 ㅣ 시험방법 : [확인 필요] ㅣ 시험기관 : [확인 필요 - 대외비 방침 결정] ㅣ 측정 시점 : 분사 2시간·24시간 후 ]</figcaption>
+      </figure>
+      <p class="body">
+        담배냄새의 원인 물질인 '에데닐피리딘'에 대한 공인 탈취 성적서로 검증받은 전문 케미컬이에요.
+        500 ml 넉넉한 용량이라 차 안 곳곳에 부담 없이 사용할 수 있어요.
+      </p>
+      <div class="mock-note"><b>주장 메모:</b> "국내 유일" 주장은 시장 전수 조사 근거 확보 전 미사용 - 확보 시에도 "에데닐피리딘 공인 탈취 성적서 보유" 사실 서술까지만.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ POINT 04 무향·검증 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">POINT 04 · 무향·성분 검증</span>
+    <section class="point alt">
+      <p class="pt-no">POINT 04</p>
+      <h2>밀폐된 차량 실내에서 사용하는 만큼,<br>성분까지 꼼꼼하게 확인했습니다</h2>
+      <div class="lab-say">
+        향이요? 넣지 않았어요.<br>
+        세스코 생활과학 연구소에서 엄격한 기준으로 검증했어요.
+      </div>
+      <p class="body">
+        강한 인공향은 밀폐된 차 안에서 두통이나 거부감의 원인이 되기도 해요.
+        아이와 반려동물이 함께 타는 공간까지 고려해,
+        알레르기를 유발할 수 있는 인공향료를 배제하고
+        향 없이도 탈취력을 느낄 수 있는 무향 처방을 개발했어요.
+      </p>
+      <ul class="safe-list">
+        <li>인공향료 배제 처방<sup>2)</sup></li>
+        <li>가습기 살균제 이슈 성분 4종 불검출<sup>3)</sup></li>
+        <li>파라벤류 방부제 7종 불검출<sup>4)</sup></li>
+        <li>피부 자극을 줄 수 있는 형광증백제 불검출<sup>4)</sup></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ═══════ POINT 05 TIP ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">POINT 05 · 사용 팁</span>
+    <section class="point">
+      <p class="pt-no">POINT 05</p>
+      <h2>세스코 생활과학 연구소 제안<br>#차량 냄새 관리 꿀 TIP</h2>
+      <div class="tips">
+        <div class="tip"><b>#TIP 1</b> 환기를 해도 담배냄새가 빠지지 않을 때, 시트·내장재에 직접 분사해 주세요.</div>
+        <div class="tip"><b>#TIP 2</b> 중고차 인수 후, 이전 사용자의 냄새 흔적이 남아 있다면 첫 관리로 사용해 주세요.</div>
+        <div class="tip"><b>#TIP 3</b> 비 오는 날 땀·체취로 차 안이 눅눅할 때 사용하면 꿉꿉한 냄새 관리에 도움이 돼요.</div>
+        <div class="tip"><b>#TIP 4</b> 에어컨·히터 안쪽 공조 순환로의 냄새는 '세스코 마이랩 탈취캔'과 함께 관리해 주세요.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════ ⑧ 연구일지 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">⑧ 근거 자료 · 연구일지</span>
+    <section class="journal">
+      <p class="j-label">CESCO LAB JOURNAL</p>
+      <h2>세스코 과학연구소 연구일지<br>실제 자동차 원단 탈취 실험</h2>
+      <div class="lab-say">
+        세스코 생활과학 연구소 전문 연구원이 패브릭 시트와 실제 자동차 원단에
+        담배 냄새를 배게 한 뒤, 전문탈취제 사용 전후의 냄새 물질 감소를 확인했어요.
+        <small>세스코 생활과학 연구소</small>
+      </div>
+      <div class="ph-row">
+        <div class="jph">[ 원단 시료 준비 컷 ]</div>
+        <div class="jph">[ 분사 실험 장면 ]</div>
+        <div class="jph">[ 측정 장면 ]</div>
+      </div>
+      <p class="j-fn">※ 자사 시험 결과로, 공인시험 결과(각주 1)와 구분됩니다.</p>
+    </section>
+  </div>
+
+  <!-- ═══════ ⑨ 성분 설명서 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">⑨ 성분 설명서</span>
+    <section class="point alt">
+      <p class="eyebrow">INGREDIENTS</p>
+      <h2>세스코 생활과학 연구소의<br>깐깐한 성분 설명서</h2>
+      <table class="ing-table">
+        <tr><th>들어있어요</th><td>냄새 분자 포획 성분(폴리옥시에틸렌계) ㅣ 냄새 중화 성분(시트러스계)</td></tr>
+        <tr><th>들어있지 않아요<br>불검출</th><td>☐ 가습기 살균제 이슈 성분 4종<sup>3)</sup>&nbsp; ☐ 파라벤류 방부제 7종<sup>4)</sup>&nbsp; ☐ 형광증백제<sup>4)</sup></td></tr>
+        <tr><th>배제 처방</th><td>☐ 알레르기 유발 가능 인공향료<sup>2)</sup></td></tr>
+      </table>
+      <div class="mock-note"><b>표기 메모:</b> '불검출'(시험 확인)과 '배제 처방'(설계) 행 분리 유지 - 인공향료가 불검출 시험 항목인지 확인 후 통합 여부 결정. 전성분 확정 시 전문 병기.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ⑩ 사용법 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">⑩ 사용법 STEP + 루틴</span>
+    <section class="point steps">
+      <p class="eyebrow">HOW TO USE</p>
+      <h2>어디에, 어떻게 사용하나요?</h2>
+      <div class="step-row"><span class="st-no">STEP 1</span><span class="st-body">사용 전 용기를 잘 흔들어 주세요. <b style="color:#98A0B2;">(예시 - 신고 문안으로 교체)</b></span></div>
+      <div class="step-row"><span class="st-no">STEP 2</span><span class="st-body">냄새가 배기 쉬운 시트·매트·내장재에 20~30 cm 거리에서 분사해 주세요. <b style="color:#98A0B2;">(예시)</b></span></div>
+      <div class="step-row"><span class="st-no">STEP 3</span><span class="st-body">분사 후 충분히 건조해 주세요. <b style="color:#98A0B2;">(예시)</b></span></div>
+      <div class="routine">
+        <b>이런 순간의 관리 루틴으로 제안해요</b><br>
+        중고차 인수 시 첫 관리 · 흡연 후 · 비 오는 날 눅눅해질 때 -
+        냄새 물질은 시간이 지나며 내장재에 다시 쌓이기 때문에, 냄새가 느껴질 때마다 관리해 주세요.<br>
+        <span style="font-size:11.5px; color:var(--steel-deep);">※ 권장 사용 주기: [확인 필요 - 품목 신고 사용방법과 일치시켜 기입]</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════ ⑪ 세트 안내 (라인업 상세는 상단 맵이 담당) ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">⑪ 세트 안내 · 라인업 맵(②)과 중복 없이 축소</span>
+    <section class="point alt" style="text-align:center;">
+      <p class="eyebrow" style="text-align:center;">CESCO CAR CARE SET</p>
+      <h2>차량 실내 전체를 관리하고 싶다면</h2>
+      <p class="lead" style="margin-top:14px;">
+        전문탈취제부터 공조 순환로의 탈취캔, 접촉면 관리 제품까지 -<br>
+        차 안의 위해요소를 한 번에 관리하는 <b>카케어 풀패키지</b>로 만나보세요.
+      </p>
+      <p class="lead" style="margin-top:10px; font-size:13px;">에어컨·히터 안쪽 냄새가 고민이라면 '차량용 탈취캔'과 함께 사용해 보세요.</p>
+      <div class="mock-note" style="text-align:left;"><b>구성 메모:</b> 라인업 전체 표는 상단 ② 맵으로 이동 - 하단은 풀패키지·탈취캔 안내만 유지(중복 제거). 마감 동사는 고객 동사("만나보세요·사용해 보세요") - P1.</div>
+    </section>
+  </div>
+
+  <!-- ═══════ ⑫ 법정 블록 ═══════ -->
+  <div class="sec-wrap">
+    <span class="block-tag">⑫ 법정 고정 블록 · 신고 문안 전문(윤문 금지)</span>
+    <section class="legal">
+      <p class="eyebrow">LEGAL</p>
+      <h2>사용 전 꼭 확인해 주세요</h2>
+      <details><summary>사용방법</summary><div class="d-body"><p>[확인 필요 - 안전확인대상 생활화학제품 신고 문안 전문 삽입]</p></div></details>
+      <details><summary>사용상 주의사항</summary><div class="d-body"><p>[확인 필요 - 신고 문안 전문 삽입 · 마케팅 윤문 절대 금지]</p></div></details>
+      <details><summary>응급처치</summary><div class="d-body"><p>1. 내용물이 눈이나 피부에 닿으면 깨끗하게 물로 씻고 이상이 있을 경우 의사와 상의하십시오.<br>2. 내용물을 먹었을 경우 응급조치를 하고 즉시 의사와 상의하십시오.<br>[확인 필요 - 품목 문안으로 대체]</p></div></details>
+      <div class="pay-band">[공통] 당월 무이자할부 행사안내 - 토스페이먼츠 제공 이미지 삽입 영역</div>
+    </section>
+  </div>
+
+</div>
+</body>
+</html>
