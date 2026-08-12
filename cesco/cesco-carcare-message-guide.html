@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세스코 마이랩 카케어 — 마케팅 포인트 &amp; 메시지 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14232B;
+  --ink-2:#485A61;
+  --ink-3:#7C8A8E;
+  --paper:#E9EDEC;
+  --card:#FAFBFA;
+  --line:#D2D9D7;
+  --line-2:#BFC8C6;
+  --teal:#14615C;
+  --teal-2:#0E4A46;
+  --teal-soft:#DCE8E5;
+  --amber:#9C7008;
+  --amber-soft:#F2E8CE;
+  --red:#8E2F26;
+  --red-soft:#EFDCD8;
+  --rail:260px;
+  --serif:'Nanum Myeongjo', serif;
+  --sans:'IBM Plex Sans KR', system-ui, -apple-system, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:88px}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-weight:400; font-size:16px; line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%}
+a{color:var(--teal); text-underline-offset:3px}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:var(--ink); color:var(--paper);
+  padding:64px 32px 56px; position:relative; overflow:hidden;
+}
+.hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:1px;
+  background:linear-gradient(90deg,var(--teal) 0 39.4%,#3E7F6D 39.4% 72.7%,#A2740B 72.7% 100%);
+}
+.hero-in{max-width:1160px; margin:0 auto}
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:#8FB0AB; margin:0 0 28px; display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+}
+.eyebrow b{font-weight:500; color:#CFDEDB}
+.eyebrow .dot{color:#3F5A60}
+h1.hero-h{
+  font-family:var(--serif); font-weight:800; letter-spacing:-.02em;
+  font-size:clamp(30px,5.4vw,58px); line-height:1.28; margin:0 0 22px; max-width:16em;
+}
+.hero-sub{
+  max-width:44em; color:#B9C9C6; font-weight:300; font-size:clamp(14px,1.6vw,17px);
+  line-height:1.85; margin:0 0 44px;
+}
+.hero-sub strong{color:#F0F4F3; font-weight:500}
+
+/* measure bar : 13 / 11 / 9 */
+.measure{margin:0 0 12px}
+.measure-track{display:flex; gap:4px; height:38px}
+.mseg{
+  position:relative; border:1px solid rgba(255,255,255,.16); border-radius:2px;
+  display:flex; align-items:center; padding:0 12px; overflow:hidden;
+  transform-origin:left center;
+}
+.mseg span{font-family:var(--mono); font-size:14px; font-weight:500; position:relative; z-index:1}
+.mseg::before{content:""; position:absolute; inset:0; opacity:.9}
+.mseg.a{flex:13} .mseg.b{flex:11} .mseg.c{flex:9}
+.mseg.a::before{background:var(--teal)}
+.mseg.b::before{background:#3E7F6D}
+.mseg.c::before{background:#8C6A1F}
+.measure-lab{display:flex; gap:4px; margin-top:10px}
+.measure-lab i{
+  font-style:normal; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+  color:#8FA5A3; padding-left:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.measure-lab i.a{flex:13} .measure-lab i.b{flex:11} .measure-lab i.c{flex:9}
+.measure-tot{
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em; color:#6F8B87; margin-top:16px;
+}
+@media(prefers-reduced-motion:no-preference){
+  .mseg{animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+  .mseg.b{animation-delay:.12s} .mseg.c{animation-delay:.24s}
+  @keyframes grow{from{transform:scaleX(0); opacity:0} to{transform:scaleX(1); opacity:1}}
+}
+
+/* ---------- STICKY BAR ---------- */
+.topbar{
+  position:sticky; top:0; z-index:60; background:rgba(233,237,236,.93);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+}
+.topbar-in{
+  max-width:1160px; margin:0 auto; padding:0 32px; height:56px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.topbar b{font-family:var(--mono); font-size:11px; letter-spacing:.14em; font-weight:500; color:var(--ink-2); text-transform:uppercase}
+.topbar .now{font-size:13px; color:var(--ink-3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.idx-toggle{
+  display:none; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  background:var(--ink); color:var(--paper); border:0; border-radius:2px; padding:8px 14px; cursor:pointer;
+}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:1160px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:var(--rail) minmax(0,1fr); gap:56px; align-items:start}
+.rail{position:sticky; top:56px; max-height:calc(100vh - 56px); overflow-y:auto; padding:36px 0 60px; scrollbar-width:thin}
+.rail-t{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line)}
+.rail ol{list-style:none; margin:0; padding:0}
+.rail li{margin:0}
+.rail a{
+  display:grid; grid-template-columns:26px 1fr; gap:8px; align-items:baseline;
+  padding:5px 0; font-size:13px; line-height:1.45; color:var(--ink-2); text-decoration:none;
+  border-left:2px solid transparent; padding-left:10px; margin-left:-12px; transition:color .15s, border-color .15s;
+}
+.rail a em{font-style:normal; font-family:var(--mono); font-size:10.5px; color:var(--ink-3)}
+.rail a:hover{color:var(--teal)}
+.rail a.on{color:var(--teal-2); border-left-color:var(--teal); font-weight:600}
+.rail a.on em{color:var(--teal)}
+.rail a:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
+main{padding:44px 0 120px; min-width:0}
+
+/* ---------- SECTION ---------- */
+.sec{padding:0 0 12px; margin:0 0 56px; scroll-margin-top:80px}
+.sec + .sec{border-top:1px solid var(--line); padding-top:52px}
+.sec-head{margin:0 0 28px}
+.secno{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--teal); display:block; margin-bottom:10px}
+.sec-head h2{
+  font-family:var(--sans); font-weight:600; letter-spacing:-.02em;
+  font-size:clamp(20px,2.6vw,27px); line-height:1.4; margin:0;
+}
+.sec-head p.lede{margin:14px 0 0; color:var(--ink-2); font-weight:300; max-width:46em}
+h3{font-size:16px; font-weight:600; letter-spacing:-.01em; margin:36px 0 12px; display:flex; gap:10px; align-items:baseline}
+h3:first-child{margin-top:0}
+h3 .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); font-weight:400; text-transform:uppercase}
+h4{font-size:13.5px; font-weight:600; margin:22px 0 8px; color:var(--ink-2)}
+p{margin:0 0 14px; max-width:44em}
+p.sm{font-size:14px; color:var(--ink-2)}
+strong{font-weight:600}
+hr.rule{border:0; border-top:1px solid var(--line); margin:36px 0}
+
+/* lists */
+ul.list{list-style:none; margin:0 0 16px; padding:0; max-width:44em}
+ul.list li{position:relative; padding-left:18px; margin-bottom:6px; font-size:15px; color:var(--ink-2)}
+ul.list li::before{content:""; position:absolute; left:0; top:.72em; width:7px; height:1px; background:var(--line-2)}
+ul.list li strong{color:var(--ink)}
+ol.steps{list-style:none; counter-reset:s; margin:0 0 16px; padding:0; max-width:44em}
+ol.steps li{counter-increment:s; position:relative; padding-left:34px; margin-bottom:9px; font-size:15px; color:var(--ink-2)}
+ol.steps li::before{
+  content:counter(s,decimal-leading-zero); position:absolute; left:0; top:0;
+  font-family:var(--mono); font-size:11px; color:var(--teal); letter-spacing:.04em;
+}
+
+/* ---------- SPECIMEN (카피 후보) ---------- */
+.specs{display:grid; gap:12px; margin:0 0 20px}
+.spec{
+  position:relative; background:var(--card); border:1px solid var(--line);
+  padding:26px 52px 24px 28px; cursor:pointer; text-align:left; width:100%; font:inherit; color:inherit;
+  transition:border-color .15s, background .15s;
+}
+.spec::before,.spec::after{
+  content:""; position:absolute; width:9px; height:9px; pointer-events:none;
+  border-color:var(--line-2); border-style:solid; transition:border-color .15s;
+}
+.spec::before{top:7px; left:7px; border-width:1px 0 0 1px}
+.spec::after{bottom:7px; right:7px; border-width:0 1px 1px 0}
+.spec:hover{border-color:var(--teal); background:#fff}
+.spec:hover::before,.spec:hover::after{border-color:var(--teal)}
+.spec:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
+.spec .t{
+  font-family:var(--serif); font-weight:700; font-size:clamp(17px,2.2vw,21px);
+  line-height:1.62; letter-spacing:-.01em; margin:0; color:var(--ink);
+}
+.spec .t .br{display:block}
+.spec .u{
+  font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); margin:0 0 12px;
+}
+.spec .cp{
+  position:absolute; top:14px; right:14px; font-family:var(--mono); font-size:9.5px;
+  letter-spacing:.1em; color:var(--ink-3); opacity:0; transition:opacity .15s;
+}
+.spec:hover .cp,.spec:focus-visible .cp{opacity:1}
+.spec.done{border-color:var(--teal); background:var(--teal-soft)}
+.spec.done .cp{opacity:1; color:var(--teal-2)}
+
+/* ---------- PANELS ---------- */
+.note{
+  border-left:3px solid var(--amber); background:var(--amber-soft);
+  padding:18px 22px; margin:0 0 20px; max-width:46em;
+}
+.note .h{font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); margin:0 0 8px}
+.note p,.note ul.list li{font-size:14.5px; color:#4A3A12}
+.note ul.list li::before{background:#B9932F}
+.note :last-child{margin-bottom:0}
+
+.hold{border-left-color:var(--red); background:var(--red-soft)}
+.hold .h{color:var(--red)}
+.hold p,.hold ul.list li{color:#5A2B24}
+.hold ul.list li::before{background:#B0776F}
+
+.quote{
+  border-left:2px solid var(--line-2); padding:2px 0 2px 20px; margin:0 0 18px;
+  color:var(--ink-2); font-weight:300; max-width:44em;
+}
+.quote strong{color:var(--ink); font-weight:600}
+.quote :last-child{margin-bottom:0}
+
+/* ---------- CARDS ---------- */
+.cards{display:grid; gap:12px; margin:0 0 20px}
+.cards.c2{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.cards.c3{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.card{background:var(--card); border:1px solid var(--line); padding:22px 22px 20px}
+.card .n{font-family:var(--mono); font-size:22px; font-weight:500; color:var(--teal); line-height:1; letter-spacing:-.02em}
+.card .n sup{font-size:10px; letter-spacing:.1em; margin-left:4px; color:var(--ink-3); top:-.9em}
+.card h4{margin:12px 0 8px; font-size:14.5px; color:var(--ink)}
+.card p{font-size:13.5px; color:var(--ink-2); margin:0 0 10px; line-height:1.65}
+.card .prob{border-top:1px solid var(--line); padding-top:10px; margin-top:12px}
+.card .prob span{
+  display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.06em;
+  color:var(--ink-2); background:var(--paper); border:1px solid var(--line); padding:2px 7px; margin:0 4px 4px 0;
+}
+
+/* care list */
+.care{display:grid; gap:0; margin:0 0 20px; border-top:1px solid var(--line)}
+.care > div{display:grid; grid-template-columns:88px minmax(0,1fr) minmax(0,.85fr); gap:20px; padding:18px 0; border-bottom:1px solid var(--line); align-items:baseline}
+.care .k{font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--teal)}
+.care .d{font-size:14.5px; color:var(--ink-2)}
+.care .d b{display:block; color:var(--ink); font-weight:600; font-size:15px; margin-bottom:4px}
+.care .p{font-size:13.5px; color:var(--ink); font-weight:500; padding-left:16px; border-left:1px solid var(--line)}
+
+/* key-value */
+.kv{display:grid; gap:0; margin:0 0 20px; border-top:1px solid var(--line); max-width:46em}
+.kv > div{display:grid; grid-template-columns:170px minmax(0,1fr); gap:20px; padding:14px 0; border-bottom:1px solid var(--line)}
+.kv dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin:0}
+.kv dd{margin:0; font-size:15px; color:var(--ink)}
+
+/* table */
+.tw{overflow-x:auto; margin:0 0 20px; border:1px solid var(--line); background:var(--card)}
+table{border-collapse:collapse; width:100%; min-width:820px; font-size:13px}
+th,td{text-align:left; padding:14px 16px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.6}
+th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500; background:var(--paper); white-space:nowrap}
+td:first-child{font-weight:600; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ---------- 22. PRODUCT ---------- */
+.prod{border:1px solid var(--line); background:var(--card); margin:0 0 20px; scroll-margin-top:80px}
+.prod-h{padding:26px 28px 24px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fff,var(--card))}
+.prod-h .k{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; color:var(--teal); display:block; margin-bottom:8px}
+.prod-h h3{margin:0; font-size:19px; display:block}
+.prod-h .role{margin:12px 0 0; font-family:var(--serif); font-weight:700; font-size:15.5px; line-height:1.65; color:var(--ink); max-width:40em}
+.prod-b{padding:26px 28px 28px}
+.prod-b > :first-child{margin-top:0}
+.pod{border:1px solid var(--teal); background:var(--teal-soft); padding:18px 22px; margin:0 0 22px}
+.pod .h{font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-2); margin:0 0 8px}
+.pod p{margin:0; font-size:16px; font-weight:600; color:#0B3B37; line-height:1.6}
+.lv{
+  display:inline-flex; align-items:center; gap:7px; font-family:var(--mono);
+  font-size:10px; letter-spacing:.12em; text-transform:uppercase; padding:4px 10px; border-radius:2px; margin-bottom:14px;
+}
+.lv.a{background:var(--teal); color:#fff}
+.lv.b{background:var(--amber-soft); color:var(--amber); border:1px solid #D9C489}
+.lv.c{background:var(--red-soft); color:var(--red); border:1px solid #D9B0A9}
+.src{font-family:var(--mono); font-size:11px; color:var(--ink-3); word-break:break-all; line-height:1.7; margin:0}
+.src b{display:block; letter-spacing:.12em; text-transform:uppercase; font-size:9.5px; font-weight:500; margin-bottom:6px; color:var(--ink-3)}
+
+/* toast */
+.toast{
+  position:fixed; left:50%; bottom:28px; transform:translate(-50%,20px);
+  background:var(--ink); color:var(--paper); font-family:var(--mono); font-size:11.5px; letter-spacing:.08em;
+  padding:11px 20px; border-radius:2px; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; z-index:200;
+}
+.toast.on{opacity:1; transform:translate(-50%,0)}
+
+/* footer */
+.foot{border-top:1px solid var(--line); padding:32px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--ink-3); line-height:1.9}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .wrap{grid-template-columns:1fr; gap:0; padding:0 22px}
+  .hero{padding:48px 22px 44px}
+  .topbar-in{padding:0 22px}
+  .idx-toggle{display:block}
+  .topbar .now{display:none}
+  .rail{
+    position:fixed; inset:56px 0 auto 0; max-height:calc(100vh - 56px); z-index:55;
+    background:var(--paper); border-bottom:1px solid var(--line); padding:22px; display:none;
+  }
+  .rail.open{display:block}
+  .care > div{grid-template-columns:1fr; gap:8px; padding:16px 0}
+  .care .p{padding-left:0; border-left:0; padding-top:8px; border-top:1px solid var(--line)}
+  .kv > div{grid-template-columns:1fr; gap:4px}
+  .spec{padding:22px 22px 20px}
+  .prod-h,.prod-b{padding-left:20px; padding-right:20px}
+  main{padding-top:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none !important; transition:none !important}
+}
+@media print{
+  .topbar,.rail,.toast{display:none}
+  .wrap{display:block; padding:0}
+  body{background:#fff; font-size:11pt}
+  .sec{break-inside:avoid-page}
+  .hero{background:#fff; color:#000}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <p class="eyebrow">
+      <b>CESCO MYLAB CAR CARE</b><span class="dot">/</span>
+      <span>Marketing Points &amp; Message Guide</span><span class="dot">/</span>
+      <span>260812</span>
+    </p>
+    <h1 class="hero-h">차 안 관리,<br>디테일에는 기준이 필요하니까.</h1>
+    <p class="hero-sub">
+      세스코 카케어는 차량용 탈취제·살균제를 판매하는 브랜드가 아니라,
+      <strong>공간을 관리해온 세스코의 관점으로 차량 실내를 세밀하게 나누고, 위치와 문제에 맞는 관리 방법을 기준화한 카케어 브랜드</strong>로 포지셔닝한다.
+    </p>
+
+    <div class="measure">
+      <div class="measure-track" aria-hidden="true">
+        <div class="mseg a"><span>13</span></div>
+        <div class="mseg b"><span>11</span></div>
+        <div class="mseg c"><span>9</span></div>
+      </div>
+      <div class="measure-lab" aria-hidden="true">
+        <i class="a">손이 자주 닿는 곳</i>
+        <i class="b">오염이 쌓이는 곳</i>
+        <i class="c">냄새가 남는 곳</i>
+      </div>
+      <p class="measure-tot">TOTAL 33 POINT — 차량 실내 위생 관리 포인트</p>
+    </div>
+  </div>
+</header>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <b>Message Guide</b>
+    <span class="now" id="now">1. BRAND IDEA</span>
+    <button class="idx-toggle" id="idxBtn" aria-expanded="false" aria-controls="rail">목차</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <nav class="rail" id="rail" aria-label="문서 목차">
+    <p class="rail-t">Contents</p>
+    <ol>
+      <li><a href="#s1"><em>01</em><span>Brand Idea</span></a></li>
+      <li><a href="#s2"><em>02</em><span>Why CESCO Car Care</span></a></li>
+      <li><a href="#s3"><em>03</em><span>CESCO's Detail</span></a></li>
+      <li><a href="#s4"><em>04</em><span>33 Point를 어떻게 말할 것인가</span></a></li>
+      <li><a href="#s5"><em>05</em><span>CESCO's Standard</span></a></li>
+      <li><a href="#s6"><em>06</em><span>'디테일'의 세스코식 정의</span></a></li>
+      <li><a href="#s7"><em>07</em><span>Brand Message Hierarchy</span></a></li>
+      <li><a href="#s8"><em>08</em><span>Hero Message 후보</span></a></li>
+      <li><a href="#s9"><em>09</em><span>Key Message Module</span></a></li>
+      <li><a href="#s10"><em>10</em><span>5 Care System</span></a></li>
+      <li><a href="#s11"><em>11</em><span>Channel 01 — 상세페이지</span></a></li>
+      <li><a href="#s12"><em>12</em><span>Channel 02 — 리플릿</span></a></li>
+      <li><a href="#s13"><em>13</em><span>Channel 03 — 카드뉴스</span></a></li>
+      <li><a href="#s14"><em>14</em><span>Channel 04 — 배너 / 광고</span></a></li>
+      <li><a href="#s15"><em>15</em><span>B2B / Professional 확장</span></a></li>
+      <li><a href="#s16"><em>16</em><span>개발 스토리 Proof</span></a></li>
+      <li><a href="#s17"><em>17</em><span>핵심 카피 POOL</span></a></li>
+      <li><a href="#s18"><em>18</em><span>추천 메인 조합</span></a></li>
+      <li><a href="#s19"><em>19</em><span>카피 작성 원칙</span></a></li>
+      <li><a href="#s20"><em>20</em><span>한눈에 보는 마케팅 전략</span></a></li>
+      <li><a href="#s21"><em>21</em><span>Why CESCO 근거 뱅크</span></a></li>
+      <li><a href="#s22"><em>22</em><span>제품별 POD × 라벨 × 메시지</span></a></li>
+      <li><a href="#s23"><em>23</em><span>5종 POD 한눈에 보기</span></a></li>
+      <li><a href="#s24"><em>24</em><span>제품별 '디테일의 기준'</span></a></li>
+      <li><a href="#s25"><em>25</em><span>Claim 사용 등급표</span></a></li>
+      <li><a href="#s26"><em>26</em><span>패키지 번호 체계 확인</span></a></li>
+      <li><a href="#s27"><em>27</em><span>최종 브랜드-제품 연결</span></a></li>
+    </ol>
+    <p class="rail-t" style="margin-top:28px">활용 범위</p>
+    <p style="font-size:12.5px; color:var(--ink-3); line-height:1.8; margin:0">
+      상세페이지 · 통합 세트 페이지 · 제품별 상세페이지 · 리플릿 · 카드뉴스 · 배너 · 캠페인 콘텐츠 · B2B 소개자료
+    </p>
+  </nav>
+
+  <main>
+
+<!-- 1 -->
+<section class="sec" id="s1">
+  <div class="sec-head">
+    <span class="secno">01 — BRAND IDEA</span>
+    <h2>한 문장 정의</h2>
+  </div>
+
+  <div class="specs">
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="u">Brand Idea</p>
+      <p class="t">차 안 관리, 디테일에는 기준이 필요하니까.</p>
+    </button>
+  </div>
+  <p class="sm">세스코 마이랩 카케어</p>
+
+  <h3>내부 전략 정의</h3>
+  <div class="quote">
+    <p><strong>세스코 카케어는 차량 실내 디테일 클리닝의 기준을 제품화하는 브랜드다.</strong></p>
+  </div>
+  <p>제품 자체보다 먼저 <strong>어디를 봐야 하는지 / 어떤 문제를 구분해야 하는지 / 어떻게 관리해야 하는지</strong>를 정하고, 그 기준을 소비자가 직접 사용할 수 있는 제품으로 옮긴다.</p>
+</section>
+
+<!-- 2 -->
+<section class="sec" id="s2">
+  <div class="sec-head">
+    <span class="secno">02 — WHY CESCO CAR CARE</span>
+    <h2>시장의 빈자리</h2>
+  </div>
+
+  <p>현재 차량 관리 시장은 외관 세차·광택·코팅·단순 실내 클리닝 제품은 많지만, 차량 실내를 <strong>'어디까지 보고, 어떻게 관리해야 하는가'</strong>를 체계적으로 제안하는 전문 브랜드는 상대적으로 부족하다.</p>
+
+  <h4>특히 차량 실내는</h4>
+  <ul class="list">
+    <li>반복해서 손이 닿는 곳</li>
+    <li>생활 오염이 쌓이는 곳</li>
+    <li>냄새가 배는 곳</li>
+    <li>손이 닿지 않는 공조 내부</li>
+    <li>습기가 머무는 좁은 공간</li>
+  </ul>
+  <p>처럼 문제의 성격이 서로 다르다. 세스코는 이 지점에서 카케어를 시작한다.</p>
+
+  <h3>세스코가 할 수 있는 이유</h3>
+  <p>세스코는 자동차 자체를 잘 아는 브랜드라기보다 <strong>공간을 진단하고, 문제 지점을 나누고, 관리 기준을 만드는 브랜드</strong>다.</p>
+  <p>차량도 하나의 생활공간으로 보고 겉으로 깨끗해 보이는지를 넘어 <strong>어디에서 어떤 위생 문제가 생기는지</strong>부터 살펴봤다.</p>
+</section>
+
+<!-- 3 -->
+<section class="sec" id="s3">
+  <div class="sec-head">
+    <span class="secno">03 — CESCO'S DETAIL</span>
+    <h2>다른 사람에게는 하나의 차 안,<br>세스코에게는 관리해야 할 지점이 보입니다.</h2>
+    <p class="lede">세스코는 차량 실내를 다음과 같이 나눠 살펴봤다.</p>
+  </div>
+
+  <div class="cards c3">
+    <div class="card">
+      <p class="n">13<sup>POINT</sup></p>
+      <h4>손이 자주 닿는 곳</h4>
+      <p>핸들, 기어봉, 센터페시아, 도어 손잡이, 네비게이션, 조명 컨트롤, 팔걸이, 선바이저, 윈도우 스위치, 안전벨트 등</p>
+      <div class="prob"><span>반복 접촉</span><span>세균·바이러스 위생 리스크</span></div>
+    </div>
+    <div class="card">
+      <p class="n">11<sup>POINT</sup></p>
+      <h4>오염이 쌓이는 곳</h4>
+      <p>대시보드, 센터콘솔 내부, 글로브박스, 발판 안쪽, 트렁크, 컵홀더, 수납함, 룸미러 등</p>
+      <div class="prob"><span>먼지</span><span>생활 오염</span><span>잔여 오염 축적</span></div>
+    </div>
+    <div class="card">
+      <p class="n">9<sup>POINT</sup></p>
+      <h4>냄새가 남는 곳</h4>
+      <p>발판, 천장, 시트, 에어컨 공조, 시트 하단, 헤드레스트, 쿠션, 발매트, 좌석 틈새</p>
+      <div class="prob"><span>악취</span><span>습기</span><span>곰팡이 가능성</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="sec" id="s4">
+  <div class="sec-head">
+    <span class="secno">04 — 33 POINT를 어떻게 말할 것인가</span>
+    <h2>33은 크기의 숫자가 아니라 해상도의 숫자다</h2>
+    <p class="lede">33 Point 자체를 메인 USP로 과도하게 키우지 않는다. 33은 <strong>'세스코가 얼마나 세밀하게 차량을 보는가'를 증명하는 숫자</strong>로 사용한다.</p>
+  </div>
+
+  <h3>추천 메시지</h3>
+  <div class="specs">
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">다른 사람에게는 하나의 차 안.</span>세스코에게는 관리해야 할 33개의 지점이 보였습니다.</p>
+    </button>
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">차 안을 하나로 보지 않았습니다.</span>손이 닿는 곳, 오염이 쌓이는 곳, 냄새가 남는 곳까지 33곳으로 나눠봤습니다.</p>
+    </button>
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">깨끗해 보이는 것만으로는 부족하니까.</span>세스코는 차 안에서 33개의 관리 포인트를 찾았습니다.</p>
+    </button>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="sec" id="s5">
+  <div class="sec-head">
+    <span class="secno">05 — CESCO'S STANDARD</span>
+    <h2>발견에서 끝나지 않고 기준까지 설계했다</h2>
+    <p class="lede">세스코의 차별점은 33곳을 발견한 데서 끝나지 않는다. 실제 B2B 차량 위생 솔루션 개발 과정에서 다음까지 설계했다.</p>
+  </div>
+
+  <ul class="list">
+    <li>차량 1대 기준 관리 포인트 설정</li>
+    <li>표준 사용량 산정</li>
+    <li>단계별 관리 프로세스 구축</li>
+    <li>QC 도입</li>
+    <li>기준대로 수행됐는지 확인</li>
+    <li>기준 충족 여부에 따른 인증 방식</li>
+  </ul>
+
+  <p>즉, 세스코가 말하는 '디테일'은 <strong>더 많이 닦는 것</strong>이 아니라 <strong>어디를 보고, 무엇을 쓰고, 어떻게 관리할지 기준을 정하는 것</strong>에 가깝다.</p>
+</section>
+
+<!-- 6 -->
+<section class="sec" id="s6">
+  <div class="sec-head">
+    <span class="secno">06 — '디테일'의 세스코식 정의</span>
+    <h2>디테일을 다시 정의한다</h2>
+  </div>
+
+  <div class="cards c2">
+    <div class="card">
+      <h4 style="margin-top:0">일반적인 디테일</h4>
+      <p>보이는 오염을 더 세밀하게 닦고 복원하는 것</p>
+    </div>
+    <div class="card" style="border-color:var(--teal)">
+      <h4 style="margin-top:0; color:var(--teal-2)">세스코의 디테일</h4>
+      <p>문제 지점을 나누고, 각 지점의 오염·위생·악취 특성에 맞는 방법으로 관리하는 것</p>
+    </div>
+  </div>
+
+  <h3>메시지 후보</h3>
+  <div class="specs">
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">디테일은 더 많이 닦는 것이 아니라,</span>어디를 어떻게 관리해야 하는지 아는 것에서 시작합니다.</p>
+    </button>
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="t">차 안을 자세히 보면, 관리해야 할 곳이 달라집니다.</p>
+    </button>
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">한 번 더 보는 눈, 한 단계 더 나눈 기준.</span>세스코가 생각하는 차량 관리의 디테일입니다.</p>
+    </button>
+    <button class="spec" type="button">
+      <span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">보이는 곳을 닦는 것과</span>관리해야 할 곳을 아는 것은 다릅니다.</p>
+    </button>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="sec" id="s7">
+  <div class="sec-head">
+    <span class="secno">07 — BRAND MESSAGE HIERARCHY</span>
+    <h2>메시지 위계</h2>
+  </div>
+
+  <h3><span class="tag">Level 1</span> Brand Idea</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">차 안 관리, 디테일에는 기준이 필요하니까.</p></button>
+  </div>
+
+  <h3><span class="tag">Level 2</span> Why CESCO</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">공간을 관리해온 세스코가 차 안을 들여다봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">공간을 보는 세스코의 눈으로, 차 안 관리의 디테일을 다시 봤습니다.</p></button>
+  </div>
+
+  <h3><span class="tag">Level 3</span> Proof</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">손이 닿는 곳 13, 오염이 쌓이는 곳 11, 냄새가 남는 곳 9.</span>세스코는 차량 실내를 33개의 관리 포인트로 나눴습니다.</p></button>
+  </div>
+
+  <h3><span class="tag">Level 4</span> Standard</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">어디를 볼 것인지부터, 무엇으로 어떻게 관리할지까지.</span>세스코는 차량 실내 관리의 기준을 만들었습니다.</p></button>
+  </div>
+
+  <h3><span class="tag">Level 5</span> Product</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">그 기준으로 만든 세스코 마이랩 카케어 5종.</p></button>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="sec" id="s8">
+  <div class="sec-head">
+    <span class="secno">08 — HERO MESSAGE 후보</span>
+    <h2>4가지 방향</h2>
+  </div>
+
+  <h3><span class="tag">방향 A</span> 가장 전략적인 버전</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">Headline</p>
+      <p class="t">차 안 관리, 디테일에는 기준이 필요하니까.</p></button>
+  </div>
+  <div class="quote">
+    <p class="sm">공간을 관리해온 세스코가 차량 실내를 손이 닿는 곳, 오염이 쌓이는 곳, 냄새가 남는 곳으로 나눠 살펴봤습니다.</p>
+    <p class="sm"><strong>33개의 차량 위생 관리 포인트.</strong><br>각 지점의 문제에 맞는 관리 방법을 정하고 그 기준으로 세스코 마이랩 카케어 5종을 만들었습니다.</p>
+  </div>
+
+  <h3><span class="tag">방향 B</span> 33 Point를 앞세우는 버전</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">Headline</p>
+      <p class="t"><span class="br">다른 사람에게는 하나의 차 안.</span>세스코에게는 33개의 관리 지점이 보였습니다.</p></button>
+  </div>
+  <div class="quote">
+    <p class="sm">손이 자주 닿는 곳 13, 오염이 쌓이는 곳 11, 냄새가 남는 곳 9.</p>
+    <p class="sm">차 안을 더 자세히 보고 자리마다 필요한 관리 방법을 나눴습니다.</p>
+    <p class="sm"><strong>세스코가 만든 차량 실내 관리의 디테일.</strong></p>
+  </div>
+
+  <h3><span class="tag">방향 C</span> 세스코 Right to Play 강조</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">Headline</p>
+      <p class="t">공간을 잘 아는 세스코가, 이번에는 차 안을 봤습니다.</p></button>
+  </div>
+  <div class="quote">
+    <p class="sm">핸들처럼 매일 손이 닿는 곳, 시트처럼 냄새가 배는 곳, 에어컨처럼 손이 닿지 않는 곳까지.</p>
+    <p class="sm">세스코는 차 안을 하나의 생활공간으로 보고 관리 지점과 방법을 세밀하게 나눴습니다.</p>
+    <p class="sm"><strong>그 기준으로 만든 세스코 마이랩 카케어.</strong></p>
+  </div>
+
+  <h3><span class="tag">방향 D</span> 디테일 클리닝 연결</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">Headline</p>
+      <p class="t"><span class="br">제대로 관리하고 싶은 날,</span>차 안은 어디까지 봐야 할까요?</p></button>
+  </div>
+  <div class="quote">
+    <p class="sm">보이는 먼지만 닦는 것보다 놓치기 쉬운 지점을 알고 관리하는 것이 먼저입니다.</p>
+    <p class="sm">세스코는 차 안에서 33개의 관리 포인트를 찾고 각 위치에 맞는 관리 방법을 정했습니다.</p>
+    <p class="sm"><strong>디테일 클리닝의 기준을, 이제 내 차에서도.</strong></p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="sec" id="s9">
+  <div class="sec-head">
+    <span class="secno">09 — KEY MESSAGE MODULE</span>
+    <h2>모듈별 메시지</h2>
+  </div>
+
+  <h3><span class="tag">A</span> 공간 전문성</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">세스코는 차를 자동차가 아니라, 사람이 매일 머무는 공간으로 봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">공간을 관리해온 세스코의 눈으로 차 안을 다시 봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">차 안도 생활공간이라면, 관리에도 공간을 보는 기준이 필요합니다.</p></button>
+  </div>
+
+  <h3><span class="tag">B</span> 디테일</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">차 안을 자세히 보면, 관리해야 할 곳이 달라집니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">놓치기 쉬운 곳까지 보는 것. 세스코가 생각하는 디테일입니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">보이는 곳만 깨끗한지보다, 관리해야 할 곳을 놓치지 않았는지 봅니다.</p></button>
+  </div>
+
+  <h3><span class="tag">C</span> 기준</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">어디를 볼지, 무엇으로 관리할지. 세스코가 차 안 관리의 기준을 나눴습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">제품보다 먼저, 차 안을 어떻게 관리해야 하는지부터 정했습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">33개의 관리 지점과 5가지 관리 방법. 세스코 카케어의 기준입니다.</p></button>
+  </div>
+
+  <h3><span class="tag">D</span> 제품 연결</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">그 기준으로 만든 카케어 5종.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">문제가 다른 만큼, 관리 방법도 다르게.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">접촉면은 살균하고, 생활 오염은 닦고, 소재와 공조의 냄새는 따로 관리합니다.</p></button>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="sec" id="s10">
+  <div class="sec-head">
+    <span class="secno">10 — 5 CARE SYSTEM</span>
+    <h2>문제가 다른 만큼, 관리 방법도 다르게</h2>
+  </div>
+
+  <div class="care">
+    <div>
+      <span class="k">CARE 01</span>
+      <span class="d"><b>표면 살균</b>매일 손이 반복해서 닿는 핸들·기어·도어 손잡이</span>
+      <span class="p">살균소독제</span>
+    </div>
+    <div>
+      <span class="k">CARE 02</span>
+      <span class="d"><b>일상 클리닝 + 살균</b>컵홀더의 얼룩, 대시보드 먼지, 디스플레이 손자국</span>
+      <span class="p">다용도 살균클리닝 티슈</span>
+    </div>
+    <div>
+      <span class="k">CARE 03</span>
+      <span class="d"><b>소재 탈취</b>시트·카펫·천장처럼 냄새가 스며드는 곳</span>
+      <span class="p">마스터 차량용 전문탈취제</span>
+    </div>
+    <div>
+      <span class="k">CARE 04</span>
+      <span class="d"><b>공조 탈취</b>에어컨·히터 등 손이 닿지 않는 공조 내부</span>
+      <span class="p">마스터 차량용 탈취캔</span>
+    </div>
+    <div>
+      <span class="k">CARE 05</span>
+      <span class="d"><b>습기 + 냄새 상시 관리</b>시트 아래·트렁크·수납 틈새처럼 공기가 잘 돌지 않는 곳</span>
+      <span class="p">슬림형 탈취제습제</span>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="sec" id="s11">
+  <div class="sec-head">
+    <span class="secno">11 — CHANNEL 01</span>
+    <h2>상세페이지 활용</h2>
+  </div>
+
+  <h3>통합 세트 페이지 추천 흐름</h3>
+  <ol class="steps">
+    <li>디테일에는 기준이 필요하다</li>
+    <li>공간을 잘 아는 세스코가 차량을 보는 방식</li>
+    <li>13 + 11 + 9 = 33 Point</li>
+    <li>세스코가 만든 차량 실내 관리 기준</li>
+    <li>5 Care System</li>
+    <li>차량 Map + 5종</li>
+    <li>각 제품 핵심 Proof</li>
+    <li>Full Set</li>
+  </ol>
+
+  <h3>개별 제품 상세페이지 공통 Bridge</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">세스코는 차 안을 33개의 위생 관리 포인트로 나눠 살펴봤습니다.</p></button>
+  </div>
+  <div class="quote">
+    <p class="sm">손이 닿는 곳, 오염이 쌓이는 곳, 냄새가 배는 곳마다 관리해야 하는 이유가 다르기 때문입니다.</p>
+    <p class="sm">이 제품은 그중 <strong>[제품 담당 영역]</strong>을 관리하기 위해 만들었습니다.</p>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="sec" id="s12">
+  <div class="sec-head">
+    <span class="secno">12 — CHANNEL 02</span>
+    <h2>리플릿 활용</h2>
+  </div>
+
+  <h3><span class="tag">앞면</span> Headline</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">차 안 관리, 디테일에는 기준이 필요하니까.</p></button>
+  </div>
+  <div class="quote">
+    <p class="sm"><strong>SUB</strong><br>공간을 관리해온 세스코가 차량 실내를 33개의 관리 포인트로 나눠 살펴봤습니다.</p>
+  </div>
+
+  <h3><span class="tag">펼침면</span> 33 Point</h3>
+  <div class="care">
+    <div><span class="k">13</span><span class="d">손이 자주 닿는 곳</span><span class="p"></span></div>
+    <div><span class="k">11</span><span class="d">오염이 쌓이는 곳</span><span class="p"></span></div>
+    <div><span class="k">9</span><span class="d">냄새가 남는 곳</span><span class="p"></span></div>
+  </div>
+  <p class="sm">→ 차량 Map</p>
+
+  <h3><span class="tag">다음 면</span> 5 CARE</h3>
+  <ul class="list">
+    <li>표면 살균</li>
+    <li>일상 클리닝 + 살균</li>
+    <li>소재 탈취</li>
+    <li>공조 탈취</li>
+    <li>습기·냄새 관리</li>
+  </ul>
+  <p class="sm">→ 5종 제품 연결</p>
+
+  <h3><span class="tag">뒷면</span> Closing</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">어디를 보고, 무엇으로 관리할지.</span>세스코가 만든 차 안 관리의 기준을 확인해 보세요.</p></button>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="sec" id="s13">
+  <div class="sec-head">
+    <span class="secno">13 — CHANNEL 03</span>
+    <h2>카드뉴스 활용</h2>
+  </div>
+
+  <h3><span class="tag">카드뉴스 A</span> 차 안을 어디까지 보고 계세요?</h3>
+  <ol class="steps">
+    <li>차 안을 어디까지 보고 계세요?</li>
+    <li>핸들처럼 매일 손이 닿는 곳</li>
+    <li>컵홀더처럼 생활 오염이 쌓이는 곳</li>
+    <li>시트처럼 냄새가 배는 곳</li>
+    <li>에어컨처럼 손이 닿지 않는 곳</li>
+    <li>세스코는 차 안에서 33개의 관리 지점을 찾았습니다.</li>
+    <li>손이 닿는 13 / 오염이 쌓이는 11 / 냄새가 남는 9</li>
+    <li>문제가 다른 만큼 관리 방법도 다르게.</li>
+    <li>그 기준으로 만든 세스코 마이랩 카케어 5종.</li>
+    <li>차 안 관리, 디테일에는 기준이 필요하니까.</li>
+  </ol>
+
+  <h3><span class="tag">카드뉴스 B</span> 디테일 클리닝, 어디까지가 디테일일까요?</h3>
+  <ol class="steps">
+    <li>디테일 클리닝, 어디까지가 디테일일까요?</li>
+    <li>보이는 먼지를 깨끗하게 닦는 것?</li>
+    <li>세스코는 조금 다르게 봤습니다.</li>
+    <li>어디에서 오염이 생기고</li>
+    <li>어디에 냄새가 남고</li>
+    <li>어디를 손으로 관리하기 어려운지</li>
+    <li>차량 실내를 33개의 관리 지점으로 나눴습니다.</li>
+    <li>그리고 지점마다 필요한 관리 방법을 정했습니다.</li>
+    <li>디테일은 더 많이 닦는 것보다, 놓치지 않는 것에서 시작하니까.</li>
+    <li>세스코 마이랩 카케어</li>
+  </ol>
+
+  <h3><span class="tag">카드뉴스 C</span> 제품보다 먼저 기준을 만들었습니다.</h3>
+  <ol class="steps">
+    <li>차량용품을 만들기 전에 세스코가 먼저 한 일.</li>
+    <li>차 안을 하나의 공간으로 봤습니다.</li>
+    <li>33개의 관리 포인트를 나눴습니다.</li>
+    <li>위치마다 다른 문제를 구분했습니다.</li>
+    <li>살균 / 클리닝 / 소재 탈취 / 공조 탈취 / 습기 관리</li>
+    <li>그리고 각각에 맞는 제품을 만들었습니다.</li>
+    <li>제품보다 먼저, 관리의 기준을 만들었습니다.</li>
+    <li>세스코 마이랩 카케어</li>
+  </ol>
+</section>
+
+<!-- 14 -->
+<section class="sec" id="s14">
+  <div class="sec-head">
+    <span class="secno">14 — CHANNEL 04</span>
+    <h2>짧은 배너 / 광고 문구</h2>
+  </div>
+
+  <h3>브랜드형</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차 안 관리, 디테일에는 기준이 필요하니까.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차량 실내 관리의 디테일, 세스코가 기준을 만듭니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">공간을 보는 세스코의 눈으로, 차 안까지.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">33개의 관리 포인트에서 시작한 세스코 카케어.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차 안을 자세히 보면, 필요한 관리가 보입니다.</p></button>
+  </div>
+
+  <h3>질문형</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차 안, 어디까지 관리하고 계세요?</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">에어컨 안쪽도 차 안인데, 어떻게 관리하고 계세요?</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">보이는 곳을 닦았다면, 놓친 곳은 없을까요?</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차 안을 제대로 관리한다는 건 어디까지일까요?</p></button>
+  </div>
+
+  <h3>제품 연결형</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">33개의 관리 포인트, 5가지 관리 방법.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">문제가 다른 곳엔, 관리도 달라야 합니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">살균부터 탈취·제습까지, 위치에 맞게.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차 안의 문제를 나눠 보고 만든 5가지 카케어.</p></button>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="sec" id="s15">
+  <div class="sec-head">
+    <span class="secno">15 — B2B / PROFESSIONAL</span>
+    <h2>확장 메시지</h2>
+    <p class="lede">현재 내부 자료에서 세스코는 실제 차량 위생 솔루션 운영 과정에서 표준 사용량, 단계별 공정, QC, 인증 기준을 설계했다.</p>
+  </div>
+
+  <h3>전략 메시지</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">세스코가 보는 Spot을 기준으로, 차량 실내 관리의 품질을 맞춥니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">누가 작업해도 놓치는 지점이 없도록.</span>관리 포인트와 방법을 기준화합니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">디테일 클리닝의 경험을 작업자의 감각에만 맡기지 않고,</span>확인 가능한 관리 기준으로 만듭니다.</p></button>
+  </div>
+
+  <div class="note">
+    <p class="h">주의</p>
+    <p>현재 자료만으로 '전문 디테일러 업계가 세스코 기준을 사용한다'고 표현해서는 안 된다. 현 단계에서는 다음으로 표현한다.</p>
+    <ul class="list">
+      <li>세스코 내부 기준</li>
+      <li>B2B 솔루션 운영 기준</li>
+      <li>교육 / QC / 인증 체계</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="sec" id="s16">
+  <div class="sec-head">
+    <span class="secno">16 — 개발 스토리 PROOF</span>
+    <h2>기준을 만든 과정</h2>
+  </div>
+
+  <dl class="kv">
+    <div><dt>차량 공간 구획</dt><dd>차량 실내를 33개의 관리 포인트로 나눠 문제 요소 확인</dd></div>
+    <div><dt>4 Step</dt><dd>실제 렌터카 PoC를 통해 차량 실내 위생 관리 프로세스 구축</dd></div>
+    <div><dt>Standard</dt><dd>차량 1대 기준 표준 사용량 설정</dd></div>
+    <div><dt>QC</dt><dd>기준대로 수행됐는지 확인하는 관리 체계 도입</dd></div>
+    <div><dt>실제 악취차 테스트</dt><dd>중고차 악취 문제 해결을 위해 과학연구소와 반복 테스트 수행</dd></div>
+    <div><dt>GC/MS 분석</dt><dd>실제 차량 내부 냄새를 포집해 악취 성분 분석</dd></div>
+    <div><dt>소재별 검토</dt><dd>Fabric / 스웨이드 / 부직포 / 가죽 등 차량 내 다양한 소재의 안정성·호환성 시험</dd></div>
+  </dl>
+</section>
+
+<!-- 17 -->
+<section class="sec" id="s17">
+  <div class="sec-head">
+    <span class="secno">17 — 핵심 카피 POOL</span>
+    <h2>사용 가능한 카피 풀</h2>
+  </div>
+
+  <h3><span class="tag">Pool 01</span> '디테일' 중심</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">디테일은 놓치지 않는 것에서 시작합니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차 안을 더 자세히 보고 만든 카케어.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">한 곳 더 보고, 문제를 하나 더 나눠봅니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">깨끗해 보이는 차 안에도 관리해야 할 디테일은 남아 있습니다.</p></button>
+  </div>
+
+  <h3><span class="tag">Pool 02</span> '기준' 중심</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차 안 관리에도 기준이 필요합니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">어디를 관리할지부터 정한 카케어.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">제품보다 먼저, 차 안을 관리하는 기준을 만들었습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">33개의 지점과 5가지 관리 방법. 세스코의 카케어 기준입니다.</p></button>
+  </div>
+
+  <h3><span class="tag">Pool 03</span> '세스코' 중심</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">공간을 잘 아는 세스코가 차 안을 봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">세스코가 공간을 보는 방식으로, 차량 실내를 다시 봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차량도 사람이 머무는 공간이니까. 세스코가 봤습니다.</p></button>
+  </div>
+
+  <h3><span class="tag">Pool 04</span> 제품 연결형</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">그 기준으로 만든 카케어 5종.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">문제마다 다르게, 위치마다 맞게.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">손이 닿는 곳부터 손이 닿지 않는 곳까지.</p></button>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="sec" id="s18">
+  <div class="sec-head">
+    <span class="secno">18 — 추천 메인 조합</span>
+    <h2>Master Copy</h2>
+  </div>
+
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">Headline</p>
+      <p class="t">차 안 관리, 디테일에는 기준이 필요하니까.</p></button>
+  </div>
+  <div class="quote">
+    <p class="sm"><strong>BODY</strong></p>
+    <p class="sm">공간을 관리해온 세스코가 차량 실내를 손이 닿는 곳, 오염이 쌓이는 곳, 냄새가 남는 곳으로 나눠 살펴봤습니다.</p>
+    <p class="sm"><strong>13 + 11 + 9, 총 33개의 차량 위생 관리 포인트.</strong></p>
+    <p class="sm">어디를 보고, 무엇으로 어떻게 관리할지 기준을 나누고 그 기준으로 세스코 마이랩 카케어 5종을 만들었습니다.</p>
+  </div>
+
+  <h3>짧은 버전</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t"><span class="br">공간을 잘 아는 세스코가 차 안을 33곳으로 나눠 봤습니다.</span>그 디테일의 기준으로 만든 카케어 5종.</p></button>
+  </div>
+
+  <h3>가장 짧은 버전</h3>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">디테일의 기준으로 만든 세스코 카케어.</p></button>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="sec" id="s19">
+  <div class="sec-head">
+    <span class="secno">19 — 카피 작성 원칙</span>
+    <h2>쓰는 방식의 기준</h2>
+  </div>
+
+  <ul class="list">
+    <li>'세스코니까 믿으세요'라고 직접 주장하지 않는다.</li>
+    <li>세스코가 실제로 <strong>어떻게 보고, 나누고, 기준화했는지</strong> 보여준다.</li>
+    <li>'디테일'은 추상적인 고급감 표현이 아니라 <strong>구체적인 Spot과 관리 방법</strong>으로 증명한다.</li>
+    <li>'기준'은 선언으로 끝내지 않고 <strong>33 Point / 4 Step / 표준 사용량 / QC</strong> 등의 근거를 붙인다.</li>
+    <li>소비자 채널에서는 B2B 개발 과정이 너무 길어지지 않도록 핵심 근거만 사용한다.</li>
+    <li>내부 실증 자료와 제품 자체 성능 수치를 혼동하지 않는다.</li>
+    <li>서비스 전체 악취 저감 수치를 개별 제품 성능처럼 사용하지 않는다.</li>
+    <li>경쟁사 대비 수치나 '최고', '유일' 표현은 근거 범위를 확인한 뒤 사용한다.</li>
+    <li>문장은 실제 공간과 행동이 보이게 쓴다.</li>
+    <li>'~를 넘어', '단순히 X가 아니라 Y', '무엇보다 중요한 것은', '핵심은 ~입니다', '이것이 ~입니다' 같은 AI식 강조 문장을 피한다.</li>
+    <li>마지막 문장은 추상적인 슬로건 반복보다 <strong>관리 지점 / 행동 / 확인 가능한 근거</strong>로 끝낸다.</li>
+  </ul>
+</section>
+
+<!-- 20 -->
+<section class="sec" id="s20">
+  <div class="sec-head">
+    <span class="secno">20 — 한눈에 보는 마케팅 전략</span>
+    <h2>Strategy on a page</h2>
+  </div>
+
+  <dl class="kv">
+    <div><dt>Brand Territory</dt><dd>차량 실내 위생·디테일 관리</dd></div>
+    <div><dt>Brand Idea</dt><dd>차 안 관리, 디테일에는 기준이 필요하니까.</dd></div>
+    <div><dt>Why CESCO</dt><dd>공간을 진단하고 관리해온 세스코의 관점을 차량 실내에 적용</dd></div>
+    <div><dt>Distinctive Asset</dt><dd>33개의 차량 위생 관리 포인트</dd></div>
+    <div><dt>Standard Proof</dt><dd>4단계 관리 프로세스 / 표준 사용량 / QC / 인증 기준</dd></div>
+    <div><dt>Product Logic</dt><dd>33 Point에서 발견한 서로 다른 문제를 5가지 관리 방식으로 제품화</dd></div>
+    <div><dt>5 Care</dt><dd>표면 살균 / 일상 클리닝+살균 / 소재 탈취 / 공조 탈취 / 습기·냄새 관리</dd></div>
+    <div><dt>End Message</dt><dd><strong>그 기준으로 만든 세스코 마이랩 카케어 5종.</strong></dd></div>
+  </dl>
+</section>
+
+<!-- 21 -->
+<section class="sec" id="s21">
+  <div class="sec-head">
+    <span class="secno">21 — WHY CESCO 근거 뱅크</span>
+    <h2>PPT에서 확인된 근거</h2>
+    <p class="lede">이 섹션은 '디테일의 기준'을 브랜드 선언으로 끝내지 않고, 실제 내부 사업개발 과정에서 확인된 행동과 결과로 뒷받침하기 위한 근거 뱅크다.</p>
+  </div>
+
+  <div class="note">
+    <p class="h">근거 우선순위</p>
+    <ol class="steps" style="margin-bottom:0">
+      <li>실제 라벨·표시사항</li>
+      <li>사업개발 PPT의 실증·운영 Fact</li>
+      <li>제품 POD 내부자료</li>
+      <li>마케팅 해석·카피</li>
+    </ol>
+  </div>
+
+  <h3><span class="tag">21-1</span> 세스코는 차량을 '소독 대상'에서 '공간 관리 대상'으로 다시 봤다</h3>
+  <h4>내부 근거</h4>
+  <ul class="list">
+    <li>기존 차량 사업은 법적 소독, 코로나 살균 등 단기성 소독 수요 관점이 강했음.</li>
+    <li>사업개발 과정에서 관점을 <strong>차량 소독·살균 → 차량 공간 위생 관리</strong>로 확대함.</li>
+    <li>모빌리티 확장 영역의 공통 키워드를 <strong>살균, 탈취, 공간 관리</strong>로 정의함.</li>
+  </ul>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">자동차를 만드는 회사가 아니라, 공간을 관리해온 세스코가 차 안을 봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">차량도 사람이 반복해서 머물고 만지는 생활공간이니까. 세스코는 차 안을 공간으로 봤습니다.</p></button>
+  </div>
+  <h4>활용</h4>
+  <ul class="list">
+    <li>통합 상세페이지 WHY CESCO</li>
+    <li>브랜드 리플릿 첫 장</li>
+    <li>B2B 제안서의 Right to Play</li>
+  </ul>
+  <p class="src"><b>Source</b>최종_신규 사업 개발 회장님보고_260416_카케어(시하공유용)(2).pptx — 모빌리티 사업별 차량 공간 니즈 / 시장 포지셔닝 파트</p>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-2</span> 실제 고객 문제에서 출발했다</h3>
+  <h4>내부 근거 — SK렌터카 협업에서 확인한 3가지 운영 니즈</h4>
+  <ol class="steps">
+    <li>위생 관리 비용을 쓰고 있지만 고객에게 그 가치가 전달되지 않음</li>
+    <li>자체 클리닝만으로 전 사용자의 흔적을 제거하기 어려워 중고차 판매 손실 발생</li>
+    <li>반납 차량의 다양한 악취로 지속적인 클레임 발생</li>
+  </ol>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">차량용품을 만들려고 차 안을 본 것이 아닙니다. 실제 차량에서 해결되지 않던 위생과 악취 문제부터 봤습니다.</p></button>
+  </div>
+  <div class="note">
+    <p class="h">활용 주의</p>
+    <ul class="list">
+      <li>소비자 채널에서 고객사 운영 손실·클레임을 장황하게 설명하지 않는다.</li>
+      <li>'실제 차량 현장에서 시작한 카케어'를 설명하는 개발 스토리 근거로 사용한다.</li>
+    </ul>
+  </div>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-3</span> '세스코는 차량을 이렇게까지 보느냐'는 반응이 나온 33 Point</h3>
+  <h4>내부 근거</h4>
+  <p class="sm">차량 공간을 세부 구획으로 나누고 문제 요소를 분석함.</p>
+  <ul class="list">
+    <li><strong>고오염 접촉 구역 13 Point</strong></li>
+    <li><strong>오염 누적 구역 11 Point</strong></li>
+    <li><strong>악취 유발 구역 9 Point</strong></li>
+  </ul>
+  <p class="sm">PPT에는 SK렌터카 의견으로 <strong>'세스코는 차량을 이렇게까지 바라보냐고 놀라 했다'</strong>는 내부 코멘트가 기록되어 있음.</p>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">다른 사람에게는 하나의 차 안. 세스코에게는 관리해야 할 33개의 지점이 보였습니다.</p></button>
+  </div>
+  <h4>전략적 의미</h4>
+  <p class="sm">33은 '많이 관리한다'는 숫자가 아니다. <strong>세스코가 차량을 보는 해상도와 디테일을 증명하는 숫자</strong>로 사용한다.</p>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-4</span> 발견에서 끝내지 않고 '기준'을 만들었다</h3>
+  <h4>내부 근거 — 렌터카 PoC로 설계한 운영 기준</h4>
+  <ul class="list">
+    <li>4단계 차량 위생케어 프로세스</li>
+    <li>차량 1대 기준 총 33 Point 사용량 산정</li>
+    <li>차량 대당 표준 사용량 산정</li>
+    <li>QC 도입을 통한 품질 유지</li>
+    <li>기준대로 수행됐는지 확인</li>
+    <li>QC Pass 기준 수립</li>
+    <li>기준 충족 시 인증 표시 방식 검토</li>
+  </ul>
+  <h4>4 STEP</h4>
+  <ol class="steps">
+    <li>고오염 영역 집중 살균</li>
+    <li>내부 정밀 살균 클리닝</li>
+    <li>살균 레이어링</li>
+    <li>패브릭 탈취</li>
+  </ol>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">제품보다 먼저, 어디를 보고 어떻게 관리할지부터 정했습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">33개의 관리 지점, 4단계 관리 과정, 수행 여부를 확인하는 QC. 세스코가 말하는 디테일에는 기준이 있습니다.</p></button>
+  </div>
+  <div class="note">
+    <p class="h">브랜드 전략 해석 — 내부용</p>
+    <p><strong>제품 자체는 따라 만들 수 있어도, 어디를 보고 어떻게 관리할지 정한 기준은 세스코의 자산이다.</strong></p>
+    <p>※ 위 문장은 내부 전략용 해석이며 외부 Claim으로 그대로 쓰기보다 실제 기준 Fact와 함께 사용한다.</p>
+  </div>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-5</span> 고객사가 본 세스코의 차별점도 '제품'보다 '표준'</h3>
+  <h4>내부 근거 — PPT에 기록된 SK렌터카 의견</h4>
+  <ul class="list">
+    <li>용품을 활용한 관리 방식 자체는 다른 업체도 구현할 수 있음</li>
+    <li>세스코 브랜드가 함께하면 고객이 <strong>신뢰·표준·안심이 결합된 가치</strong>로 인식</li>
+  </ul>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">세스코 카케어의 차이는 제품 하나보다, 제품을 쓰는 기준까지 함께 설계했다는 데 있습니다.</p></button>
+  </div>
+  <p class="sm"><strong>내부 전략 키워드</strong> — PRODUCT → STANDARD → TRUST</p>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-6</span> 악취는 실제 차에서 반복해 보고 기준을 다듬었다</h3>
+  <h4>내부 근거 — 과학연구소와 악취차 필드 테스트 4차</h4>
+  <div class="care">
+    <div><span class="k">1차</span><span class="d">악취 종류별 케미컬 선정</span><span class="p">악취 저감률 15%</span></div>
+    <div><span class="k">2차</span><span class="d">단독 단일 공정</span><span class="p">35%</span></div>
+    <div><span class="k">3차</span><span class="d">복합 공정 8단계</span><span class="p">55~70%</span></div>
+    <div><span class="k">4차</span><span class="d">복합 공정 반복</span><span class="p">70~80%</span></div>
+  </div>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">한 번의 시험으로 정하지 않았습니다. 실제 악취 차량에서 원인과 공정을 바꿔가며 반복해서 확인했습니다.</p></button>
+  </div>
+  <div class="note hold">
+    <p class="h">사용 주의</p>
+    <ul class="list">
+      <li>위 저감률은 <strong>전문 서비스 복합 공정 결과</strong>다.</li>
+      <li>카케어 5종 전체 또는 개별 제품 성능 수치로 사용하지 않는다.</li>
+      <li>개발 태도, 실차 검증 스토리의 Proof로만 활용한다.</li>
+    </ul>
+  </div>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-7</span> 차량마다 다른 악취 Spot을 진단하는 방식</h3>
+  <h4>내부 근거</h4>
+  <p class="sm">악취 서비스 개발 과정에서 <strong>차량별 악취 발생 Spot이 다르다</strong>는 이슈를 확인함. 진단 체크리스트 항목으로 다음을 검토함.</p>
+  <ul class="list">
+    <li>악취 종류</li>
+    <li>강도</li>
+    <li>부위</li>
+    <li>차량 특이사항</li>
+    <li>수행 서비스 내역</li>
+    <li>작업 시간 / 작업자</li>
+  </ul>
+  <p class="sm">이슈 Spot을 집중 관리하고 결과를 리포트하는 체계를 개발함.</p>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">디테일은 모든 차를 똑같이 닦는 것이 아니라, 문제가 생긴 위치를 먼저 찾는 것에서 시작합니다.</p></button>
+  </div>
+  <p class="sm">이 메시지는 향후 B2B / Professional용 'CESCO DETAIL STANDARD'로 확장하기 좋은 근거다.</p>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-8</span> 냄새까지 '감각'이 아닌 '분석 대상'으로 봤다</h3>
+  <h4>내부 근거 — 실제 악취 차량 내부 공기 포집 후 GC/MS 분석</h4>
+  <ul class="list">
+    <li>차량 공간에서 냄새 포집</li>
+    <li>담배 냄새 관련 물질 분석</li>
+    <li>Fabric / 스웨이드 / 부직포 / 가죽 등 차량 소재 구분</li>
+    <li>일광견뢰도 시험</li>
+    <li>원단별 안정성·호환성 시험</li>
+  </ul>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">어디서 나는지 모르는 냄새도, 세스코는 원인과 소재부터 나눠 봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">냄새를 향으로 판단하기 전에 실제 차량에서 성분과 소재를 확인했습니다.</p></button>
+  </div>
+
+  <hr class="rule">
+
+  <h3><span class="tag">21-9</span> '새로운 관점' 자체가 B2B 시장의 반응을 만들었다</h3>
+  <h4>내부 근거</h4>
+  <p class="sm">PPT에서는 세스코 차량 위생케어 솔루션이 모빌리티 심포지엄, SK렌터카 프루브 시스템 등으로 확산됐고, <strong>'세스코의 차량 실내 클리닝에 대한 새로운 관점이 관계 업체들의 큰 관심을 받았다'</strong>고 정리함.</p>
+  <p class="sm">K CAR에서 세스코 카케어 솔루션이 무엇이길래 렌터카 시장에서 차량 위생이 화두가 됐는지 문의했다는 내부 기록도 있음.</p>
+  <h4>마케팅 해석</h4>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="t">차량 실내를 보는 새로운 기준이 먼저 반응을 만들었고, 그 기준을 B2C 제품으로 옮겼습니다.</p></button>
+  </div>
+  <div class="note">
+    <p class="h">주의</p>
+    <ul class="list">
+      <li>관계사 코멘트는 외부 공개 가능 여부 확인 후 사용한다.</li>
+      <li>상세페이지에서는 '업계가 인정했다' 같은 과장된 표현으로 변환하지 않는다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 22 -->
+<section class="sec" id="s22">
+  <div class="sec-head">
+    <span class="secno">22 — 제품별 POD × 실제 라벨 × 메시지</span>
+    <h2>적용 가이드</h2>
+    <p class="lede">이 섹션은 내부 POD와 실제 패키지 라벨을 구분해 관리한다.</p>
+  </div>
+
+  <div class="cards c3">
+    <div class="card" style="border-color:var(--teal)">
+      <span class="lv a">A — Label Confirmed</span>
+      <p>현재 업로드된 실제 라벨/패키지에 표기된 내용. 외부 콘텐츠 작성 시 최우선 기준.</p>
+    </div>
+    <div class="card">
+      <span class="lv b">B — Internal POD</span>
+      <p>내부 POD 문서에 있는 개발·시험·비교 자료. 성적서와 광고 표현 가능 범위 확인 후 사용.</p>
+    </div>
+    <div class="card">
+      <span class="lv c">C — Hold</span>
+      <p>비교대상 불명확, 법적 표현 위험, 실제 라벨과 불일치하거나 과장 가능성이 있어 그대로 사용하지 않는 표현.</p>
+    </div>
+  </div>
+
+  <!-- 22-1 -->
+  <article class="prod" id="s22-1">
+    <div class="prod-h">
+      <span class="k">22-1 · CARE 01 표면 살균</span>
+      <h3>살균소독제</h3>
+      <p class="role">매일 손이 반복해서 닿는 표면의 보이지 않는 위생까지 보는 디테일</p>
+    </div>
+    <div class="prod-b">
+      <h4>고객이 느끼는 순간</h4>
+      <ul class="list">
+        <li>하루에도 여러 번 잡는 핸들과 기어가 신경 쓰일 때</li>
+        <li>여러 사람이 함께 탄 뒤 문 손잡이·버튼류가 찝찝할 때</li>
+        <li>중고차나 렌터카 이용 후 접촉 표면을 다시 관리하고 싶을 때</li>
+        <li>눈에 보이는 먼지는 닦았지만 위생 상태까지 확인하고 싶을 때</li>
+      </ul>
+
+      <div class="pod">
+        <p class="h">Primary POD</p>
+        <p>손이 자주 닿는 차량 표면을, 승인된 살균·살바이러스 범위로 관리</p>
+      </div>
+      <p class="sm">단순한 세정제가 아니라 차량 접촉 표면에 적용할 수 있는 <strong>생활시설 표면 살균·살바이러스용 살생물제품</strong>이라는 점을 중심으로 본다.</p>
+
+      <hr class="rule">
+      <span class="lv a">A — Label Confirmed</span>
+      <h4>전면 / 마케팅 문구</h4>
+      <div class="quote">
+        <p class="sm">세스코 바이러스 연구소에서 핸들·시트·대시보드·문 손잡이 등 손이 자주 닿는 표면부터 실내 공기가 통과하는 에어컨 필터까지 <strong>16종 세균 및 바이러스 감소 효과가 검증된</strong> 차량용 표면 살균소독제를 제안합니다.</p>
+      </div>
+      <h4>표시사항</h4>
+      <ul class="list">
+        <li>살생물제품 승인번호 <strong>0125-0038</strong></li>
+        <li>효과·효능: <strong>생활시설 표면 살균·살바이러스(비다공성)</strong></li>
+        <li>세균 <strong>14종</strong></li>
+        <li>바이러스 <strong>2종</strong>: Influenza A virus H1N1 / SARS-CoV-2 XBB.1.5</li>
+        <li>용량 500 ml</li>
+        <li>살생물물질: 에탄올 52.14% w/w</li>
+        <li>표면에 직접 살포하여 사용하는 제품</li>
+        <li>공기소독 용도 사용 금지</li>
+      </ul>
+      <h4>상세페이지에서 우선 사용할 Proof</h4>
+      <ul class="list">
+        <li><strong>14종 세균 + 2종 바이러스</strong></li>
+        <li><strong>환경부 승인 살생물제품</strong></li>
+        <li><strong>비다공성 생활시설 표면 살균·살바이러스</strong></li>
+      </ul>
+
+      <hr class="rule">
+      <span class="lv b">B — Internal POD · 추가 검증 후 사용</span>
+      <ul class="list">
+        <li>세균 14종 99.999%, 바이러스 2종 99.99% 등 개별 감소율</li>
+        <li>사탕수수 기원 주정 / 식품첨가물 등급 원료 강조</li>
+        <li>피부 저자극 시험</li>
+        <li>유해물질 불검출 시험</li>
+        <li>차량 소재 호환성 자사 테스트</li>
+        <li>'국내 최다', '국내 유일' 경쟁 우위 표현</li>
+      </ul>
+
+      <div class="note hold">
+        <p class="h">C — Hold / 주의</p>
+        <ul class="list">
+          <li><strong>'국내 최다', '국내 유일'</strong>: 비교 범위와 기준이 확정되지 않으면 사용하지 않는다.</li>
+          <li><strong>시트/에어컨 필터 사용 표현</strong>: 라벨 마케팅 문구에는 있으나 살생물 효능 표시 범위는 비다공성 표면이다. 상세페이지에서는 최종 허용 범위를 법무/RA 기준으로 맞춘다.</li>
+          <li>피부에 직접 안전하다는 식의 표현은 금지. 사람·동물에 직접 분사하지 않는다.</li>
+        </ul>
+      </div>
+
+      <h4>메시지 후보</h4>
+      <div class="specs">
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">매일 손이 닿는 곳까지 보는 것이 세스코의 디테일. 14종 세균과 2종 바이러스까지 확인한 표면 살균 관리.</p></button>
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">보이는 손자국을 닦은 뒤에도 남는 위생 관리. 세스코는 접촉 표면까지 따로 봅니다.</p></button>
+      </div>
+
+      <p class="src"><b>Source label</b>20260721_세스코마이랩_카케어_살균소독제_500ml_라벨_[확인용](2).pdf</p>
+    </div>
+  </article>
+
+  <!-- 22-2 -->
+  <article class="prod" id="s22-2">
+    <div class="prod-h">
+      <span class="k">22-2 · CARE 02 일상 클리닝 + 살균</span>
+      <h3>다용도 살균클리닝 티슈</h3>
+      <p class="role">오염이 생기는 순간 바로 닦고, 접촉 표면의 살균까지 한 번에 보는 디테일</p>
+    </div>
+    <div class="prod-b">
+      <h4>고객이 느끼는 순간</h4>
+      <ul class="list">
+        <li>디스플레이에 지문이 가득할 때</li>
+        <li>컵홀더에 커피나 음료가 말라붙었을 때</li>
+        <li>대시보드에 먼지가 보이지만 세차장 갈 정도는 아닐 때</li>
+        <li>아이가 과자를 먹고 난 뒤 시트 주변과 손 닿는 곳이 신경 쓰일 때</li>
+      </ul>
+
+      <div class="pod">
+        <p class="h">Primary POD</p>
+        <p>차량 생활 오염 제거 + 4종 유해균 99.999% 살균을 한 장으로</p>
+      </div>
+
+      <hr class="rule">
+      <span class="lv a">A — Label Confirmed</span>
+      <h4>실제 패키지 메시지</h4>
+      <ul class="list">
+        <li><strong>식품첨가물 100% 성분</strong></li>
+        <li><strong>99.999% 강력 살균</strong></li>
+        <li>곡물발효 에탄올 함유</li>
+        <li>먼지·생활 오염 제거</li>
+        <li>멜트블로운 원단</li>
+        <li>스크래치·잔여물 걱정 없이 손쉬운 청소</li>
+        <li>손이 자주 닿는 표면 간편하게 살균</li>
+        <li>50매 / 20 × 20 cm</li>
+      </ul>
+      <h4>99.999% 살균 대상</h4>
+      <ul class="list">
+        <li>대장균</li>
+        <li>황색포도상구균</li>
+        <li>녹농균</li>
+        <li>장내구균</li>
+      </ul>
+      <h4>표시 용도</h4>
+      <ul class="list">
+        <li>살균제: 일반물체용 / 어린이용품용</li>
+        <li>세정제: 기타표면세정용 / 자동차 실내용 등</li>
+      </ul>
+
+      <hr class="rule">
+      <span class="lv b">B — Internal POD · 추가 검증 후 사용</span>
+      <ul class="list">
+        <li>계면활성제 무첨가 처방</li>
+        <li>닦은 뒤 하얀 거품/얼룩이 남지 않는 마감</li>
+        <li>인체피부 저자극 테스트</li>
+        <li>락스/가습기 이슈 성분 불검출</li>
+        <li>디스플레이·하이그로시·클러스터 특화 사용성</li>
+        <li>마찰력이 높은 다공성 원단 / 보풀 억제</li>
+        <li>글로브·도어 포켓 휴대성</li>
+      </ul>
+
+      <div class="note hold">
+        <p class="h">C — Hold / 주의</p>
+        <ul class="list">
+          <li>패키지에는 변색·탈색 우려 소재에 사전 테스트하도록 안내되어 있음.</li>
+          <li>하이그로시·천연가죽은 사용 후 마른 천으로 닦는 주의사항을 함께 고려한다.</li>
+          <li>'스크래치 걱정 없이'를 상세페이지에서 절대적 무손상 보증처럼 확대하지 않는다.</li>
+        </ul>
+      </div>
+
+      <h4>메시지 후보</h4>
+      <div class="specs">
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">디테일은 세차하는 날에만 필요한 게 아닙니다. 컵홀더의 얼룩부터 손이 닿은 자리의 4종 유해균까지 한 장으로.</p></button>
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">생활 오염은 닦고, 접촉 표면은 99.999% 살균. 차 안에 두고 바로 쓰는 디테일 클리닝.</p></button>
+      </div>
+
+      <p class="src"><b>Source labels</b>20260626_세스코마이랩_카케어_다용도살균클리닝티슈_일반용_필름_Dark Gray_[확인용](2).pdf<br>20260615_세스코마이랩_카케어_다용도살균클리닝티슈_일반용_캡스티커_Dark Gray_[확인용](2).pdf</p>
+    </div>
+  </article>
+
+  <!-- 22-3 -->
+  <article class="prod" id="s22-3">
+    <div class="prod-h">
+      <span class="k">22-3 · CARE 03 소재 탈취</span>
+      <h3>마스터 차량용 전문탈취제</h3>
+      <p class="role">공기 중 냄새가 아니라 시트·카펫·천장 등 소재에 깊이 밴 잔존 악취까지 구분하는 디테일</p>
+    </div>
+    <div class="prod-b">
+      <h4>고객이 느끼는 순간</h4>
+      <ul class="list">
+        <li>환기 직후에는 괜찮다가 다음 날 담배 냄새가 다시 올라올 때</li>
+        <li>중고차 구매 후 이전 사용자의 냄새가 시트와 카펫에 남아 있을 때</li>
+        <li>음식·체취 냄새가 소재에 배어 쉽게 빠지지 않을 때</li>
+        <li>방향제를 써도 기존 냄새와 향이 섞여 더 불쾌하게 느껴질 때</li>
+      </ul>
+
+      <div class="pod">
+        <p class="h">Primary POD</p>
+        <p>향으로 덮지 않고, 차량 소재에 밴 담배·잔존 악취 원인을 99% 탈취</p>
+      </div>
+
+      <hr class="rule">
+      <span class="lv a">A — Label Confirmed</span>
+      <h4>전면 / 마케팅 문구</h4>
+      <div class="quote">
+        <p class="sm">세스코 생활과학 연구소에서 차량 카펫·시트 등에 깊숙이 스며들어 빼내기 어려운 찌든 담배 냄새부터 쉽게 사라지지 않는 잔존 악취까지 <strong>향으로 덮지 않고 악취 원인을 탈취해 주는</strong> 차량 전문 탈취제를 제안합니다.</p>
+      </div>
+      <h4>정량 Proof</h4>
+      <ul class="list">
+        <li>니코틴 유사오염원 <strong>4-에데닐 피리딘 탈취력 99%</strong></li>
+        <li>암모니아 <strong>99%</strong></li>
+        <li>트리메틸아민 <strong>99%</strong></li>
+      </ul>
+      <h4>사용 위치</h4>
+      <ul class="list">
+        <li>시트</li>
+        <li>발매트</li>
+        <li>천장 등</li>
+      </ul>
+      <h4>주요물질</h4>
+      <ul class="list">
+        <li>소르비탄지방산에스테르</li>
+        <li>에탄올</li>
+        <li>정제수</li>
+        <li>기타물질: 리모넨</li>
+      </ul>
+
+      <hr class="rule">
+      <span class="lv b">B — Internal POD · 추가 검증 후 사용</span>
+      <ul class="list">
+        <li>공기 중 악취 분자 포획 + 화학적 중화 작용 설명</li>
+        <li>2시간 / 24시간 후 99% 이상 탈취력</li>
+        <li>담배 냄새 특화 지속력</li>
+        <li>인공향료 배제 처방</li>
+        <li>파라벤류 / 형광증백제 / 가습기 이슈성분 불검출</li>
+        <li>실제 자동차 원단 테스트</li>
+        <li>폴리옥시에틸렌계 + 시트러스계 작용 메커니즘</li>
+      </ul>
+
+      <div class="note hold">
+        <p class="h">C — Hold / 주의</p>
+        <ul class="list">
+          <li><strong>24시간 99%</strong>는 실제 라벨에 표기되지 않은 내부 POD다. 성적서·시험 조건·광고 사용 범위 확인 전 메인 Claim으로 사용하지 않는다.</li>
+          <li>'무향'은 현재 업로드된 전문탈취제 실제 라벨에 명시되어 있지 않다. 실제 라벨의 <strong>'향으로 덮지 않고'</strong>를 우선 사용한다.</li>
+          <li>'아이·반려동물 동승차에 안전'처럼 안전성을 직접 보증하는 문장은 사용하지 않는다.</li>
+          <li>내부 POD 중 '무취/무해한 성질로 완전 전환' 같은 표현은 근거 범위를 넘어설 수 있어 사용하지 않는다.</li>
+        </ul>
+      </div>
+
+      <h4>메시지 후보</h4>
+      <div class="specs">
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">냄새가 어디에 남았는지부터 보는 것이 세스코의 디테일. 시트와 카펫에 밴 담배·잔존 악취를 향으로 덮지 않고 관리합니다.</p></button>
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">환기해도 다시 올라오는 담배 냄새. 니코틴 유사오염원 99% 탈취로 확인했습니다.</p></button>
+      </div>
+
+      <p class="src"><b>Source label</b>20260721_세스코마이랩_카케어_마스터 차량용 전문탈취제_500ml_라벨_[확인용](2).pdf</p>
+    </div>
+  </article>
+
+  <!-- 22-4 -->
+  <article class="prod" id="s22-4">
+    <div class="prod-h">
+      <span class="k">22-4 · CARE 04 공조 탈취</span>
+      <h3>마스터 차량용 탈취캔</h3>
+      <p class="role">손으로 닦을 수 없는 에어컨·히터 공조 안쪽과 차량 사각지대까지 보는 디테일</p>
+    </div>
+    <div class="prod-b">
+      <h4>고객이 느끼는 순간</h4>
+      <ul class="list">
+        <li>에어컨을 켜자마자 어디선가 냄새가 올라올 때</li>
+        <li>송풍구는 닦았지만 바람이 나오면 다시 냄새가 날 때</li>
+        <li>시트와 매트는 관리했는데 냄새의 위치를 찾기 어려울 때</li>
+        <li>공조 내부를 복잡한 작업 없이 한 번에 관리하고 싶을 때</li>
+      </ul>
+
+      <div class="pod">
+        <p class="h">Primary POD</p>
+        <p>원터치 분사로 손이 닿지 않는 공조·사각지대까지 확산하는 전문 탈취</p>
+      </div>
+
+      <hr class="rule">
+      <span class="lv a">A — Label Confirmed</span>
+      <h4>전면 / 마케팅 문구</h4>
+      <div class="quote">
+        <p class="sm">세스코 생활과학 연구소에서 <strong>손이 닿지 않는 에어컨·히터 내부부터 차량 곳곳의 사각지대까지</strong> <strong>인공향료 없이 빠르게 확산되어</strong> 숨은 악취도 강력하게 탈취해 주는 차량 전문 탈취캔을 제안합니다.</p>
+      </div>
+      <h4>정량 Proof</h4>
+      <ul class="list">
+        <li>암모니아 <strong>99% 탈취</strong></li>
+        <li>트리메틸아민 <strong>99% 탈취</strong></li>
+      </ul>
+      <h4>사용 방식</h4>
+      <ul class="list">
+        <li>150 g</li>
+        <li>에어컨 최대 풍량</li>
+        <li>내부 순환모드</li>
+        <li>뒷좌석 바닥에 세워 원터치 자동 분사</li>
+        <li>분사 종료 5분 후 시동 OFF</li>
+        <li>최소 15분 이상 자연 환기</li>
+      </ul>
+      <h4>기타 표시</h4>
+      <ul class="list">
+        <li>인공향료 없이 설계</li>
+        <li>불연성 표시</li>
+      </ul>
+
+      <hr class="rule">
+      <span class="lv b">B — Internal POD · 추가 검증 후 사용</span>
+      <ul class="list">
+        <li>고함량 케미컬</li>
+        <li>24시간 탈취력</li>
+        <li>타사 대비 유효성분 1.5배</li>
+        <li>알레르기반응가능물질 / 파라벤류 / 형광증백제 / 가습기 이슈성분 불검출</li>
+        <li>녹차·페퍼민트잎 추출물</li>
+        <li>호주 밀 유래 에탄올</li>
+        <li>계절 전환 시점 사용 상황 제안</li>
+      </ul>
+
+      <div class="note hold">
+        <p class="h">C — Hold / 주의</p>
+        <ul class="list">
+          <li><strong>'타사 대비 1.5배'</strong>: 비교 제품·시점·함량 기준 확정 전 외부 사용 금지.</li>
+          <li><strong>24시간 99%</strong>: 실제 라벨에 없음. 시험 근거 확인 전 보조 Claim으로도 신중하게 사용.</li>
+          <li>'완벽하게', '차 안 전체를 모두 제거' 같은 절대 표현은 사용하지 않는다.</li>
+          <li>제품 사용 중 차량 외부에서 대기하고 사용 후 환기해야 하는 실제 라벨 사용법을 간소화해 누락하지 않는다.</li>
+        </ul>
+      </div>
+
+      <h4>메시지 후보</h4>
+      <div class="specs">
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">디테일은 손이 닿는 곳에서 끝나지 않습니다. 에어컨·히터 안쪽까지 퍼지는 원터치 탈취.</p></button>
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">송풍구를 닦아도 다시 올라오는 냄새라면, 공조 안쪽까지 보는 관리가 필요합니다.</p></button>
+      </div>
+
+      <p class="src"><b>Source label</b>20260626_세스코마이랩_카케어_마스터_차량용탈취캔_150g_캔라벨_[확인용](2).pdf</p>
+    </div>
+  </article>
+
+  <!-- 22-5 -->
+  <article class="prod" id="s22-5">
+    <div class="prod-h">
+      <span class="k">22-5 · CARE 05 습기 + 냄새 상시 관리</span>
+      <h3>슬림형 탈취제습제</h3>
+      <p class="role">차를 타지 않는 시간에도 습기가 머무는 좁은 틈새까지 보는 디테일</p>
+    </div>
+    <div class="prod-b">
+      <h4>고객이 느끼는 순간</h4>
+      <ul class="list">
+        <li>비 오는 날 젖은 우산과 신발을 차에 싣고 난 뒤</li>
+        <li>운동복·골프백·캠핑 장비를 트렁크에 오래 둘 때</li>
+        <li>장마철 시트 아래나 수납공간의 눅눅함이 신경 쓰일 때</li>
+        <li>시동이 꺼진 동안에도 습기와 냄새를 관리하고 싶을 때</li>
+      </ul>
+
+      <div class="pod">
+        <p class="h">Primary POD</p>
+        <p>시트 사이·컵홀더·콘솔 박스까지 들어가는 슬림형 제습·탈취 관리</p>
+      </div>
+
+      <hr class="rule">
+      <span class="lv a">A — Label Confirmed</span>
+      <h4>실제 패키지 메시지</h4>
+      <div class="quote">
+        <p class="sm">세스코 생활과학 연구소에서 시트 사이, 컵홀더, 콘솔 박스 등 <strong>틈새에도 쏙 들어가는 슬림한 사이즈로</strong> 차량 구석구석의 습기와 냄새를 빠짐없이 관리해 주는 슬림형 탈취제습제를 제안합니다.</p>
+      </div>
+      <h4>표시사항</h4>
+      <ul class="list">
+        <li><strong>300 g (30 g × 10개입)</strong></li>
+        <li><strong>무향</strong></li>
+        <li>습기제거제 + 자동차 실내용 탈취제</li>
+        <li>주요물질: 염화칼슘</li>
+        <li>시트 사이 / 컵홀더 / 콘솔 박스 등 좁은 공간 사용</li>
+        <li>파우치가 <strong>1~2 cm 부풀고 젤리처럼 말랑해지면 교체</strong></li>
+        <li>사용 후 종량제 봉투에 폐기</li>
+        <li>자동차 / 수납장 / 신발 / 의류 / 이불 / 냉장고 / 골프백 / 캠핑장비 등 사용처 표시</li>
+      </ul>
+
+      <hr class="rule">
+      <span class="lv b">B — Internal POD · 추가 검증 후 사용</span>
+      <ul class="list">
+        <li>흡습 후 겔화</li>
+        <li>파우더형 염화칼슘의 넓은 접촉면</li>
+        <li>겉 봉지 강도 / 조해액 내누설성 시험</li>
+        <li>하중 300 kg 공인시험</li>
+        <li><strong>중량 대비 400% 흡수</strong></li>
+        <li>이소발레릭산 / 암모니아 / 트리메틸아민 99% 제거</li>
+        <li>습기 제거를 통한 곰팡이 발생 환경 억제 도움</li>
+      </ul>
+
+      <div class="note hold">
+        <p class="h">C — Hold / 주의</p>
+        <ul class="list">
+          <li><strong>400% 흡습, 300 kg, 3종 악취 99%</strong>는 현재 실제 패키지에서 확인되지 않는다. 성적서와 광고 가능 범위 확인 후 사용한다.</li>
+          <li>'곰팡이 방지/제거'로 단정하지 않는다. 내부 문서의 '곰팡이 발생 환경 억제에 도움' 수준도 근거 검토 후 사용한다.</li>
+          <li>파우치는 접거나 구기지 않고, 흰 부직포 흡습면을 위로 두는 실제 사용 조건을 지킨다.</li>
+        </ul>
+      </div>
+
+      <h4>메시지 후보</h4>
+      <div class="specs">
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">디테일은 차를 타지 않는 시간에도 이어집니다. 시트 틈과 콘솔처럼 습기가 머무는 자리까지.</p></button>
+        <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+          <p class="t">큰 제습제가 들어가기 어려운 차 안 틈새에, 30 g 슬림 파우치를 필요한 곳마다.</p></button>
+      </div>
+
+      <p class="src"><b>Source label</b>20260615_세스코마이랩_카케어_슬림형 탈취제습제_30g_파우치_10개입_[확인용](2).pdf</p>
+    </div>
+  </article>
+</section>
+
+<!-- 23 -->
+<section class="sec" id="s23">
+  <div class="sec-head">
+    <span class="secno">23 — 5종 POD 한눈에 보기</span>
+    <h2>제품별 요약</h2>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th>제품</th><th>세스코식 Detail</th><th>Primary POD</th><th>Label Confirmed 핵심 Proof</th><th>Internal POD 후보</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>살균소독제</td>
+          <td>반복 접촉 표면의 보이지 않는 위생</td>
+          <td>승인 범위가 명확한 표면 살균·살바이러스</td>
+          <td>세균 14종 + 바이러스 2종 / 승인번호 0125-0038</td>
+          <td>개별 감소율, 저자극, 소재 호환성, 국내 최다/유일</td>
+        </tr>
+        <tr>
+          <td>살균클리닝 티슈</td>
+          <td>생활 오염이 생기는 순간의 즉시 관리</td>
+          <td>오염 제거 + 살균을 한 장으로</td>
+          <td>4종 유해균 99.999% / 식품첨가물 100% 성분 / 멜트블로운 원단</td>
+          <td>계면활성제 무첨가, 저자극, 불검출, 소재 특화</td>
+        </tr>
+        <tr>
+          <td>전문탈취제</td>
+          <td>시트·카펫에 밴 잔존 악취</td>
+          <td>향으로 덮지 않는 소재 악취 원인 탈취</td>
+          <td>니코틴 유사오염원·암모니아·TMA 99%</td>
+          <td>24시간 지속, 포획+중화 메커니즘, 인공향료 배제</td>
+        </tr>
+        <tr>
+          <td>탈취캔</td>
+          <td>손이 닿지 않는 공조·사각지대</td>
+          <td>원터치 확산 공조 탈취</td>
+          <td>암모니아·TMA 99% / 인공향료 없이 / 150 g</td>
+          <td>고함량, 24시간, 타사 대비 1.5배, 성분 불검출</td>
+        </tr>
+        <tr>
+          <td>슬림 탈취제습제</td>
+          <td>시동 OFF 시간의 틈새 습기</td>
+          <td>좁은 공간 분산 배치형 제습+탈취</td>
+          <td>30 g × 10 / 무향 / 교체 상태 확인</td>
+          <td>400% 흡습, 하중 300 kg, 악취 3종 99%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 24 -->
+<section class="sec" id="s24">
+  <div class="sec-head">
+    <span class="secno">24 — 제품별 '디테일의 기준'</span>
+    <h2>메시지 시스템</h2>
+  </div>
+
+  <h3>살균소독제 <span class="tag">접촉의 디테일</span></h3>
+  <p class="sm"><strong>기준</strong> — 손이 자주 닿는 곳은 보이는 오염과 별개로 표면 위생을 본다.</p>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">매일 다시 손이 닿는 곳까지.</p></button>
+  </div>
+
+  <h3>살균클리닝 티슈 <span class="tag">일상의 디테일</span></h3>
+  <p class="sm"><strong>기준</strong> — 생활 오염은 생기는 순간 닦고, 접촉 표면의 살균까지 함께 본다.</p>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">세차하는 날 사이에 생기는 오염까지.</p></button>
+  </div>
+
+  <h3>전문탈취제 <span class="tag">냄새의 디테일</span></h3>
+  <p class="sm"><strong>기준</strong> — 냄새는 공기 중인지 소재에 밴 것인지 먼저 구분한다.</p>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">환기해도 남는 냄새에는 남아 있는 자리가 있습니다.</p></button>
+  </div>
+
+  <h3>탈취캔 <span class="tag">사각지대의 디테일</span></h3>
+  <p class="sm"><strong>기준</strong> — 보이는 표면만이 아니라 손이 닿지 않는 공조 흐름까지 본다.</p>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">손이 닿지 않는 곳도 차 안이니까.</p></button>
+  </div>
+
+  <h3>슬림형 탈취제습제 <span class="tag">틈새와 시간의 디테일</span></h3>
+  <p class="sm"><strong>기준</strong> — 차를 타지 않는 시간과 공기가 잘 돌지 않는 틈새까지 본다.</p>
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span><p class="t">차를 세워둔 시간에도 습기는 머무를 수 있으니까.</p></button>
+  </div>
+</section>
+
+<!-- 25 -->
+<section class="sec" id="s25">
+  <div class="sec-head">
+    <span class="secno">25 — CLAIM 사용 등급표</span>
+    <h2>어디까지 쓸 수 있는가</h2>
+  </div>
+
+  <span class="lv a">Level A — 실제 라벨 우선 사용</span>
+  <p class="sm">상세페이지 / 리플릿 / 카드뉴스의 정량 Claim은 원칙적으로 여기서 먼저 선택한다.</p>
+  <ul class="list">
+    <li><strong>살균소독제</strong> — 14종 세균 + 2종 바이러스 / 승인번호</li>
+    <li><strong>티슈</strong> — 4종 99.999% / 식품첨가물 100% 성분 / 곡물발효 에탄올 / 멜트블로운</li>
+    <li><strong>전문탈취제</strong> — 니코틴 유사오염원 99% / 암모니아·TMA 99% / 향으로 덮지 않고 악취 원인 탈취</li>
+    <li><strong>탈취캔</strong> — 암모니아·TMA 99% / 인공향료 없이 / 공조·사각지대 확산 / 원터치 사용</li>
+    <li><strong>제습제</strong> — 30 g × 10 / 무향 / 슬림형 / 1~2 cm 팽창·겔화 교체 가이드</li>
+  </ul>
+
+  <hr class="rule">
+
+  <span class="lv b">Level B — 시험자료 확인 후 활용</span>
+  <ul class="list">
+    <li>24시간 지속력</li>
+    <li>400% 흡습</li>
+    <li>하중 300 kg</li>
+    <li>추가 불검출 시험</li>
+    <li>피부 저자극</li>
+    <li>소재 호환성</li>
+    <li>유효성분 함량 비교</li>
+  </ul>
+
+  <hr class="rule">
+
+  <span class="lv c">Level C — 외부 사용 전 반드시 검증</span>
+  <div class="note hold">
+    <ul class="list">
+      <li>국내 최초 / 국내 유일 / 국내 최다</li>
+      <li>경쟁사 대비 1.5배</li>
+      <li>'완전 제거', '완벽', '모든 악취'</li>
+      <li>아이·임산부·반려동물에게 안전하다는 직접 보증</li>
+      <li>'무해'와 같이 위해성이 없다고 단정하는 표현</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 26 -->
+<section class="sec" id="s26">
+  <div class="sec-head">
+    <span class="secno">26 — 패키지 번호 체계</span>
+    <h2>확인 필요</h2>
+    <p class="lede">현재 업로드된 실제 패키지 시안에서는 다음 번호가 확인된다.</p>
+  </div>
+
+  <dl class="kv">
+    <div><dt>살균소독제</dt><dd>1</dd></div>
+    <div><dt>살균클리닝 티슈</dt><dd>2</dd></div>
+    <div><dt>탈취캔</dt><dd>3</dd></div>
+    <div><dt>전문탈취제</dt><dd>3</dd></div>
+    <div><dt>슬림형 탈취제습제</dt><dd>4</dd></div>
+  </dl>
+
+  <p>내부 POD 통합 시트에는 <strong>제품 패키지의 솔루션 번호 순서대로 사용 안내 예정</strong>이라는 메모가 있으나, 현재 라벨 파일 기준으로는 전문탈취제와 탈취캔의 번호가 중복되어 보인다.</p>
+
+  <div class="note hold">
+    <p class="h">실무 체크</p>
+    <p><strong>최종 패키지 번호 체계 확정 전 상세페이지·리플릿·카드뉴스에서 번호를 제품 역할과 고정 연결하지 않는다.</strong></p>
+    <p>번호가 확정되면 차량 Map / 5 Care / 패키지 전면 번호를 동일 체계로 맞춘다.</p>
+  </div>
+</section>
+
+<!-- 27 -->
+<section class="sec" id="s27">
+  <div class="sec-head">
+    <span class="secno">27 — 최종 브랜드-제품 연결</span>
+    <h2>연결 문장</h2>
+  </div>
+
+  <div class="specs">
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">브랜드</p><p class="t">차 안 관리, 디테일에는 기준이 필요하니까.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">세스코의 관점</p><p class="t">공간을 관리해온 세스코는 차 안을 33개의 관리 지점으로 나눠 봤습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">기준</p><p class="t">어디에 어떤 문제가 생기는지 나누고, 위치에 맞는 관리 방법을 정했습니다.</p></button>
+    <button class="spec" type="button"><span class="cp">클릭해서 복사</span>
+      <p class="u">제품</p><p class="t">그 기준으로 만든 세스코 마이랩 카케어 5종.</p></button>
+  </div>
+
+  <h3>5가지 Detail</h3>
+  <div class="care">
+    <div><span class="k">접촉</span><span class="d">반복 접촉 표면의 디테일</span><span class="p">살균소독제</span></div>
+    <div><span class="k">일상</span><span class="d">매일 생기는 생활 오염의 디테일</span><span class="p">살균클리닝 티슈</span></div>
+    <div><span class="k">냄새</span><span class="d">소재에 밴 냄새의 디테일</span><span class="p">전문탈취제</span></div>
+    <div><span class="k">사각지대</span><span class="d">손이 닿지 않는 공조의 디테일</span><span class="p">탈취캔</span></div>
+    <div><span class="k">틈새·시간</span><span class="d">차를 세워둔 시간과 틈새의 디테일</span><span class="p">슬림형 탈취제습제</span></div>
+  </div>
+
+  <p>이 구조를 기준으로 상세페이지에서는 각 제품의 <strong>LABEL CONFIRMED Proof</strong>를 바로 붙여 사용한다.</p>
+
+  <p class="foot">
+    CESCO MYLAB CAR CARE — MARKETING POINTS &amp; MESSAGE GUIDE<br>
+    문서 기준일 260812 · 내부 검토용<br>
+    LEVEL B / C Claim은 성적서 및 광고 가능 범위 확인 후 사용
+  </p>
+</section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
+
+<script>
+(function(){
+  /* ---- 카피 복사 ---- */
+  var toast = document.getElementById('toast');
+  var tid;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('on');
+    clearTimeout(tid);
+    tid = setTimeout(function(){ toast.classList.remove('on'); }, 1600);
+  }
+  function specText(el){
+    var t = el.querySelector('.t');
+    if(!t) return '';
+    var out = '';
+    t.childNodes.forEach(function(n){
+      if(n.nodeType === 1 && n.classList.contains('br')){ out += n.textContent + '\n'; }
+      else { out += n.textContent; }
+    });
+    return out.trim();
+  }
+  document.querySelectorAll('.spec').forEach(function(el){
+    var t = el.querySelector('.t');
+    if(t) el.setAttribute('aria-label', specText(el) + ' — 클릭해서 복사');
+    el.addEventListener('click', function(){
+      var text = specText(el);
+      var done = function(){
+        el.classList.add('done');
+        var cp = el.querySelector('.cp');
+        if(cp) cp.textContent = '복사됨';
+        showToast('복사했습니다');
+        setTimeout(function(){
+          el.classList.remove('done');
+          if(cp) cp.textContent = '클릭해서 복사';
+        }, 1600);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallback(text, done); });
+      } else { fallback(text, done); }
+    });
+  });
+  function fallback(text, cb){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); cb(); } catch(e){ showToast('복사에 실패했습니다'); }
+    document.body.removeChild(ta);
+  }
+
+  /* ---- 목차 토글 (모바일) ---- */
+  var rail = document.getElementById('rail');
+  var btn = document.getElementById('idxBtn');
+  btn.addEventListener('click', function(){
+    var open = rail.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? '닫기' : '목차';
+  });
+  rail.addEventListener('click', function(e){
+    if(e.target.closest('a') && window.innerWidth <= 960){
+      rail.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      btn.textContent = '목차';
+    }
+  });
+
+  /* ---- 스크롤 위치 표시 ---- */
+  var links = Array.prototype.slice.call(rail.querySelectorAll('a[href^="#"]'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var now = document.getElementById('now');
+  var secs = Array.prototype.slice.call(document.querySelectorAll('main .sec'));
+  var current = null;
+
+  function setActive(id){
+    if(current === id) return;
+    current = id;
+    links.forEach(function(a){ a.classList.remove('on'); });
+    var a = map[id];
+    if(a){
+      a.classList.add('on');
+      now.textContent = a.querySelector('span').textContent;
+      if(window.innerWidth > 960){
+        var top = a.offsetTop, view = rail.scrollTop, h = rail.clientHeight;
+        if(top < view + 40 || top > view + h - 60) rail.scrollTop = top - h/2;
+      }
+    }
+  }
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      var vis = entries.filter(function(e){ return e.isIntersecting; });
+      if(!vis.length) return;
+      vis.sort(function(a,b){ return a.boundingClientRect.top - b.boundingClientRect.top; });
+      setActive(vis[0].target.id);
+    }, { rootMargin: '-70px 0px -65% 0px', threshold: 0 });
+    secs.forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
