@@ -2,85 +2,39 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>세스코 마케팅 자료 포털 | 시하기획</title>
-<meta name="robots" content="noindex,nofollow">
+<title>CESCO HTML Dashboard | SiHA</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <style>
-:root{
- --navy:#1C2340; --blue:#3D55A8; --ink:#23283B; --txt:#3A4150; --txt-2:#6B7280; --txt-3:#9AA1AC;
- --paper:#FBFCFD; --card:#FFFFFF; --line:#E7EAF0; --ice:#EEF3FA;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;background:var(--paper);color:var(--txt);line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased}
-.wrap{max-width:760px;margin:0 auto;padding:64px 24px 96px}
-header{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:36px}
-.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--blue);background:var(--ice);border-radius:100px;padding:6px 14px;margin-bottom:16px}
-h1{font-size:clamp(24px,5vw,30px);font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.35}
-.sub{margin-top:10px;font-size:15px;color:var(--txt-2)}
-.meta{margin-top:14px;font-size:12.5px;color:var(--txt-3)}
-.group{margin-top:36px}
-.group-label{font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--txt-3);text-transform:uppercase;margin-bottom:14px}
-a.card{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:12px;transition:border-color .15s, transform .15s, box-shadow .15s}
-a.card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 22px rgba(28,35,64,.07)}
-.card .row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.card .no{font-size:12px;font-weight:800;color:var(--blue)}
-.card .t{font-size:16.5px;font-weight:800;color:var(--navy)}
-.card .d{margin-top:7px;font-size:13.5px;color:var(--txt-2);line-height:1.6}
-.card .go{margin-top:12px;font-size:12.5px;font-weight:700;color:var(--blue)}
-.card .go::after{content:" →"}
-footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--txt-3);line-height:1.7}
+:root{--navy:#17213f;--blue:#405bd1;--sky:#edf2ff;--ink:#242b3d;--muted:#70788d;--line:#e5e9f1;--bg:#f6f8fb;--card:#fff;--green:#087a55;--greenbg:#eaf8f2;--amber:#9a5a00;--amberbg:#fff6df;--graybg:#f0f2f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased}.shell{max-width:1240px;margin:auto;padding:44px 28px 80px}.top{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:28px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.13em;color:var(--blue);margin-bottom:11px}h1{margin:0;color:var(--navy);font-size:clamp(29px,4vw,44px);letter-spacing:-.04em;line-height:1.15}.lead{margin:12px 0 0;color:var(--muted);font-size:15px}.updated{text-align:right;color:var(--muted);font-size:12px;line-height:1.7;white-space:nowrap}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}.stat b{display:block;font-size:26px;color:var(--navy);letter-spacing:-.03em}.stat span{font-size:12px;color:var(--muted)}.toolbar{position:sticky;top:0;z-index:10;background:rgba(246,248,251,.92);backdrop-filter:blur(12px);padding:12px 0 15px}.search{width:100%;height:48px;border:1px solid var(--line);background:white;border-radius:13px;padding:0 16px;font:inherit;font-size:14px;outline:none;box-shadow:0 5px 18px rgba(23,33,63,.04)}.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(64,91,209,.1)}.filters{display:flex;gap:8px;overflow:auto;padding-top:10px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;white-space:nowrap;font:inherit;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer}.filter.active{background:var(--navy);border-color:var(--navy);color:white}.group{margin-top:28px}.group-head{display:flex;align-items:baseline;gap:10px;margin:0 0 12px}.group-head h2{margin:0;color:var(--navy);font-size:19px;letter-spacing:-.02em}.count{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{display:flex;flex-direction:column;min-height:196px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:19px;text-decoration:none;color:inherit;transition:.18s}.card:hover{transform:translateY(-2px);border-color:#aab7ed;box-shadow:0 10px 28px rgba(23,33,63,.08)}.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}.badge{font-size:10.5px;font-weight:800;border-radius:999px;padding:4px 8px;background:var(--graybg);color:var(--muted)}.latest{background:var(--greenbg);color:var(--green)}.draft{background:var(--amberbg);color:var(--amber)}.duplicate{background:#f3edff;color:#7046a8}.title{font-size:15px;font-weight:800;color:var(--navy);line-height:1.45}.desc{margin:7px 0 16px;color:var(--muted);font-size:12.5px;line-height:1.55}.open{margin-top:auto;font-size:12px;font-weight:800;color:var(--blue)}.open:after{content:'  ↗'}.empty{display:none;text-align:center;padding:70px 20px;color:var(--muted)}footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:11.5px;line-height:1.7}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.summary{grid-template-columns:repeat(2,1fr)}}@media(max-width:580px){.shell{padding:30px 18px 64px}.top{display:block}.updated{text-align:left;margin-top:14px}.grid{grid-template-columns:1fr}.summary{gap:8px}.stat{padding:15px}.stat b{font-size:22px}}
 </style>
 </head>
-<body>
-<div class="wrap">
- <header>
-  <span class="eyebrow">CESCO · 마케팅 자료 포털</span>
-  <h1>세스코 상세페이지 · 템플릿 자료 모음</h1>
-  <p class="sub">시하기획 UX실이 작업한 세스코 콘텐츠 시안·표준 템플릿 모음입니다.</p>
-  <p class="meta">최종 업데이트 2026-07-16 · 내부 공유용 (검색 비노출)</p>
- </header>
-
- <div class="group">
-  <div class="group-label">상세페이지 시안</div>
-  <a class="card" href="./deo-tissue-detail.html">
-   <div class="row"><span class="no">01</span><span class="t">마이랩 항균 쿨링 데오티슈</span></div>
-   <p class="d">세스코몰 상세페이지 시안 v3 (표준 템플릿 가이드 v2 적용)</p>
-   <p class="go">열기</p>
-  </a>
-  <a class="card" href="./ipm-detail.html">
-   <div class="row"><span class="no">02</span><span class="t">긴급진단(IPM) 서비스</span></div>
-   <p class="d">상세페이지 9블록 흐름 점검맵 (서비스 템플릿 적용)</p>
-   <p class="go">열기</p>
-  </a>
- </div>
-
- <div class="group">
-  <div class="group-label">표준 템플릿 · 가이드</div>
-  <a class="card" href="./detailpage-template-guide.html">
-   <div class="row"><span class="no">03</span><span class="t">세스코몰 상세페이지 표준 템플릿 가이드</span></div>
-   <p class="d">9-Block 구조 + 상품군별 분기 + 표현·컴플라이언스 + 프롬프트 운영 통합본</p>
-   <p class="go">열기</p>
-  </a>
-  <a class="card" href="./cardnews-template.html">
-   <div class="row"><span class="no">04</span><span class="t">카드뉴스 표준 템플릿</span></div>
-   <p class="d">기본 8장·최대 10장 구조안 (퍼널 흐름 · 톤앤매너 · 역할 블록)</p>
-   <p class="go">열기</p>
-  </a>
- </div>
-
- <div class="group">
-  <div class="group-label">리플릿</div>
-  <a class="card" href="./air-sterilizer-hospital-leaflet.html">
-   <div class="row"><span class="no">05</span><span class="t">UV파워 공기살균기 Sense me</span></div>
-   <p class="d">병원용 A4 양면 리플릿 구성안 (도입 상담용 와이어프레임)</p>
-   <p class="go">열기</p>
-  </a>
- </div>
-
- <footer>
-  © 시하기획 UX실 · 내부 검토용 자료입니다. 외부/클라이언트 공유 전에는 담당자 확인이 필요합니다.
- </footer>
-</div>
-</body>
-</html>
+<body><main class="shell">
+<header class="top"><div><div class="eyebrow">CESCO · HTML ARCHIVE</div><h1>세스코 콘텐츠 대시보드</h1><p class="lead">제품·형식·버전별 HTML 시안을 한곳에서 확인합니다.</p></div><div class="updated">최종 업데이트 2026.08.13<br>내부 검토용 · 검색 비노출</div></header>
+<section class="summary"><div class="stat"><b id="total">47</b><span>전체 HTML</span></div><div class="stat"><b>6</b><span>콘텐츠 그룹</span></div><div class="stat"><b>7</b><span>이염방지시트 버전</span></div><div class="stat"><b>3</b><span>동일 내용 중복 쌍</span></div></section>
+<div class="toolbar"><input class="search" id="search" aria-label="자료 검색" placeholder="제품명, 형식, 버전으로 검색"><div class="filters" id="filters"></div></div>
+<div id="content"></div><div class="empty" id="empty">조건에 맞는 자료가 없습니다.</div>
+<footer>© 시하기획 UX실 · 내부 검토용 자료입니다. 외부/클라이언트 공유 전에는 담당자 확인이 필요합니다.<br>‘최신’ 표시는 파일명에 기재된 버전·날짜를 기준으로 하며, 최종 승인 여부와는 다를 수 있습니다.</footer>
+</main>
+<script>
+const groups={
+'이염방지시트':[
+['이염방지시트 상세 초안','v3 · 2026.08.08','dye-transfer-prevention-sheet-260808-v3.html','상세',''],['이염방지시트 마이랩 적용안','v4','dye-transfer-prevention-sheet-mylab-v4.html','상세',''],['이염방지시트 상세','v5-1 · 2026.08.10','dye-transfer-prevention-sheet-detail-260810-v5-1.html','상세',''],['이염방지시트 상세','v5-2','dye-transfer-prevention-sheet-detail-v5-2.html','상세',''],['이염방지시트 상세','v5-2 · 2026.08.11','dye-transfer-prevention-sheet-detail-260811-v5-2.html','상세','latest'],['이염방지시트 리플릿','v1','dye-transfer-prevention-sheet-leaflet-v1.html','리플릿','duplicate'],['이염방지시트 리플릿','버전 표기 없음 · v1과 동일','dye-transfer-prevention-sheet-leaflet.html','리플릿','duplicate']],
+'카케어':[
+['카케어 메시지 가이드','메시지·구조 가이드','cesco-carcare-message-guide.html','가이드',''],['전문가용 탈취제 상세','초안 v1','car-professional-deodorizer-detail-draft-v1.html','상세','draft'],['전문가용 탈취제','v4 · 마이랩 차량용 v4와 동일','car-care-professional-deodorizer-v4.html','상세','duplicate'],['마이랩 차량용 탈취제','v4 · 전문가용 v4와 동일','mylab-car-deodorizer-detail-v4.html','상세','duplicate'],['전문가용 탈취제','v5 · 마이랩 템플릿 1','carcare-deodorizer-v5-mylab-template-1.html','상세',''],['전문가용 탈취제','v5 · 라벨 구조 2','carcare-deodorizer-v5-mylab-template-label-structure-2.html','상세','latest'],['전문가용 탈취제','v2 · 2026.08.11','car-professional-deodorizer-detail-260811-v2.html','상세',''],['전문가용 탈취제','목업 테스트 · 2026.08.11','car-professional-deodorizer-mockup-260811-test.html','목업','draft'],['캔 탈취제','v2 · 2026.08.11','car-deodorizer-can-detail-260811-v2.html','상세','latest'],['살균제','v2 · 2026.08.11','car-sanitizer-detail-260811-v2.html','상세','latest'],['살균 세정 티슈','v2 · 2026.08.11','car-sanitizing-cleaning-tissue-detail-260811-v2.html','상세','latest'],['슬림 탈취 제습제','v2 · 2026.08.11','car-slim-deodorizing-dehumidifier-detail-260811-v2.html','상세','latest'],['카케어 풀세트','v2 · 2026.08.11','car-care-full-set-detail-260811-v2.html','상세','latest'],['카케어 풀세트','선물세트 페이지','carcare-fullset-giftset-page.html','상세','']],
+'판테온 미세플라스틱':[
+['판테온 미세플라스틱','매거진 v1','pantheon-microplastics-magazine-v1.html','매거진',''],['판테온 미세플라스틱','블로그 v2 · GEO','pantheon-microplastics-blog-v2-geo.html','블로그',''],['판테온 미세플라스틱','카드뉴스 v3 · 최종','pantheon-microplastics-cardnews-v3-final.html','카드뉴스','latest']],
+'마이랩 제품':[
+['항균 쿨링 데오티슈','상세페이지','deo-tissue-detail.html','상세',''],['마이랩 탈취 제품','상세페이지','cesco-mylab-detail-deo.html','상세',''],['마이랩 탈취 티슈','2P 리플릿 v2','cesco-mylab-deo-tissue-leaflet-v2-2p.html','리플릿','latest'],['프리미엄 세탁세제','상세 · Fable과 동일','cesco-mylab-laundry-premium-detail.html','상세','duplicate'],['프리미엄 세탁세제','Fable · 상세와 동일','mylab-laundry-detergent-premium-fable.html','상세','duplicate'],['프리미엄 세탁세제','리뷰 반영본','mylab-laundry-detergent-premium-review-reflected.html','상세','latest'],['곡물발효 살균소독제','상세페이지','cesco-mylab-grain-sanitizer-detail.html','상세',''],['배수구 클리너 C/D','2P 리플릿','cesco-mylab-drain-cleaner-c-d-2p.html','리플릿',''],['마이랩 베스트','2P 리플릿','cesco-mylab-best-leaflet-2p.html','리플릿',''],['마이랩 베스트','단면 리플릿','mylab-best-single-leaflet.html','리플릿',''],['긴급진단 IPM 서비스','상세페이지','ipm-detail.html','상세','']],
+'B2B·서비스':[
+['에어커튼','2P 리플릿 · 2026.07.31','air-curtain-2p-leaflet-260731.html','리플릿',''],['S-IPM','2P 리플릿 · 2026.07.31','sipm-2p-leaflet-260731.html','리플릿',''],['UV 공기살균기 4종','2P 리플릿 · 2026.07.31','uv-air-sterilizers-4models-2p-leaflet-260731.html','리플릿',''],['정수기','2P 리플릿 · 2026.07.31','water-purifier-2p-leaflet-260731.html','리플릿',''],['병원용 공기살균기','리플릿','air-sterilizer-hospital-leaflet.html','리플릿','']],
+'템플릿·가이드':[
+['카드뉴스 표준 템플릿','기본 구조','cardnews-template.html','템플릿',''],['세스코 카드뉴스','템플릿 가이드','cesco-cardnews-template-guide.html','가이드',''],['살균제70 카드뉴스','B안','cesco-cardnews-b-sanitizer70.html','카드뉴스',''],['상세페이지','표준 템플릿 가이드','detailpage-template-guide.html','가이드',''],['마이랩 상세페이지','템플릿','detailpage-mylab-template.html','템플릿',''],['단일 제품 리플릿','기본 템플릿','leaflet-single-product-template.html','템플릿',''],['단일 제품 리플릿','세리프 템플릿','leaflet-single-product-template-serif.html','템플릿','']]
+};
+const labels={latest:'최신',draft:'초안·테스트',duplicate:'동일 내용'};let active='전체';
+function filters(){const f=document.querySelector('#filters');f.innerHTML=['전체',...Object.keys(groups)].map(x=>`<button class="filter ${x===active?'active':''}" data-filter="${x}">${x}</button>`).join('');f.querySelectorAll('button').forEach(b=>b.onclick=()=>{active=b.dataset.filter;filters();render()})}
+function render(){const q=document.querySelector('#search').value.trim().toLowerCase();let shown=0;const out=[];for(const [g,items] of Object.entries(groups)){if(active!=='전체'&&active!==g)continue;const matches=items.filter(x=>(g+' '+x.join(' ')).toLowerCase().includes(q));if(!matches.length)continue;shown+=matches.length;out.push(`<section class="group"><div class="group-head"><h2>${g}</h2><span class="count">${matches.length}개</span></div><div class="grid">${matches.map(x=>`<a class="card" href="./${x[2]}"><div class="badges"><span class="badge">${x[3]}</span>${x[4]?`<span class="badge ${x[4]}">${labels[x[4]]}</span>`:''}</div><div class="title">${x[0]}</div><div class="desc">${x[1]}</div><div class="open">HTML 열기</div></a>`).join('')}</div></section>`)}document.querySelector('#content').innerHTML=out.join('');document.querySelector('#empty').style.display=shown?'none':'block';document.querySelector('#total').textContent=shown}
+document.querySelector('#search').addEventListener('input',render);filters();render();
+</script></body></html>
