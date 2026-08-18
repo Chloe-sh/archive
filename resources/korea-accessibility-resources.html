@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국내 디지털 접근성 자료 모음</title>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --sub: #55524c;
+    --line: #e5e2dc;
+    --accent: #2f5d50;
+    --accent-soft: #e8f0ed;
+    --tag-bg: #f0ede7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181a;
+      --card: #1f2225;
+      --ink: #f0efec;
+      --sub: #a8a49c;
+      --line: #33373b;
+      --accent: #7fbfae;
+      --accent-soft: #24322e;
+      --tag-bg: #2a2d31;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    padding: 48px 20px 80px;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  header { margin-bottom: 40px; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin-bottom: 14px;
+  }
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 10px; }
+  header p { color: var(--sub); font-size: 15px; max-width: 56ch; }
+  section { margin-top: 36px; }
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--sub);
+    text-transform: none;
+    margin-bottom: 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  h2 .num { color: var(--accent); margin-right: 6px; }
+  .section-note { font-size: 13.5px; color: var(--sub); margin: 8px 0 16px; }
+  ul { list-style: none; }
+  li.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s ease;
+  }
+  li.card:hover { border-color: var(--accent); }
+  .card a.title {
+    font-size: 16.5px;
+    font-weight: 650;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 1px;
+  }
+  .card a.title:hover, .card a.title:focus-visible { color: var(--accent); }
+  .card a.title:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .card .desc { font-size: 14.5px; color: var(--sub); margin-top: 6px; }
+  .card .desc a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sub);
+    background: var(--tag-bg);
+    border-radius: 6px;
+    padding: 2px 8px;
+  }
+  .tip {
+    margin-top: 40px;
+    background: var(--accent-soft);
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 14.5px;
+  }
+  .tip strong { color: var(--accent); }
+  footer { margin-top: 36px; font-size: 12.5px; color: var(--sub); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <span class="eyebrow">Digital Accessibility · Korea</span>
+    <h1>국내 디지털 접근성 자료 모음</h1>
+    <p>웹·모바일 접근성 작업에 참고할 만한 국내 표준, 기업 실무 자료, 해설 콘텐츠를 한자리에 모았습니다. 제목을 누르면 바로 이동합니다.</p>
+  </header>
+
+  <section aria-labelledby="s1">
+    <h2 id="s1"><span class="num">01</span>표준 · 지침 원문</h2>
+    <p class="section-note">공식 기준이 필요할 때 — 가이드라인 개발, 제안서 근거, 인증 대응</p>
+    <ul>
+      <li class="card">
+        <a class="title" href="https://a11ykr.github.io/kwcag22/" target="_blank" rel="noopener">한국형 웹 콘텐츠 접근성 지침 (KWCAG) 2.2</a>
+        <p class="desc">국가표준 최신판을 웹에서 읽기 좋게 정리한 문서. 같은 저자의 <a href="https://a11ykr.github.io/docs/wcag2/" target="_blank" rel="noopener">WCAG 2.2 한국어 번역본</a>과 함께 보면 국제 기준과 비교하기 좋습니다.</p>
+        <div class="tags"><span class="tag">국가표준</span><span class="tag">필수</span></div>
+      </li>
+      <li class="card">
+        <a class="title" href="http://www.kwacc.or.kr/Accessibility/Certification" target="_blank" rel="noopener">한국디지털접근성진흥원 (KWACC)</a>
+        <p class="desc">웹 접근성 품질인증 지표와 심사 기준. 인증 요건 관점에서 무엇을 점검받는지 확인할 때 유용합니다.</p>
+        <div class="tags"><span class="tag">품질인증</span></div>
+      </li>
+      <li class="card">
+        <a class="title" href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=90549&amp;bcIdx=25083&amp;parentSeq=25083" target="_blank" rel="noopener">한국지능정보사회진흥원 (NIA) — 접근성 국가표준 개정 안내</a>
+        <p class="desc">웹 접근성 국가표준을 관리하는 기관. 표준 개정 배경과 주요 변경 사항을 확인할 수 있습니다.</p>
+        <div class="tags"><span class="tag">공공기관</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="s2">
+    <h2 id="s2"><span class="num">02</span>기업 실무 자료</h2>
+    <p class="section-note">실제 서비스에 적용한 사례 중심 — 체크리스트, 대체 텍스트, 스크린리더 대응</p>
+    <ul>
+      <li class="card">
+        <a class="title" href="https://nuli.navercorp.com/" target="_blank" rel="noopener">널리 (NULI) — 네이버 접근성 커뮤니티</a>
+        <p class="desc">국내에서 가장 자료가 풍부한 곳. 모바일 앱 접근성 지침 해설, 체크리스트, 대체 텍스트 작성 가이드, 교육 콘텐츠까지. <a href="https://nuli.navercorp.com/community/article/42623" target="_blank" rel="noopener">접근성 참고 URL 모음</a>과 <a href="https://nuli.navercorp.com/community/article/1132788" target="_blank" rel="noopener">모바일 앱 접근성 지침 2.0 해설</a>부터 보세요.</p>
+        <div class="tags"><span class="tag">네이버</span><span class="tag">추천 시작점</span><span class="tag">UX 라이팅</span></div>
+      </li>
+      <li class="card">
+        <a class="title" href="https://tech.kakaopay.com/post/accessibility-stories-for-everyone/" target="_blank" rel="noopener">카카오페이 기술 블로그 — 모두를 위한 접근성 이야기</a>
+        <p class="desc">실무자 시선으로 쓴 접근성 적용기. 카카오 본사도 <a href="https://www.kakaocorp.com/page/detail/9704" target="_blank" rel="noopener">디지털 접근성 책임자(DAO) 선임</a> 이후 관련 자료를 꾸준히 내고 있습니다.</p>
+        <div class="tags"><span class="tag">카카오</span><span class="tag">실무 사례</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="s3">
+    <h2 id="s3"><span class="num">03</span>해설 · 번역 콘텐츠</h2>
+    <p class="section-note">원문보다 읽기 편한 풀이 — 입문, 팀 공유, 교육용</p>
+    <ul>
+      <li class="card">
+        <a class="title" href="https://tech.pxd.co.kr/post/%ED%95%9C%EA%B5%AD%ED%98%95-%EC%9B%B9-%EC%BD%98%ED%85%90%EC%B8%A0-%EC%A0%91%EA%B7%BC%EC%84%B1-%EC%A7%80%EC%B9%A8-2-2-228" target="_blank" rel="noopener">pxd 블로그 — KWCAG 2.2 해설</a>
+        <p class="desc">디자이너 관점에서 지침을 풀어낸 글. 지침 원문이 딱딱하게 느껴질 때 먼저 읽기 좋습니다.</p>
+        <div class="tags"><span class="tag">디자이너 관점</span></div>
+      </li>
+      <li class="card">
+        <a class="title" href="https://uxkm.io/accessibility/a11y/04-a11yCag/02-kwcag" target="_blank" rel="noopener">UXKM — 접근성 가이드라인</a>
+        <p class="desc">KWCAG를 항목별로 정리한 참고 사이트. 특정 항목을 빠르게 찾아볼 때 편합니다.</p>
+        <div class="tags"><span class="tag">항목별 정리</span></div>
+      </li>
+      <li class="card">
+        <a class="title" href="https://websoul.co.kr/accessibility/WA_guide22.asp" target="_blank" rel="noopener">Web Soul Lab — 웹 접근성 지침 2.2</a>
+        <p class="desc">접근성 전문 업체가 정리한 지침 요약. 검사 항목 기준으로 훑어보기 좋습니다.</p>
+        <div class="tags"><span class="tag">요약</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <div class="tip">
+    <strong>어디서부터 볼까요?</strong> 입문이라면 pxd 해설 → 널리 순서로, 실무 적용이라면 KWCAG 2.2 원문과 널리 체크리스트를 함께 보는 것을 권합니다. UX 라이팅 쪽은 널리의 대체 텍스트 작성 가이드가 가장 실속 있습니다.
+  </div>
+
+  <footer>2026년 8월 기준 · 링크는 새 탭에서 열립니다</footer>
+</main>
+</body>
+</html>
