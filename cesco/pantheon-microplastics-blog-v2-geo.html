@@ -4,289 +4,327 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>판테온 미세플라스틱 블로그 시안 v2 (GEO 반영판)</title>
+<title>판테온 미세플라스틱 블로그 초안</title>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --ink: #1d1d1f;
+    --ink-soft: #55555c;
+    --ink-faint: #8a8a92;
+    --cesco-red: #d1343f;
+    --paper: #ffffff;
+    --paper-warm: #f7f6f4;
+    --line: #e3e2df;
+  }
+  * { box-sizing: border-box; }
   body {
-    font-family:"Pretendard Variable", Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif;
-    background:#eef0f2; color:#222; word-break:keep-all; overflow-wrap:break-word;
-    line-height:1.75; padding:36px 16px 90px;
+    margin: 0;
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+    color: var(--ink);
+    background: var(--paper-warm);
+    line-height: 1.75;
+    word-break: keep-all;
   }
-  .deskhead { max-width:760px; margin:0 auto 8px; }
-  .deskhead h1 { font-size:17px; font-weight:800; color:#2a2d31; }
-  .deskhead p { font-size:12.5px; color:#5c6167; margin-top:4px; }
-
-  .post { max-width:760px; margin:16px auto 0; background:#fff; border-radius:6px; box-shadow:0 2px 12px rgba(20,30,50,.09); padding:54px 56px 48px; }
-  @media (max-width:640px){ .post { padding:34px 22px; } }
-
-  .crumb { font-size:12px; color:#8b939c; }
-  .crumb b { color:#0a6cc4; font-weight:700; }
-  h1.title { font-size:26px; line-height:1.42; font-weight:800; color:#111; margin-top:14px; }
-  .meta { font-size:12px; color:#9aa2ab; margin-top:12px; padding-bottom:22px; border-bottom:1px solid #eceff2; }
-
-  .lead { margin-top:28px; font-size:15.5px; color:#333; }
-  p.pp { font-size:15px; color:#333; margin-top:18px; }
-
-  h3.sec { font-size:19px; font-weight:800; color:#0b2247; margin:38px 0 6px; padding-top:6px; }
-  h3.sec::before { content:""; display:block; width:34px; height:3px; background:#0a6cc4; margin-bottom:14px; }
-
-  .tldr { margin-top:26px; border:1.5px solid #0a6cc4; border-radius:12px; padding:20px 24px; background:#f4f9fe; }
-  .tldr h4 { font-size:14px; font-weight:800; color:#0b2247; margin-bottom:10px; }
-  .tldr li { list-style:none; font-size:13.5px; color:#33445c; padding:6px 0 6px 24px; position:relative; line-height:1.65; }
-  .tldr li::before { content:"✔"; position:absolute; left:2px; color:#0a6cc4; font-weight:800; }
-
-  .imgph {
-    margin:22px 0 6px; border:1.5px dashed #c9d2da; border-radius:10px; background:#f7f9fa;
-    color:#98a2ac; font-size:12px; font-weight:600; text-align:center; padding:44px 20px;
+  .sheet {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 56px 52px 80px;
   }
-  .cap { font-size:11.5px; color:#77828d; margin-top:4px; line-height:1.6; }
-
-  .defbox { background:#f4f8fc; border-radius:10px; padding:16px 20px; font-size:13px; color:#3c4c60; margin-top:18px; line-height:1.7; }
-  .defbox b { color:#0b2247; }
-
-  table.cmp { width:100%; border-collapse:collapse; margin-top:18px; font-size:13px; }
-  table.cmp th, table.cmp td { border:1px solid #e2e9f0; padding:11px 14px; text-align:left; vertical-align:top; line-height:1.6; }
-  table.cmp th { background:#f2f6fa; color:#0b2247; font-weight:800; }
-  table.cmp td b { color:#16324d; }
-  .tblnote { font-size:11.5px; color:#98a2ac; margin-top:6px; }
-
-  ul.vuln { margin-top:14px; }
-  ul.vuln li { list-style:none; font-size:14px; color:#374453; padding:10px 0 10px 28px; position:relative; border-bottom:1px dashed #e8edf1; line-height:1.65; }
-  ul.vuln li::before { content:"✅"; position:absolute; left:0; top:10px; font-size:13px; }
-  ul.vuln li b { color:#0b2247; display:block; }
-
-  .step { border:1px solid #dfe6ec; border-radius:12px; padding:18px 22px; margin-top:14px; }
-  .step .sn { font-size:12px; font-weight:800; color:#0a6cc4; letter-spacing:.06em; }
-  .step h4 { font-size:15.5px; font-weight:800; color:#16233b; margin-top:4px; }
-  .step p { font-size:13.5px; color:#4a5866; margin-top:6px; }
-
-  .faq { margin-top:14px; }
-  .faq .q { font-size:15px; font-weight:800; color:#0b2247; margin-top:20px; }
-  .faq .q::before { content:"Q. "; color:#0a6cc4; }
-  .faq .a { font-size:14px; color:#42505e; margin-top:6px; }
-
-  .bridge { background:linear-gradient(168deg,#0b2247 0%,#13315f 100%); color:#fff; border-radius:14px; padding:30px 32px; margin-top:30px; }
-  .bridge h3 { font-size:19px; font-weight:800; line-height:1.5; }
-  .bridge p { font-size:14px; color:#c9d9ec; margin-top:12px; }
-  .bridge b { color:#8ec9ff; }
-
-  ul.spec { margin-top:20px; }
-  ul.spec li { list-style:none; font-size:14px; color:#374453; padding:9px 0 9px 28px; position:relative; border-bottom:1px dashed #e8edf1; }
-  ul.spec li::before { content:"✅"; position:absolute; left:0; top:9px; font-size:13px; }
-  .fine { font-size:12px; color:#98a2ac; margin-top:14px; line-height:1.7; }
-
-  .close { margin-top:36px; font-size:15px; color:#333; }
-  .smile { margin-top:26px; font-size:14px; font-weight:800; color:#0a6cc4; }
-  .tags { margin-top:24px; font-size:13px; color:#0a6cc4; font-weight:600; line-height:1.9; }
-
-  .refs { margin-top:30px; padding-top:16px; border-top:1px solid #eceff2; font-size:11.5px; color:#9aa2ab; line-height:1.8; }
-
-  .todo { color:#c46a00; font-weight:700; }
-  .geo { display:inline-block; font-size:10px; font-weight:800; border-radius:5px; padding:1px 7px; vertical-align:middle; margin-left:6px; background:#e7f3ea; color:#1f6b38; border:1px solid #c9e4d1; }
-
-  .anno {
-    max-width:760px; margin:22px auto 0; padding:12px 18px;
-    border-left:4px solid #ff9800; background:#fff7ec; color:#7a5200;
-    font-size:12.5px; border-radius:0 8px 8px 0; line-height:1.75;
+  header.doc-head {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 20px;
+    margin-bottom: 8px;
   }
-  .anno b { color:#5c3d00; }
+  header.doc-head .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--cesco-red);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  header.doc-head h1 {
+    font-size: 25px;
+    margin: 6px 0 4px;
+    line-height: 1.35;
+  }
+  header.doc-head .meta {
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  h1 { font-size: 24px; line-height: 1.4; margin-top: 56px; }
+  h1:first-of-type { margin-top: 32px; }
+  h2 {
+    font-size: 19px;
+    margin-top: 44px;
+    padding-left: 12px;
+    border-left: 4px solid var(--cesco-red);
+    line-height: 1.45;
+  }
+  h3 { font-size: 16px; margin-top: 28px; }
+  p { margin: 14px 0; font-size: 15.5px; }
+  strong { font-weight: 700; }
+  hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 40px 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  th { background: var(--paper-warm); font-weight: 700; }
+  blockquote {
+    margin: 22px 0;
+    padding: 16px 20px;
+    background: var(--paper-warm);
+    border-left: 4px solid var(--ink-faint);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    border-radius: 0 6px 6px 0;
+  }
+  blockquote p { margin: 4px 0; font-size: 13.5px; }
+  figure.visual-example {
+    margin: 18px 0 6px;
+    padding: 14px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  figure.visual-example svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  figure.visual-example figcaption {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 8px;
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .sheet { padding: 32px 20px 56px; }
+    h1 { font-size: 21px; }
+    h2 { font-size: 17px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .sheet { max-width: 100%; padding: 0; }
+  }
 </style>
 </head>
 <body>
+<div class="sheet">
+<header class="doc-head">
+  <div class="eyebrow">CESCO BLOG DRAFT · GEO</div>
+  <h1>판테온 미세플라스틱 블로그 초안</h1>
+  <div class="meta">기존 시안 v2를 표준 초안 포맷으로 재구성(v3) · 헤드라인 후보 3안 · 비주얼 예시 시안 포함 · 주황 표기 = 근거 확정 필요(0-1)</div>
+</header>
+<h1>판테온 미세플라스틱 블로그 초안</h1>
+<h2>제목 후보 (3안)</h2>
+<p><strong>1 (추천)</strong> [세스코 공기솔루션] 공기 중 미세플라스틱, 하루 68,000개를 실내에서 들이마시고 있습니다<br />
+<strong>2</strong> [세스코 공기솔루션] 환기해도 다시 늘어나는 실내 미세플라스틱, '순환' 때문입니다<br />
+<strong>3</strong> [세스코 공기솔루션] 먹는 미세플라스틱보다 들이마시는 미세플라스틱, 주의가 필요한 이유</p>
+<p><strong>서브카피</strong><br />
+미세먼지 수치는 매일 확인하면서, 함께 떠 있는 입자는 놓치기 쉽습니다.<br />
+공기 중 미세플라스틱의 발생 원인과 실내 관리 방법을 확인해 보세요.</p>
+<p>(해시태그: 네이버 블로그 정본 기준 미사용. 자사 블로그·타 채널 재가공 시 #공기중미세플라스틱 #부유미세플라스틱 #미세플라스틱줄이는방법 #공기질관리 #실내공기질 #세스코판테온)</p>
+<hr />
+<p>* 공기 중 미세플라스틱은 의류·생활용품·포장재 등 일상 물건에서 발생해 실내에 머무는 입자로, 성인은 실내 공기에서 하루 평균 약 68,000개를 들이마시는 것으로 보도됐으며, 하루 2~3회 환기와 천연 소재 선택, 습도 50% 유지, 공기청정 제품 보완이 기본 관리법입니다.</p>
+<p>공기질 관리라고 하면 대부분 미세먼지 수치를 먼저 확인합니다.<br />
+예보를 보고, 마스크를 챙기고, 공기청정기를 켜는 일은<br />
+이제 익숙한 일상이 되었습니다.</p>
+<p>하지만 의외로 놓치기 쉬운 부분이 있습니다.<br />
+바로 '부유 미세플라스틱', 공기 중에 떠 있는 미세플라스틱입니다.<br />
+YTN 보도에 따르면 집·자동차 등 실내 공기 중에서<br />
+성인이 하루 들이마시는 미세플라스틱 입자는<br />
+평균 약 68,000개에 달합니다. <span style="color:#c46a00;font-weight:700;">{보도 일자 확정 필요}</span></p>
+<hr />
+<h2>공기 중 미세플라스틱은 어디서 발생할까요?</h2>
+<p>* 공기 중 미세플라스틱은 특별한 환경이 아니라 의류·카펫의 미세 섬유, 생활용품의 플라스틱 마모, 포장재·비닐 같은 일상 물건에서 발생할 수 있습니다.</p>
+<p>첫째, 의류·카펫의 미세 섬유입니다.<br />
+입고, 덮고, 밟는 섬유 제품에서<br />
+미세한 플라스틱 섬유가 떨어져 나올 수 있습니다.</p>
+<p>둘째, 생활용품의 플라스틱 마모입니다.<br />
+자주 쓰는 물건일수록 표면이 조금씩 닳으며 미세 입자가 발생합니다.</p>
+<p>셋째, 포장재·비닐 같은 소비재입니다.<br />
+뜯고 구기는 과정에서 발생한 입자가 공기 중에 떠다닐 수 있습니다.</p>
+<p>※ 미세플라스틱: 일반적으로 5mm 이하 크기의 플라스틱 입자. 공기 중에 떠 있는 부유 미세플라스틱은 1~10㎛(머리카락 굵기의 약 100분의 1) 수준으로 알려져 있습니다.</p>
+<hr />
+<h2>먹는 미세플라스틱과 들이마시는 미세플라스틱, 무엇이 다를까요?</h2>
+<p>* 음식·물로 섭취된 입자의 상당수는 소화기관을 거쳐 배설되는 것으로 보고되지만, 공기로 흡입된 입자는 폐포에 붙거나 혈관으로 들어가 몸속에 쌓일 확률이 더 높은 것으로 알려져 있습니다.</p>
+<p>같은 미세플라스틱이라도<br />
+몸에 들어오는 경로에 따라 경과가 다른 것으로 보고됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>음식·물로 섭취</th>
+<th>공기로 흡입</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>주요 유입</td>
+<td>식품·음용수</td>
+<td>실내 공기 호흡</td>
+</tr>
+<tr>
+<td>몸속 경과(보고 기준)</td>
+<td>상당수 소화기관 거쳐 배설</td>
+<td>폐포 부착·혈관 유입 가능성</td>
+</tr>
+<tr>
+<td>관리 포인트</td>
+<td>식품·용기 관리</td>
+<td>실내 공기질 관리</td>
+</tr>
+</tbody>
+</table>
+<p>※ 위 비교는 보도·연구 보고 기준의 일반적 경향으로, 개인·환경에 따라 다를 수 있습니다.</p>
+<p>그래서 최근에는 공기 중에 떠 있는 부유 미세플라스틱이<br />
+새로운 노출 경로로 주목받고 있습니다.</p>
+<hr />
+<h2>실내 미세플라스틱은 왜 환기해도 다시 늘어날까요?</h2>
+<p>* 실내에서는 미세플라스틱이 부유, 침착, 재부유, 재흡입의 순환을 반복할 수 있기 때문입니다.</p>
+<p>사람들은 하루 중 약 90%를 실내에서 보냅니다. <span style="color:#c46a00;font-weight:700;">{통계 출처 확정 필요}</span><br />
+실내는 외부보다 환기가 제한되어<br />
+오염 물질이 머물기 쉬운 환경입니다.</p>
+<p>공기 중에 떠다니던 미세플라스틱은<br />
+바닥, 침구, 가구 표면에 내려앉습니다.<br />
+이후 걷기, 침구 정리, 문을 여닫는 일상적인 움직임만으로도<br />
+일부 입자는 다시 공기 중으로 떠오를 수 있습니다.</p>
+<p>특히 다음 공간이라면 더 주의가 필요합니다.<br />
+영유아·임산부·고령층·호흡기 질환자가 생활하는 공간은<br />
+호흡량이 많거나 회복력이 낮아 같은 농도에서도 영향이 더 클 수 있고,<br />
+어린이집·사회복지시설은 취약 계층이 장시간 머무는 다중이용 공간이며,<br />
+패브릭 제품이 많고 활동량이 많은 생활 공간은<br />
+발생과 재부유가 동시에 잦아질 수 있습니다.</p>
+<blockquote>
+<p>[VISUAL 01]<br />
+- 형식: 순환 인포그래픽<br />
+- 핵심 메시지: 실내 미세플라스틱은 부유 → 침착 → 재부유 → 재흡입을 반복한다<br />
+- 이미지 헤드라인: 실내 미세플라스틱의 순환<br />
+- 핵심 수치/텍스트: 부유 / 침착(바닥·침구·가구) / 재부유(걷기·침구 정리·문 여닫기) / 재흡입<br />
+- 출처: 본문 서술 기준<br />
+- ALT: 실내 미세플라스틱이 부유, 침착, 재부유, 재흡입 순환을 반복하는 구조를 나타낸 인포그래픽<br />
+- <strong>예시 시안:</strong> VISUAL_08_미세플라스틱_순환.svg</p>
+<p><figure class="visual-example"><svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <rect width="760" height="300" fill="#ffffff"/>
 
-<div class="deskhead">
-  <h1>판테온 미세플라스틱 블로그 : 시안 v2 (GEO 반영판)</h1>
-  <p>초록 칩 = GEO 적용 지점 · 주황 글씨 = 확정 필요 · 템플릿 규칙(정보 7:판매 3 · 제품 70% 이후)은 그대로 유지</p>
+  <text x="44" y="52" font-size="24" font-weight="700" fill="#1a1a1a">실내 미세플라스틱의 순환</text>
+  <text x="44" y="78" font-size="13" fill="#6b6b6b">환기해도 다시 늘어나는 이유</text>
+
+  <rect x="44" y="112" width="158" height="86" rx="10" fill="#f6f7f9" stroke="#dcdcdc"/>
+  <text x="123" y="146" font-size="14.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">① 부유</text>
+  <text x="123" y="170" font-size="12" fill="#555" text-anchor="middle">공기 중에 떠다님</text>
+
+  <polygon points="218,155 208,148 208,162" fill="#b8b8b8"/>
+
+  <rect x="224" y="112" width="158" height="86" rx="10" fill="#f6f7f9" stroke="#dcdcdc"/>
+  <text x="303" y="146" font-size="14.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">② 침착</text>
+  <text x="303" y="170" font-size="12" fill="#555" text-anchor="middle">바닥·침구·가구 표면</text>
+
+  <polygon points="398,155 388,148 388,162" fill="#b8b8b8"/>
+
+  <rect x="404" y="112" width="158" height="86" rx="10" fill="#fdeeee" stroke="#e8b9bc"/>
+  <text x="483" y="146" font-size="14.5" font-weight="700" fill="#d1343f" text-anchor="middle">③ 재부유</text>
+  <text x="483" y="164" font-size="11.5" fill="#555" text-anchor="middle">걷기·침구 정리·</text>
+  <text x="483" y="181" font-size="11.5" fill="#555" text-anchor="middle">문 여닫기</text>
+
+  <polygon points="578,155 568,148 568,162" fill="#b8b8b8"/>
+
+  <rect x="584" y="112" width="132" height="86" rx="10" fill="#d1343f"/>
+  <text x="650" y="146" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">④ 재흡입</text>
+  <text x="650" y="170" font-size="12" fill="#ffe3e5" text-anchor="middle">호흡으로 다시 유입</text>
+
+  <path d="M 650 206 L 650 240 L 123 240 L 123 206" fill="none" stroke="#b8b8b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <polygon points="123,202 116,212 130,212" fill="#b8b8b8"/>
+  <text x="386" y="234" font-size="11.5" fill="#8a8a8a" text-anchor="middle">일상적인 움직임만으로 순환이 반복될 수 있습니다</text>
+
+  <text x="44" y="284" font-size="11.5" fill="#8a8a8a">출처: 본문 서술 기준(공기 중 미세플라스틱의 실내 순환 구조)</text>
+</svg>
+<figcaption>예시 시안 (디자이너 전달용 레이아웃 참고)</figcaption></figure></p>
+</blockquote>
+<hr />
+<h2>집에서 공기 중 미세플라스틱을 줄이려면 어떻게 해야 하나요?</h2>
+<p>* 집에서 공기 중 미세플라스틱을 줄이는 기본은 환기, 소재·습도 관리, 공기청정 보완의 3단계입니다.</p>
+<p><strong>STEP 1. 하루 2~3회, 10분 이상 환기하기</strong><br />
+공기 중 농도를 낮추는 가장 기본적인 방법입니다.<br />
+미세먼지가 심한 날은 예보를 확인하고 시간대를 조절합니다.</p>
+<p><strong>STEP 2. 소재와 습도 관리하기</strong><br />
+침구·커튼은 합성섬유 대신 면·린넨 같은 천연 소재를 선택하고,<br />
+실내 습도를 50% 수준으로 유지해<br />
+가라앉은 입자가 쉽게 날리지 않게 합니다.</p>
+<p><strong>STEP 3. 공기청정기로 보완하기</strong><br />
+환기와 청소만으로는 유지가 어려운 시간대를 보완하는 방법입니다.<br />
+미세 입자 제거 성능과 저감 인증 여부를 확인해 선택합니다.</p>
+<hr />
+<h2>자주 묻는 질문 (FAQ)</h2>
+<p><strong>Q. 공기 중 미세플라스틱은 얼마나 작나요?</strong><br />
+공기 중에 떠 있는 부유 미세플라스틱은 1~10㎛ 수준으로,<br />
+머리카락 굵기의 약 100분의 1이라 눈으로 확인할 수 없습니다.</p>
+<p><strong>Q. 환기만 자주 하면 되지 않나요?</strong><br />
+농도를 낮추는 데는 도움이 됩니다.<br />
+다만 외부 유입과 실내 발생이 계속되기 때문에<br />
+효과를 오래 유지하기는 어렵습니다.</p>
+<p><strong>Q. 공기청정기로 미세플라스틱을 거를 수 있나요?</strong><br />
+제품에 따라 다릅니다. 부유 미세플라스틱은 1~10㎛ 수준으로 작아<br />
+필터 성능과 저감 인증 여부를 확인하는 것이 좋습니다.</p>
+<p><strong>Q. 아이가 있는 집은 왜 더 신경 써야 하나요?</strong><br />
+아이들은 호흡량이 많고 바닥에서 생활하는 시간이 길어<br />
+가라앉았다 다시 떠오르는 입자에 더 많이 노출될 수 있습니다.</p>
+<p><strong>Q. 집에서 미세플라스틱을 줄이는 방법은 무엇인가요?</strong><br />
+하루 2~3회 환기하고, 침구·커튼은 천연 소재를 선택하고,<br />
+실내 습도를 50% 수준으로 유지한 뒤,<br />
+장시간 머무는 공간은 공기청정 제품으로 보완하는 것이 기본입니다.</p>
+<hr />
+<h2>보이지 않는 입자까지, 어떻게 관리할 수 있나요?</h2>
+<p>* 세스코 트루살균 공기청정기 판테온은 공기 중 미세플라스틱 저감 인증을 획득한 공기질 솔루션으로, 극초미세먼지부터 부유 미세플라스틱, 바이러스·세균까지 관리합니다.</p>
+<p>세스코는 공기 중 미세먼지부터 바이러스·세균, 부유 미세플라스틱까지<br />
+공기질 유해물질을 연구하여 실내 공기 환경을 체계적으로 관리합니다.</p>
+<p>세스코 트루살균 공기청정기 판테온은<br />
+공기 중 미세플라스틱 저감 인증을 획득한 공기질 솔루션입니다.</p>
+<p>첫째, 공기 중 미세플라스틱 저감 인증을 획득했습니다. <span style="color:#c46a00;font-weight:700;">{인증 기관·기준 확정 필요}</span><br />
+둘째, 부유 미세플라스틱을 99.9% 제거합니다. <span style="color:#c46a00;font-weight:700;">{시험기관 확정 필요}</span><br />
+셋째, 하이엔드 헤파필터로 극초미세먼지를 99.999% 제거합니다. <span style="color:#c46a00;font-weight:700;">{시험기관 확정 필요}</span><br />
+넷째, 공기 중 바이러스·세균·곰팡이를 99.9% 살균하며,<br />
+고려대 의대 바이러스병연구소와 협업해<br />
+살아있는 바이러스로 직접 실험 검증했습니다. <span style="color:#c46a00;font-weight:700;">{세부 표기 확정 필요}</span></p>
+<p>※ 상기 성능은 시험 환경 기준이며, 실제 사용 환경에 따라 달라질 수 있습니다.</p>
+<blockquote>
+<p>[VISUAL 02]<br />
+- 형식: 제품 컷 + 필터 구조<br />
+- 핵심 메시지: 하이엔드 헤파필터 기반 공기질 솔루션<br />
+- 이미지 헤드라인: 세스코 트루살균 공기청정기 판테온<br />
+- 핵심 수치/텍스트: 미세플라스틱 저감 인증 / 하이엔드 헤파필터<br />
+- 출처: 세스코 제품 정보<br />
+- ALT: 세스코 트루살균 공기청정기 판테온 제품 이미지와 필터 구조<br />
+- <strong>예시 시안:</strong> 실물 촬영 영역으로 시안 생략(제품 컷 촬영·보유 이미지 사용)</p>
+</blockquote>
+<hr />
+<h2>실내 미세플라스틱 관리, 이 순서로 확인해 보세요</h2>
+<p>하루 2~3회 환기<br />
+→ 침구·커튼 소재 점검(천연 소재)<br />
+→ 실내 습도 50% 유지<br />
+→ 장시간 머무는 공간은 공기청정 제품으로 보완</p>
+<p>미세플라스틱은 바다만의 문제가 아니라<br />
+생활 공간에서 지속적으로 관리해야 하는 실내 공기질 요소입니다.<br />
+오늘 확인한 미세먼지 수치처럼,<br />
+보이지 않는 입자까지 함께 점검해 보시기 바랍니다.</p>
+<p>Smile with CESCO</p>
+<p><strong>출처</strong><br />
+- YTN 사이언스, 실내 공기 중 미세플라스틱 흡입 보도 <span style="color:#c46a00;font-weight:700;">{보도 일자 확정 필요, 원문 확인 후 표기 확정}</span><br />
+- 실내 체류 시간(하루 약 90%) 통계 <span style="color:#c46a00;font-weight:700;">{출처 확정 필요, 미확보 시 해당 문장 삭제}</span><br />
+- 세스코 트루살균 공기청정기 판테온 제품 정보 및 인증·시험 결과 <span style="color:#c46a00;font-weight:700;">{인증 기관·시험기관 표기 확정 필요}</span></p>
 </div>
-
-<article class="post">
-
-  <p class="crumb">세스코 공식 블로그 › <b>위생이슈</b></p>
-  <h1 class="title">[세스코 공기솔루션] 공기 중 미세플라스틱,<br>하루 68,000개를 실내에서 들이마시고 있습니다 <span class="geo">GEO : 키워드 앞배치</span></h1>
-  <p class="meta">CESCO · 게재일 {발행일} · 공기질관리</p>
-
-  <div class="lead">
-    공기질 관리라고 하면<br>
-    대부분 미세먼지 수치를 먼저 확인합니다.<br>
-    예보를 보고, 마스크를 챙기고, 공기청정기를 켜는 일은<br>
-    이제 익숙한 일상이 되었죠.<br><br>
-    하지만 의외로 놓치기 쉬운 부분이 있습니다.<br>
-    바로 <b>'부유 미세플라스틱(공기 중에 떠 있는 미세플라스틱)'</b>입니다. <span class="geo">GEO : 용어+정의 한 문장</span><br><br>
-    YTN 보도에 따르면 집·자동차 등 실내 공기 중에서<br>
-    성인이 하루 들이마시는 미세플라스틱 입자는<br>
-    평균 약 68,000개에 달합니다.(1)
-  </div>
-
-  <div class="tldr">
-    <h4>한눈에 보는 핵심 <span class="geo">GEO : 발췌용 요약 박스 신설</span></h4>
-    <ul>
-      <li>공기 중 미세플라스틱은 의류·카펫의 미세 섬유, 생활용품의 플라스틱 마모, 포장재·비닐 등 생활 공간 어디서나 발생할 수 있습니다.</li>
-      <li>YTN 보도 기준, 성인은 실내 공기에서 하루 평균 약 68,000개의 미세플라스틱 입자를 들이마십니다.(1)</li>
-      <li>음식·물로 섭취된 입자의 상당수는 배설되는 것으로 보고되지만, 공기로 흡입된 입자는 폐포·혈관으로 들어가 쌓일 확률이 더 높은 것으로 알려져 있습니다.</li>
-      <li>기본 관리법은 하루 2~3회 환기, 천연 소재 선택, 습도 50% 유지, 공기청정 제품 보완입니다.</li>
-    </ul>
-  </div>
-
-  <h3 class="sec">공기 중 미세플라스틱은 어디서 발생할까요? <span class="geo">GEO : 검색 질문형 소제목</span></h3>
-  <p class="pp">
-    공기 중 미세플라스틱은 특별한 환경이 아니라<br>
-    의류·카펫, 생활용품, 포장재 같은<br>
-    일상 물건에서 발생할 수 있습니다. <span class="geo">GEO : 두괄식 직답</span>
-  </p>
-  <p class="pp">
-    <b>첫째. 의류·카펫의 미세 섬유</b><br>
-    입고, 덮고, 밟는 섬유 제품에서<br>
-    미세한 플라스틱 섬유가 떨어져 나올 수 있습니다.
-  </p>
-  <p class="pp">
-    <b>둘째, 생활용품의 플라스틱 마모</b><br>
-    자주 쓰는 물건일수록 표면이 조금씩 닳으며<br>
-    미세 입자가 발생합니다.
-  </p>
-  <p class="pp">
-    <b>셋째, 포장재·비닐 같은 소비재</b><br>
-    뜯고 구기는 과정에서 발생한 입자가<br>
-    공기 중에 떠다닐 수 있습니다.
-  </p>
-  <div class="defbox">
-    ✅ <b>미세플라스틱</b> : 일반적으로 5mm 이하 크기의 플라스틱 입자.<br>
-    공기 중에 떠 있는 부유 미세플라스틱은 1~10㎛(머리카락 굵기의 약 100분의 1) 수준으로 알려져 있습니다.
-  </div>
-
-  <h3 class="sec">먹는 미세플라스틱과 마시는 미세플라스틱, 무엇이 다를까요?</h3>
-  <p class="pp">
-    같은 미세플라스틱이라도<br>
-    몸에 들어오는 경로에 따라 경과가 다른 것으로 보고됩니다.<br>
-    음식·물로 섭취된 입자의 상당수는 소화기관을 거쳐 배설되지만,<br>
-    공기로 흡입된 입자는 폐포에 붙거나 혈관으로 들어가<br>
-    몸속에 쌓일 확률이 훨씬 높은 것으로 알려져 있습니다. <span class="geo">GEO : 두괄식 직답</span>
-  </p>
-  <table class="cmp">
-    <tr><th style="width:120px;">구분</th><th>음식·물로 섭취</th><th>공기로 흡입</th></tr>
-    <tr><td><b>주요 유입</b></td><td>식품·음용수</td><td>실내 공기 호흡</td></tr>
-    <tr><td><b>몸속 경과<br>(보고 기준)</b></td><td>상당수 소화기관 거쳐 배설</td><td>폐포 부착·혈관 유입 가능성</td></tr>
-    <tr><td><b>관리 포인트</b></td><td>식품·용기 관리</td><td>실내 공기질 관리</td></tr>
-  </table>
-  <p class="tblnote">* 위 비교는 보도·연구 보고 기준의 일반적 경향으로, 개인·환경에 따라 다를 수 있습니다. <span class="geo">GEO : 표 실텍스트(이미지 금지)</span></p>
-  <p class="pp">
-    그래서 최근에는 공기 중에 떠 있는 부유 미세플라스틱이<br>
-    새로운 노출 경로로 주목받고 있습니다.
-  </p>
-
-  <h3 class="sec">실내 미세플라스틱은 왜 환기해도 다시 늘어날까요?</h3>
-  <p class="pp">
-    실내에서는 미세플라스틱이 부유, 침착, 재부유, 재흡입의<br>
-    순환을 반복할 수 있기 때문입니다. <span class="geo">GEO : 두괄식 직답 + 지시어 제거</span>
-  </p>
-  <p class="pp">
-    사람들은 하루 중 약 90%를 실내에서 보냅니다.(2)<br>
-    실내는 외부보다 환기가 제한되어<br>
-    오염 물질이 머물기 쉬운 환경입니다.
-  </p>
-  <p class="pp">
-    공기 중에 떠다니던 미세플라스틱은<br>
-    바닥, 침구, 가구 표면에 내려앉습니다.<br>
-    이후 걷기, 침구 정리, 문을 여닫는<br>
-    일상적인 움직임만으로도<br>
-    일부 입자는 다시 공기 중으로 떠오를 수 있습니다.
-  </p>
-  <div class="imgph">이미지 : 부유 → 침착 → 재부유 → 재흡입 순환 인포그래픽</div>
-  <p class="cap">공기 중 미세플라스틱의 실내 순환 : 부유 → 침착(바닥·침구·가구 표면) → 재부유(걷기·침구 정리·문 여닫기) → 재흡입 <span class="geo">GEO : 이미지 정보 실텍스트 반복</span></p>
-
-  <ul class="vuln">
-    <li><b>영유아·임산부·고령층·호흡기 질환자가 생활하는 공간</b>호흡량이 많거나 회복력이 낮아 같은 농도에서도 영향이 더 클 수 있습니다.</li>
-    <li><b>어린이집·사회복지시설</b>취약 계층이 장시간 머무는 다중이용 공간입니다.</li>
-    <li><b>패브릭 제품이 많고 활동량이 많은 생활 공간</b>발생과 재부유가 동시에 잦아질 수 있습니다.</li>
-  </ul>
-
-  <h3 class="sec">세스코 추천, 공기 중 미세플라스틱 3단계 대응 방법</h3>
-  <p class="pp">
-    집에서 공기 중 미세플라스틱을 줄이는 기본은<br>
-    환기, 소재·습도 관리, 공기청정 보완의 3단계입니다. <span class="geo">GEO : 블록 요약 직답</span>
-  </p>
-  <div class="step">
-    <span class="sn">STEP 1</span>
-    <h4>하루 2~3회, 10분 이상 환기하기</h4>
-    <p>공기 중 농도를 낮추는 가장 기본적인 방법입니다. 미세먼지가 심한 날은 예보를 확인하고 시간대를 조절합니다.</p>
-  </div>
-  <div class="step">
-    <span class="sn">STEP 2</span>
-    <h4>소재와 습도 관리하기</h4>
-    <p>침구·커튼은 합성섬유 대신 면·린넨 같은 천연 소재를 선택하고, 실내 습도를 50% 수준으로 유지해 가라앉은 입자가 쉽게 날리지 않게 합니다.</p>
-  </div>
-  <div class="step">
-    <span class="sn">STEP 3</span>
-    <h4>공기청정기로 보완하기</h4>
-    <p>환기와 청소만으로는 유지가 어려운 시간대를 보완하는 방법입니다. 미세 입자 제거 성능과 저감 인증 여부를 확인해 선택합니다.</p>
-  </div>
-
-  <h3 class="sec">자주 묻는 질문 (FAQ) <span class="geo">GEO : 3문 → 5문 확장</span></h3>
-  <div class="faq">
-    <p class="q">공기 중 미세플라스틱은 얼마나 작나요?</p>
-    <p class="a">공기 중에 떠 있는 부유 미세플라스틱은 1~10㎛ 수준으로, 머리카락 굵기의 약 100분의 1이라 눈으로 확인할 수 없습니다.</p>
-    <p class="q">환기만 자주 하면 되지 않나요?</p>
-    <p class="a">농도를 낮추는 데는 도움이 됩니다. 다만 외부 유입과 실내 발생이 계속되기 때문에 효과를 오래 유지하기는 어렵습니다.</p>
-    <p class="q">공기청정기로 미세플라스틱을 거를 수 있나요?</p>
-    <p class="a">제품에 따라 다릅니다. 부유 미세플라스틱은 1~10㎛ 수준으로 작아 필터 성능과 저감 인증 여부를 확인하는 것이 좋습니다.</p>
-    <p class="q">아이가 있는 집은 왜 더 신경 써야 하나요?</p>
-    <p class="a">아이들은 호흡량이 많고 바닥에서 생활하는 시간이 길어 가라앉았다 다시 떠오르는 입자에 더 많이 노출될 수 있습니다.</p>
-    <p class="q">집에서 미세플라스틱을 줄이는 방법은 무엇인가요?</p>
-    <p class="a">하루 2~3회 환기하고, 침구·커튼은 천연 소재를 선택하고, 실내 습도를 50% 수준으로 유지한 뒤, 장시간 머무는 공간은 공기청정 제품으로 보완하는 것이 기본입니다.</p>
-  </div>
-
-  <div class="bridge">
-    <h3>보이지 않는 입자까지, 세스코가 연구합니다</h3>
-    <p>
-      그래서 세스코는<br>
-      공기 중 미세먼지부터 바이러스·세균, 부유 미세플라스틱까지<br>
-      공기질 유해물질을 연구하여<br>
-      실내 공기 환경을 체계적으로 관리합니다.
-    </p>
-    <p>
-      <b>세스코 트루살균 공기청정기 판테온</b>은<br>
-      공기 중 미세플라스틱 저감 인증을 획득한 공기질 솔루션으로,<br>
-      극초미세먼지부터 부유 미세플라스틱,<br>
-      바이러스·세균까지 한번에 관리합니다.
-    </p>
-  </div>
-
-  <div class="imgph" style="margin-top:20px;">이미지 : 판테온 제품 컷 + 필터 구조</div>
-  <p class="cap">세스코 트루살균 공기청정기 판테온 : 하이엔드 헤파필터 기반 공기질 솔루션 <span class="geo">GEO : 캡션 실텍스트</span></p>
-
-  <ul class="spec">
-    <li>공기 중 미세플라스틱 저감 인증 획득(3)</li>
-    <li>부유 미세플라스틱 99.9% 제거(4)</li>
-    <li>하이엔드 헤파필터로 극초미세먼지 99.999% 제거(5)</li>
-    <li>공기 중 바이러스·세균·곰팡이 99.9% 살균(6)</li>
-    <li>고려대 의대 바이러스병연구소 협업, 살아있는 바이러스로 직접 실험 검증</li>
-  </ul>
-  <p class="fine">※ 상기 성능은 시험 환경 기준이며, 실제 사용 환경에 따라 달라질 수 있습니다.</p>
-
-  <div class="close">
-    미세플라스틱은 바다만의 문제가 아닙니다.<br>
-    생활 공간에서 지속적으로 관리해야 하는<br>
-    실내 공기질 요소입니다.<br><br>
-    오늘 확인한 미세먼지 수치처럼,<br>
-    보이지 않는 입자까지 함께 점검해 보시기 바랍니다.
-  </div>
-
-  <p class="smile">Smile with CESCO</p>
-
-  <p class="tags">#공기중미세플라스틱 #부유미세플라스틱 #미세플라스틱줄이는방법 #공기질관리 #실내공기질 #공기청정기 #유해물질 #세스코 <span class="geo">GEO : 주요키워드 태그</span></p>
-
-  <div class="refs">
-    (1) 출처 : YTN 사이언스, "집·자동차 등 실내 공기 속 하루 6만 8,000개 미세플라스틱 흡입" <span class="todo">{보도 일자 표기 확정 필요}</span><br>
-    (2) <span class="todo">실내 체류 시간 통계 출처 확정 필요</span><br>
-    (3) <span class="todo">인증 기관·기준 확정 필요</span> (4)(5) <span class="todo">시험기관 확정 필요</span> (6) 고려대의대 바이러스병연구소 효능 분석 연구 결과 <span class="todo">세부 표기 확정 필요</span>
-  </div>
-
-</article>
-
-<div class="anno">
-  <b>퍼블리싱 시 GEO 요청 사항</b> : ① FAQ 5문항은 FAQPage 스키마로 마크업 ② Article 스키마(headline·datePublished·author=CESCO) 적용
-  ③ 비교표는 이미지가 아닌 &lt;table&gt; 실텍스트 ④ 인포그래픽·제품 컷의 정보는 캡션/alt 실텍스트로 병기 ⑤ 68,000개·1~10㎛·90%·50% 등 수치는 전부 본문 텍스트로 노출.<br>
-  <b>유지된 템플릿 규칙</b> : 정보 7~8 : 상품 2~3 · 요약 박스 포함 1~5번 섹션 상품명 0회 · 제품 70% 지점 이후 · 유보 어미 · Smile with CESCO.
-</div>
-
 </body>
 </html>
