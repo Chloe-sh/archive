@@ -1,10 +1,17 @@
 <!DOCTYPE html>
+<!--
+[디자이너 전달 규격 | 리플렛 스킬 2608 기준]
+- 판형 : A4 세로(1:√2) 비율 기준 시안. 인쇄 실판형(mm)·접지 미확정이므로 발주서에 "판형 확인 필요" 표기 유지.
+- 저작권 코드 : ©{사업부}_{용도}_v.{버전}_{YYYY.MM} 형식, 지면 하단 고정 (본 파일 반영 완료 · 사업부 약칭은 확정 대기 항목 참조).
+- 지면 배분 : 아래 '지면 설계 노트' 참조. 페이지별 합계 100%(±5%p) 검산 완료.
+-->
+
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>세스코 마이랩 이염방지시트 리플릿 시안 2P (단일상품형 B)</title>
+<title>세스코 마이랩 이염방지시트 리플릿 | 시안 v2 (2P · 단일상품형 B)</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -124,13 +131,29 @@
     background:#fff7ec; color:#7a5200; font-size:13px; border-radius:0 8px 8px 0; line-height:1.8;
   }
   .anno b { color:#5c3d00; }
+
+  @media print{
+    body{background:#fff;padding:0}
+    .deskhead,.anno,.designnote{display:none}
+    .board{display:block;max-width:none}
+    .pagewrap{width:auto;max-width:none}
+    .pagelabel{display:none}
+    .sheet{box-shadow:none;page-break-after:always}
+  }
 </style>
 </head>
 <body>
 
 <div class="deskhead">
-  <h1>세스코 마이랩 이염방지시트 : 리플릿 시안 v1 (2P)</h1>
+  <h1>세스코 마이랩 이염방지시트 : 리플릿 시안 v2 (2P)</h1>
   <p>단일 상품형(B형) 리플렛 템플릿 구조 · 수정본 엑셀 사실 근거 · 브리프 v2 강조 지도 적용 · 디자인 화이트/그레이/블랙</p>
+</div>
+
+<div class="anno designnote" style="margin:0 auto 24px;">
+  <b>지면 설계 노트 (지면 외 · 인쇄 제외)</b><br>
+  <b>P1 (설득형 도입)</b> : 헤드·도입(브랜드바+말풍선+헤드) 30% · 원인 규명(세탁수 원리+카드 3연) 26% · 근거 가시화(전/후 비교) 18% · 솔루션 선언(블랙 밴드) 16% · 여백 10% = <b>합계 100%</b><br>
+  <b>P2 (검증·특장점)</b> : 검증 헤드+숫자 페어 14% · ☑특장점 1~4 34% · 프로토콜+권장 사용량 18% · CTA 6% · 검증·각주 패널 16% · 푸터·저작권 10% · 여백 2% = <b>합계 100%</b><br>
+  <b>이미지 연출</b> : [P1 전/후 : 자사 촬영 흡착 전·후 시트 실물 / 플랫 조명 / '옷으로 갈 오염' 가시화] · [P2 숫자 페어 : 타이포 중심, 이미지 불요] · [P2 기능 2 : UV 비교 컷(자사 실험 표기 병기)] · [P2 사용량 : 색상 스와치 3연 유지]
 </div>
 
 <div class="board">
@@ -158,7 +181,7 @@
       <h2 class="head">나눠 빨아도 생기는 이염,<br>
       세탁수 속 염료부터<br>
       형광증백제·미세먼지까지 붙잡는<br>
-      세스코 이염방지시트는 다릅니다.</h2>
+      세스코 마이랩 이염방지시트</h2>
 
       <div class="gap24"></div>
 
@@ -203,7 +226,7 @@
       <div class="gap8"></div>
       <p class="b" style="font-weight:800;">
         하얗던 시트가 세탁 후 어둡게 변합니다.<br>
-        이 오염은 원래, 옷으로 갈 것들이었습니다.
+        시트가 붙잡지 않았다면 옷으로 갈 오염입니다.
       </p>
       <p class="small">* 흡착 전/후 비교는 자사 제품 촬영 컷으로 제작</p>
 
@@ -226,18 +249,18 @@
     <p class="pagelabel">2면 : 검증 → 기능 → 신뢰 장치 → 클로징</p>
     <div class="sheet">
 
-      <h2 class="head">잡는 것도,<br>남기지 않는 것도 검증했습니다.</h2>
+      <h2 class="head">이염을 막는 효과도,<br>피부에 닿는 성분도 검증했습니다.</h2>
 
       <div class="gap12"></div>
 
       <div class="pair">
         <div>
           <p class="v">91<sup>%</sup></p>
-          <p class="k">잡는 힘 : 이염방지효과 검증*</p>
+          <p class="k">이염방지효과 검증*</p>
         </div>
         <div>
           <p class="v">불검출</p>
-          <p class="k">남기는 성분 : 3개 성분군 검증**</p>
+          <p class="k">파라벤 · 가습기 살균제 이슈 성분 · 형광증백제**</p>
         </div>
       </div>
 
@@ -247,7 +270,7 @@
         <div class="row">
           <span class="no">1</span>
           <div>
-            <h4>세탁수 속 염료를 포집해, 한 번 붙잡으면 놓치지 않습니다</h4>
+            <h4>세탁수에 떠다니는 염료를 선택적으로 포집합니다</h4>
             <p>특수 가공된 시트 표면이 떠다니는 염료를 선택적으로 끌어당겨 흡착하고, 흡착된 염료는 세탁수로 다시 쉽게 방출되지 않아 재이염을 방지합니다. · 이염방지효과 91% 검증*</p>
           </div>
         </div>
@@ -294,8 +317,8 @@
       <div class="gap16"></div>
 
       <p class="b" style="font-weight:800;">
-        모두가 이염방지시트를 고집하는 이유,<br>
-        세스코몰에서 직접 확인해 보세요.
+        다음 세탁부터 시트를 넣어 보세요.<br>
+        세스코몰에서 구매하실 수 있습니다.
       </p>
 
       <div class="gap16"></div>
@@ -316,7 +339,7 @@
         주소 : 서울시 강동구 상일로10길 46(상일동) 세스코 타워센터 (우)05288<br>
         대표전화 : 1588-1119　고객센터(월~금 08:30~18:00 / 토 09:00~13:00 / 일·공휴일 휴무)<br>
         Fax : 02-488-1720　홈페이지 : www.cesco.co.kr / www.cescomall.co.kr
-        <p class="cright">©MYLAB_DyeSheet_v.1_2026.08 CESCO Co.,Ltd All rights reserved.</p>
+        <p class="cright">©MYLAB_DyeSheet_v.2_2026.08 CESCO Co.,Ltd All rights reserved.</p>
         <div class="namecard">[명함스티커 부착]</div>
       </div>
 
