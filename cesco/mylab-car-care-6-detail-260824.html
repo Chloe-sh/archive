@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세스코 마이랩 카케어 상세페이지 시안 v29 (2026-08-21)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--navy:#2b3757;--navy-d:#1f2940;--blue:#5b74c9;--ink:#1e2230;--ink2:#4a5160;--muted:#8a909c;--lt:#f4f5f8;--lt2:#e9ebf1;--line:#dfe2ea;--memo:#c9cfd6;--gbg:#f2f8f3;--gln:#a9c9ad;--glb:#2e7d32;--ybg:#fff8e6;--yln:#d9b24a;--ylb:#a3781a;--obg:#fff4ea;--oln:#e07b1f;--olb:#b4530a;--sf:#f4f5f8;--sf2:#e9ebf1;--navy2:#1f2940}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#d9dbe1;color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.85;word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.02em;-webkit-font-smoothing:antialiased}
+p{margin:0 0 .6em}
+strong,b{font-weight:700}
+.center{text-align:center}
+/* ─ 상단 가이드 바 (지면 밖) */
+header.top{background:#fff;border-bottom:1px solid var(--line);padding:18px 24px}
+header.top .in{max-width:1080px;margin:0 auto}
+header.top .eyebrow{font-size:11px;letter-spacing:.22em;color:var(--blue);font-weight:700}
+header.top h1{font-size:17px;margin:4px 0 6px;color:var(--navy)}
+header.top p{font-size:12.5px;color:var(--ink2);margin:0;line-height:1.7}
+header.top .legend{margin-top:8px;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.legend .m{border:2px dotted var(--memo);background:var(--lt)}
+.legend .g{border:1.5px dashed var(--gln);background:var(--gbg)}
+.legend .y{border:1.5px dashed var(--yln);background:var(--ybg)}
+.legend .o{border:2px solid var(--oln);background:var(--obg)}
+.legend button{margin-left:auto;font:inherit;font-size:12px;padding:6px 14px;border:0;background:var(--navy);color:#fff;border-radius:999px;cursor:pointer}
+nav.tabs{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);padding:0 24px;overflow-x:auto}
+nav.tabs .in{max-width:1080px;margin:0 auto;display:flex;gap:4px}
+nav.tabs button{font:inherit;font-size:13px;padding:13px 15px;border:0;border-bottom:3px solid transparent;background:none;color:var(--ink2);cursor:pointer;white-space:nowrap}
+nav.tabs button.active{color:var(--navy);font-weight:700;border-bottom-color:var(--navy)}
+main{padding:36px 12px 100px}
+.doc{display:none;max-width:900px;margin:0 auto;background:#fff;box-shadow:0 0 40px rgba(0,0,0,.12)}
+.doc.active{display:block}
+.doct{font-size:11px;letter-spacing:.12em;color:var(--muted);text-align:center;padding:16px 20px 0}
+/* ─ 공통 섹션 */
+section.s{padding:100px 70px}
+section.s+section.s{border-top:1px solid var(--lt2)}
+.lab{font-size:13px;letter-spacing:.18em;color:var(--blue);font-weight:700;margin-bottom:34px;text-align:center}
+.lab .n{display:none}
+.hl{font-size:38px;line-height:1.42;font-weight:300;color:var(--navy);margin:0 0 28px;letter-spacing:-.025em;text-align:center}
+.hl b{font-weight:800}
+.hl2{font-size:25px;line-height:1.55;font-weight:700;color:var(--ink);margin:44px 0 18px;letter-spacing:-.02em;text-align:center}
+.body{font-size:17.5px;line-height:1.9;color:var(--ink2);text-align:center;margin-bottom:18px}
+.fn{font-size:12px;color:var(--muted);line-height:1.8;margin-top:20px;text-align:left}
+/* ─ 표지 */
+.cover{background:linear-gradient(180deg,#f3f4f7 0%,#e7e9ef 55%,#f6f6f8 100%);color:var(--ink);padding:26px 70px 0;text-align:center;position:relative;display:flex;flex-direction:column;overflow:hidden}
+.cover .row{order:0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--navy);padding:0 0 8px}
+.cover .row b{font-family:Georgia,"Times New Roman",serif;font-size:23px;font-weight:700;letter-spacing:-.01em}
+.cover .en{order:1;margin-top:56px;font-size:15px;letter-spacing:.22em;color:#6b7280;font-weight:500}
+.cover .en small{display:block;letter-spacing:0;font-size:10.5px;font-weight:400;color:#aab0b8;margin-top:6px}
+.cover .brand{order:2;margin-top:24px;font-size:44px;font-weight:300;color:var(--navy);line-height:1.15}
+.cover .pname{order:3;font-size:58px;font-weight:800;color:var(--navy);line-height:1.2;margin:2px 0 0;letter-spacing:-.03em}
+.cover .spec{order:4;font-size:17px;color:#555c6b;letter-spacing:.02em;margin-top:20px}
+.cover .spec .hold{display:block;color:#c48a2a;font-size:12px;margin-top:6px}
+.cover .badges{order:5;position:static;display:flex;flex-direction:row;justify-content:center;gap:18px;margin-top:38px}
+.cover .bd{position:relative;width:122px;height:122px;border-radius:50%;border:1.5px solid var(--navy);color:var(--navy);font-size:9.5px;letter-spacing:.05em;line-height:1.35;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;background:#fff;font-weight:700}
+.cover .bd::after{content:"";position:absolute;inset:5px;border:1px solid rgba(43,55,87,.45);border-radius:50%}
+.cover .bd svg{width:22px;height:22px;margin-bottom:5px}
+.cover .bd small{font-weight:400;font-size:8.5px;color:var(--muted);display:block}
+.cover .slot{order:6;margin:50px -70px 0;max-width:none;min-height:430px;background:linear-gradient(135deg,#dfe2e8,#c9cdd6);border:0;border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 70px;font-size:13px;color:#5f6674;text-align:center;line-height:1.6}
+.cover .slot svg{width:38px;height:38px;flex:none;opacity:.55}
+.cover .slot div{max-width:560px}
+.cover .mark{order:7;font-size:10.5px;color:#9aa0ab;padding:14px 0 18px;background:#f6f6f8;margin:0 -70px}
+/* ─ 브랜드 스테이트먼트 */
+.stmt{text-align:center;background:linear-gradient(180deg,#f7f7f9,#eceef3)}
+.stmt .lab{margin-bottom:26px}
+.stmt .k{display:inline-block;font-size:16px;letter-spacing:.02em;color:#fff;background:var(--navy);padding:11px 34px;border-radius:40px;font-weight:500}
+.stmt .logo{font-size:52px;font-weight:700;color:var(--navy);margin:30px 0 44px;letter-spacing:-.01em;font-family:Georgia,"Times New Roman",serif;line-height:1.15}
+.stmt .logo span,.stmt .logo2 span{font-family:Pretendard,sans-serif;font-weight:700;letter-spacing:.3em;font-size:.38em;color:var(--navy);display:block;margin-top:10px}
+.stmt p{font-size:18.5px;line-height:1.95;color:var(--ink2);margin:0 auto 30px;max-width:600px}
+.stmt .logo2{font-size:36px;font-weight:700;color:var(--navy);margin-top:8px;font-family:Georgia,"Times New Roman",serif;line-height:1.15}
+/* ─ 연구소 제안문 (네이비 풀블리드) */
+.prop{background:var(--navy);color:#fff;text-align:left;padding:100px 80px}
+.prop .lab{color:rgba(255,255,255,.85);text-align:left;letter-spacing:.14em}
+.prop .t{font-size:23px;line-height:1.8;font-weight:300;color:#fff}
+.prop .t b{color:#fff;font-weight:800}
+.prop .t sup{font-size:12px;font-weight:300;opacity:.7}
+.prop ul{list-style:none;padding:32px 0 0;margin:52px 0 0;font-size:17px;color:#e8edf8;border-top:1px solid rgba(255,255,255,.25)}
+.prop ul li{padding:8px 0 8px 32px;position:relative;border:0}
+.prop ul li::before{content:"☑";position:absolute;left:0;color:rgba(255,255,255,.9)}
+.prop .fn{color:rgba(255,255,255,.6)}
+.prop .memo{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);color:#c9d3e8}
+.prop .memo::before{color:#a9b8dc}
+/* ─ 고객 말풍선 */
+.bubbles{margin:0 0 60px;display:flex;flex-direction:column;gap:22px}
+.bubbles p{position:relative;align-self:flex-start;background:var(--lt);border-radius:22px;padding:19px 26px;margin:0 0 0 76px;color:var(--ink);font-size:17.5px;max-width:600px;line-height:1.6;text-align:left}
+.bubbles p::before{display:none}
+.bubbles p::after{content:"";position:absolute;bottom:14px;left:-9px;border:10px solid transparent;border-right-color:var(--lt);border-left:0}
+.bubbles p i.ico{position:absolute;left:-76px;bottom:0;top:auto;transform:none;width:58px;height:58px;border-radius:50%;background:var(--lt2);border:0;display:flex;align-items:center;justify-content:center;color:var(--navy)}
+.bubbles p i.ico svg{width:30px;height:30px}
+.bubbles p:nth-child(even){align-self:flex-end;margin:0 76px 0 0;background:var(--navy);color:#fff;border-radius:22px;padding:19px 26px}
+.bubbles p:nth-child(even)::after{left:auto;right:-9px;border-right:0;border-left:10px solid var(--navy)}
+.bubbles p:nth-child(even) i.ico{left:auto;right:-76px;background:var(--lt2);border:0;color:var(--navy)}
+/* ─ 3연 체크박스 (무엇이 다를까요) */
+.c3 .head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--navy);padding-bottom:18px;margin-bottom:56px}
+.c3 .head h3{margin:0;font-size:17px;letter-spacing:.02em;color:var(--navy);font-weight:600}
+.badge{position:relative;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1.5px solid var(--navy);border-radius:50%;width:104px;height:104px;flex:none;padding:12px;font-size:8.5px;letter-spacing:.05em;color:var(--navy);font-weight:700;white-space:normal;text-align:center;line-height:1.35;background:#fff;margin-top:-26px}
+.badge::after{content:"";position:absolute;inset:4px;border:1px solid rgba(43,55,87,.45);border-radius:50%}
+.badge svg{width:17px;height:17px}
+.c3 .lead{font-size:42px;font-weight:300;line-height:1.35;color:var(--navy);margin:0 0 28px;letter-spacing:-.03em;text-align:left}
+.c3 .lead b{font-weight:800}
+.c3 .body{text-align:left;font-size:18px;margin-bottom:52px}
+.ck{list-style:none;padding:0;margin:26px 0 0;border-top:1px solid var(--navy)}
+.ck li{padding:0;border-top:0;border-bottom:1px solid var(--navy)}
+.ck li:last-child{border-bottom:1px solid var(--navy)}
+.ck li b{display:block;font-size:16.5px;color:var(--navy);background:none;border-radius:0;padding:15px 20px;margin-bottom:0;letter-spacing:.01em;font-weight:600;border-bottom:1px solid #c8cdd9}
+.ck li b::before{content:"☑  ";color:var(--blue)}
+.ck li span{display:block;font-size:20px;font-weight:600;color:var(--ink);line-height:1.7;padding:28px 28px 30px}
+.ck li span sup{font-size:12px;font-weight:400;color:var(--muted)}
+.ck li small{display:block;font-weight:400;font-size:14px;color:var(--muted);padding:0 28px 26px;margin-top:-16px}
+/* ─ 아이콘 그리드 (AT A GLANCE · 네이비 풀블리드) */
+section.s:has(> .icons):not(.prod){background:var(--navy);color:#fff}
+section.s:has(> .icons):not(.prod) .lab{color:rgba(255,255,255,.75)}
+section.s:has(> .icons):not(.prod) .fn{color:rgba(255,255,255,.6)}
+.icons{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 20px;margin-top:24px}
+.icons .it{text-align:center;font-size:15px;line-height:1.55}
+.icons .it .c{width:132px;height:132px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);background:transparent;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;color:#fff}
+.icons .it svg{width:56px;height:56px}
+.icons .it .ia{font-size:15px;color:rgba(255,255,255,.8);line-height:1.5}
+.icons .it .ib{font-size:23px;font-weight:800;color:#fff;line-height:1.35;margin-top:4px}
+.icons .it .ib sup{font-size:11px;font-weight:300;opacity:.8}
+/* 제품 섹션 안 요약 아이콘 3종 (흰 배경 변형) */
+.prod .icons{gap:34px 18px}
+.prod .icons .it .c{width:112px;height:112px;border-color:var(--navy);color:var(--navy);position:relative}
+.prod .icons .it .c::after{content:"";position:absolute;inset:4px;border:1px solid rgba(43,55,87,.3);border-radius:50%}
+.prod .icons .it svg{width:46px;height:46px}
+.prod .icons .it .ia{color:var(--muted)}
+.prod .icons .it .ib{color:var(--navy);font-size:19px}
+/* ─ 챕터 (엄격한/까다로운/강력하게) */
+.ch{margin:0 0 40px;text-align:left}
+.ch .no{display:none}
+.ch .tt{display:flex;align-items:center;gap:12px;font-size:17px;color:var(--navy);background:none;border-top:1px solid var(--navy);border-bottom:1px solid var(--navy);border-radius:0;padding:15px 16px;font-weight:600;letter-spacing:.01em;width:100%}
+.ch .sub{display:none}
+.ch+.hl{text-align:left;font-size:40px;margin:56px 0 44px}
+.ch~.hl2{text-align:left}
+.ch~.body{text-align:left}
+section.s .ch:not(:first-of-type){margin-top:130px;padding-top:0;border-top:0}
+.q{margin:64px 0 18px;font-size:26px;font-weight:700;color:var(--ink);line-height:1.55;letter-spacing:-.02em;text-align:left}
+.q::before{content:"";display:block;width:34px;height:3px;background:var(--blue);margin-bottom:18px}
+.a{margin:0 0 34px;padding:30px 34px;background:var(--lt);border-radius:6px;color:var(--navy);font-size:19px;line-height:1.75;font-weight:500;text-align:left}
+.a::before{content:attr(data-who);display:block;font-size:12px;letter-spacing:.12em;color:var(--blue);font-weight:700;margin-bottom:12px}
+.pt{margin:70px 0 8px;font-size:13px;letter-spacing:.18em;color:var(--blue);font-weight:700;text-align:center}
+.pt+.hl2{margin-top:0;text-align:center}
+/* ─ 표 */
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:20px 0;background:#fff}
+th,td{border:0;border-bottom:1px solid var(--lt2);padding:14px 16px;text-align:left;vertical-align:top;line-height:1.7}
+th{background:var(--navy);font-weight:600;color:#fff;font-size:13.5px;letter-spacing:.02em}
+td{color:var(--ink2)}
+table:not(:has(thead)) td:first-child{background:#f9fafc;color:var(--navy);font-weight:600;width:190px}
+.tbl-wrap{overflow-x:auto}
+.ing h4{text-align:center;font-size:20px;color:var(--ink);margin:0 0 20px;font-weight:800}
+.ing table th:first-child{background:var(--navy);color:#fff}
+.ing td{line-height:2.1}
+/* ─ 체크 리스트 */
+.cl{list-style:none;padding:0;margin:14px 0;border-top:1px solid var(--navy)}
+.cl li{display:flex;align-items:center;gap:14px;padding:17px 18px;position:relative;color:var(--ink);font-size:16.5px;border-top:0;border-bottom:1px solid #c8cdd9}
+.cl li::before{content:"";position:static;width:15px;height:15px;flex:none;border:1.5px solid var(--navy);background:linear-gradient(135deg,transparent 42%,var(--navy) 42% 56%,transparent 56%) no-repeat 45% 60%/70% 70%}
+/* ─ STEP 카드 */
+.steps{counter-reset:st;list-style:none;padding:0;margin:20px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.steps li{position:relative;background:var(--lt);border-radius:6px;padding:186px 22px 28px;font-size:14.5px;color:var(--ink2);line-height:1.75}
+.steps li::before{counter-increment:st;content:"STEP " counter(st,decimal-leading-zero);position:absolute;left:22px;top:22px;font-size:13px;letter-spacing:.1em;color:var(--blue);font-weight:700}
+.steps li::after{content:"이미지 자리";position:absolute;left:20px;right:20px;top:50px;height:112px;border-radius:6px;background:linear-gradient(135deg,#e6e9ef,#d4d8e1);border:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#7a808d;letter-spacing:.06em}
+.steps li b{display:block;color:var(--ink);font-size:16.5px;margin-bottom:8px;line-height:1.5}
+.steps li .note{display:block;font-size:12.5px;color:var(--muted);margin-top:8px}
+.steps:has(li:nth-child(4)){grid-template-columns:repeat(2,1fr)}
+.grp{margin:60px 0 4px;font-weight:800;color:var(--navy);text-align:left;font-size:16px;border-left:3px solid var(--navy);padding-left:14px}
+.grp:first-of-type{margin-top:36px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 20px;justify-content:center}
+.chips span{background:#fff;border:1px solid var(--navy);border-radius:30px;padding:7px 18px;font-size:14px;color:var(--navy)}
+/* ─ 라인업·크로스셀 */
+.verify{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;justify-content:center}
+.verify span{border:1px solid var(--navy);color:var(--navy);border-radius:30px;padding:7px 18px;font-size:13.5px;background:#fff}
+.lu{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.lu li{background:#fff;border:1px solid var(--lt2);border-radius:8px;padding:256px 24px 26px;position:relative;font-size:14.5px;color:var(--ink2);line-height:1.7;text-align:center}
+.lu li::before{content:"이미지 자리";position:absolute;left:20px;right:20px;top:20px;height:214px;background:linear-gradient(135deg,#e6e9ef,#d4d8e1);border:0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#7a808d;letter-spacing:.06em}
+.lu li i{font-style:normal;font-weight:700;color:var(--blue);font-size:12px;letter-spacing:.1em;display:block;margin-bottom:2px}
+.lu li b{display:block;color:var(--ink);font-size:17px;margin-bottom:8px}
+.lu li.me{grid-column:1/-1;padding:18px 22px;background:var(--navy);color:#fff;text-align:center;border:0}
+.lu li.me::before{display:none}
+.lu li.me i{display:inline;color:#a9b8dc;margin-right:8px}
+.lu li.me b{display:inline;color:#fff}
+.lu li.me b::after{content:"  본 제품";font-size:11px;letter-spacing:.1em;color:#a9b8dc;margin-left:8px}
+.more{display:inline-block;margin-top:14px;border:0;background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:11px 20px;border-radius:4px}
+/* ─ 타임라인·연구원 보이스 */
+.tl{list-style:none;padding:0;margin:20px 0}
+.tl li{padding:56px 0;border-top:1px solid var(--lt2)}
+.tl li:first-child{border-top:0;padding-top:20px}
+.tl li h4{margin:0 0 26px;font-size:13px;letter-spacing:.18em;color:var(--blue);text-align:center;font-weight:700}
+.voice{display:flex;gap:24px;align-items:flex-start;padding:36px 0 0;background:none;border-radius:0;margin:24px 0;text-align:left}
+.voice .av{flex:0 0 100px;width:100px;height:100px;border-radius:50%;background:var(--lt2);color:var(--navy);display:flex;align-items:center;justify-content:center;margin:0}
+.voice .av svg{width:44px;height:44px}
+.voice>div:last-child{flex:1}
+.voice .who{font-size:12.5px;letter-spacing:.06em;color:var(--blue);font-weight:700;margin-bottom:10px}
+.voice .say{position:relative;background:var(--lt);border-radius:16px;padding:26px 30px;color:var(--ink);font-size:17.5px;line-height:1.8}
+.voice .say::before{content:"";position:absolute;left:-10px;top:32px;border:10px solid transparent;border-right-color:var(--lt);border-left:0}
+/* ─ 비교 카드·배지·도해 */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0}
+.ba .bx{background:var(--lt);border-radius:8px;padding:22px;text-align:center;font-size:14.5px;color:var(--ink2);line-height:1.7}
+.ba .bx .ph{height:186px;border-radius:6px;background:linear-gradient(135deg,#e6e9ef,#d4d8e1);border:0;display:flex;align-items:center;justify-content:center;color:#7a808d;margin-bottom:18px}
+.ba .bx .ph.on{background:var(--navy-d);color:#c9d3e8}
+.ba .bx .ph svg{width:36px;height:36px}
+.ba .bx b{display:block;color:var(--ink);font-size:16.5px;margin-bottom:4px}
+.ba .bx em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:8px}
+.ring{width:130px;height:130px;border-radius:50%;border:2px solid var(--navy);display:flex;flex-direction:column;gap:0;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.4;color:var(--ink2);flex:none;background:#fff;position:relative}
+.ring::after{content:"";position:absolute;inset:5px;border:1px solid rgba(43,55,87,.35);border-radius:50%}
+.ring b{display:block;font-size:27px;color:var(--navy);line-height:1.1;margin:3px 0}
+.cert{display:flex;align-items:center;gap:30px;background:var(--lt);border-radius:8px;padding:28px 32px;margin:22px 0}
+.cert>div:last-child b{display:block;font-size:17px;color:var(--ink)}
+.cert>div:last-child span{font-size:13.5px;color:var(--muted)}
+.areacmp{display:flex;align-items:flex-end;justify-content:center;gap:34px;flex-wrap:wrap;padding:34px 24px;margin:22px 0;background:var(--lt);border-radius:8px}
+.areacmp .ac{text-align:center;font-size:13.5px;color:var(--ink2)}
+.areacmp .ac b{display:block;color:var(--ink);font-size:14.5px;margin-top:12px}
+.areacmp .rect{margin:0 auto;border:1.5px solid var(--navy);border-radius:3px;background:#fff}
+.areacmp .rect.small{width:44px;height:112px;border-color:#aab0b8}
+.areacmp .rect.big{width:100px;height:80px;background:#eef1f7}
+.areacmp .ring{background:var(--navy);color:#fff;border-color:var(--navy)}
+.areacmp .ring b{color:#fff}
+.dose{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+.dose .d{background:var(--lt);border-radius:8px;padding:30px 14px;text-align:center;font-size:14.5px;color:var(--ink2)}
+.dose .d .sw{display:block;width:56px;height:56px;border-radius:50%;margin:0 auto 14px;border:0}
+.dose .d .sw svg{width:26px;height:26px}
+.dose .d b{display:block;color:var(--ink);margin-bottom:2px;font-size:16px}
+.dose .d span:last-child{font-weight:800;color:var(--navy);font-size:26px}
+.bars{display:flex;justify-content:center;align-items:flex-end;gap:70px;height:240px;margin:30px 0 8px;padding:0 20px;border-bottom:1px solid var(--line)}
+.bar{display:flex;flex-direction:column-reverse;align-items:center;width:140px;height:100%;justify-content:flex-start}
+.bar .bl{font-size:13px;color:var(--muted);text-align:center;line-height:1.4;position:relative;top:44px}
+.bar .bf{display:block;width:104px!important;background:var(--navy);border-radius:4px 4px 0 0;min-height:6px}
+.bar .bf.gray{background:#c3c9d8}
+.bar .bv{font-weight:800;color:var(--navy);font-size:22px;margin-bottom:6px}
+.bars+.hl{margin-top:70px}
+/* ─ FAQ 카드 */
+.ck.faq{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;border-top:0}
+.ck.faq li{background:var(--lt);border-radius:8px;padding:24px 22px;border:0!important}
+.ck.faq li b{background:#fff;border:1px solid var(--line);border-radius:30px;display:inline-block;padding:6px 14px;font-size:12.5px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.ck.faq li span{font-size:14.5px;font-weight:500;color:var(--ink2);line-height:1.7;padding:0}
+/* ─ 법정·슬롯 */
+.legal{background:var(--lt)}
+.legal .lab{text-align:left}
+.legal .blk{font-size:13px;color:var(--ink2);padding:14px 0;border-top:1px solid #d5d9e2;line-height:1.9}
+.legal .blk b{display:block;color:var(--ink);margin-bottom:4px;font-size:15px}
+.imgslot{margin:26px 0;border:0;border-radius:6px;padding:40px;text-align:center;font-size:13px;color:#5f6674;background:linear-gradient(135deg,#e6e9ef,#d4d8e1)}
+.imgslot.vis{min-height:320px;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;background:linear-gradient(135deg,#dfe2e8,#c9cdd6);border:0;padding:32px;margin:36px 0}
+.imgslot.vis svg{width:38px;height:38px;opacity:.5}
+.imgslot.vis span{font-size:12.5px;color:#5f6674;max-width:480px;text-align:center;line-height:1.6}
+/* ─ 제작 메모 3층 (지면 미노출 유지) */
+.memo{border-left:3px solid var(--memo);background:#fafafa;border-top:1px dashed #c4cad4;border-right:1px dashed #c4cad4;border-bottom:1px dashed #c4cad4;padding:9px 13px;font-size:11.5px;color:#6b7280;margin:26px 0 0;line-height:1.65;text-align:left;border-radius:0 4px 4px 0}
+.memo::before{content:"메모 · 지면 미노출 · ";font-weight:700;color:#9aa3ad}
+.brief{border:1px dashed var(--gln);background:var(--gbg);border-radius:6px;padding:9px 13px;font-size:11.5px;color:#2f4a33;margin:22px 0;line-height:1.65;text-align:left}
+.brief b{color:var(--glb);font-weight:800;margin-right:6px}
+.brief p{margin:0 0 3px}
+.vid{border:1px dashed var(--yln);background:var(--ybg);border-radius:6px;padding:9px 13px 9px 56px;font-size:11.5px;color:#5a4a1c;margin:16px 0;position:relative;line-height:1.65;text-align:left}
+.vid::before{content:"▶";position:absolute;left:13px;top:10px;width:30px;height:22px;background:var(--navy);color:#fff;border-radius:3px;text-align:center;line-height:22px;font-size:10px}
+.vid b{color:var(--ylb)}
+section.add{position:relative}
+section.add::before{content:attr(data-label);display:block;text-align:center;font-size:10.5px;letter-spacing:.08em;color:var(--olb);background:var(--obg);border:1px solid var(--oln);border-radius:999px;padding:3px 12px;margin:-52px auto 44px;width:max-content;max-width:100%}
+.hold{color:#c48a2a}
+.new{position:relative;outline:1.5px solid var(--oln);outline-offset:12px;border-radius:2px}
+.new::after{content:attr(data-label);position:absolute;right:-12px;top:-28px;font-size:10px;letter-spacing:.06em;color:#fff;background:var(--oln);padding:2px 8px;border-radius:2px;font-weight:700}
+p.hl.new{display:block;margin-top:36px}
+p.hl.new::after{content:attr(data-label)}
+.ck.faq.new{margin-top:52px}
+.bubbles.new::after{top:-36px}
+/* ─ 메모 층 숨김 */
+body.hide-memo .memo,body.hide-memo .brief,body.hide-memo .vid,body.hide-memo section.add::before,body.hide-memo .cover .en small,body.hide-memo .hold{display:none}
+body.hide-memo .new{outline:0}
+body.hide-memo .new::after{display:none}
+body.hide-memo .cover .slot div{color:transparent}
+body.hide-memo .cover .slot svg{opacity:.3}
+body.hide-memo .imgslot.vis span{display:none}
+/* ─ 제품 개별 요약 섹션 톤 */
+section.s.prod{background:#fff;color:var(--ink)}
+section.s.prod .lab{color:var(--blue)}
+section.s.prod .fn{color:var(--muted)}
+.lab + .ch{margin-top:0!important;padding-top:0!important;border-top:0!important}
+/* ─ 반응형 */
+@media (max-width:940px){.doc{max-width:none;margin:0}}
+@media (max-width:680px){
+section.s{padding:64px 24px}
+.prop{padding:70px 28px}
+.cover{padding:22px 24px 0}
+.cover .slot{margin:40px -24px 0;padding:32px 24px;min-height:320px}
+.cover .mark{margin:0 -24px}
+.cover .brand{font-size:32px}
+.cover .pname{font-size:40px}
+.hl{font-size:29px}
+.ch+.hl{font-size:30px}
+.c3 .lead{font-size:31px}
+.hl2{font-size:22px}
+.body{font-size:16px}
+.icons{grid-template-columns:repeat(2,1fr);gap:40px 14px}
+.icons .it .c{width:104px;height:104px}
+.icons .it svg{width:44px;height:44px}
+.steps{grid-template-columns:1fr!important}
+.lu{grid-template-columns:1fr}
+.ba{grid-template-columns:1fr}
+.dose{grid-template-columns:1fr}
+.ck.faq{grid-template-columns:1fr}
+.bubbles p{margin-left:64px;font-size:15.5px}
+.bubbles p:nth-child(even){margin-right:64px}
+.bubbles p i.ico{width:48px;height:48px;left:-62px}
+.bubbles p:nth-child(even) i.ico{right:-62px}
+.voice{flex-direction:column;gap:14px}
+.badge{width:88px;height:88px;margin-top:-14px}
+.cover .badges{flex-wrap:wrap}
+}
+
+/* v9 · 사회적 검증(연구원 INTERVIEW) */
+.proof .pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 18px}
+.proof .pc{background:var(--sf);border-radius:8px;padding:20px 18px;font-size:14px;color:var(--ink2);line-height:1.7}
+.proof .pc b{display:inline-block;font-size:11.5px;color:#fff;background:var(--navy);border-radius:3px;padding:3px 10px;margin-bottom:12px;letter-spacing:.04em}
+.proof .pc p{margin:0}
+.proof .pc.quote{background:#fff;border:1.5px solid var(--navy);color:var(--ink)}
+.proof .who{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;color:var(--muted);margin-top:6px}
+.proof .who i.ico{width:28px;height:28px;border-radius:50%;background:var(--sf);display:flex;align-items:center;justify-content:center;color:var(--navy)}
+.proof .who i.ico svg{width:16px;height:16px}
+@media (max-width:600px){.proof .pcards{grid-template-columns:1fr}}
+.care5{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:22px 0}
+.care5 .c5{background:var(--sf);border-radius:8px;padding:18px 16px;font-size:13.5px;color:var(--ink2);line-height:1.6;display:flex;flex-direction:column;gap:6px}
+.care5 .c5 i{font-style:normal;font-weight:800;color:var(--blue);font-size:12px;letter-spacing:.1em}
+.care5 .c5 b{color:var(--ink);font-size:14.5px}
+.care5 .c5 em{font-style:normal;margin-top:auto;padding-top:10px;border-top:1px solid var(--line);color:var(--navy);font-weight:800;font-size:15px}
+.care5 .c5 em::before{content:"→ ";color:var(--blue)}
+.zones{display:grid;gap:14px;margin:22px 0}
+.zone{background:var(--sf);border-radius:8px;padding:18px 18px 14px}
+.zone b{display:block;color:var(--navy);font-size:15px;margin-bottom:10px}
+.zone .chips{justify-content:flex-start;margin:0 0 10px}
+.zone .chips span{font-size:13px;padding:5px 12px}
+.zone .risk{margin:0;font-size:12.5px;color:var(--muted)}
+.carmap{margin:26px 0 10px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px}
+.carmap svg{width:100%;height:auto;display:block}
+.care5 .c5 em a{color:inherit;text-decoration:none;border-bottom:1.5px solid var(--blue)}
+.care5 .c5 em a:hover{color:var(--blue)}
+.lab[id]{scroll-margin-top:80px}
+.prod .lab{margin-bottom:10px}
+.prod h3.pname{margin:0 0 14px;font-size:34px;line-height:1.25;font-weight:800;color:var(--navy);letter-spacing:-.03em;text-align:center}
+.prod h3.pname::after{content:"";display:block;width:36px;height:3px;background:var(--navy);margin:18px auto 0}
+.prod .hl.plead{font-size:22px;font-weight:600;color:var(--ink2);margin:0 0 30px}
+.prod .hl.plead b{font-weight:800;color:var(--ink)}
+.prod .icons{margin-bottom:34px!important}
+.zcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.zcards .zc{background:var(--sf);border-radius:10px;padding:24px 18px 20px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.zcards .zi{width:52px;height:52px;border-radius:50%;background:#fff;border:1.5px solid var(--blue);display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:12px}
+.zcards .zi svg{width:24px;height:24px}
+.zcards b{font-size:16px;color:var(--ink);margin-bottom:4px}
+.zcards em{font-style:normal;font-size:12.5px;color:var(--navy);font-weight:700;margin-bottom:14px;line-height:1.45}
+.zcards strong{font-size:26px;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--line);width:100%}
+.zcards small{font-size:12px;color:var(--muted);line-height:1.6;word-break:keep-all}
+@media (max-width:600px){.zcards{grid-template-columns:1fr}}
+.body.pb{text-align:center}
+.ch~.body.pb{text-align:center}
+/* 33 POINT 카드 위계: 구역명 > 문제 요소 > POINT 수 > 위치 */
+.zcards .zc{padding:26px 18px 22px}
+.zcards b{font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:10px}
+.zcards em{font-size:16px;font-weight:800;color:#fff;background:var(--navy);border-radius:999px;padding:6px 14px;margin-bottom:14px;line-height:1.4}
+.zcards strong{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.14em;border-bottom:0;padding-bottom:0;margin-bottom:10px;width:auto}
+.zcards small{font-size:12px;color:var(--muted);line-height:1.6;padding-top:10px;border-top:1px solid var(--line);width:100%}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+<div class="eyebrow">CESCO MYLAB · CAR HYGIENE PROGRAM</div>
+<h1>세스코 마이랩 카케어 상세페이지 시안 v29</h1>
+<p>통합 1종 + 개별 5종 · 2026-08-21 v8 (디자인 개정판 · 카피 변경 없음) | 세탁세제 프리미엄 시안(SiHAW 260821)의 디자인 시스템 이식: 900px 지면 · 라이트/볼드 타이포 대비 · 연구소 이중 링 실(seal) · 아바타 말풍선 · ☑ 체크 테이블형 3연 · 네이비 풀블리드 아이콘 서클 · STEP 카드 · 인터뷰 레이아웃. v7의 카피·섹션 구성·근거 각주·메모 3층(회색 메모/초록 근거 슬롯/노랑 영상/주황 추가 구성)은 그대로 유지.</p>
+<div class="legend"><span><i class="m"></i>제작 메모(지면 미노출)</span><span><i class="g"></i>이미지·근거 슬롯</span><span><i class="y"></i>영상 제안</span><button id="tg" type="button">메모 층 숨기기</button></div>
+</div></header>
+<nav class="tabs"><div class="in">
+<button class="active" data-t="doc00">통합 5종</button>
+<button data-t="doc01">01 살균소독제</button>
+<button data-t="doc02">02 살균클리닝 티슈</button>
+<button data-t="doc03">03 전문탈취제</button>
+<button data-t="doc04">04 탈취캔</button>
+<button data-t="doc05">05 탈취제습제</button>
+</div></nav>
+<main>
+<section class="doc active" id="doc00">
+<div class="doct">세스코 마이랩 카케어 5종 | 통합 상세페이지</div>
+<section class="cover">
+<div class="row"><b>CESCO Mylab</b><span>세스코 과학연구소를 내 손 안으로</span></div>
+<div class="en">CAR HYGIENE PROGRAM</div>
+<div class="brand">세스코 마이랩</div>
+<div class="pname">카케어 5종</div>
+<div class="spec">살균소독제 · 다용도 살균클리닝 티슈 · 마스터 차량용 전문탈취제 · 마스터 차량용 탈취캔 · 슬림형 탈취제습제</div>
+<div class="badges"><span class="bd"><i class="ico" data-i="virus"></i>VIRUS CARE LABORATORY 바이러스 연구소</span><span class="bd"><i class="ico" data-i="lab"></i>CESCO SCIENCE 생활과학 연구소 LABORATORY</span></div>
+<div class="mark">* 연구소 마크는 법적인증마크나 업계자율마크가 아닌 제품정보 인식을 위한 기업자가 마크입니다</div>
+<div class="slot"><i class="ico" data-i="img"></i><div>[VISUAL] 실험실 배경 제품 5종 연출 컷 | 배열: 01 살균소독제 → 02 티슈 → 03 전문탈취제 → 04 탈취캔 → 05 탈취제습제 · [PROOF] 없음. 표지는 정체성만</div></div>
+</section>
+
+<section class="s stmt">
+<div class="lab">브랜드 스테이트먼트</div>
+<div class="k">세스코가 만든 차량 위생 솔루션</div>
+<div class="logo">CESCO Mylab <span>Car Hygiene Program</span></div>
+<p>집처럼 매일 머무는 공간, 차 안.<br>손이 닿는 곳, 냄새가 배는 곳, 공기가 흐르는 곳.<br>위치마다 문제가 다릅니다.</p>
+<p>세스코 과학연구소가 실제 차량에서 그 문제를 확인하고<br>관리 방법을 다섯 가지로 나눴습니다.</p>
+<p>세스코의 차량 위생 기준을<br>한 통에 통째로 담은</p>
+<div class="logo2">CESCO Mylab <span>Car Hygiene Program</span></div>
+</section>
+
+<section class="s">
+<div class="lab">01 · 차 안 위생, 왜 필요할까요?</div>
+<div class="bubbles">
+<p><i class="ico" data-i="hand"></i>"매일 잡는 핸들인데, 닦아본 적은 한 번도 없는 것 같아요."</p>
+<p><i class="ico" data-i="dropoff"></i>"컵홀더 얼룩을 닦았는데 물자국이 더 남아요."</p>
+<p><i class="ico" data-i="cig"></i>"환기를 해도 시트에 밴 담배 냄새가 안 빠지고, 에어컨을 켜면 냄새가 올라와요."</p>
+<p><i class="ico" data-i="drop"></i>"장마철만 되면 차 안이 눅눅하고 쿰쿰해요."</p>
+</div>
+<p class="hl">매일 타는 차 안,<br>집처럼 관리하고 계신가요?</p>
+<p class="body">오래 머물고, 손이 반복해서 닿고, 냄새와 습기가 남는 곳.<br>차 안도 사람이 머무는 생활공간이기에<br>집처럼 관리해야 할 이유가 있습니다.</p>
+<p class="body">균은 닦는 것만으로는 사라지지 않고,<br>향을 뿌려도 냄새의 원인은 섬유에 남고,<br>습기는 장마철에만 생기지 않습니다.</p>
+<div class="brief"><p><b>[VISUAL]</b>말풍선 4연 일러스트(핸들·컵홀더·시트와 송풍구·빗방울) + 차량 실내 전경 컷</p><p><b>[PROOF]</b>이 단계에서는 미배치. 물증은 04 검증에서 제시</p></div>
+<p class="memo">AI 초안 — 말풍선 4문장은 개별 5종의 고객 고민을 압축. 본문 3줄(균은 닦는 것만으로 안 사라짐 / 향은 원인을 못 지움 / 겨울 결로)은 개별 페이지 확정 문안의 요약, 새 주장 없음</p>
+</section>
+
+<section class="s">
+<div class="lab">02 · 왜 세스코가 차 안의 위생을 이야기할까요?</div>
+<p class="hl">집부터 사무실, 식당부터 병원까지.<br>사람이 머무는 곳을 50여 년 관리해온 세스코가<br>차 안까지 관리 범위를 넓혔습니다.</p>
+<p class="body">세스코가 관리해온 공간의 공통점은 하나, 사람이 머무는 곳이라는 것.<br>차 안도 다르지 않습니다.</p>
+<p class="hl2">카케어는 외부의 직접 의뢰에서 시작됐습니다.</p>
+<p class="body">자체 클리닝과 방향제로는 해결되지 않던 차량 악취 문제를,<br>세스코의 기술력을 믿은 국내 대형 렌터카·중고차 기업이 직접 의뢰했습니다.</p>
+<p class="body">세스코 과학연구소는 실제 악취 차량을 대상으로<br>냄새 성분을 직접 채취해 분석하고,<br>독자 기술로 만든 솔루션을 여름부터 겨울까지 달라지는 차 안의 온도에서<br>반복 테스트해 문제를 해결했습니다.</p>
+<p class="body">이 과정을 통해 성능과 안전성을 입증한 기술로<br>누구나 쓸 수 있는 프리미엄 제품, 카케어 5종을 만들었습니다.</p>
+<div class="brief"><p><b>[MESSAGE]</b>카케어 시장 진입이 아니라, 50년 공간 위생 관리의 확장이라는 선언</p><p><b>[VISUAL]</b>실차 시료 배치 실측 컷(8/14 전달 PPT 자료, 업체명·차량번호 마스킹) 또는 연구원 인터뷰 컷</p><p><b>[PROOF]</b>개발 배경: 신규사업 보고(260416) 1~6p · 기업명은 제휴 승인 전 비특정 표기</p></div>
+<p class="memo">개발 배경 4요소(기존 방식 한계 → 기술력 신뢰·직접 의뢰 → 독자 기술 테스트·해결 → 성능·안전성 입증·프리미엄 출시)는 2026-08-21 전달 문안 기준. "안전성 입증"의 근거는 환경부 살생물제품 승인(01)·불검출 성적서(03·04)로 연결, 기업명은 제휴 승인 전 비특정 | "악취 80% 저감"은 장비 포함 B2B 공정 결과라 제품 성능으로 지면 인용 금지 | '담배 냄새가 주요 악취' 자사 분석 결과 표기는 광고 사용 범위 확인 후 | 실차 테스트·시험 결과 ☑ 목록은 04 검증으로 통합(중복 정리)</p>
+</section>
+
+<section class="s">
+<div class="lab">03 · 세스코의 관리 기준 33 HYGIENE POINT · 5 CARE SYSTEM</div>
+<p class="hl">효과적인 차량 실내 위생 케어를 위해<br>차량 공간을 33개의 위생 관리 포인트로 나눠<br>문제 요소를 살펴보았습니다.</p><div class="carmap">
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="차량 실내 33개 위생 관리 포인트 도해">
+<defs><style>.cm-body{fill:#f4f5f7;stroke:#c9cfd6;stroke-width:2}.cm-part{fill:#fff;stroke:#c9cfd6;stroke-width:1.5}.cm-seat{fill:#e9ebef;stroke:#c9cfd6;stroke-width:1.5}.cm-t{font:600 11px Pretendard,sans-serif;fill:#454b55}.cm-pin{stroke:#fff;stroke-width:2}.cm-n{font:800 9px Pretendard,sans-serif;fill:#fff;text-anchor:middle}.cm-lg{font:700 11.5px Pretendard,sans-serif;fill:#1c1f26}</style></defs>
+<!-- 차체(위에서 본 실내) -->
+<rect class="cm-body" x="60" y="30" width="580" height="300" rx="70"/>
+<!-- 대시보드 / 유리 -->
+<rect class="cm-part" x="90" y="56" width="520" height="34" rx="10"/>
+<!-- 핸들 -->
+<circle class="cm-part" cx="160" cy="135" r="26"/><circle class="cm-part" cx="160" cy="135" r="9"/>
+<!-- 앞좌석 -->
+<rect class="cm-seat" x="120" y="165" width="80" height="70" rx="12"/><rect class="cm-seat" x="120" y="160" width="80" height="14" rx="7"/>
+<rect class="cm-seat" x="410" y="165" width="80" height="70" rx="12"/><rect class="cm-seat" x="410" y="160" width="80" height="14" rx="7"/>
+<!-- 센터콘솔 · 컵홀더 · 기어봉 -->
+<rect class="cm-part" x="270" y="110" width="70" height="130" rx="12"/>
+<circle class="cm-part" cx="305" cy="140" r="8"/><circle class="cm-part" cx="305" cy="165" r="8"/><rect class="cm-part" x="292" y="190" width="26" height="36" rx="6"/>
+<!-- 뒷좌석 -->
+<rect class="cm-seat" x="120" y="258" width="370" height="52" rx="14"/>
+<!-- 트렁크 -->
+<rect class="cm-part" x="520" y="255" width="90" height="58" rx="12"/><text class="cm-t" x="565" y="305" text-anchor="middle">트렁크</text>
+<!-- 도어 -->
+<rect class="cm-part" x="70" y="110" width="14" height="190" rx="7"/><rect class="cm-part" x="616" y="110" width="14" height="190" rx="7"/>
+<!-- 천장(표시) -->
+
+<!-- 핀 · 손이 닿는 곳 13 (파랑) -->
+<g fill="#5c7bd9">
+<circle class="cm-pin" cx="160" cy="135" r="9"/><text class="cm-n" x="160" y="138">1</text>
+<circle class="cm-pin" cx="305" cy="208" r="9"/><text class="cm-n" x="305" y="211">2</text>
+<circle class="cm-pin" cx="350" cy="73" r="9"/><text class="cm-n" x="350" y="76">3</text>
+<circle class="cm-pin" cx="77" cy="150" r="9"/><text class="cm-n" x="77" y="153">4</text>
+<circle class="cm-pin" cx="623" cy="150" r="9"/><text class="cm-n" x="623" y="153">5</text>
+<circle class="cm-pin" cx="250" cy="73" r="9"/><text class="cm-n" x="250" y="76">6</text>
+<circle class="cm-pin" cx="120" cy="73" r="9"/><text class="cm-n" x="120" y="76">7</text>
+<circle class="cm-pin" cx="355" cy="110" r="9"/><text class="cm-n" x="355" y="113">8</text>
+<circle class="cm-pin" cx="560" cy="73" r="9"/><text class="cm-n" x="560" y="76">9</text>
+<circle class="cm-pin" cx="200" cy="56" r="9"/><text class="cm-n" x="200" y="59">10</text>
+<circle class="cm-pin" cx="77" cy="230" r="9"/><text class="cm-n" x="77" y="233">11</text>
+<circle class="cm-pin" cx="205" cy="175" r="9"/><text class="cm-n" x="205" y="178">12</text>
+<circle class="cm-pin" cx="130" cy="115" r="9"/><text class="cm-n" x="130" y="118">13</text>
+</g>
+<!-- 핀 · 오염이 쌓이는 곳 11 (회청) -->
+<g fill="#8a9bc4">
+<circle class="cm-pin" cx="450" cy="73" r="9"/><text class="cm-n" x="450" y="76">1</text>
+<circle class="cm-pin" cx="305" cy="118" r="9"/><text class="cm-n" x="305" y="121">2</text>
+<circle class="cm-pin" cx="520" cy="110" r="9"/><text class="cm-n" x="520" y="113">3</text>
+<circle class="cm-pin" cx="160" cy="248" r="9"/><text class="cm-n" x="160" y="251">4</text>
+<circle class="cm-pin" cx="595" cy="265" r="9"/><text class="cm-n" x="595" y="268">5</text>
+<circle class="cm-pin" cx="505" cy="318" r="9"/><text class="cm-n" x="505" y="321">6</text>
+<circle class="cm-pin" cx="400" cy="56" r="9"/><text class="cm-n" x="400" y="59">7</text>
+<circle class="cm-pin" cx="305" cy="152" r="9"/><text class="cm-n" x="305" y="155">8</text>
+<circle class="cm-pin" cx="330" cy="230" r="9"/><text class="cm-n" x="330" y="233">9</text>
+<circle class="cm-pin" cx="410" cy="200" r="9"/><text class="cm-n" x="410" y="203">10</text>
+<circle class="cm-pin" cx="300" cy="90" r="9"/><text class="cm-n" x="300" y="93">11</text>
+</g>
+<!-- 핀 · 냄새가 남는 곳 9 (네이비) -->
+<g fill="#223a6b">
+<circle class="cm-pin" cx="130" cy="285" r="9"/><text class="cm-n" x="130" y="288">1</text>
+<circle class="cm-pin" cx="250" cy="300" r="9"/><text class="cm-n" x="250" y="303">2</text>
+<circle class="cm-pin" cx="450" cy="200" r="9"/><text class="cm-n" x="450" y="203">3</text>
+<circle class="cm-pin" cx="480" cy="56" r="9"/><text class="cm-n" x="480" y="59">4</text>
+<circle class="cm-pin" cx="160" cy="228" r="9"/><text class="cm-n" x="160" y="231">5</text>
+<circle class="cm-pin" cx="450" cy="167" r="9"/><text class="cm-n" x="450" y="170">6</text>
+<circle class="cm-pin" cx="300" cy="272" r="9"/><text class="cm-n" x="300" y="275">7</text>
+<circle class="cm-pin" cx="470" cy="248" r="9"/><text class="cm-n" x="470" y="251">8</text>
+<circle class="cm-pin" cx="360" cy="258" r="9"/><text class="cm-n" x="360" y="261">9</text>
+</g>
+<!-- 범례 -->
+<g transform="translate(60,360)">
+<circle cx="8" cy="8" r="8" fill="#5c7bd9"/><text class="cm-lg" x="24" y="12">손이 닿는 곳 13</text>
+<circle cx="168" cy="8" r="8" fill="#8a9bc4"/><text class="cm-lg" x="184" y="12">오염이 쌓이는 곳 11</text>
+<circle cx="348" cy="8" r="8" fill="#223a6b"/><text class="cm-lg" x="364" y="12">냄새가 남는 곳 9</text>
+</g>
+<text x="60" y="405" style="font:400 10.5px Pretendard,sans-serif;fill:#8a9099">* 도해는 위치 개념도입니다. 실제 지면은 실차 촬영 컷 위에 포인트 핀을 오버레이해 제작</text>
+</svg>
+</div>
+
+<div class="zcards">
+<div class="zc"><span class="zi"><i class="ico" data-i="hand"></i></span><b>손이 닿는 곳</b><em>세균 · 바이러스</em><strong>13 POINT</strong><small>핸들 · 기어봉 · 센터페시아 · 도어 손잡이 · 도어 상단 손잡이 · 내비게이션 · 조명 컨트롤 · 팔걸이 · 블랙박스 · 선바이저 · 윈도우 스위치 · 안전벨트 · 깜빡이·와이퍼 핸들</small></div>
+<div class="zc"><span class="zi"><i class="ico" data-i="sheet"></i></span><b>오염이 쌓이는 곳</b><em>세균 · 해충 · 호흡기 질환 유발 요인</em><strong>11 POINT</strong><small>대시보드 · 센터콘솔 내부 · 글로브 박스 · 발판 안쪽 · 트렁크 · 뒷좌석 뒤 대시보드 · 유리 · 컵홀더 · 수납함 · 시트 조정 버튼 · 룸미러</small></div>
+<div class="zc"><span class="zi"><i class="ico" data-i="nose"></i></span><b>냄새가 남는 곳</b><em>악취 · 곰팡이</em><strong>9 POINT</strong><small>발판 · 천장 · 시트 · 에어컨 공조 · 시트 하단 · 헤드레스트 · 쿠션 · 발매트 · 좌석 틈새</small></div>
+</div>
+<div class="brief"><p><b>[VISUAL]</b>차량 실내 33개 위생 관리 포인트 MAP(일러스트, 3색 구분 · 포인트 번호 핀)</p><p><b>[PROOF]</b>포인트 구분 기준(자사 연구)임을 각주로 명시</p></div>
+<p class="memo">33 POINT 세부 항목·위험 요소는 2026-08-21 전달 문안 그대로(표기만 통일: 데쉬보드→대시보드, 네비게이션→내비게이션, 후미석 뒤→뒷좌석 뒤). "호흡기 관련 질환 유발"은 질병 연관 표현이라 심의 확인 후 게시 권장 · 특정 위치에서 특정 균이 '검출됐다'는 단정 표현 금지 | 5 CARE를 이 섹션에 합침(이전 05 섹션 삭제)</p>
+<p class="hl2" style="margin-top:56px">33개의 위생 관리 포인트,<br>대표적인 5가지 관리 방법으로 정리했습니다.</p>
+<p class="body">오염이 생기는 곳도, 필요한 관리 방법도 다르기 때문입니다.</p>
+<div class="care5">
+<div class="c5"><i>01</i><b>핸들·버튼처럼 손이 자주 닿는 곳</b><span>손을 통해 묻고 옮겨지는 세균과 바이러스</span><em><a href="#p01">살균소독제</a></em></div>
+<div class="c5"><i>02</i><b>대시보드·컵홀더처럼 오염이 쌓이는 곳</b><span>생활 오염부터 지문, 유분, 물자국</span><em><a href="#p02">다용도 살균클리닝 티슈</a></em></div>
+<div class="c5"><i>03</i><b>시트·천장처럼 냄새가 쉽게 배는 곳</b><span>음식·땀·담배 등 소재 깊숙이 밴 냄새</span><em><a href="#p03">마스터 차량용 전문탈취제</a></em></div>
+<div class="c5"><i>04</i><b>에어컨 공조처럼 손이 닿지 않는 곳</b><span>에어컨·히터 가동 시 올라오는 악취</span><em><a href="#p04">마스터 차량용 탈취캔</a></em></div>
+<div class="c5"><i>05</i><b>시트 틈·트렁크처럼 공기가 정체되는 곳</b><span>습기가 머물며 생기는 꿉꿉함과 냄새</span><em><a href="#p05">슬림형 탈취제습제</a></em></div>
+</div>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 장면별 실사 5컷(손·컵홀더·시트·송풍구·젖은 신발과 우산 주변)</span></div>
+<p class="memo">HYGIENE STANDARD 표는 5 CARE 카드와 내용이 겹쳐 삭제(성분·근거 수치는 각 제품 블록에 있음). 제품명을 누르면 해당 제품 단락으로 이동 · 실제 세스코몰 상세이미지는 이미지 한 장이라 앵커 이동은 구현 불가, 디자인 단계에서는 "아래에서 자세히" 화살표로 대체</p>
+</section>
+
+<section class="s">
+<div class="lab">04 · 성분과 안전</div>
+<p class="hl">온 가족이 타는 차,<br>성분은 괜찮을까요?</p>
+<p class="body">아이, 임산부, 반려동물 등 온 가족이 타는 차량 공간이기에,<br>매일 써도 괜찮은 성분인지부터 확인했습니다.</p>
+<p class="body">차 안은 피부가 직접 닿는 표면이 있고,<br>분사 제품의 흡입 가능성을 고려해야 하며,<br>창문을 닫으면 밀폐되는 시간이 있는 공간입니다.</p>
+<p class="body">그래서 성분 하나에도 가장 엄격한 원칙을 적용했습니다.</p>
+<ul class="cl">
+<li>제품별 유해물질 불검출 시험: 살균소독제 5종(차아염소산나트륨·CMIT·MIT·DDAC·BKC), 탈취제 파라벤류 7종·형광증백제·가습기 이슈 성분 4종</li>
+<li>환경부 살생물제품 승인 (살균소독제 · 승인번호 확정 후 기입)</li>
+<li>공인시험기관 살균·탈취 시험성적서 (확정 후 실물 배치)</li>
+</ul>
+<div class="vid"><b>VIDEO 01 | 실제 차량 필드테스트 스케치</b><br>연구실 시험 → 실차 적용 → 계절별 재확인으로 이어지는 검증 과정. 캡션: "연구실에서 확인하고, 실제 차에서 다시 확인했습니다."</div>
+<div class="brief"><p><b>[PROOF]</b>KATRI 성적서 · 살생물제품 승인 문서 · 불검출 성적서 실물 | 확보 자산(8/14 전달 PPT 자료): 실차 시료 배치 실측 컷 2점·원단별 지속성 실험 그리드·냄새 성분 정량분석 표 | 렌터카 업체명·차량번호는 마스킹 필수</p></div>
+<p class="memo">"세스코 카케어는 무엇이 다를까요?" 3연은 삭제 — 실차 검증 내용은 02에, 제품별 검증은 각 제품 블록·개별 페이지에 있어 중복 | 절대 금지: "아이에게 안전" "임산부도 안심" "반려동물에게 무해" 등 대상 보증 문장 | POD 확정 표현 "아이나 반려동물 동승차에서도 사용 가능"까지만 허용</p>
+</section>
+
+<section class="s prod">
+<div class="lab" id="p01">PRODUCT 01</div>
+<h3 class="pname">살균소독제</h3>
+<p class="hl plead">핸들 위 세균과 바이러스,<br>뿌리고 닦으면 끝.</p>
+<div class="icons" style="margin-bottom:22px">
+<div class="it"><div class="c"><i class="ico" data-i="shield"></i></div><div class="ia">환경부 승인</div><div class="ib">살생물제품</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="virus"></i></div><div class="ia">16종 세균 및 바이러스</div><div class="ib">99% 살균³⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="leaf"></i></div><div class="ia">사탕수수 기원 주정</div><div class="ib">100% 식품첨가물¹⁾</div></div>
+</div>
+
+<p class="hl2">변기 시트는 닦으면서,<br>매일 잡는 핸들은 얼마나 자주 닦으시나요?</p>
+<p class="body">한 조사 결과, 자동차 핸들의 세균 수가<br>공중화장실 변기 시트보다 약 9배 많은 것으로 나타났습니다.*<br>균은 먼지와 달리, 닦는 것만으로는 사라지지 않아 살균으로 관리해야 합니다.<br>그래서 세스코는 환경부가 승인한 살생물제품으로 만들었습니다.</p>
+<p class="fn">* 영국 Queen Mary University 연구진 조사 결과, 자동차 핸들에서 1제곱인치당 약 700개의 세균이 확인되어 공중화장실 변기 시트(약 80개) 대비 약 9배 높은 수준으로 조사됨. (2011)</p>
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>환경부 승인 살생물제품 기준으로 살균 효과와 안전성 검토를 완료하고, 100% 식품첨가물 성분(사탕수수 기원 주정·정제수)¹⁾으로 처방했습니다.</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>다양한 차량 내장재로 반복 테스트하고, 유해물질 5종 불검출²⁾과 피부 저자극 판정까지 확인했습니다.</span></li>
+<li><b>강력하게 기능하도록</b><span>유해균 99% 살균, 16종 세균 및 바이러스³⁾(세균 14종·바이러스 2종). 인플루엔자 A·코로나19 바이러스까지 확인했습니다.</span></li>
+</ul>
+<p class="fn">1) 라벨 확정 표기 기준 | 2) 차아염소산나트륨, CMIT, MIT, DDAC, BKC | 3) 인플루엔자 A(H1N1)·SARS-CoV-2(XBB.1.5) 포함, 시험 대상·시험기관 확정 후 기입</p>
+<p class="q">차 안에서 자주 만지는 곳, 그냥 닦기만 해도 될까요?</p>
+<div class="a" data-who="세스코 바이러스 연구소">❝ 닦기만 해서는 부족해요.<br>핸들의 대장균은 손을 타고 입까지 가고,<br>에어컨 습기의 녹농균·폐렴간균은 바람을 타고 퍼져요.<br>밀폐된 차 안에선 인플루엔자·코로나 바이러스도 머물고요.<br>잘 몰랐을 뿐, 매일 타는 차도 살균이 필요한 공간이에요.</div>
+<div class="brief"><p><b>[VISUAL]</b>핸들 클로즈업 실사 + 접촉 포인트 오버레이</p><p><b>[PROOF]</b>9배 조사 출처 각주 표기 필수 | 승인 근거·살균 성적서는 개별 페이지 배치</p></div>
+<p class="memo">9배 조사는 2011년 해외 조사로 심의·원문 링크 확인 후 게시 | 42.1% 에어컨·히터 조사(한국소비자보호원)는 보류</p>
+</section>
+
+<section class="s prod">
+<div class="lab" id="p02">PRODUCT 02</div>
+<h3 class="pname">다용도 살균클리닝 티슈</h3>
+<p class="hl plead">한 장으로 닦고, 살균까지.<br>물얼룩은 남기지 않습니다.</p>
+<div class="icons" style="margin-bottom:22px">
+<div class="it"><div class="c"><i class="ico" data-i="sheet"></i></div><div class="ia">닦으면서</div><div class="ib">살균·세정 한 번에</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="virus"></i></div><div class="ia">유해세균 4종</div><div class="ib">99.999% 살균¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="nosurf"></i></div><div class="ia">계면활성제</div><div class="ib">무첨가 처방</div></div>
+</div>
+
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>차량 내장재에 특화해, 100% 식품첨가물 성분에 계면활성제를 넣지 않은 처방으로 만들었습니다.</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>디스플레이·클러스터(계기판) 등 다양한 차량 내장재로 반복 테스트하고, 닦은 뒤 남는 물얼룩·잔여물과 피부 저자극까지 검증했습니다.</span></li>
+<li><b>강력하게 기능하도록</b><span>유해세균 4종 99.999% 살균¹⁾. 미세하고 촘촘한 멜트블로운·다공성 원단이 보풀 없이 미세 먼지와 이물질까지 깔끔하게 닦아냅니다.</span></li>
+</ul>
+<p class="fn">1) 대장균·녹농균·장내구균·황색포도상구균 | 시험기관·시험방법 확정 후 기입</p>
+<p class="q">닦아도 닦아도 물자국이 남아요.</p>
+<div class="a" data-who="세스코 바이러스 연구소">❝ 어두운 내장재일수록 물얼룩과 잔여물이 잘 보여요.<br>계면활성제 무첨가 처방이라, 마른 수건으로 다시 닦지 않아도 돼요.</div>
+<div class="brief"><p><b>[PROOF]</b>살균 성적서·내장재 테스트는 개별 페이지 배치</p></div>
+</section>
+
+<section class="s prod">
+<div class="lab" id="p03">PRODUCT 03</div>
+<h3 class="pname">마스터 차량용 전문탈취제</h3>
+<p class="hl plead">향으로 덮지 않고,<br>담배 냄새의 원인을 지웁니다.</p>
+<div class="icons" style="margin-bottom:22px">
+<div class="it"><div class="c"><i class="ico" data-i="cig"></i></div><div class="ia">담배 냄새 특화</div><div class="ib">에데닐피리딘 99%³⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="clock"></i></div><div class="ia">한 번 분사</div><div class="ib">최대 24시간 지속⁴⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="scentoff"></i></div><div class="ia">향으로 덮지 않는</div><div class="ib">인공향료 무첨가¹⁾</div></div>
+</div>
+
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>실제 차량에서 냄새 성분을 포집·정량 분석하고, 알레르기를 유발할 수 있는¹⁾ 인공향료 없이 원인을 잡도록 설계했습니다.</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>사계절 온도 조건 필드테스트로 집요하게 검증하고, 파라벤류 7종·형광증백제·가습기 이슈 성분 4종 불검출을 KATRI 시험성적으로 확인했습니다²⁾.</span></li>
+<li><b>강력하게 기능하도록</b><span>가장 빼기 어려운 담배 냄새까지, 냄새의 근본 원인을 제거합니다. 3대 악취 물질 99% 탈취³⁾, 최대 24시간 지속⁴⁾을 확인했습니다.</span></li>
+</ul>
+<p class="fn">1) 각주 문안 확정 후 기입 | 2) MIT, CMIT, DDAC, BKC | KATRI | 3) 암모니아·트리메틸아민·에데닐피리딘(담배 냄새) | KATRI, 시험방법 확정 후 기입 | 4) 2시간·24시간 시험 조건 확정 후 기입</p>
+<p class="q">향을 뿌렸는데, 왜 냄새가 다시 올라올까요?</p>
+<div class="a" data-who="세스코 생활과학 연구소">❝ 냄새 위에 향을 더하면 잠시 가려질 뿐이에요.<br>악취 분자를 포획하고 중화하는 방식이라야 원인이 줄어요.</div>
+<div class="brief"><p><b>[PROOF]</b>KATRI 성적서(에데닐피리딘 포함)는 개별 페이지 배치</p></div>
+</section>
+
+<section class="s prod">
+<div class="lab" id="p04">PRODUCT 04</div>
+<h3 class="pname">마스터 차량용 탈취캔</h3>
+<p class="hl plead">에어컨 안쪽 숨은 냄새,<br>바람이 대신 잡습니다.</p>
+<div class="icons" style="margin-bottom:22px">
+<div class="it"><div class="c"><i class="ico" data-i="wind"></i></div><div class="ia">에어컨 안쪽 숨은 냄새</div><div class="ib">바람 타고 탈취</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="pct"></i></div><div class="ia">유효성분 고함량</div><div class="ib">99% 초과 탈취²⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="flameoff"></i></div><div class="ia">불연성</div><div class="ib">충전 가스</div></div>
+</div>
+
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>차량 공조의 공기 흐름까지 연구해 깊숙이 들어가는 미세입자로 설계하고, 불연성 충전 가스와 호주 밀 유래 에탄올, 인공향료 무첨가¹⁾로 처방했습니다.</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>실제 차량 환경에서 반복 테스트하고, 사계절 온도 조건에서 함량별 지속 시간까지 확인했습니다.</span></li>
+<li><b>강력하게 기능하도록</b><span>탈취 유효성분을 고함량으로 채워 악취 원인 물질 99% 초과 탈취²⁾, 한 번 사용으로 최대 24시간 지속을 확인했습니다.</span></li>
+</ul>
+<p class="fn">1) 각주 문안 확정 후 기입 | 2) 암모니아·트리메틸아민 | KATRI, 2시간·24시간 시험 조건 확정 후 기입</p>
+<p class="q">에어컨을 켤 때마다 냄새가 올라와요. 닦을 수도 없는데, 어떻게 관리하죠?</p>
+<div class="a" data-who="세스코 생활과학 연구소">❝ 순환 모드를 설정하고 탈취캔을 작동하면<br>바람이 지나는 길을 따라 탈취 성분이 깊숙한 곳까지 이동해 냄새의 근본 원인을 제거해요.<br>계절이 바뀔 때는 물론, 꿉꿉한 냄새가 느껴질 때, 온 가족 장거리 여행을 다녀온 뒤에도 주기적으로 관리해 주세요.</div>
+<div class="brief"><p><b>[PROOF]</b>KATRI 성적서는 개별 페이지 배치</p></div>
+<p class="memo">'2~3개월마다' '월 1회' 등 숫자형 사용 주기 표기 금지</p>
+</section>
+
+<section class="s prod">
+<div class="lab" id="p05">PRODUCT 05</div>
+<h3 class="pname">슬림형 탈취제습제</h3>
+<p class="hl plead">차 안 습기,<br>물이 아니라 겔로 붙잡습니다.</p>
+<div class="icons" style="margin-bottom:22px">
+<div class="it"><div class="c"><i class="ico" data-i="pct"></i></div><div class="ia">중량 대비</div><div class="ib">400% 흡습¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="gel"></i></div><div class="ia">흡습 후</div><div class="ib">겔로 고정</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="weight"></i></div><div class="ia">하중 300kg</div><div class="ib">터짐 걱정 없이³⁾</div></div>
+</div>
+
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>흡습한 수분이 물이 아니라 겔로 굳는 구조로, 흔들리는 차량 환경까지 고려해 설계했습니다.</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>차 안에 오래 두는 제품이라, 겉 봉지가 터지지 않는지, 흡습액이 새지 않는지 공인 테스트로 확인하고 하중 300kg·온도 60℃까지 테스트를 완료했습니다³⁾.</span></li>
+<li><b>강력하게 기능하도록</b><span>중량 대비 400% 흡습¹⁾. 곰팡이 증식 억제에 도움을 주어 꿉꿉한 냄새를 줄이고, 발냄새·땀 냄새·비린내 유발 성분 제거에 도움을 줍니다²⁾.</span></li>
+</ul>
+<p class="fn">1) 시험 조건·시험기관 확정 후 기입 | 2) 이소발레릭산(발냄새)·암모니아(땀·오줌 냄새)·트리메틸아민(비린내) | 확정 수치 기입 | 3) 시험 조건 확정 후 기입, 겨울철 저온 조건은 추가 테스트 문의 중</p>
+<p class="q">장마철만 되면 차 안이 눅눅하고 쿰쿰해요.<br>여름에만 쓰면 되는 걸까요?</p>
+<div class="a" data-who="세스코 생활과학 연구소">❝ 겨울에도 안팎 온도차로 물방울 습기가 생겨요.<br>장마철만이 아니라 사계절 필요한 이유예요.<br>숨어 있는 습기를 잡으면 곰팡이 증식 억제에 도움을 주어<br>꿉꿉한 냄새가 줄어요.</div>
+<div class="brief"><p><b>[PROOF]</b>흡습·하중·온도 시험 근거는 개별 페이지 배치</p></div>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">10</span>사용법</div>
+<p class="hl2">제품별 사용법을 확인해 주세요.</p>
+<div class="grp">01 살균소독제</div>
+<ol class="steps"><li>핸들·기어·문 손잡이 등 반복 접촉 표면과 에어컨 송풍구에 분사해 주세요.</li><li>마른 천으로 가볍게 닦아 주세요. (다용도 살균클리닝 티슈를 함께 사용하면 더욱 효과적입니다.)</li><li>가죽·전자 패널 등은 보이지 않는 곳에 소량 테스트 후 사용해 주세요.</li></ol>
+<div class="grp">02 다용도 살균클리닝 티슈</div>
+<ol class="steps"><li>티슈를 한 장 꺼내 컵홀더·대시보드·디스플레이 등 오염 부위를 닦아 주세요.</li><li>마른 수건으로 다시 닦지 않아도 됩니다.<span class="note">※ 하이그로시 재질·천연가죽은 사용 후 깨끗한 마른 천으로 닦아 주세요. (사용상 주의사항)</span></li><li>사용 후 뚜껑을 닫아 건조를 막아 주세요.</li></ol>
+<div class="grp">03 마스터 차량용 전문탈취제</div>
+<ol class="steps"><li>시트·천장·발매트 등 냄새가 남는 섬유 표면에 분사해 주세요.</li><li>환기 후 충분히 건조해 주세요.<span class="note">※ 더운 날엔 냄새가 떠올라 천장에, 추운 날엔 가라앉아 바닥에 뱁니다. 여름철엔 천장, 겨울철엔 발매트 등 바닥 쪽에 집중 분사하면 더 효과적입니다.</span></li><li>가죽·전자 기기에는 직접 분사하지 말아 주세요. (주의 문안 라벨 확정 후 기입)</li></ol>
+<div class="grp">04 마스터 차량용 탈취캔</div>
+<ol class="steps"><li>입·피부에 닿을 수 있는 물건은 미리 빼놓아 주세요.</li><li>공조를 순환 모드로 켜고 캔을 작동해 주세요. (작동 방식·모드 표기는 라벨 확정 후 기입)</li><li>분사가 끝날 때까지 차량 외부에서 기다려 주세요.</li><li>시트에 직접 분사되지 않게 주의하고, 액체가 튀었으면 휴지나 타월로 닦아 주세요.</li></ol>
+<div class="grp">05 슬림형 탈취제습제</div>
+<ol class="steps"><li>시트 아래·도어 포켓·트렁크 등 공기가 정체되는 곳에 놓아 주세요.</li><li>하얀 흡습면이 위로 오게 놓아 주세요. (흡습면이 공기에 노출되어야 합니다)</li><li>내용물이 겔로 변하면 새 제품으로 교체하고, 일반쓰레기로 배출해 주세요.</li></ol>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] STEP별 실사용 컷, 05는 하얀 면이 위로 놓인 배치 컷 필수</span></div>
+<p class="memo">각 제품 사용법·주의사항 원문은 라벨 확정본 기준으로 최종 반영 | 날씨별 분사 팁은 8/14 전달 PPT 자료 근거</p>
+</section>
+
+<section class="s">
+<div class="lab">FULL SET</div>
+<p class="hl">차 한 대 안에서<br>다섯 가지 문제가 함께 생깁니다.</p>
+<ul class="lu">
+<li><i>01</i><b>살균소독제</b></li><li><i>02</i><b>다용도 살균클리닝 티슈</b></li><li><i>03</i><b>마스터 차량용 전문탈취제</b></li><li><i>04</i><b>마스터 차량용 탈취캔</b></li><li><i>05</i><b>슬림형 탈취제습제</b></li>
+</ul>
+<p class="hl2" style="margin-top:22px">그 기준으로 만든 세스코 마이랩 카케어 5종.<br>이제, 세스코가 차 안의 위생을 관리합니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 5종 풀세트 연출 컷</span></div>
+</section>
+
+<section class="s legal">
+<div class="lab"><span class="n">12</span>법정 고정 블록</div>
+<div class="blk"><b>01 살균소독제</b>승인번호 · 보관방법 → 용법·용량 → 사용상 주의사항 → 응급처치 (살생물제품형 4블록)</div>
+<div class="blk"><b>02 다용도 살균클리닝 티슈</b>전성분 · 사용방법 → 사용상 주의사항 → 응급처치 — "하이그로시 재질 및 천연가죽 등에 사용 후에는 깨끗한 마른 천으로 닦아내시오" 포함 확인</div>
+<div class="blk"><b>03 마스터 차량용 전문탈취제</b>전성분 · 사용방법 → 사용상 주의사항 → 응급처치</div>
+<div class="blk"><b>04 마스터 차량용 탈취캔</b>충전가스 표기 · 사용방법 → 사용상 주의사항 → 응급처치</div>
+<div class="blk"><b>05 슬림형 탈취제습제</b>성분 · 사용방법 → 사용상 주의사항 → 응급처치 → 폐기 방법</div>
+<p class="memo">제품별 법정 표시·주의 문안 확정본을 원문 그대로 삽입 | 허가·신고 문안은 어미까지 수정 금지</p>
+<div class="imgslot">무이자 할부 안내 (토스페이먼츠 당월 무이자할부, 공통 확정 문안 삽입)</div>
+</section>
+
+</section>
+<section class="doc" id="doc01">
+<div class="doct">세스코 마이랩 카케어 01 | 살균소독제 | 개별 상세페이지</div>
+
+<section class="cover">
+<div class="row"><b>CESCO Mylab</b><span>세스코 과학연구소를 내 손 안으로</span></div>
+<div class="en">CAR SANITIZING SPRAY<small>영문명 · 패키지 확정 표기 기준 (현재 제안값)</small></div>
+<div class="brand">세스코 마이랩</div>
+<div class="pname">카케어 살균소독제</div>
+<div class="spec">용량·제형 <span class="hold">(라벨 확정 후 기입)</span></div>
+<div class="badges"><span class="bd"><i class="ico" data-i="virus"></i>VIRUS CARE LABORATORY 바이러스 연구소</span><span class="bd"><i class="ico" data-i="shield"></i>CERTIFIED PRODUCT 환경부 승인 살생물제품</span></div>
+<div class="mark">* 바이러스 연구소 마크는 법적인증마크나 업계자율마크가 아닌 제품정보 인식을 위한 기업자가 마크입니다</div>
+<div class="slot"><i class="ico" data-i="img"></i><div>[VISUAL] 실험실 배경 제품 연출 컷(마이랩 커버 공통). 우측 상단 바이러스 연구소 원형 마크 · 승인 마크는 표기 규정 확인 후 · [PROOF] 없음. 표지는 제품명·규격만</div></div>
+</section>
+
+<section class="s stmt">
+<div class="lab">브랜드 스테이트먼트</div>
+<div class="k">세스코가 만든 차량 위생 솔루션</div>
+<div class="logo">CESCO Mylab <span>Car Hygiene Program</span></div>
+<p>집처럼 매일 머무는 공간, 차 안.<br>50여 년 공간 위생을 관리해온 세스코가<br>차량 실내까지 관리 범위를 넓혔습니다.</p>
+<p>손이 닿는 곳, 냄새가 배는 곳, 공기가 흐르는 곳.<br>위치마다 다른 문제를 실제 차량에서 확인하고<br>관리 방법을 다섯 가지로 나눴습니다.</p>
+<p>세스코 과학연구소의 차량 위생 기준을<br>한 통에 통째로 담은</p>
+<div class="logo2">CESCO Mylab <span>Car Hygiene Program</span></div>
+</section>
+
+<section class="s prop">
+<div class="lab"><span class="n">03</span>연구소 제안문</div>
+<p class="t">세스코 바이러스 연구소에서<br>핸들·시트·대시보드·문 손잡이 등<br>손이 자주 닿는 표면부터<br>실내 공기가 통과하는 에어컨 송풍구까지<br><b>16종 세균 및 바이러스¹⁾ 감소 효과가 검증된</b><br>차량용 표면 살균소독제를 제안합니다.</p>
+<ul>
+<li>환경부 승인 살생물제품</li>
+<li>100% 식품첨가물 성분(사탕수수 기원 주정·정제수)²⁾</li>
+<li>16종 세균 및 바이러스¹⁾ 99% 살균</li>
+</ul>
+<p class="fn">1) 세균 14종·바이러스 2종(인플루엔자 A(H1N1)·SARS-CoV-2(XBB.1.5)) | 시험 대상 균주·시험기관 확정 후 기입 | 2) 라벨 확정 표기 기준</p>
+<p class="memo">제안문은 라벨 원문(어미까지 수정 금지). 효익 3불릿은 3연 체크박스 문안에서 추출(이염방지시트 기획안 형식) | 에어컨 "필터" 표기 보류(2026-08-21 재확인 요청) — 전 지면 "송풍구"로 통일, 라벨·승인 문안에서 "필터" 사용 가능 확인 회신 시에만 복원</p>
+</section>
+
+<section class="s">
+<div class="lab">WHY · 차량용 살균소독제, 왜 필요할까요?</div>
+<div class="bubbles">
+<p><i class="ico" data-i="hand"></i>"매일 잡는 핸들인데, 닦아본 적은 한 번도 없는 것 같아요."</p>
+<p><i class="ico" data-i="person"></i>"아이가 안전벨트 버클을 만지다가 그대로 입으로 가져가요."</p>
+<p><i class="ico" data-i="wind"></i>"에어컨을 켜면 나는 냄새, 균이 있는 건 아닐까 걱정돼요."</p>
+<p><i class="ico" data-i="spray"></i>"차 안에 뿌리는 살균제, 아무거나 써도 되는 건가요?"</p>
+</div>
+<p class="hl">한 조사 결과, 자동차 핸들의 세균 수가<br>공중화장실 변기 시트보다 약 9배 많은 것으로 나타났습니다.*</p>
+<p class="fn">* 영국 Queen Mary University 연구진 조사 결과, 자동차 핸들에서 1제곱인치당 약 700개의 세균이 확인되어 공중화장실 변기 시트(약 80개) 대비 약 9배 높은 수준으로 조사됨. (2011)</p>
+<p class="body">눈에 보이지 않을 뿐, 차 안도 균이 번식하기 쉬운 공간입니다.<br>운전 중 손에서 나온 땀과 피지, 음식물 잔여물이<br>핸들과 대시보드에 쌓여 세균의 먹이가 되니까요.</p>
+<p class="body">매일 잡는 핸들과 변속기, 아이가 만지고 입으로 가져가는 카시트와 안전벨트 버클,<br>손이 닿지 않는 에어컨 송풍구까지.<br>잘 몰랐을 뿐, 매일 타는 차도 살균이 필요한 공간입니다.</p>
+<p class="hl2">그래서 세스코는 환경부가 승인한 살생물제품으로<br>차량용 살균소독제를 만들었습니다.</p>
+<div class="brief"><p><b>[VISUAL]</b>말풍선 4연 일러스트(핸들·버클·송풍구·스프레이 아이콘) + 핸들 클로즈업 실사(접촉 포인트 오버레이)</p><p><b>[PROOF]</b>9배 조사 출처 각주 표기 필수 · 원문 링크·심의 확인 후 게시</p></div>
+<p class="memo">AI 초안 — 말풍선 4문장은 본문 근거(핸들 vs 변기 시트 조사 · 카시트·안전벨트 버클 · 송풍구 녹농균·폐렴간균 · 살생물제품 승인) 범위에서 소비자 말투로 작성. 수치·사실 추가 없음 | 42.1% 에어컨·히터 조사(한국소비자보호원)는 보류 유지</p>
+</section>
+
+<section class="s c3">
+<div class="lab">3 CHECK</div>
+<div class="head"><h3>세스코 전문 연구원의 맞춤 위생 솔루션</h3><span class="badge"><i class="ico" data-i="virus"></i>VIRUS CARE LABORATORY 바이러스 연구소</span></div>
+<p class="lead">세스코 카케어 살균소독제는 무엇이 다를까요?</p>
+<p class="body">차 안은 피부가 직접 닿고, 분사한 성분을 들이마실 수 있고,<br>창문을 닫으면 밀폐되는 공간입니다.<br>그래서 승인과 성분, 살균력까지 깐깐하게 검증했습니다.</p>
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>환경부 승인 살생물제품 기준으로 살균 효과와 안전성 검토를 완료하고<br>100% 식품첨가물 성분(사탕수수 기원 주정·정제수)²⁾으로 처방</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>다양한 차량 내장재로 반복 테스트하고<br>유해물질 5종 불검출³⁾, 피부 저자극 판정까지 확인</span></li>
+<li><b>강력하게 기능하도록</b><span>인플루엔자 A·코로나19 바이러스까지<br>세균 14종·바이러스 2종 99% 살균¹⁾</span></li>
+</ul>
+<p class="fn">1) 세균 14종·바이러스 2종(인플루엔자 A(H1N1)·SARS-CoV-2(XBB.1.5)) | 시험 대상 균주·시험기관 확정 후 기입 | 2) 라벨 확정 표기 기준 | 3) 차아염소산나트륨, CMIT, MIT, DDAC, BKC</p>
+<p class="memo">AI 초안 — 리드 아래 3줄 도입문은 통합본 INGREDIENT/SAFETY 문안(피부 접촉·흡입·밀폐)을 압축한 것</p>
+</section>
+
+<section class="s">
+<div class="lab">AT A GLANCE · 한눈에 보는 카케어 살균소독제</div>
+<div class="icons">
+<div class="it"><div class="c"><i class="ico" data-i="shield"></i></div><div class="ia">환경부 승인</div><div class="ib">살생물제품</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="virus"></i></div><div class="ia">16종 세균 및 바이러스</div><div class="ib">99% 살균¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="leaf"></i></div><div class="ia">사탕수수 기원 주정</div><div class="ib">100% 식품첨가물²⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="flaskx"></i></div><div class="ia">유해물질 5종</div><div class="ib">불검출³⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="hand"></i></div><div class="ia">피부 저자극</div><div class="ib">판정⁴⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="spray"></i></div><div class="ia">뿌리고 닦으면</div><div class="ib">관리 끝</div></div>
+</div>
+<p class="fn">4) 시험기관·시험방법 확정 후 기입 | 승인 마크는 표기 규정 확인 후 사용</p>
+</section>
+<section class="s proof">
+<div class="lab">제품 개발 연구원 INTERVIEW</div>
+<p class="hl">손이 닿는 자리의 균부터 확인한<br>연구원이 만들었습니다.</p>
+<div class="pcards">
+<div class="pc"><b># 개발 배경</b><p>국내 대형 렌터카·중고차 기업이 자체 클리닝으로 해결되지 않던 차량 위생과 악취 문제를 세스코에 맡겼습니다. 실제 차량에서 냄새 성분을 분석하고 네 차례 저감 테스트를 거쳐 만든 공정의 기술을, 누구나 쓸 수 있는 카케어로 만들었습니다.</p></div>
+<div class="pc"><b># 검증</b><p>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트하고, 디스플레이·하이그로시·가죽 등 차량 내장재 소재별로 확인했습니다.</p></div>
+<div class="pc quote"><b># 설계</b><p>❝ 핸들이나 기어는 오염이 눈에 잘 안 보여서 관리 대상이라는 생각을 놓치기 쉬워요. 그런데 손에 묻은 균은 차에서 끝나지 않아요. 문 손잡이를 잡고, 아이 손을 잡고, 음식을 집으면서 차에서 집 안까지 그대로 따라갑니다. 그래서 반복해서 손이 닿는 위치를 살균 관리 포인트로 잡았습니다.</p></div>
+</div>
+<div class="who"><i class="ico" data-i="person"></i>세스코 바이러스 연구소 연구원 (성명 확정 후 기입)</div>
+<div class="brief"><p><b>[VISUAL]</b>연구원 인터뷰 컷(실험실 또는 실차 앞) 또는 연구일지·실차 시료 배치 실측 컷(8/14 전달 PPT 자료, 마스킹 후)</p><p><b>[PROOF]</b>개발 배경은 신규사업 보고(260416) 근거 · 기업명은 제휴 승인 전 비특정 표기</p></div>
+<p class="memo">코퍼스 관행: 아이콘 6종 직후 사회적 검증(39 살균클리닝 티슈 = 컨설턴트 300명 만족도 92.9% · #성분 #효과 #사용감 / 14·15 = "제품 개발 연구원 INTERVIEW"). 신제품이라 리뷰·만족도 조사가 없어 연구원 INTERVIEW 3카드(#개발 배경 · #검증 · #설계)로 대체. 중복 방지: 챕터 01 POINT 03의 연구원 보이스 블록은 이 섹션으로 이동(삭제). 출시 전 내부 전문가 평가 확보 시 39 형식(만족도 %)으로, 출시 후 리뷰 축적 시 기름때세정제 형식(평균 만족도 + 실명 리뷰)으로 교체</p>
+</section>
+
+<section class="s">
+<div class="lab">CESCO CAR CARE · DETAIL</div>
+
+<div class="ch"><div class="no">01</div><div class="tt">☑ 엄격한 기준으로</div><div class="sub">환경부 승인 살생물제품 · 실제 차량 내장재 반복 테스트</div></div>
+<p class="hl">환경부가 승인한 살생물제품,<br>검증부터 다르게 시작했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 핸들에 분사하는 사용 컷</span></div>
+<p class="hl2">살균소독제는 이제 아무나 판매할 수 없다는 사실,<br>알고 계셨나요?</p>
+<p class="body">살균소독제는 이제 '살생물제품'으로 승인받아야 판매할 수 있습니다.<br>효능·효과 시험부터 인체 위해성 평가까지 여러 단계를 통과해야 하죠.<br>세스코는 그 검증을 통과한 제품으로 시작했습니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">환경부 승인 과정에서<br>이 항목들을 평가받았습니다.</p>
+<div class="ba">
+<div class="bx"><b>인체 위해성</b><span>☑ 급성 독성(경구·경피·흡입)<br>☑ 피부흡수 정보<br>☑ 노출량-반응평가</span></div>
+<div class="bx"><b>피부·눈 자극</b><span>☑ 피부 자극성·부식성<br>☑ 눈 자극성<br>☑ 피부 과민성</span></div>
+</div>
+<div class="brief"><p><b>[PROOF]</b>승인 근거 표기(승인번호 확정 후) | 평가 항목은 승인 문서 확정 범위 기준</p></div>
+<p class="memo">코퍼스 13(살균소독제 70) 장치: 'ⓘ 살생물제품이란?' 풀이 박스 병행 가능 | 완제품 성적서 생략 사유는 내부 참고, 지면 비노출</p>
+<div class="pt">POINT 02</div>
+<p class="hl2">합성 에탄올이 아닌,<br>식품첨가물 등급의 사탕수수 기원 주정을 씁니다.</p>
+<p class="body pb">합성 에탄올이 아닌, 식품첨가물 등급의 사탕수수 기원 주정.<br>100% 식품첨가물 성분(사탕수수 기원 주정·정제수)¹⁾으로 처방했습니다.</p>
+<div class="ch"><div class="no">02</div><div class="tt">☑ 까다로운 검증을 거쳐</div><div class="sub">100% 식품첨가물 성분 · 유해물질 5종 불검출 · 피부 저자극</div></div>
+<p class="hl">내장재부터 성분까지,<br>확인하고 또 확인했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 카시트·안전벨트 버클 주변 사용 컷</span></div>
+<div class="pt">POINT 01</div>
+<p class="hl2">차 안의 서로 다른 소재, 전부 테스트했습니다.</p>
+<p class="body pb">가죽, 우레탄, 플라스틱, 디스플레이 패널까지.<br>차 안은 서로 다른 소재가 모여 있는 공간이라,<br>변색이나 손상이 없도록 소재별 호환성을 테스트했습니다.</p>
+<div class="chips"><span>가죽</span><span>우레탄</span><span>플라스틱</span><span>디스플레이 패널</span><span>하이그로시</span></div>
+<div class="vid"><b>VIDEO 01 | 승인·시험 과정을 연구원이 설명하는 쇼트폼</b><br>"살균제, 아무거나 쓰면 안 되는 이유"를 승인 제도와 함께 설명. 캡션: "검증을 통과한 살균제만 판매할 수 있습니다."</div>
+<p class="memo">DEVELOPMENT 섹션(개발 배경·인터뷰·실차 테스트)을 이 챕터 POINT 03으로 흡수 — 이염방지시트 기획안처럼 독립 스토리 섹션 없이 근거를 챕터 안에 둠</p>
+
+<div class="pt">POINT 02</div>
+<p class="hl2">들어간 것과 들어가지 않은 것, 둘 다 확인했습니다.</p>
+<div class="ing">
+<h4>세스코 바이러스 연구소의 깐깐한 전성분 설명서</h4>
+<table><thead><tr><th>들어있어요</th><th>들어있지 않아요 · 불검출</th></tr></thead>
+<tbody><tr><td>✓ 사탕수수 기원 주정<br>✓ 정제수</td><td>☐ 차아염소산나트륨 (락스 성분)<br>☐ 가습기 살균제 이슈 성분 4종²⁾</td></tr></tbody></table>
+<p class="fn">1) 라벨 확정 표기 기준 | 2) CMIT, MIT, DDAC, BKC</p>
+</div>
+<div class="pt">POINT 03</div>
+<p class="hl2">직접 손이 닿는 곳에도 쓸 수 있도록<br>피부 저자극까지 확인했습니다.</p>
+<p class="body pb">피부자극지수 저자극 판정으로,<br>직접 손이 닿는 곳에도 사용할 수 있습니다³⁾.</p>
+<p class="fn">3) 시험기관·시험방법 확정 후 기입</p>
+<div class="brief"><p><b>[PROOF]</b>불검출·저자극 성적서 실물 (시험기관·시험방법 각주 필수)</p></div>
+
+<div class="pt">POINT 04</div>
+<p class="hl2">실험실이 아니라, 실제 차량에서 확인했습니다.</p>
+<ul class="cl"><li>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트</li><li>디스플레이·하이그로시·가죽 등 다양한 차량 내장재 테스트</li><li>공인시험기관 살균 성능 검증 (성적서 확정 후 실물 배치)</li></ul>
+<div class="ch"><div class="no">03</div><div class="tt">☑ 강력하게 기능하도록</div><div class="sub">16종 세균 및 바이러스 99% 살균</div></div>
+<p class="hl">위치별로 문제가 될 수 있는 균부터<br>확인했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 송풍구 분사 컷</span></div>
+<p class="hl2">차 안 어디에 어떤 균이 문제가 될 수 있는지,<br>알고 계셨나요?</p>
+<div class="tbl-wrap"><table><thead><tr><th>어디에서</th><th>문제가 될 수 있는 주요 균</th></tr></thead>
+<tbody><tr><td>핸들·변속기·디스플레이 등 손이 닿는 표면</td><td>황색포도상구균, 대장균</td></tr>
+<tr><td>에어컨 송풍구, 매트의 습기</td><td>녹농균, 폐렴간균</td></tr>
+<tr><td>밀폐된 차 안의 공기 환경</td><td>인플루엔자 A, 코로나19 바이러스</td></tr></tbody></table></div>
+<div class="pt">POINT 01</div>
+<p class="hl2">살균·살바이러스 성능,<br>수치로 확인했습니다.</p>
+<div class="cert"><div class="ring">16종<br><b>99%</b>살균</div><div><b>유해균 99% 살균, 16종 세균 및 바이러스¹⁾</b><span>세균 14종 · 바이러스 2종 (인플루엔자 A · 코로나19 바이러스 포함)</span></div></div>
+<p class="fn">1) 인플루엔자 A(H1N1)·SARS-CoV-2(XBB.1.5) | 시험 대상 균주 14종·시험기관·시험방법 확정 후 기입</p>
+<div class="brief"><p><b>[VISUAL]</b>살균 시험성적서 실물 컷, 수치 바로 옆</p><p><b>[PROOF]</b>살균 성적서 실물 (확정 후 삽입)</p></div>
+<div class="pt">POINT 02</div>
+<p class="hl2">헹굴 필요 없이,<br>손이 닿지 않는 곳까지 관리합니다.</p>
+<p class="body pb">헹굴 필요가 없어, 에어컨 송풍구처럼<br>손이 닿지 않는 곳까지 관리할 수 있습니다.</p>
+<div class="vid"><b>VIDEO 02 | 살균 시험 과정</b><br>시험 조건과 결과가 나오는 실험 장면. 캡션: "무엇을, 어떤 조건에서, 얼마나 확인했는지까지 보여드립니다."</div>
+<p class="memo">게재 보류: "국내 최다 세균·국내 유일 바이러스" 최상급 표현은 조사 범위·비교 기준 각주 확정 전 미노출 | 특정 위치에서 특정 균이 '검출됐다' 단정 금지 | '99% 살균' 동사 사용 범위는 인허가 확인 후 게시</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">10</span>사용 편의</div>
+<p class="hl">뿌리고, 닦으면 끝.<br>헹굼 없이 관리할 수 있습니다.</p>
+<p class="body">헹굴 필요가 없어 송풍구처럼 손이 닿지 않는 곳도 분사만으로 관리하고,<br>손이 닿는 표면은 마른 천으로 가볍게 닦아 마무리합니다.</p>
+<p class="hl2" style="margin-top:22px">집중 살균이 필요한 곳부터</p>
+<div class="chips"><span>핸들</span><span>기어·변속기</span><span>버튼류</span><span>문 손잡이</span><span>카시트·안전벨트 버클</span><span>대시보드</span><span>에어컨 송풍구</span></div>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 차량 실내 일러스트에 사용 위치 7곳 핀 표시</span></div>
+<p class="memo">AI 초안 — 리드 2문장은 기존 "헹굴 필요 없이" POINT와 사용법 STEP을 재조합. 에어컨 필터 표기 보류 중 | 목록은 라벨 확정 범위 내 최종 표기</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">11</span>사용법</div>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] STEP별 실사용 컷 3장</span></div>
+<p class="hl2">효과적인 사용 방법</p>
+<ol class="steps">
+<li>핸들·기어·문 손잡이 등 반복 접촉 표면과 에어컨 송풍구에 분사해 주세요.</li>
+<li>마른 천으로 가볍게 닦아 주세요. (다용도 살균클리닝 티슈를 함께 사용하면 더욱 효과적입니다.)</li>
+<li>가죽·전자 패널 등은 보이지 않는 곳에 소량 테스트 후 사용해 주세요.</li>
+</ol>
+<p class="hl2" style="margin-top:26px">어디에나 뿌려도 되나요?</p>
+<ul class="ck faq">
+<li><b>바로 사용</b><span>핸들·기어·문 손잡이·버튼류 등 플라스틱·우레탄 표면은 분사 후 마른 천으로 닦아 주세요.</span></li>
+<li><b>소량 테스트 후</b><span>가죽·전자 패널은 보이지 않는 곳에 소량 테스트 후 사용해 주세요.</span></li>
+<li><b>분사만으로</b><span>에어컨 송풍구처럼 손이 닿지 않는 곳은 헹굼 없이 분사만으로 관리할 수 있습니다.</span></li>
+</ul>
+<p class="memo">AI 초안 — "어디에나 뿌려도 되나요?" 3항목은 이염방지시트 "함께 세탁해도 되나요?" 형식. 내용은 STEP 1~3·헹굼 불필요 문안 재조합, 라벨 주의사항 확정본과 대조 필요 | HOLD: 에탄올 52.14%/주정 58% 수치는 라벨 확정 전 비노출</p>
+</section>
+
+<section class="s">
+<div class="lab">함께 쓰면 좋은 제품</div>
+<div class="verify"><span>✔ 실제 차량 환경 반복 테스트</span><span>✔ 공인시험기관 성능 검증</span><span>✔ 차량 실내 사용 환경 성분 검증</span></div>
+<p class="hl">넓은 면적은 살균소독제로<br>자주 만지는 곳은 살균클리닝 티슈로</p>
+<p class="body">손이 닿는 곳의 살균 관리가 첫 번째라면,<br>차 안에는 아직 네 가지 관리가 남아 있습니다.<br>넓은 면적과 손이 닿지 않는 곳은 살균소독제 분사로,<br>자주 만지는 곳은 다용도 살균클리닝 티슈로 닦으면서 살균까지 함께 관리해 주세요.</p>
+<ul class="lu">
+<li class="me"><i>01</i><b>살균소독제</b></li>
+<li><i>02</i><span><b>다용도 살균클리닝 티슈</b><br>✔ 눈에 보이는 생활 오염을 닦으면서 살균·세정<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>03</i><span><b>마스터 차량용 전문탈취제</b><br>✔ 시트·천장 등 섬유에 남은 담배 냄새·체취의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>04</i><span><b>마스터 차량용 탈취캔</b><br>✔ 손이 닿지 않는 공조 안쪽의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>05</i><span><b>슬림형 탈취제습제</b><br>✔ 공기가 잘 돌지 않는 차량 실내의 습기·냄새 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+</ul>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 제품 5종 나란히 연출 컷(살균소독제 중앙)</span></div>
+<p class="memo">구매하러 가기는 세스코몰 링크 확정 후 연결</p>
+</section>
+
+<section class="s">
+<div class="lab">SPEC</div>
+<table><tbody>
+<tr><td style="width:30%">제품명</td><td>세스코 마이랩 카케어 살균소독제</td></tr>
+<tr><td>용량 | 제형</td><td>(확정 후 기입)</td></tr>
+<tr><td>전성분</td><td>사탕수수 기원 주정 | 정제수 (라벨 확정본 원문 기준)</td></tr>
+<tr><td>품목</td><td>환경부 살생물제품 - 살균제 (승인번호 확정 후 기입)</td></tr>
+<tr><td>사용 위치</td><td>핸들 | 기어·변속기 | 버튼류 | 문 손잡이 | 카시트·안전벨트 버클 | 대시보드 | 에어컨 송풍구</td></tr>
+<tr><td>판매가</td><td>(확정 후 기입)</td></tr>
+</tbody></table>
+<p class="memo">REVIEW는 출시 전 버전에서 제외(가상 후기 금지). 내부 전문가 평가 확보 시 살균클리닝 티슈 선례(컨설턴트 300명, 만족도 92.9%) 형식으로 삽입</p>
+</section>
+
+<section class="s legal">
+<div class="lab"><span class="n">12</span>법정 고정 블록</div>
+<div class="blk"><b>보관방법</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>용법·용량</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>사용상 주의사항</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>응급처치</b>확정 문안 원문 삽입</div>
+<p class="memo">승인번호·용법용량·사용상 주의사항·응급처치 확정 문안을 원문 그대로 | 어미까지 수정 금지 | 살생물제품형 4블록 순서</p>
+<div class="imgslot">무이자 할부 안내 (토스페이먼츠 당월 무이자할부, 공통 확정 문안 삽입)</div>
+</section>
+</section>
+<section class="doc" id="doc02">
+<div class="doct">세스코 마이랩 카케어 02 | 다용도 살균클리닝 티슈 | 개별 상세페이지</div>
+
+<section class="cover">
+<div class="row"><b>CESCO Mylab</b><span>세스코 과학연구소를 내 손 안으로</span></div>
+<div class="en">CAR MULTI-SURFACE DISINFECTANT CLEANING WIPES<small>영문명 · 패키지 확정 표기 기준 (현재 제안값)</small></div>
+<div class="brand">세스코 마이랩</div>
+<div class="pname">카케어 다용도 살균클리닝 티슈</div>
+<div class="spec">매수 | 규격 <span class="hold">(확정 후 기입)</span></div>
+<div class="badges"><span class="bd"><i class="ico" data-i="virus"></i>VIRUS CARE LABORATORY 바이러스 연구소</span></div>
+<div class="mark">* 바이러스 연구소 마크는 법적인증마크나 업계자율마크가 아닌 제품정보 인식을 위한 기업자가 마크입니다</div>
+<div class="slot"><i class="ico" data-i="img"></i><div>[VISUAL] 실험실 배경 제품 연출 컷(마이랩 커버 공통) · [PROOF] 없음 | 제품명 구분: 기존 마이랩 "다용도 살균클리닝 티슈"(G2000000763)와 동명 — 카케어 구분 표기를 라벨과 대조해 전 지면 통일</div></div>
+</section>
+
+<section class="s stmt">
+<div class="lab">브랜드 스테이트먼트</div>
+<div class="k">세스코가 만든 차량 위생 솔루션</div>
+<div class="logo">CESCO Mylab <span>Car Hygiene Program</span></div>
+<p>집처럼 매일 머무는 공간, 차 안.<br>50여 년 공간 위생을 관리해온 세스코가<br>차량 실내까지 관리 범위를 넓혔습니다.</p>
+<p>손이 닿는 곳, 냄새가 배는 곳, 공기가 흐르는 곳.<br>위치마다 다른 문제를 실제 차량에서 확인하고<br>관리 방법을 다섯 가지로 나눴습니다.</p>
+<p>세스코 과학연구소의 차량 위생 기준을<br>한 통에 통째로 담은</p>
+<div class="logo2">CESCO Mylab <span>Car Hygiene Program</span></div>
+</section>
+
+<section class="s prop">
+<div class="lab"><span class="n">03</span>연구소 제안문</div>
+<p class="t">세스코 바이러스 연구소에서<br>손이 자주 닿는 차량 내부 환경을 고려하여<br>100% 식품첨가물 성분만을 담아<br>핸들, 시트, 대시보드 등 차량 내부에 쌓인<br>먼지와 손자국, 생활 오염부터 <b>세균까지 간편하게 닦아내는</b><br>다용도 클리닝 티슈를 제안합니다.</p>
+<ul>
+<li>유해세균 4종 99.999% 살균¹⁾</li>
+<li>계면활성제 무첨가 · 100% 식품첨가물 성분</li>
+<li>보풀 없는 멜트블로운 원단</li>
+</ul>
+<p class="fn">1) 대장균(Escherichia coli) 99.999% 살균 / 황색포도상구균(Staphylococcus aureus) 99.999% 살균 / 녹농균(Pseudomonas aeruginosa) 99.999% 살균 / 장내구균(Enterococcus hirae) 99.999% 살균 | 시험기관·시험방법 확정 후 기입</p>
+<p class="memo">제안문은 라벨 원문(어미까지 수정 금지, 절 단위 행갈이만). 효익 3불릿은 3연 체크박스 문안에서 추출</p>
+</section>
+
+<section class="s">
+<div class="lab">WHY · 차량용 살균클리닝 티슈, 왜 필요할까요?</div>
+<div class="bubbles">
+<p><i class="ico" data-i="dropoff"></i>"컵홀더 얼룩을 닦았는데, 물자국이 더 지저분하게 남아요."</p>
+<p><i class="ico" data-i="sheet"></i>"디스플레이랑 계기판, 아무 물티슈로 닦아도 되는지 모르겠어요."</p>
+<p><i class="ico" data-i="hand"></i>"아이 손이 닿는 자리라 닦고 남는 성분이 신경 쓰여요."</p>
+<p><i class="ico" data-i="fluff"></i>"닦고 나면 보풀이 대시보드에 남아요."</p>
+</div>
+<p class="hl">차 안에서 가장 자주 닦는 자리니까,<br>닦을 때 살균까지 함께 끝내야 합니다.</p>
+<p class="body">차 안은 오래 머물고, 손이 반복해서 닿고, 냄새와 습기가 남는 생활공간입니다.<br>세스코는 차량 실내를 33개의 위생 관리 포인트로 나눠 관리합니다.<br>그중 11곳이 오염이 쌓이는 곳.<br>대시보드·컵홀더·디스플레이처럼 생활 오염과 지문, 유분, 물자국이 쌓이는 자리입니다.</p>
+<p class="hl2">그래서 세스코는 닦으면서 살균까지 끝내는<br>다용도 살균클리닝 티슈를 만들었습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 말풍선 4연 일러스트(컵홀더·디스플레이·아이 손·보풀 아이콘) + 어두운 대시보드를 한 장으로 닦는 연출 컷</span></div>
+<p class="memo">AI 초안 — 말풍선 4문장은 본문 근거(물얼룩·잔여물 / 디스플레이·클러스터 내장재 테스트 / 아이 손·100% 식품첨가물 / 보풀 없는 멜트블로운) 범위에서 작성</p>
+</section>
+
+<section class="s c3">
+<div class="lab">3 CHECK</div>
+<div class="head"><h3>세스코 전문 연구원의 맞춤 위생 솔루션</h3><span class="badge"><i class="ico" data-i="virus"></i>VIRUS CARE LABORATORY 바이러스 연구소</span></div>
+<p class="lead">세스코 카케어 살균클리닝 티슈는 무엇이 다를까요?</p>
+<p class="body">단순한 물티슈가 아닌, 차량 내장재에 특화한 살균클리닝 티슈로<br>닦이는지, 살균되는지, 닦은 뒤에 남는 것은 없는지까지 검증했습니다.</p>
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>차량 내장재에 특화해<br>100% 식품첨가물 성분에 계면활성제 무첨가로 처방</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>디스플레이·클러스터(계기판) 등 내장재로 반복 테스트하고<br>닦은 뒤 남는 물얼룩·잔여물, 피부 저자극까지 검증</span></li>
+<li><b>강력하게 기능하도록</b><span>유해세균 4종 99.999% 살균¹⁾<br>보풀 없는 멜트블로운 원단이 미세 먼지까지 제거</span></li>
+</ul>
+<p class="fn">1) 대장균·녹농균·장내구균·황색포도상구균 | 시험기관·시험방법 확정 후 기입</p>
+</section>
+
+<section class="s">
+<div class="lab">AT A GLANCE · 한눈에 보는 카케어 살균클리닝 티슈</div>
+<div class="icons">
+<div class="it"><div class="c"><i class="ico" data-i="sheet"></i></div><div class="ia">닦으면서</div><div class="ib">살균·세정 한 번에</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="virus"></i></div><div class="ia">유해세균 4종</div><div class="ib">99.999% 살균¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="fluff"></i></div><div class="ia">멜트블로운 원단</div><div class="ib">보풀 없이</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="nosurf"></i></div><div class="ia">계면활성제</div><div class="ib">무첨가 처방</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="dropoff"></i></div><div class="ia">물얼룩·잔여물</div><div class="ib">남지 않는 마감</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="pocket"></i></div><div class="ia">글로브 포켓에 쏙</div><div class="ib">원터치 캡</div></div>
+</div>
+<p class="fn">이슈 성분 불검출 확정 시 아이콘 교체 검토</p>
+</section>
+<section class="s proof">
+<div class="lab">제품 개발 연구원 INTERVIEW</div>
+<p class="hl">닦은 뒤 남는 잔여물까지 확인한<br>연구원이 만들었습니다.</p>
+<div class="pcards">
+<div class="pc"><b># 개발 배경</b><p>국내 대형 렌터카·중고차 기업이 자체 클리닝으로 해결되지 않던 차량 위생과 악취 문제를 세스코에 맡겼습니다. 실제 차량에서 냄새 성분을 분석하고 네 차례 저감 테스트를 거쳐 만든 공정의 기술을, 누구나 쓸 수 있는 카케어로 만들었습니다.</p></div>
+<div class="pc"><b># 검증</b><p>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트하고, 디스플레이·클러스터(계기판) 등 내장재별로 닦은 뒤까지 확인했습니다.</p></div>
+<div class="pc quote"><b># 설계</b><p>❝ 차량 내장재는 어두운 색이 많아서 잔여물이 남으면 바로 티가 나요. 세정력만큼 중요한 잔여 성분, 꼼꼼하게 처방했습니다.</p></div>
+</div>
+<div class="who"><i class="ico" data-i="person"></i>세스코 바이러스 연구소 연구원 (성명 확정 후 기입)</div>
+<div class="brief"><p><b>[VISUAL]</b>연구원 인터뷰 컷(실험실 또는 실차 앞) 또는 연구일지·실차 시료 배치 실측 컷(8/14 전달 PPT 자료, 마스킹 후)</p><p><b>[PROOF]</b>개발 배경은 신규사업 보고(260416) 근거 · 기업명은 제휴 승인 전 비특정 표기</p></div>
+<p class="memo">코퍼스 관행: 아이콘 6종 직후 사회적 검증(39 살균클리닝 티슈 = 컨설턴트 300명 만족도 92.9% · #성분 #효과 #사용감 / 14·15 = "제품 개발 연구원 INTERVIEW"). 신제품이라 리뷰·만족도 조사가 없어 연구원 INTERVIEW 3카드(#개발 배경 · #검증 · #설계)로 대체. 중복 방지: 챕터 01 POINT 03의 연구원 보이스 블록은 이 섹션으로 이동(삭제). 출시 전 내부 전문가 평가 확보 시 39 형식(만족도 %)으로, 출시 후 리뷰 축적 시 기름때세정제 형식(평균 만족도 + 실명 리뷰)으로 교체</p>
+</section>
+
+<section class="s">
+<div class="lab">CESCO CAR CARE · DETAIL</div>
+
+<div class="ch"><div class="no">01</div><div class="tt">☑ 엄격한 기준으로</div><div class="sub">차량 내장재 소재별 반복 테스트 · '닦은 뒤'까지 검증</div></div>
+<p class="hl">닦은 자리에 손이 다시 닿으니까,<br>잔여 성분이 남지 않도록 성분부터 골랐습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 티슈를 꺼내는 컷</span></div>
+<p class="hl2">마른 수건으로 다시 닦는 이유,<br>계면활성제 때문이라는 사실 알고 계셨나요?</p>
+<p class="body">계면활성제를 넣지 않아<br>닦은 자리에 잔여 성분이 남지 않습니다.<br>마른 수건으로 다시 닦는 과정이 필요 없습니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">아이 손이 닿는 곳에 쓰는 제품이라,<br>성분부터 골랐습니다.</p>
+<p class="body pb">100% 식품첨가물 성분으로 처방하고<br>피부 저자극 테스트까지 완료했습니다.</p>
+<div class="ch"><div class="no">02</div><div class="tt">☑ 까다로운 검증을 거쳐</div><div class="sub">계면활성제 무첨가 · 100% 식품첨가물 · 피부 저자극</div></div>
+<p class="hl">차량 내장재 소재별로, 닦은 뒤까지,<br>집요하게 테스트했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 디스플레이를 닦는 사용 컷</span></div>
+<p class="hl2">차 안은 소재마다 마감이 다르다는 사실,<br>알고 계셨나요?</p>
+<p class="body">차량 실내는 소재와 표면 마감이 제각각이라<br>세정 성분에 따라 변색이나 손상이 생길 수 있습니다.<br>화면, 계기판처럼 예민한 표면까지<br>내장재별로 반복해서 닦아 확인했습니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">디스플레이·클러스터(계기판) 등,<br>소재별로 반복 테스트했습니다.</p>
+<div class="chips"><span>디스플레이</span><span>클러스터(계기판)</span><span>대시보드</span><span>컵홀더</span><span>카시트</span></div>
+<p class="body">세탁이 어려운 카시트에도 간편하게 사용할 수 있습니다.</p>
+<div class="pt">POINT 02</div>
+<p class="hl2">'닦은 뒤'까지<br>검증 범위에 넣었습니다.</p>
+<p class="body pb">어두운 내장재일수록 물얼룩과 하얀 잔여물이 잘 보입니다.<br>닦은 뒤에 남는 물얼룩과 잔여물까지 확인했습니다.</p>
+<div class="ba">
+<div class="bx"><div class="ph"><i class="ico" data-i="img"></i></div><b>일반 물티슈로 닦은 뒤</b><span>물얼룩·하얀 잔여물</span></div>
+<div class="bx"><div class="ph on"><i class="ico" data-i="img"></i></div><b>카케어 티슈로 닦은 뒤</b><span>물얼룩·잔여물 없는 마감</span></div>
+</div>
+<div class="brief"><p><b>[VISUAL]</b>어두운 대시보드 Before/After 2컷(자사 촬영)</p><p><b>[PROOF]</b>내장재 테스트 자료(자사 시험 명기)</p></div>
+<div class="vid"><b>VIDEO 01 | 다양한 내장재 반복 닦기 테스트</b><br>디스플레이·클러스터(계기판)를 반복해서 닦는 실험 장면. 캡션: "소재별로 확인하고 만들었습니다."</div>
+<p class="memo">비교 카드의 "일반 물티슈" 표기는 비교광고 검토 전 자사 일반 물티슈 또는 '무처리' 표기로 한정 | 2026-08-21 확인: 라벨 주의사항("하이그로시 재질 및 천연가죽 등에 사용 후에는 깨끗한 마른 천으로 닦아내시오")과 충돌하므로 물얼룩·테스트 소구에서 '하이그로시' 전부 삭제, 주의사항 문구(사용법·LEGAL)만 유지</p>
+
+<div class="pt">POINT 03</div>
+<p class="hl2">들어간 것과 들어가지 않은 것, 둘 다 확인했습니다.</p>
+<div class="ing">
+<h4>세스코 바이러스 연구소의 깐깐한 전성분 설명서</h4>
+<table><thead><tr><th>들어있어요</th><th>들어있지 않아요 · 불검출</th></tr></thead>
+<tbody><tr><td>✓ 곡물발효 주정 (확정 성분명 기입)<br>✓ 정제수 외 (라벨 확정 후 기입)</td><td>☐ 계면활성제 (무첨가)<br>☐ 이슈 성분 (불검출 항목·시험기관 확정 후 기입)</td></tr></tbody></table>
+</div>
+<ul class="cl"><li>이슈 성분 불검출 (항목 확정 후 기입)</li><li>저자극 (시험기관·시험방법 확정 후 기입)</li></ul>
+<div class="brief"><p><b>[PROOF]</b>식품첨가물 100%·피부 저자극: 8/14 전달 PPT 자료 근거 | 라벨·성적서 확정본과 최종 대조</p></div>
+
+<div class="pt">POINT 04</div>
+<p class="hl2">실제 차량에서 확인했습니다.</p>
+<ul class="cl"><li>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트</li><li>디스플레이·클러스터(계기판) 등 다양한 차량 내장재로 테스트 완료</li><li>공인시험기관 살균 성능 검증 (성적서 확정 후 실물 배치)</li></ul>
+<div class="ch"><div class="no">03</div><div class="tt">☑ 강력하게 기능하도록</div><div class="sub">유해세균 4종 99.999% 살균 · 멜트블로운 원단</div></div>
+<p class="hl">잘 닦이는지, 살균까지 되는지<br>수치와 소재로 확인했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 컵홀더를 닦는 사용 컷</span></div>
+<div class="pt">POINT 01</div>
+<p class="hl2">유해세균 4종 99.999% 살균¹⁾,<br>시험으로 확인했습니다.</p>
+<div class="cert"><div class="ring">유해세균 4종<br><b>99.999%</b>살균</div><div><b>대장균 · 녹농균 · 장내구균 · 황색포도상구균</b><span>라벨 각주 기준, 시험기관·시험방법 확정 후 기입</span></div></div>
+<p class="fn">1) 대장균(Escherichia coli)·황색포도상구균(Staphylococcus aureus)·녹농균(Pseudomonas aeruginosa)·장내구균(Enterococcus hirae) 각 99.999% 살균 | 주의: 살균소독제의 '16종'과 위계 혼동 없도록 구분 표기</p>
+<div class="brief"><p><b>[VISUAL]</b>살균 시험성적서 실물 컷, 수치 옆</p><p><b>[PROOF]</b>살균 성적서 실물 (확정 후 삽입)</p></div>
+<div class="pt">POINT 02</div>
+<p class="hl2">보풀 없이 닦아내는<br>멜트블로운 원단을 썼습니다.</p>
+<p class="body pb">미세하고 촘촘한 섬유 구조의 멜트블로운 원단이라 보풀이 남지 않고,<br>마찰력이 높은 다공성 원단이 미세 먼지와 작은 이물질 등 오염물질을 깔끔하게 제거합니다.<br>닦아낸 뒤 거품이나 흰 얼룩이 남지 않는 마감까지 확인했습니다.</p>
+<div class="vid"><b>VIDEO 02 | 보풀 비교</b><br>일반 물티슈 vs 멜트블로운 원단의 보풀 잔여 비교 실험.</div>
+<div class="pt">POINT 03</div>
+<p class="hl2">마른 수건 없이, 한 장이면 끝</p>
+<p class="body pb">닦고, 살균하고, 다시 닦지 않아도 됩니다.</p>
+<ul class="cl"><li>닦으면서 살균·세정 동시 관리</li><li>계면활성제 잔여물 없이 마무리</li></ul>
+<div class="vid"><b>VIDEO 03 | 한 장으로 닦은 뒤 잔여물 확인</b><br>어두운 대시보드를 한 장으로 닦고, 물얼룩·잔여물이 남지 않는 것을 보여주는 Before/After. 캡션: "닦은 뒤가 다릅니다."</div>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">10</span>사용 편의</div>
+<p class="hl">글로브 포켓에 쏙,<br>원터치 캡으로 바로 한 장.</p>
+<p class="body">슬림형 원터치 캡이라 글로브 포켓·도어 포켓에 두고<br>필요할 때 한 장씩 바로 꺼내 쓸 수 있습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 글로브 포켓에 들어간 제품 컷 + 원터치 캡 클로즈업 (규격 확정 후 사이즈 표기)</span></div>
+<p class="memo">AI 초안 — 아이콘 6종 "글로브 포켓에 쏙 | 원터치 캡"과 SPEC 메모(슬림형 원터치 캡, 글로브 포켓·도어 포켓 사이즈) 재조합. 규격 확정 후 수치 병기</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">11</span>사용법</div>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] STEP별 실사용 컷</span></div>
+<p class="hl2">효과적인 사용 방법</p>
+<ol class="steps">
+<li>티슈를 한 장 꺼내 컵홀더·대시보드·디스플레이 등 오염 부위를 닦아 주세요.</li>
+<li>마른 수건으로 다시 닦지 않아도 됩니다.<span class="note">※ 하이그로시 재질·천연가죽은 사용 후 깨끗한 마른 천으로 닦아 주세요. (사용상 주의사항)</span></li>
+<li>사용 후 뚜껑을 닫아 건조를 막아 주세요.</li>
+</ol>
+<p class="hl2" style="margin-top:26px">어디든 닦아도 되나요?</p>
+<ul class="ck faq">
+<li><b>바로 사용</b><span>컵홀더·대시보드·디스플레이·클러스터(계기판)·카시트 등 오염이 쌓이는 곳은 한 장으로 닦아 주세요.</span></li>
+<li><b>마른 천으로 마무리</b><span>하이그로시 재질·천연가죽은 사용 후 깨끗한 마른 천으로 닦아 주세요. (사용상 주의사항)</span></li>
+<li><b>함께 쓰면 더 좋아요</b><span>넓은 면적과 손이 닿지 않는 곳은 살균소독제 분사와 함께 관리해 주세요.</span></li>
+</ul>
+<p class="memo">"어디든 닦아도 되나요?" 3항목은 STEP·주의사항·라인업 문안 재조합. 라벨 확정본과 대조 | 촉감 정본 표현 = '미세하고 촘촘한 멜트블로운 원단' + '마찰력이 높은 다공성 원단'</p>
+</section>
+
+<section class="s">
+<div class="lab">함께 쓰면 좋은 제품</div>
+<div class="verify"><span>✔ 실제 차량 환경 반복 테스트</span><span>✔ 공인시험기관 성능 검증</span><span>✔ 차량 실내 사용 환경 성분 검증</span></div>
+<p class="hl">자주 만지는 곳은 살균클리닝 티슈로<br>넓은 면적은 살균소독제로</p>
+<p class="body">닦는 관리를 시작했다면,<br>넓은 면적의 살균과 냄새·습기 관리가 남아 있습니다.</p>
+<ul class="lu">
+<li><i>01</i><span><b>살균소독제</b><br>✔ 반복 접촉하는 차량 실내 표면의 살균 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li class="me"><i>02</i><b>다용도 살균클리닝 티슈</b></li>
+<li><i>03</i><span><b>마스터 차량용 전문탈취제</b><br>✔ 시트·천장 등 섬유에 남은 담배 냄새·체취의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>04</i><span><b>마스터 차량용 탈취캔</b><br>✔ 손이 닿지 않는 공조 안쪽의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>05</i><span><b>슬림형 탈취제습제</b><br>✔ 공기가 잘 돌지 않는 차량 실내의 습기·냄새 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+</ul>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 제품 5종 나란히 연출 컷(티슈 중앙)</span></div>
+</section>
+
+<section class="s">
+<div class="lab">SPEC</div>
+<table><tbody>
+<tr><td style="width:30%">제품명</td><td>세스코 마이랩 카케어 다용도 살균클리닝 티슈</td></tr>
+<tr><td>매수 | 규격</td><td>(확정 후 기입)</td></tr>
+<tr><td>유형</td><td>슬림형 원터치 캡</td></tr>
+<tr><td>원단</td><td>멜트블로운 | 다공성 원단 (라벨 확정 표기 기준)</td></tr>
+<tr><td>전성분</td><td>라벨 확정본 원문 기준</td></tr>
+<tr><td>판매가</td><td>(확정 후 기입)</td></tr>
+</tbody></table>
+</section>
+
+<section class="s legal">
+<div class="lab"><span class="n">12</span>법정 고정 블록</div>
+<div class="blk"><b>사용방법</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>사용상 주의사항</b>확정 문안 원문 삽입 — "하이그로시 재질 및 천연가죽 등에 사용 후에는 깨끗한 마른 천으로 닦아내시오" 포함 확인</div>
+<div class="blk"><b>응급처치</b>확정 문안 원문 삽입</div>
+<p class="memo">생활화학제품형 3블록(코퍼스 39 원문 순서) | 어미까지 수정 금지</p>
+<div class="imgslot">무이자 할부 안내 (토스페이먼츠 당월 무이자할부, 공통 확정 문안 삽입)</div>
+</section>
+</section>
+<section class="doc" id="doc03">
+<div class="doct">세스코 마이랩 카케어 03 | 마스터 차량용 전문탈취제 | 개별 상세페이지</div>
+
+<section class="cover">
+<div class="row"><b>CESCO Mylab</b><span>세스코 과학연구소를 내 손 안으로</span></div>
+<div class="en">MASTER CAR DEODORIZER SPRAY<small>영문명 · 패키지 확정 표기 기준 (현재 제안값)</small></div>
+<div class="brand">세스코 마이랩</div>
+<div class="pname">마스터 차량용 전문탈취제</div>
+<div class="spec">500 ml | 분무형 | 무향 <span class="hold">(제형·향 표기는 라벨 확정 기준)</span></div>
+<div class="badges"><span class="bd"><i class="ico" data-i="lab"></i>CESCO SCIENCE 생활과학 연구소 LABORATORY</span></div>
+<div class="mark">* 생활과학 연구소 마크는 법적인증마크나 업계자율마크가 아닌 제품정보 인식을 위한 기업자가 마크입니다</div>
+<div class="slot"><i class="ico" data-i="img"></i><div>[VISUAL] 실험실 배경 제품 연출 컷(마이랩 커버 공통) · [PROOF] 없음</div></div>
+</section>
+
+<section class="s stmt">
+<div class="lab">브랜드 스테이트먼트</div>
+<div class="k">세스코가 만든 차량 위생 솔루션</div>
+<div class="logo">CESCO Mylab <span>Car Hygiene Program</span></div>
+<p>집처럼 매일 머무는 공간, 차 안.<br>50여 년 공간 위생을 관리해온 세스코가<br>차량 실내까지 관리 범위를 넓혔습니다.</p>
+<p>손이 닿는 곳, 냄새가 배는 곳, 공기가 흐르는 곳.<br>위치마다 다른 문제를 실제 차량에서 확인하고<br>관리 방법을 다섯 가지로 나눴습니다.</p>
+<p>세스코 과학연구소의 차량 위생 기준을<br>한 통에 통째로 담은</p>
+<div class="logo2">CESCO Mylab <span>Car Hygiene Program</span></div>
+</section>
+
+<section class="s prop">
+<div class="lab"><span class="n">03</span>연구소 제안문</div>
+<p class="t">세스코 생활과학 연구소에서<br>차량 카펫·시트 등에 깊숙이 스며들어<br>빼내기 어려운 찌든 담배 냄새¹⁾ 부터<br>쉽게 사라지지 않는 잔존 악취²⁾까지<br><b>향으로 덮지 않고 악취 원인을 탈취해 주는</b><br>차량 전문 탈취제를 제안합니다.</p>
+<ul>
+<li>3대 악취 물질 99% 탈취³⁾ · 담배 냄새 특화</li>
+<li>인공향료 무첨가 무향 처방⁴⁾</li>
+<li>한 번 분사로 최대 24시간 지속⁵⁾</li>
+</ul>
+<p class="fn">1) 2) 각주 원문은 라벨 확정본 기준으로 기입 | 3) 암모니아·트리메틸아민·에데닐피리딘(담배 냄새) | KATRI, 시험방법 확정 후 기입 | 4) 각주 문안 확정 후 기입 | 5) 2시간·24시간 시험 조건 확정 후 기입</p>
+<p class="memo">제안문은 라벨 원문(어미까지 수정 금지). 효익 3불릿은 3연·아이콘 문안에서 추출</p>
+</section>
+
+<section class="s">
+<div class="lab">WHY · 차량용 전문탈취제, 왜 필요할까요?</div>
+<div class="bubbles">
+<p><i class="ico" data-i="seat"></i>"환기를 해도 시트에 밴 담배 냄새가 빠지질 않아요."</p>
+<p><i class="ico" data-i="scentoff"></i>"방향제를 뿌리면 그때뿐이고, 냄새가 다시 올라와요."</p>
+<p><i class="ico" data-i="person"></i>"아이랑 반려동물이 타는 차라, 시트에 뿌리는 성분이 걱정돼요."</p>
+<p><i class="ico" data-i="clock"></i>"여름엔 천장에서, 겨울엔 바닥에서 냄새가 나는 것 같아요."</p>
+</div>
+<p class="hl">환기로도 빠지지 않는 담배 냄새는<br>원인부터 잡아야 합니다.</p>
+<p class="body">세스코는 차량 실내를 33개의 위생 관리 포인트로 나눠 관리합니다.<br>그중 냄새가 남는 곳이 9곳, 시트·천장 등 섬유입니다.<br>담배 연기의 니코틴·타르 성분은 시트·카펫·천장 원단 섬유 깊숙이 배어듭니다.<br>환기하거나 향을 뿌려도 표면만 잠시 가려질 뿐, 원인 물질은 그대로 남습니다.</p>
+<p class="hl2">그래서 세스코는 향으로 덮지 않고 원인을 제거하는<br>마스터 차량용 전문탈취제를 만들었습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 말풍선 4연 일러스트(시트·방향제·아이와 반려동물·온도계 아이콘) + 시트에 분사하는 연출 컷</span></div>
+<p class="memo">AI 초안 — 말풍선 4문장은 본문 근거(담배 냄새 잔존 / 향 덮기의 한계 / 아이·반려동물 동승 무향 처방 / 계절별 냄새 위치 기전) 범위에서 작성</p>
+</section>
+
+<section class="s c3">
+<div class="lab">3 CHECK</div>
+<div class="head"><h3>세스코 전문 연구원의 맞춤 위생 솔루션</h3><span class="badge"><i class="ico" data-i="lab"></i>CESCO SCIENCE 생활과학 연구소 LABORATORY</span></div>
+<p class="lead">세스코 마스터 차량용 전문탈취제는 무엇이 다를까요?</p>
+<p class="body">향으로 가리는 방향제가 아닌, 악취 분자를 포획하고 중화하는 탈취제로<br>실제 차량에서 냄새 원인부터 확인하고, 성분과 지속 시간까지 검증했습니다.</p>
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>실제 차량에서 냄새 성분을 포집·정량 분석하고<br>알레르기를 유발할 수 있는²⁾ 인공향료 없이 원인을 잡도록 설계</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>사계절 온도 조건 필드테스트로 집요하게 검증하고<br>파라벤류 7종·형광증백제·가습기 이슈 성분 4종 불검출을 KATRI 시험성적으로 확인³⁾</span></li>
+<li><b>강력하게 기능하도록</b><span>가장 빼기 어려운 담배 냄새까지 근본 원인을 제거<br>3대 악취 물질 99% 탈취¹⁾, 한 번 분사로 최대 24시간 지속 확인</span></li>
+</ul>
+<p class="fn">1) 암모니아·트리메틸아민·에데닐피리딘(담배 냄새) | KATRI, 시험방법 확정 후 기입 | 2) 각주 문안 확정 후 기입 | 3) MIT, CMIT, DDAC, BKC | KATRI</p>
+</section>
+
+<section class="s">
+<div class="lab">AT A GLANCE · 한눈에 보는 마스터 차량용 전문탈취제</div>
+<div class="icons">
+<div class="it"><div class="c"><i class="ico" data-i="cig"></i></div><div class="ia">담배 냄새 특화</div><div class="ib">에데닐피리딘 99%¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="nose"></i></div><div class="ia">3대 악취 물질</div><div class="ib">99% 탈취¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="clock"></i></div><div class="ia">한 번 분사</div><div class="ib">최대 24시간 지속⁴⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="scentoff"></i></div><div class="ia">향으로 덮지 않는</div><div class="ib">인공향료 무첨가²⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="flaskx"></i></div><div class="ia">파라벤 7종 등</div><div class="ib">불검출³⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="bottle"></i></div><div class="ia">대용량 500ml</div><div class="ib">구석구석 넉넉하게</div></div>
+</div>
+<p class="fn">4) 2시간·24시간 시험 조건 확정 후 기입</p>
+</section>
+<section class="s proof">
+<div class="lab">제품 개발 연구원 INTERVIEW</div>
+<p class="hl">가장 빼기 어려운 담배 냄새부터 분석한<br>연구원이 만들었습니다.</p>
+<div class="pcards">
+<div class="pc"><b># 개발 배경</b><p>국내 대형 렌터카·중고차 기업이 자체 클리닝으로 해결되지 않던 차량 위생과 악취 문제를 세스코에 맡겼습니다. 실제 차량에서 냄새 성분을 분석하고 네 차례 저감 테스트를 거쳐 만든 공정의 기술을, 누구나 쓸 수 있는 카케어로 만들었습니다.</p></div>
+<div class="pc"><b># 검증</b><p>실제 차량에서 냄새 성분을 포집·정량 분석하고, 여름부터 겨울까지 4번의 필드테스트와 수십 번의 반복시험, 실제 자동차 원단 구획별 소재 시험까지 거쳤습니다.</p></div>
+<div class="pc quote"><b># 설계</b><p>❝ 섬유에 밴 냄새는 공기만 갈아서는 안 빠져요. 냄새 분자가 섬유에 붙어 있으니까, 섬유에 직접 닿는 액상으로 원인 물질을 포획하고 중화하도록 만들었습니다.</p></div>
+</div>
+<div class="who"><i class="ico" data-i="person"></i>세스코 생활과학 연구소 연구원 (성명 확정 후 기입)</div>
+<div class="brief"><p><b>[VISUAL]</b>연구원 인터뷰 컷(실험실 또는 실차 앞) 또는 연구일지·실차 시료 배치 실측 컷(8/14 전달 PPT 자료, 마스킹 후)</p><p><b>[PROOF]</b>개발 배경은 신규사업 보고(260416) 근거 · 기업명은 제휴 승인 전 비특정 표기</p></div>
+<p class="memo">코퍼스 관행: 아이콘 6종 직후 사회적 검증(39 살균클리닝 티슈 = 컨설턴트 300명 만족도 92.9% · #성분 #효과 #사용감 / 14·15 = "제품 개발 연구원 INTERVIEW"). 신제품이라 리뷰·만족도 조사가 없어 연구원 INTERVIEW 3카드(#개발 배경 · #검증 · #설계)로 대체. 중복 방지: 챕터 01 POINT 03의 연구원 보이스 블록은 이 섹션으로 이동(삭제). 출시 전 내부 전문가 평가 확보 시 39 형식(만족도 %)으로, 출시 후 리뷰 축적 시 기름때세정제 형식(평균 만족도 + 실명 리뷰)으로 교체</p>
+</section>
+
+<section class="s">
+<div class="lab">CESCO CAR CARE · DETAIL</div>
+
+<div class="ch"><div class="no">01</div><div class="tt">☑ 엄격한 기준으로</div><div class="sub">실제 차량 냄새 성분 분석 · 사계절 필드테스트</div></div>
+<p class="hl">실제 차량의 냄새부터 분석해,<br>원인을 잡는 무향 처방으로 설계했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 실차 시료 배치 실측 컷(8/14 전달 PPT 자료, 차량·위치 식별 정보 확인 후)</span></div>
+<p class="hl2">향을 뿌렸는데 냄새가 다시 올라오는 이유,<br>알고 계셨나요?</p>
+<p class="body">실제 차량에서 냄새 성분을 포집해 분석해 보니<br>원인 물질이 섬유에 남아 있는 한 냄새는 돌아옵니다.<br>그래서 향으로 가리는 방식 대신, 원인을 확인하는 것부터 시작했습니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">실제 차량에서 냄새 성분을<br>포집해 정량 분석했습니다.</p>
+<p class="body pb">국내 대형 렌터카·중고차 등 실제 차량 실내에서<br>냄새 성분을 포집해 정량 분석하고,<br>가장 오래 남는 악취 원인부터 확인했습니다.</p>
+<div class="imgslot">확보 자산 | 냄새 성분 정량분석 결과 (8/14 전달 PPT 자료) · 업체명·차량번호·분석일자 마스킹 후 지면 사용</div>
+<div class="pt">POINT 02</div>
+<p class="hl2">향으로 덮는 탈취제,<br>냄새 위에 향을 더하면 어떻게 될까요?</p>
+<p class="body pb">냄새 위에 향을 더하면 잠시 가려질 뿐입니다.<br>아이나 반려동물이 함께 타는 차라면<br>시트에 뿌리는 성분이 더 신경 쓰일 수밖에 없습니다.</p>
+<p class="hl2">향으로 덮지 않는 무향 처방</p>
+<p class="body">알레르기를 유발할 수 있는¹⁾ 인공향료를 배제한 무향 처방으로,<br>아이나 반려동물 동승차에서도 사용할 수 있습니다.</p>
+<div class="ch"><div class="no">02</div><div class="tt">☑ 까다로운 검증을 거쳐</div><div class="sub">인공향료 무첨가 · 불검출 KATRI 확인</div></div>
+<p class="hl">실제 차량에서, 사계절 내내, 성분까지<br>확인하고 또 확인했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 아이·반려동물 동승 연출 컷(시트 분사 후)</span></div>
+<div class="pt">POINT 01</div>
+<p class="hl2">계절마다 냄새가 배는 자리가 달라집니다.</p>
+<div class="ba">
+<div class="bx"><b>온도가 오르면</b><span>냄새 입자가 데워진 공기를 타고 떠올라<br>천장에 뱁니다.</span></div>
+<div class="bx"><b>온도가 내려가면</b><span>가라앉아 바닥 쪽에 뱁니다.<br>에어컨·히터를 켜면 공조 내부에도 배어듭니다.</span></div>
+</div>
+<p class="body">냄새가 배는 자리가 계절마다 달라져,<br>여름부터 겨울까지 4번의 필드테스트와 수십 번의 반복시험으로<br>일관된 탈취 효과를 확인했습니다.</p>
+<p class="memo">기전 근거: 8/14 전달 PPT 자료 슬라이드 8 | 지면 기전 문구는 연구소 감수 후 확정</p>
+<div class="imgslot">확보 자산 | 원단별 지속성 실험 (원단 A~F, 8/14 전달 PPT 자료) · 원단명·시험 조건 표기는 확정 후 기입</div>
+<div class="vid"><b>VIDEO 01 | 실제 차량 탈취 필드테스트·연구일지</b><br>냄새 성분 포집 → 분석 → 사계절 조건 재확인 과정. 캡션: "가장 어려운 냄새부터 확인했습니다."</div>
+<p class="memo">개발 배경(국내 대형 렌터카·중고차 악취 차량 의뢰 · 4차 저감 테스트)은 통합본 DEVELOPMENT에 배치, 개별 페이지에서는 POINT 03으로 압축 | 자사 분석임을 명기 | '담배가 주요 악취' 결과 표기는 광고 사용 범위 확인 후 | 기업명은 승인 전 비특정</p>
+
+<div class="pt">POINT 02</div>
+<p class="hl2">들어가지 않은 것까지 KATRI로 확인했습니다.</p>
+<div class="ing">
+<h4>세스코 생활과학 연구소의 깐깐한 성분 설명서</h4>
+<table><thead><tr><th>들어있어요</th><th>들어있지 않아요 · 불검출</th></tr></thead>
+<tbody><tr><td>(전성분 라벨 확정 후 기입)</td><td>☐ 파라벤류 7종<br>☐ 형광증백제<br>☐ 가습기 이슈 성분 4종²⁾</td></tr></tbody></table>
+<p class="fn">1) 각주 문안 확정 후 기입 | 2) MIT, CMIT, DDAC, BKC | 시험기관: KATRI</p>
+</div>
+<div class="brief"><p><b>[PROOF]</b>불검출 성적서(KATRI) 실물</p></div>
+<p class="memo">'무향'과 중화 성분 '시트러스'를 같은 화면에 전면 병치하지 않음 | 케미컬 취 안내는 라벨·FAQ에서 | '아이에게 안전' 등 대상 보증 문장 금지(POD 확정 표현 "아이나 반려동물 동승차에서도 사용 가능"까지)</p>
+
+<div class="pt">POINT 03</div>
+<p class="hl2">실제 차량과 실제 원단으로 확인했습니다.</p>
+<ul class="cl"><li>실제 차량 실내에서 냄새 성분을 포집해 정량 분석, 가장 오래 남는 악취 원인부터 확인</li><li>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트</li><li>실제 자동차 원단(패브릭·스웨이드·부직포·가죽 등) 구획별 소재 시험: 일광견뢰도·원단별 안정성/호환성 평가 (성적서 실물 확보 후 각주화)</li><li>여름부터 겨울까지 4번의 필드테스트·수십 번의 반복시험, 사계절 온도 조건 탈취 성능 검증</li></ul>
+<div class="ch"><div class="no">03</div><div class="tt">☑ 강력하게 기능하도록</div><div class="sub">3대 악취 물질 99% 탈취 · 최대 24시간 지속</div></div>
+<p class="hl">가장 빼기 어려운 찌든 담배 냄새까지,<br>근본 원인을 제거합니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 시트·천장 분사 컷</span></div>
+<p class="hl2">세스코 전문탈취제,<br>어떤 원리로 냄새를 잡을까요?</p>
+<ol class="steps">
+<li><b>탈취 성분이 섬유 표면에 도달합니다.</b><br>시트·카펫·천장 원단처럼 냄새가 배는 섬유에 직접 닿는 액상으로 분사합니다.</li>
+<li><b>악취 분자를 포획합니다.</b><br>섬유에 남아 있던 악취 원인 물질을 포획합니다. (포획: 폴리옥시에틸렌계)</li>
+<li><b>중화해 원인부터 줄입니다.</b><br>포획한 악취 분자를 중화해, 가리는 대신 원인을 제거합니다. (중화: 시트러스계 중화 성분)</li>
+<li><b>최대 24시간 이어집니다.</b><br>한 번 분사로 최대 24시간, 자주 덧뿌리지 않아도 탈취 효과가 이어집니다.</li>
+</ol>
+<p class="fn">* 기전 표기는 POD 확정 범위(포획: 폴리옥시에틸렌계 | 중화: 시트러스) 내 사용, 지면 노출 문안은 '악취 분자를 포획하고 중화' 우선</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 원리 4 STEP 도해(섬유 도달 → 포획 → 중화 → 지속)</span></div>
+<p class="memo">AI 초안 — STEP 문장은 기존 4단 도식 라벨(탈취 성분 분사·악취 분자 포획·중화 반응·악취 원인 저감)과 본문 문안을 이염방지시트 원리 STEP 형식으로 풀어 쓴 것. 새 기전 주장 없음, 연구소 감수 필요</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">3대 악취 물질 99% 탈취¹⁾<br>시험으로 검증했습니다.</p>
+<div class="tbl-wrap"><table><thead><tr><th>시험 대상</th><th>대표 냄새</th><th>결과</th></tr></thead>
+<tbody><tr><td>에데닐피리딘</td><td>담배 냄새</td><td>99% (확정 수치 기입)</td></tr>
+<tr><td>암모니아</td><td>땀·체취</td><td>99% (확정 수치 기입)</td></tr>
+<tr><td>트리메틸아민</td><td>비린내</td><td>99% (확정 수치 기입)</td></tr></tbody></table></div>
+<div class="brief"><p><b>[VISUAL]</b>KATRI 성적서 실물 컷, 표 옆</p><p><b>[PROOF]</b>KATRI 성적서 실물, 수치 바로 옆 배치</p></div>
+<div class="pt">POINT 02</div>
+<p class="hl2">2시간부터 24시간까지<br>확인했습니다.</p>
+<p class="body pb">분사 직후부터 2시간, 24시간 뒤까지 확인했습니다²⁾.<br>한 번 분사로 최대 24시간, 자주 덧뿌리지 않아도 탈취 효과가 이어집니다.</p>
+<p class="fn">1) KATRI, 시험방법·조건 확정 후 기입 | 2) 시험 조건 확정 후 기입</p>
+<div class="vid"><b>VIDEO 02 | 악취 포획 → 중화 모션그래픽</b><br>위 도식의 영상화. 캡션: "향으로 덮지 않습니다. 원인을 잡습니다."</div>
+<div class="vid"><b>VIDEO 03 | 2시간·24시간 성능 그래프 영상</b><br>시간별 탈취 성능 변화를 그래프 애니메이션으로. 성적서 수치와 1:1 일치 필수.</div>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">10</span>사용 편의</div>
+<p class="hl">계절에 따라<br>뿌리는 자리만 바꿔 주세요.</p>
+<div class="ba">
+<div class="bx"><b>여름철</b><span>냄새가 떠올라 천장에 뱁니다.<br>천장 쪽에 집중 분사</span></div>
+<div class="bx"><b>겨울철</b><span>냄새가 가라앉아 바닥에 뱁니다.<br>발매트 등 바닥 쪽에 집중 분사</span></div>
+</div>
+<p class="body">대용량 500ml로 시트·천장·발매트까지 구석구석 넉넉하게 사용할 수 있습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 차량 단면 일러스트: 여름 천장 / 겨울 바닥 분사 위치</span></div>
+<p class="memo">날씨별 분사 팁은 8/14 전달 PPT 자료 근거(기존 ※ 주의문을 사용 편의 섹션으로 승격)</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">11</span>사용법</div>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] STEP별 실사용 컷</span></div>
+<p class="hl2">효과적인 사용 방법</p>
+<ol class="steps">
+<li>시트·천장·발매트 등 냄새가 남는 섬유 표면에 분사해 주세요.</li>
+<li>환기 후 충분히 건조해 주세요.</li>
+<li>가죽·전자 기기에는 직접 분사하지 말아 주세요. (주의 문안 라벨 확정 후 기입)</li>
+</ol>
+<p class="hl2" style="margin-top:26px">어디에 뿌리면 되나요?</p>
+<ul class="ck faq">
+<li><b>섬유 표면에</b><span>시트·천장·발매트·카펫 등 냄새가 배는 섬유 표면에 분사해 주세요.</span></li>
+<li><b>가죽·전자 기기는 제외</b><span>가죽·전자 기기에는 직접 분사하지 말아 주세요.</span></li>
+<li><b>공조 안쪽은 탈취캔으로</b><span>손이 닿지 않는 에어컨 공조 안쪽은 마스터 차량용 탈취캔으로 함께 관리해 주세요.</span></li>
+</ul>
+<p class="memo">사용법·주의사항 원문은 라벨 확정본 기준 최종 반영 | HOLD: '차량용 탈취제 중 유일' 등 조사 범위 미확인 표현, 서비스 복합 공정 저감률 전환 수치</p>
+</section>
+
+<section class="s">
+<div class="lab">함께 쓰면 좋은 제품</div>
+<div class="verify"><span>✔ 실제 차량 환경 반복 테스트</span><span>✔ 공인시험기관 성능 검증</span><span>✔ 차량 실내 사용 환경 성분 검증</span></div>
+<p class="hl">원단 깊이 밴 냄새는 전문탈취제로<br>공조 안쪽은 탈취캔으로</p>
+<p class="body">시트의 냄새를 관리했다면,<br>공조 안쪽과 습기가 남아 있습니다.</p>
+<ul class="lu">
+<li><i>01</i><span><b>살균소독제</b><br>✔ 반복 접촉하는 차량 실내 표면의 살균 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>02</i><span><b>다용도 살균클리닝 티슈</b><br>✔ 눈에 보이는 생활 오염을 닦으면서 살균·세정<br><span class="more">→ 구매하러 가기</span></span></li>
+<li class="me"><i>03</i><b>마스터 차량용 전문탈취제</b></li>
+<li><i>04</i><span><b>마스터 차량용 탈취캔</b><br>✔ 손이 닿지 않는 공조 안쪽의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>05</i><span><b>슬림형 탈취제습제</b><br>✔ 공기가 잘 돌지 않는 차량 실내의 습기·냄새 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+</ul>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 제품 5종 나란히 연출 컷(전문탈취제 중앙)</span></div>
+</section>
+
+<section class="s">
+<div class="lab">SPEC</div>
+<table><tbody>
+<tr><td style="width:30%">제품명</td><td>세스코 마이랩 카케어 마스터 차량용 전문탈취제</td></tr>
+<tr><td>용량 | 제형</td><td>500 ml | 분무형</td></tr>
+<tr><td>향</td><td>무향 (인공향료 무첨가, 라벨 확정 표기 기준)</td></tr>
+<tr><td>품목</td><td>탈취제: 자동차용(실내용), 일반용(물체용·실내공간용)</td></tr>
+<tr><td>전성분</td><td>라벨 확정본 원문 기준</td></tr>
+<tr><td>판매가</td><td>(확정 후 기입)</td></tr>
+</tbody></table>
+</section>
+
+<section class="s legal">
+<div class="lab"><span class="n">12</span>법정 고정 블록</div>
+<div class="blk"><b>사용방법</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>사용상 주의사항</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>응급처치</b>확정 문안 원문 삽입</div>
+<p class="memo">생활화학제품(탈취제)형 3블록 | 어미까지 수정 금지</p>
+<div class="imgslot">무이자 할부 안내 (토스페이먼츠 당월 무이자할부, 공통 확정 문안 삽입)</div>
+</section>
+</section>
+<section class="doc" id="doc04">
+<div class="doct">세스코 마이랩 카케어 04 | 마스터 차량용 탈취캔 | 개별 상세페이지</div>
+
+<section class="cover">
+<div class="row"><b>CESCO Mylab</b><span>세스코 과학연구소를 내 손 안으로</span></div>
+<div class="en">MASTER CAR DEODORIZING FOGGER<small>영문명 · 패키지 확정 표기 기준 (현재 제안값)</small></div>
+<div class="brand">세스코 마이랩</div>
+<div class="pname">마스터 차량용 탈취캔</div>
+<div class="spec">150 ml | 전량 분사형 | 무향 <span class="hold">(용량·제형 표기는 라벨 확정 기준)</span></div>
+<div class="badges"><span class="bd"><i class="ico" data-i="lab"></i>CESCO SCIENCE 생활과학 연구소 LABORATORY</span></div>
+<div class="mark">* 생활과학 연구소 마크는 법적인증마크나 업계자율마크가 아닌 제품정보 인식을 위한 기업자가 마크입니다</div>
+<div class="slot"><i class="ico" data-i="img"></i><div>[VISUAL] 실험실 배경 제품 연출 컷(마이랩 커버 공통) · [PROOF] 없음</div></div>
+</section>
+
+<section class="s stmt">
+<div class="lab">브랜드 스테이트먼트</div>
+<div class="k">세스코가 만든 차량 위생 솔루션</div>
+<div class="logo">CESCO Mylab <span>Car Hygiene Program</span></div>
+<p>집처럼 매일 머무는 공간, 차 안.<br>50여 년 공간 위생을 관리해온 세스코가<br>차량 실내까지 관리 범위를 넓혔습니다.</p>
+<p>손이 닿는 곳, 냄새가 배는 곳, 공기가 흐르는 곳.<br>위치마다 다른 문제를 실제 차량에서 확인하고<br>관리 방법을 다섯 가지로 나눴습니다.</p>
+<p>세스코 과학연구소의 차량 위생 기준을<br>한 통에 통째로 담은</p>
+<div class="logo2">CESCO Mylab <span>Car Hygiene Program</span></div>
+</section>
+
+<section class="s prop">
+<div class="lab"><span class="n">03</span>연구소 제안문</div>
+<p class="t">세스코 생활과학 연구소에서<br>손이 닿지 않는 에어컨·히터 내부부터<br>차량 곳곳의 사각지대까지<br>인공향료 없이 빠르게 확산되어<br><b>숨은 악취¹⁾도 강력하게 탈취해 주는</b><br>차량 전문 탈취캔을 제안합니다.</p>
+<ul>
+<li>손이 닿지 않는 에어컨 안쪽까지 바람 타고 탈취</li>
+<li>불연성 충전 가스 · 호주 밀 유래 에탄올 · 인공향료 무첨가²⁾</li>
+<li>악취 원인 물질 99% 초과 탈취³⁾ · 최대 24시간 지속</li>
+</ul>
+<p class="fn">1) 각주 원문은 라벨 확정본 기준으로 기입 | 2) 각주 문안 확정 후 기입 | 3) 암모니아·트리메틸아민 | KATRI, 2시간·24시간 시험 조건 확정 후 기입</p>
+<p class="memo">제안문은 라벨 원문(어미까지 수정 금지). 효익 3불릿은 3연·아이콘 문안에서 추출</p>
+</section>
+
+<section class="s">
+<div class="lab">WHY · 차량용 탈취캔, 왜 필요할까요?</div>
+<div class="bubbles">
+<p><i class="ico" data-i="wind"></i>"에어컨을 켤 때마다 쿰쿰한 냄새가 올라와요."</p>
+<p><i class="ico" data-i="car"></i>"공조 안쪽은 닦을 수가 없는데, 어떻게 관리하죠?"</p>
+<p><i class="ico" data-i="scentoff"></i>"향으로 덮는 제품은 오히려 머리가 아파요."</p>
+<p><i class="ico" data-i="flameoff"></i>"여름 차 안은 뜨거운데, 캔 제품을 둬도 괜찮을까요?"</p>
+</div>
+<p class="hl">손이 닿지 않는 에어컨 공조 안쪽은<br>공기 흐름으로 관리해야 합니다.</p>
+<p class="body">세스코는 차량 실내를 33개의 위생 관리 포인트로 나눠 관리합니다.<br>자동차 에어컨 안쪽은 좁고 긴 통로가 구불구불하게 이어진 형태입니다.<br>어둡고 축축한 데다 손도 잘 닿지 않아서 냄새가 머물기 쉬운 구조입니다.</p>
+<p class="hl2">그래서 세스코는 공기 흐름을 타고 깊숙이 들어가는<br>마스터 차량용 탈취캔을 만들었습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 말풍선 4연 일러스트(송풍구·공조 덕트·향·온도계 아이콘) + 순환 모드로 작동 중인 실차 연출 컷</span></div>
+<p class="memo">AI 초안 — 말풍선 4문장은 본문 근거(공조 냄새 / 닦을 수 없는 구조 / 인공향료 배제 / 여름철 고온·불연성 충전 가스) 범위에서 작성</p>
+</section>
+
+<section class="s c3">
+<div class="lab">3 CHECK</div>
+<div class="head"><h3>세스코 전문 연구원의 맞춤 위생 솔루션</h3><span class="badge"><i class="ico" data-i="lab"></i>CESCO SCIENCE 생활과학 연구소 LABORATORY</span></div>
+<p class="lead">세스코 마스터 차량용 탈취캔은 무엇이 다를까요?</p>
+<p class="body">밀폐된 차 안에서 전량 분사되는 캔이니까,<br>입자 크기와 충전 가스, 유효성분 함량까지 깐깐하게 설계했습니다.</p>
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>차량 공조의 공기 흐름까지 연구해 깊숙이 들어가는 미세입자로 설계하고<br>불연성 충전 가스와 호주 밀 유래 에탄올, 인공향료 무첨가²⁾로 처방</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>실제 차량 환경에서 반복 테스트하고<br>사계절 온도 조건에서 함량별 지속 시간까지 확인</span></li>
+<li><b>강력하게 기능하도록</b><span>탈취 유효성분을 고함량으로 채워 악취 원인 물질 99% 초과 탈취¹⁾<br>한 번 사용으로 최대 24시간 지속</span></li>
+</ul>
+<p class="fn">1) 암모니아·트리메틸아민 | KATRI, 2시간·24시간 시험 조건 확정 후 기입 | 2) 각주 문안 확정 후 기입</p>
+</section>
+
+<section class="s">
+<div class="lab">AT A GLANCE · 한눈에 보는 마스터 차량용 탈취캔</div>
+<div class="icons">
+<div class="it"><div class="c"><i class="ico" data-i="wind"></i></div><div class="ia">에어컨 안쪽 숨은 냄새</div><div class="ib">바람 타고 탈취</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="pct"></i></div><div class="ia">유효성분 고함량</div><div class="ib">99% 초과 탈취¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="clock"></i></div><div class="ia">한 번 사용</div><div class="ib">최대 24시간 지속¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="flameoff"></i></div><div class="ia">불연성</div><div class="ib">충전 가스</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="scentoff"></i></div><div class="ia">인공향료</div><div class="ib">무첨가²⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="wheat"></i></div><div class="ia">호주 밀 유래 에탄올</div><div class="ib">얼룩 없이 증발</div></div>
+</div>
+<p class="fn">알레르기반응가능물질·가습기 4종 불검출은 성분 설명서에서 상세</p>
+</section>
+<section class="s proof">
+<div class="lab">제품 개발 연구원 INTERVIEW</div>
+<p class="hl">에어컨 공조의 공기 흐름까지 연구한<br>연구원이 만들었습니다.</p>
+<div class="pcards">
+<div class="pc"><b># 개발 배경</b><p>국내 대형 렌터카·중고차 기업이 자체 클리닝으로 해결되지 않던 차량 위생과 악취 문제를 세스코에 맡겼습니다. 실제 차량에서 냄새 성분을 분석하고 네 차례 저감 테스트를 거쳐 만든 공정의 기술을, 누구나 쓸 수 있는 카케어로 만들었습니다.</p></div>
+<div class="pc"><b># 검증</b><p>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트하고, 사계절 온도 변화 조건에서 탈취 성능과 함량별 지속 시간을 확인했습니다.</p></div>
+<div class="pc quote"><b># 설계</b><p>❝ 유효성분 함량이 낮으면 탈취가 제대로 이뤄지지 않고 지속 시간도 짧아요. 그래서 함량별 지속 시간을 테스트해 가장 효과적인 비율로 설계했습니다.</p></div>
+</div>
+<div class="who"><i class="ico" data-i="person"></i>세스코 생활과학 연구소 연구원 (성명 확정 후 기입)</div>
+<div class="brief"><p><b>[VISUAL]</b>연구원 인터뷰 컷(실험실 또는 실차 앞) 또는 연구일지·실차 시료 배치 실측 컷(8/14 전달 PPT 자료, 마스킹 후)</p><p><b>[PROOF]</b>개발 배경은 신규사업 보고(260416) 근거 · 기업명은 제휴 승인 전 비특정 표기</p></div>
+<p class="memo">코퍼스 관행: 아이콘 6종 직후 사회적 검증(39 살균클리닝 티슈 = 컨설턴트 300명 만족도 92.9% · #성분 #효과 #사용감 / 14·15 = "제품 개발 연구원 INTERVIEW"). 신제품이라 리뷰·만족도 조사가 없어 연구원 INTERVIEW 3카드(#개발 배경 · #검증 · #설계)로 대체. 중복 방지: 챕터 01 POINT 03의 연구원 보이스 블록은 이 섹션으로 이동(삭제). 출시 전 내부 전문가 평가 확보 시 39 형식(만족도 %)으로, 출시 후 리뷰 축적 시 기름때세정제 형식(평균 만족도 + 실명 리뷰)으로 교체</p>
+</section>
+
+<section class="s">
+<div class="lab">CESCO CAR CARE · DETAIL</div>
+
+<div class="ch"><div class="no">01</div><div class="tt">☑ 엄격한 기준으로</div><div class="sub">공조 공기 흐름 연구 · 미세입자 설계</div></div>
+<p class="hl">좁고 긴 공조 통로 속<br>공기 흐름까지 집요하게 연구했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 송풍구에서 미세입자가 나오는 연출 컷</span></div>
+<p class="hl2">닦을 수 없는 에어컨 안쪽,<br>탈취 성분은 어떻게 들어갈까요?</p>
+<p class="body">탈취 성분이 안쪽 깊숙한 곳까지 닿도록<br>입자는 미세하게, 함량은 높게 설계했습니다.<br>순환 모드를 설정하고 탈취캔을 작동하면<br>바람이 지나는 길을 따라 탈취 성분이 깊숙한 곳까지 이동해 냄새의 근본 원인을 제거합니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">세스코 탈취캔,<br>어떤 경로로 공조 안쪽까지 갈까요?</p>
+<ol class="steps">
+<li><b>탈취캔을 작동합니다.</b><br>공조를 순환 모드로 켜고 캔을 작동하면 미세입자가 차 안에 퍼집니다.</li>
+<li><b>미세입자가 공기 흐름을 따라 이동합니다.</b><br>순환되는 공기를 따라 공조 순환로 안쪽까지 이동합니다.</li>
+<li><b>송풍구까지 순환합니다.</b><br>손이 닿지 않는 구간을 지나 송풍구로 나오며, 지나는 길의 표면에 흡착되어 탈취 반응이 이어집니다.</li>
+</ol>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 원리 3 STEP 도해(작동 → 공조 순환로 탑승 → 송풍구) · 실차 촬영 + 경로 오버레이 또는 원리 도식 영상 권장</span></div>
+<p class="memo">AI 초안 — STEP 문장은 기존 도식 라벨(탈취캔 작동 → 공조 순환로 → 송풍구)과 연구소 답변·흡착 문안을 풀어 쓴 것. 새 주장 없음, 연구소 감수 필요</p>
+<div class="vid"><b>VIDEO 01 | 캔 작동 → 미세입자 → 공조 순환</b><br>제품 작동 → 공조 순환 → 송풍구를 통한 이동을 실제 촬영 또는 원리 도식으로. 캡션: "손이 닿지 않는 곳까지, 공기가 데려다줍니다."</div>
+<p class="memo">내장재 시험 소구 게재 보류 — 담당 부서 "탈취캔 내장재 시험 미진행" 제보. 2026-08-21 재확인 요청: 지면에서 원단·내장재 시험 문구 전부 제외(☑ 항목 삭제), 성적서 실물 확인 전까지 복원 금지. 신규사업 보고(260416) 7p 소재별 시험의 대상 제품·성적서 확인 후 게재 여부 확정 | 개발 배경(렌터카 악취차 공정 내 공조 케어 담당)은 통합본 DEVELOPMENT에</p>
+
+<div class="pt">POINT 02</div>
+<p class="hl2">여름철 차 안 온도를 고려해<br>불연성 충전 가스를 썼습니다.</p>
+<p class="body pb">차량 실내는 여름철 온도가 크게 오르는 공간입니다.<br>안전성을 고려해 냉매제로 쓰이는 불연성 충전 가스를 사용했습니다.</p>
+<div class="pt">POINT 03</div>
+<p class="hl2">얼룩 없이 증발하는<br>호주 밀 유래 에탄올로 처방했습니다.</p>
+<p class="body pb">호주 밀 유래 에탄올 처방이라<br>차 안에 얼룩 없이 빠르게 증발하고,<br>녹차·페퍼민트잎 추출물이 탈취에 도움을 줍니다.</p>
+<div class="pt">POINT 04</div>
+<p class="hl2">향으로 덮지 않는 처방으로<br>만들었습니다.</p>
+<p class="body pb">냄새 위에 향을 덮는 방식이 아니라, 악취 원인 물질을 잡는 방식입니다.<br>알레르기를 유발할 수 있는¹⁾ 인공향료를 배제해<br>아이나 반려동물 동승차에서도 사용할 수 있습니다.</p>
+<div class="ch"><div class="no">02</div><div class="tt">☑ 까다로운 검증을 거쳐</div><div class="sub">불연성 충전 가스 · 인공향료 무첨가 · 불검출</div></div>
+<p class="hl">밀폐된 차 안에서 전량 분사되는 캔이니까,<br>성분부터 실제 차량까지 확인했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 여름 햇빛 아래 차량 실내 연출 컷</span></div>
+<div class="pt">POINT 01</div>
+<p class="hl2">들어간 것과 들어가지 않은 것, 둘 다 확인했습니다.</p>
+<div class="ing">
+<h4>세스코 생활과학 연구소의 깐깐한 성분 설명서</h4>
+<table><thead><tr><th>들어있어요</th><th>들어있지 않아요 · 불검출</th></tr></thead>
+<tbody><tr><td>✓ 호주 밀 유래 에탄올<br>✓ 녹차·페퍼민트잎 추출물<br>✓ 불연성 충전 가스 (냉매용)</td><td>☐ 알레르기 반응 가능 물질<br>☐ 파라벤류 7종<br>☐ 형광증백제<br>☐ 가습기 이슈 성분 4종²⁾</td></tr></tbody></table>
+<p class="fn">1) 각주 문안 확정 후 기입 | 2) MIT, CMIT, DDAC, BKC | 시험기관: KATRI</p>
+</div>
+<div class="brief"><p><b>[PROOF]</b>불검출 성적서(KATRI) | 표기 문안은 라벨 확정 범위 내</p></div>
+<p class="memo">타사 성분 지적 표현 외부 사용 금지 | 무향이나 케미컬 취 있을 수 있음 — 라벨·FAQ에서 안내</p>
+
+<div class="pt">POINT 02</div>
+<p class="hl2">실제 차량에서 확인했습니다.</p>
+<ul class="cl"><li>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트</li><li>사계절 온도 변화 조건에서 탈취 성능 검증</li></ul>
+<div class="ch"><div class="no">03</div><div class="tt">☑ 강력하게 기능하도록</div><div class="sub">99% 초과 탈취 · 최대 24시간 지속</div></div>
+<p class="hl">유효성분을 고함량으로 채워,<br>강력한 탈취가 최대 24시간 이어집니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 실제 사용 장면(실차 촬영 컷)</span></div>
+<p class="hl2">탈취 효과가 금방 사라지는 이유,<br>알고 계셨나요?</p>
+<p class="body pb">유효성분 함량이 낮으면 탈취가 약해지고 지속 시간도 짧아집니다.<br>미세입자가 내장재와 공조 순환로 표면에 흡착되어<br>탈취 반응이 이어지도록 고함량으로 채웠습니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">악취 원인 물질 99% 초과 탈취¹⁾<br>시험으로 검증했습니다.</p>
+<div class="tbl-wrap"><table><thead><tr><th>시험 대상</th><th>대표 냄새</th><th>결과</th></tr></thead>
+<tbody><tr><td>암모니아</td><td>땀·오줌 냄새</td><td>99% 초과 (확정 수치 기입)</td></tr>
+<tr><td>트리메틸아민</td><td>비린내</td><td>99% 초과 (확정 수치 기입)</td></tr></tbody></table></div>
+<p class="body">분사 직후만이 아니라<br>2시간, 24시간 뒤까지 확인했습니다¹⁾.</p>
+<p class="fn">1) KATRI | 2시간·24시간 시험 조건 확정 후 기입</p>
+<div class="brief"><p><b>[VISUAL]</b>KATRI 성적서 실물 컷, 표 옆</p><p><b>[PROOF]</b>KATRI 성적서 실물</p></div>
+<div class="pt">POINT 02</div>
+<p class="hl2">공조 순환 사용 방식 그대로<br>확인했습니다.</p>
+<ul class="cl"><li>공조 순환 조건의 사용 방식 기준 검증</li><li>한 번 사용으로 최대 24시간 지속¹⁾</li></ul>
+<div class="vid"><b>VIDEO 02 | 24시간 성능 타임라인</b><br>2시간·24시간 성능 변화를 타임라인 그래픽으로. 성적서 수치와 1:1 일치 필수.</div>
+<div class="vid"><b>VIDEO 03 | 함량별 지속시간 비교 실험</b><br>함량별 지속 시간 테스트 자료가 실제로 확보된 경우에만 영상화. 미확보 시 연구원 인터뷰 코멘트로 대체.</div>
+<p class="memo">타사 비교 서술('저함량 제품은 급감')은 비교광고 검토 전 사용 금지, 자사 설계 서사로만</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">10</span>사용 편의</div>
+<p class="hl">계절이 바뀔 때는 물론,<br>냄새가 느껴질 때마다.</p>
+<div class="dose">
+<div class="d"><span class="sw" style="background:#e9eef7;display:flex;align-items:center;justify-content:center;color:#1a3668"><i class="ico" data-i="wind"></i></span><b>계절이 바뀔 때</b><span>에어컨 ↔ 히터 전환 시점</span></div>
+<div class="d"><span class="sw" style="background:#e9eef7;display:flex;align-items:center;justify-content:center;color:#1a3668"><i class="ico" data-i="nose"></i></span><b>냄새가 느껴질 때</b><span>차 안 꿉꿉한 냄새</span></div>
+<div class="d"><span class="sw" style="background:#e9eef7;display:flex;align-items:center;justify-content:center;color:#1a3668"><i class="ico" data-i="car"></i></span><b>장거리 여행 뒤</b><span>온 가족 여행을 다녀온 뒤</span></div>
+</div>
+<p class="body">한 번으로 끝내지 말고, 주기적으로 관리해 주세요.</p>
+<p class="memo">금지 유지: '2~3개월마다' '월 1회' 등 숫자형 사용 주기 표기 금지 | PDF 피드백 원칙이 POD 기재보다 우선 | 사용 시점 소구는 위 3개 상황형으로만</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">11</span>사용법</div>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] STEP별 실사용 컷</span></div>
+<p class="hl2">효과적인 사용 방법</p>
+<ol class="steps">
+<li>입·피부에 닿을 수 있는 물건은 미리 빼놓아 주세요.</li>
+<li>공조를 순환 모드로 켜고 캔을 작동해 주세요. (작동 방식·모드 표기는 라벨 확정 후 기입)</li>
+<li>분사가 끝날 때까지 차량 외부에서 기다려 주세요.</li>
+<li>시트에 직접 분사되지 않게 주의하고, 액체가 튀었으면 휴지나 타월로 닦아 주세요.</li>
+</ol>
+<p class="hl2" style="margin-top:26px">사용 전에 확인해 주세요</p>
+<ul class="ck faq">
+<li><b>미리 빼놓기</b><span>입·피부에 닿을 수 있는 물건은 미리 빼놓아 주세요.</span></li>
+<li><b>순환 모드</b><span>공조를 순환 모드로 켜야 미세입자가 공조 안쪽까지 이동합니다.</span></li>
+<li><b>차량 외부 대기</b><span>분사가 끝날 때까지 차량 외부에서 기다려 주세요.</span></li>
+</ul>
+<p class="memo">사용법·주의사항 원문은 라벨 확정본 기준 최종 반영</p>
+</section>
+
+<section class="s">
+<div class="lab">함께 쓰면 좋은 제품</div>
+<div class="verify"><span>✔ 실제 차량 환경 반복 테스트</span><span>✔ 공인시험기관 성능 검증</span><span>✔ 차량 실내 사용 환경 성분 검증</span></div>
+<p class="hl">공조 안쪽은 탈취캔으로<br>원단 깊이 밴 냄새는 전문탈취제로</p>
+<p class="body pb">공조 안쪽을 관리했다면,<br>시트에 남은 냄새는 다른 방식이 필요합니다.</p>
+<ul class="lu">
+<li><i>01</i><span><b>살균소독제</b><br>✔ 반복 접촉하는 차량 실내 표면의 살균 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>02</i><span><b>다용도 살균클리닝 티슈</b><br>✔ 눈에 보이는 생활 오염을 닦으면서 살균·세정<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>03</i><span><b>마스터 차량용 전문탈취제</b><br>✔ 시트·천장 등 섬유에 남은 담배 냄새·체취의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li class="me"><i>04</i><b>마스터 차량용 탈취캔</b></li>
+<li><i>05</i><span><b>슬림형 탈취제습제</b><br>✔ 공기가 잘 돌지 않는 차량 실내의 습기·냄새 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+</ul>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 제품 5종 나란히 연출 컷(탈취캔 중앙)</span></div>
+</section>
+
+<section class="s">
+<div class="lab">SPEC</div>
+<table><tbody>
+<tr><td style="width:30%">제품명</td><td>세스코 마이랩 카케어 마스터 차량용 탈취캔</td></tr>
+<tr><td>용량 | 제형</td><td>150 ml | 전량 분사형 (라벨 확정 표기 기준)</td></tr>
+<tr><td>향</td><td>무향 (인공향료 무첨가)</td></tr>
+<tr><td>품목</td><td>탈취제: 자동차용(실내용) 등 (확정 후 기입)</td></tr>
+<tr><td>충전 가스</td><td>불연성 (라벨 확정 표기 기준)</td></tr>
+<tr><td>판매가</td><td>(확정 후 기입)</td></tr>
+</tbody></table>
+</section>
+
+<section class="s legal">
+<div class="lab"><span class="n">12</span>법정 고정 블록</div>
+<div class="blk"><b>사용방법</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>사용상 주의사항</b>확정 문안 원문 삽입 — 충전가스 표기 포함</div>
+<div class="blk"><b>응급처치</b>확정 문안 원문 삽입</div>
+<p class="memo">생활화학제품(탈취제)형 3블록 | 어미까지 수정 금지</p>
+<div class="imgslot">무이자 할부 안내 (토스페이먼츠 당월 무이자할부, 공통 확정 문안 삽입)</div>
+</section>
+</section>
+<section class="doc" id="doc05">
+<div class="doct">세스코 마이랩 카케어 05 | 슬림형 탈취제습제 | 개별 상세페이지</div>
+
+<section class="cover">
+<div class="row"><b>CESCO Mylab</b><span>세스코 과학연구소를 내 손 안으로</span></div>
+<div class="en">SLIM CAR DEHUMIDIFIER &amp; DEODORIZER<small>영문명 · 패키지 확정 표기 기준 (현재 제안값)</small></div>
+<div class="brand">세스코 마이랩</div>
+<div class="pname">슬림형 탈취제습제</div>
+<div class="spec">용량 | 수량 <span class="hold">(확정 후 기입)</span></div>
+<div class="badges"><span class="bd"><i class="ico" data-i="lab"></i>CESCO SCIENCE 생활과학 연구소 LABORATORY</span></div>
+<div class="mark">* 생활과학 연구소 마크는 법적인증마크나 업계자율마크가 아닌 제품정보 인식을 위한 기업자가 마크입니다</div>
+<div class="slot"><i class="ico" data-i="img"></i><div>[VISUAL] 실험실 배경 제품 연출 컷(마이랩 커버 공통) · [PROOF] 없음</div></div>
+</section>
+
+<section class="s stmt">
+<div class="lab">브랜드 스테이트먼트</div>
+<div class="k">세스코가 만든 차량 위생 솔루션</div>
+<div class="logo">CESCO Mylab <span>Car Hygiene Program</span></div>
+<p>집처럼 매일 머무는 공간, 차 안.<br>50여 년 공간 위생을 관리해온 세스코가<br>차량 실내까지 관리 범위를 넓혔습니다.</p>
+<p>손이 닿는 곳, 냄새가 배는 곳, 공기가 흐르는 곳.<br>위치마다 다른 문제를 실제 차량에서 확인하고<br>관리 방법을 다섯 가지로 나눴습니다.</p>
+<p>세스코 과학연구소의 차량 위생 기준을<br>한 통에 통째로 담은</p>
+<div class="logo2">CESCO Mylab <span>Car Hygiene Program</span></div>
+</section>
+
+<section class="s prop">
+<div class="lab"><span class="n">03</span>연구소 제안문</div>
+<p class="t">세스코 생활과학 연구소에서<br>시트 사이, 컵홀더, 콘솔 박스 등<br>틈새에도 쏙 들어가는 슬림한 사이즈로<br><b>차량 구석구석의 습기와 냄새를<br>빠짐없이 관리해 주는</b><br>슬림형 탈취제습제를 제안합니다.</p>
+<ul>
+<li>중량 대비 400% 흡습¹⁾</li>
+<li>흡습 후 물이 아니라 겔로 고정</li>
+<li>하중 300kg · 온도 60℃ 테스트 완료²⁾</li>
+</ul>
+<p class="fn">1) 시험 조건·시험기관 확정 후 기입 | 2) 시험 조건 확정 후 기입, 겨울철 저온 조건은 추가 테스트 문의 중</p>
+<p class="memo">제안문은 라벨 원문(어미까지 수정 금지, 제품명 라벨 일치). 효익 3불릿은 3연 문안에서 추출</p>
+</section>
+
+<section class="s">
+<div class="lab">WHY · 차량용 탈취제습제, 왜 필요할까요?</div>
+<div class="bubbles">
+<p><i class="ico" data-i="drop"></i>"장마철만 되면 차 안이 눅눅하고 쿰쿰해요."</p>
+<p><i class="ico" data-i="box"></i>"젖은 우산이랑 신발 때문에 매트가 마르질 않아요."</p>
+<p><i class="ico" data-i="gel"></i>"제습제를 차에 두면 물이 쏟아지거나 터질까 봐 걱정돼요."</p>
+<p><i class="ico" data-i="drop"></i>"겨울에도 유리에 김이 서리고 꿉꿉해요. 여름에만 쓰면 되는 건가요?"</p>
+</div>
+<p class="hl">공기가 잘 돌지 않아 습기가 남는 곳은<br>장마철만이 아니라 사계절 내내 관리해야 합니다.</p>
+<p class="body">장마철이나 눈·비 오는 날, 지하 주차장에서 유입되는 습기는<br>곰팡이와 미생물이 자라기 좋은 환경을 만듭니다.<br>좌석 밑, 도어 포켓처럼 공기가 정체된 자리는 습도가 오르기 쉽습니다.<br>겨울에도 안팎 온도차로 유리와 내장재에 결로가 생깁니다.</p>
+<p class="hl2">그래서 세스코는 사계절 상시 배치를 기준으로<br>슬림형 탈취제습제를 만들었습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 말풍선 4연 일러스트(빗방울·우산과 신발·쏟아지는 물·결로 아이콘) + 시트 아래 배치 연출 컷</span></div>
+<p class="memo">AI 초안 — 말풍선 4문장은 본문 근거(장마철 꿉꿉함 / 신발·우산 주변 습기 / 겔 고정 구조 / 겨울 결로) 범위에서 작성 | '우산 뒤' 표현 금지(흡습면 노출 원칙)</p>
+</section>
+
+<section class="s c3">
+<div class="lab">3 CHECK</div>
+<div class="head"><h3>세스코 전문 연구원의 맞춤 위생 솔루션</h3><span class="badge"><i class="ico" data-i="lab"></i>CESCO SCIENCE 생활과학 연구소 LABORATORY</span></div>
+<p class="lead">세스코 슬림형 탈취제습제는 무엇이 다를까요?</p>
+<p class="body">서 있는 시간이 길고, 달릴 땐 흔들리는 차 안에 두는 제품이니까<br>흡습한 다음의 구조부터 하중·온도 조건까지 검증했습니다.</p>
+<ul class="ck">
+<li><b>엄격한 기준으로</b><span>흡습한 수분이 물이 아니라 겔로 굳는 구조로<br>흔들리는 차량 환경까지 고려해 설계</span></li>
+<li><b>까다로운 검증을 거쳐</b><span>겉 봉지가 터지지 않는지, 흡습액이 새지 않는지는 물론<br>하중 300kg·온도 60℃까지 테스트 완료²⁾</span></li>
+<li><b>강력하게 기능하도록</b><span>중량 대비 400% 흡습¹⁾에<br>곰팡이 증식 억제와 불쾌취 유발 성분 제거 도움³⁾까지</span></li>
+</ul>
+<p class="fn">1) 시험 조건·시험기관 확정 후 기입 | 2) 시험 조건 확정 후 기입, 겨울철 저온 조건은 추가 테스트 문의 중 | 3) 이소발레릭산(발냄새)·암모니아(땀·오줌 냄새)·트리메틸아민(비린내), 확정 수치 기입</p>
+</section>
+
+<section class="s">
+<div class="lab">AT A GLANCE · 한눈에 보는 슬림형 탈취제습제</div>
+<div class="icons">
+<div class="it"><div class="c"><i class="ico" data-i="drop"></i></div><div class="ia">습기와 냄새</div><div class="ib">동시 관리</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="pct"></i></div><div class="ia">중량 대비</div><div class="ib">400% 흡습¹⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="gel"></i></div><div class="ia">흡습 후</div><div class="ib">겔로 고정</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="weight"></i></div><div class="ia">하중 300kg</div><div class="ib">터짐 걱정 없이²⁾</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="slim"></i></div><div class="ia">슬림 설계</div><div class="ib">구석구석 배치</div></div>
+<div class="it"><div class="c"><i class="ico" data-i="trash"></i></div><div class="ia">일반쓰레기</div><div class="ib">간편 배출</div></div>
+</div>
+</section>
+<section class="s proof">
+<div class="lab">제품 개발 연구원 INTERVIEW</div>
+<p class="hl">장마철 차 안 습기부터 확인한<br>연구원이 만들었습니다.</p>
+<div class="pcards">
+<div class="pc"><b># 개발 배경</b><p>국내 대형 렌터카·중고차 기업이 자체 클리닝으로 해결되지 않던 차량 위생과 악취 문제를 세스코에 맡겼습니다. 실제 차량에서 냄새 성분을 분석하고 네 차례 저감 테스트를 거쳐 만든 공정의 기술을, 누구나 쓸 수 있는 카케어로 만들었습니다.</p></div>
+<div class="pc"><b># 검증</b><p>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트하고, 시트 아래·도어 포켓·트렁크 등 배치 위치별 조건과 하중·온도·흔들림까지 확인했습니다.</p></div>
+<div class="pc quote"><b># 설계</b><p>❝ 차 안 습기는 여름 장마에만 생기지 않아요. 겨울엔 안팎 온도차로 유리와 내장재에 결로가 생기죠. 그래서 사계절 상시 배치를 기준으로 설계했습니다.</p></div>
+</div>
+<div class="who"><i class="ico" data-i="person"></i>세스코 생활과학 연구소 연구원 (성명 확정 후 기입)</div>
+<div class="brief"><p><b>[VISUAL]</b>연구원 인터뷰 컷(실험실 또는 실차 앞) 또는 연구일지·실차 시료 배치 실측 컷(8/14 전달 PPT 자료, 마스킹 후)</p><p><b>[PROOF]</b>개발 배경은 신규사업 보고(260416) 근거 · 기업명은 제휴 승인 전 비특정 표기</p></div>
+<p class="memo">코퍼스 관행: 아이콘 6종 직후 사회적 검증(39 살균클리닝 티슈 = 컨설턴트 300명 만족도 92.9% · #성분 #효과 #사용감 / 14·15 = "제품 개발 연구원 INTERVIEW"). 신제품이라 리뷰·만족도 조사가 없어 연구원 INTERVIEW 3카드(#개발 배경 · #검증 · #설계)로 대체. 중복 방지: 챕터 01 POINT 03의 연구원 보이스 블록은 이 섹션으로 이동(삭제). 출시 전 내부 전문가 평가 확보 시 39 형식(만족도 %)으로, 출시 후 리뷰 축적 시 기름때세정제 형식(평균 만족도 + 실명 리뷰)으로 교체</p>
+</section>
+
+<section class="s">
+<div class="lab">CESCO CAR CARE · DETAIL</div>
+
+<div class="ch"><div class="no">01</div><div class="tt">☑ 엄격한 기준으로</div><div class="sub">흡습 후 겔로 굳는 구조 · 슬림 설계</div></div>
+<p class="hl">흡습한 다음까지 생각해,<br>구조부터 설계했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 시트 아래에 하얀 면이 위로 놓인 배치 컷</span></div>
+<p class="hl2">차에 둔 제습제의 물이<br>급정거에 쏟아질 수 있다는 사실, 알고 계셨나요?</p>
+<p class="body">차는 서 있는 시간이 길고, 달릴 땐 흔들립니다.<br>흡습한 수분이 통 안에 물로 고이면<br>급정거나 기울어짐에 쏟아질 수 있습니다.<br>그래서 흡습 후 겔 형태로 굳는 구조로 만들었습니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">세스코 탈취제습제,<br>어떤 원리로 습기를 잡을까요?</p>
+<ol class="steps">
+<li><b>흡습합니다.</b><br>하얀 흡습면이 위로 오게 두면 공기 중 습기를 흡수합니다.</li>
+<li><b>겔로 고정합니다.</b><br>수분이 물로 고이지 않고 겔 형태로 굳어, 급정거나 기울어짐에도 쏟아지지 않습니다.</li>
+<li><b>간편하게 배출합니다.</b><br>내용물이 겔로 변하면 쏟아짐 없이 일반쓰레기로 배출하고 새 제품으로 교체합니다.</li>
+</ol>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 원리 3 STEP 도해(흡습 → 겔화 → 배출) + 흡습 전/겔화 후 실물 대조 컷</span></div>
+<div class="vid"><b>VIDEO 01 | 흡습 → 겔화 타임랩스</b><br>물이 차는 대신 겔로 굳는 과정을 직접 확인하세요.</div>
+<div class="pt">POINT 02</div>
+<p class="hl2">슬림 설계라<br>공기가 정체되는 자리에 쏙 들어갑니다.</p>
+<p class="body pb">시트 사이와 컵홀더, 콘솔 박스 틈새부터<br>시트 아래, 도어 포켓, 트렁크 구석까지.<br>하얀 흡습면이 위로 오게 두기만 하면 됩니다.</p>
+<div class="chips"><span>시트 사이</span><span>컵홀더</span><span>콘솔 박스 틈새</span><span>시트 아래</span><span>도어 포켓</span><span>트렁크 구석</span></div>
+<div class="pt">POINT 03</div>
+<p class="hl2">실제 차량에서 확인했습니다.</p>
+<ul class="cl"><li>국내 대형 렌터카·중고차 등 실제 차량 환경에서 반복 테스트</li><li>시트 아래·도어 포켓·트렁크 등 배치 위치별 사용 조건 확인</li><li>하중·온도·흔들림 등 차량 사용 조건 검증</li></ul>
+<p class="memo">폐기 방법 표기는 지자체 기준 문구 확인 후</p>
+
+<div class="ch"><div class="no">02</div><div class="tt">☑ 까다로운 검증을 거쳐</div><div class="sub">겉 봉지 강도 · 누액 방지 · 하중 300kg · 온도 60℃</div></div>
+<p class="hl">차 안에서 겪는 조건 그대로,<br>공인 테스트로 확인했습니다.</p>
+<div class="brief"><p><b>[VISIAL]</b>트렁크 짐 아래 배치 컷</p></div>
+<p class="hl2">차 안에 오래 두는 동안<br>제품은 어떤 조건을 견뎌야 할까요?</p>
+<p class="body pb">차 안에 오래 두는 동안 눌리고, 쏠리고, 기울어집니다.<br>겉 봉지가 터지지 않는지, 흡습액이 새지 않는지 공인 테스트로 확인했습니다.</p>
+<div class="pt">POINT 01</div>
+<p class="hl2">하중 300kg · 온도 60℃까지<br>시험으로 검증했습니다.</p>
+<div class="ba">
+<div class="bx"><div class="ph"><i class="ico" data-i="weight"></i></div><b>최대 하중 300kg 검증¹⁾</b><span>무거운 것 아래 두어도<br>터질 걱정 없이</span></div>
+<div class="bx"><div class="ph"><i class="ico" data-i="flameoff"></i></div><b>온도 60℃ 안정성 검증¹⁾</b><span>여름철 차량 실내 온도를 고려</span></div>
+</div>
+<ul class="cl"><li>흔들림·기울임 조건에서도 흡습액이 새지 않는지 확인¹⁾</li></ul>
+<p class="fn">1) 시험 조건·시험기관 확정 후 기입 | 겨울철 저온 조건은 추가 테스트 문의 중</p>
+<div class="brief"><p><b>[VISUAL]</b>하중·온도 시험 장면 컷 2장 + 시험 조건·기관 캡션</p><p><b>[PROOF]</b>시험 조건·기관 각주 필수 (자사시험이면 명기)</p></div>
+<div class="vid"><b>VIDEO 02 | 300kg 하중 테스트</b><br>제품 위에 하중을 올리는 실측 장면. 캡션: "무거운 짐 아래, 300kg까지 확인했습니다."</div>
+<div class="vid"><b>VIDEO 03 | 60℃ 환경 테스트 + 흔들림·기울임 누액 실험</b><br>여름철 차량 실내 조건 재현 + 주행 진동 재현 장면.</div>
+
+<div class="ch"><div class="no">03</div><div class="tt">☑ 강력하게 기능하도록</div><div class="sub">중량 대비 400% 흡습 · 불쾌취 유발 성분 제거 도움</div></div>
+<p class="hl">흡습력과 냄새까지,<br>수치로 확인했습니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 흡습 전/후 무게 비교 연출 컷</span></div>
+<div class="pt">POINT 01</div>
+<p class="hl2">흡습 성능,<br>수치로 확인했습니다.</p>
+<div class="cert"><div class="ring">중량 대비<br><b>400%</b>흡습</div><div><b>제품 무게의 4배에 해당하는 수분을 흡수합니다¹⁾</b><span>시험 조건·시험기관 확정 후 기입</span></div></div>
+<div class="pt">POINT 02</div>
+<p class="hl2">습기 관리와 악취 탈취를<br>동시에 합니다.</p>
+<div class="tbl-wrap"><table><thead><tr><th>불쾌취 유발 성분</th><th>대표 냄새</th></tr></thead>
+<tbody><tr><td>이소발레릭산</td><td>발냄새</td></tr><tr><td>암모니아</td><td>땀·오줌 냄새</td></tr><tr><td>트리메틸아민</td><td>비린내</td></tr></tbody></table></div>
+<p class="body">위 성분 제거에 도움을 주고²⁾,<br>곰팡이 증식 억제에 도움을 주어<br>장마철 젖은 시트·매트에서 나는 꿉꿉한 냄새를 줄입니다.</p>
+<p class="fn">1) 시험 조건·시험기관 확정 후 기입 | 2) 확정 수치·시험기관 기입</p>
+<div class="brief"><p><b>[PROOF]</b>흡습·탈취 시험 근거, 수치 옆 배치 (확정 후 삽입)</p></div>
+<p class="memo">표현 위계 유지: 흡습 400%=확정 수치 | 곰팡이·불쾌취=도움 표현까지만, '방지·차단' 단정 금지</p>
+</section>
+
+<section class="s ing">
+<div class="lab"><span class="n">09</span>성분 설명서</div>
+<h4>세스코 생활과학 연구소의 깐깐한 성분 설명서</h4>
+<table><thead><tr><th>들어있어요</th><th>들어있지 않아요 · 불검출</th></tr></thead>
+<tbody><tr><td>(성분 라벨 확정 후 기입)</td><td>☐ (불검출 시험 항목 확정 후 기입)</td></tr></tbody></table>
+<p class="memo">탈취제습제는 확정 불검출 소구가 없어 양쪽 모두 라벨·성적서 확정 후 기입 — 창작 금지. 확정 전 게시 시 이 섹션 제외 가능</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">10</span>사용 편의</div>
+<p class="hl">틈새에 쏙,<br>두기만 하면 끝.</p>
+<p class="body pb">시트 사이, 컵홀더, 콘솔 박스 틈새에도 들어가는 슬림한 사이즈.<br>하얀 흡습면이 위로 오게 두기만 하면 되고,<br>다 쓴 제품은 물 쏟아짐 없이 일반쓰레기로 간편하게 배출하면 됩니다.</p>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 시트 틈새 배치 컷 + 슬림 두께 비교 컷 (규격 확정 후 수치 표기)</span></div>
+<p class="memo">AI 초안 — 제안문·POINT 02·배출 문안 재조합. 규격 확정 후 두께·사이즈 병기</p>
+</section>
+
+<section class="s">
+<div class="lab"><span class="n">11</span>사용법</div>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] STEP별 실사용 컷 · 하얀 면이 위로 놓인 배치 컷 필수</span></div>
+<p class="hl2">효과적인 사용 방법</p>
+<ol class="steps">
+<li>시트 아래·도어 포켓·트렁크 등 공기가 정체되는 곳에 놓아 주세요.</li>
+<li>하얀 흡습면이 위로 오게 놓아 주세요. (흡습면이 공기에 노출되어야 합니다)</li>
+<li>내용물이 겔로 변하면 새 제품으로 교체하고, 일반쓰레기로 배출해 주세요.</li>
+</ol>
+<p class="hl2" style="margin-top:26px">어디에 두면 좋을까요?</p>
+<ul class="ck faq">
+<li><b>공기가 정체되는 곳</b><span>시트 아래·도어 포켓·트렁크 구석처럼 공기가 잘 돌지 않는 자리에 두세요.</span></li>
+<li><b>습기가 모이는 곳</b><span>젖은 신발 속, 젖은 우산 주변처럼 습기가 남는 자리에도 두세요.</span></li>
+<li><b>흡습면은 위로</b><span>하얀 흡습면이 공기에 노출되어야 흡습합니다. 덮이거나 가려지지 않게 두세요.</span></li>
+</ul>
+<p class="memo">사용법·주의사항 원문은 라벨 확정본 기준 최종 반영 | '우산 뒤' 표현 금지 | SPEC의 "대시보드"는 본문 배치 위치에 없어 라벨 사용 위치와 대조 후 표기</p>
+</section>
+
+<section class="s">
+<div class="lab">함께 쓰면 좋은 제품</div>
+<div class="verify"><span>✔ 실제 차량 환경 반복 테스트</span><span>✔ 공인시험기관 성능 검증</span><span>✔ 차량 실내 사용 환경 성분 검증</span></div>
+<p class="hl">습기는 탈취제습제로<br>살균과 냄새는 나머지 4종으로</p>
+<p class="body">습기를 관리했다면,<br>손이 닿는 표면과 남은 냄새도 살펴보세요.</p>
+<ul class="lu">
+<li><i>01</i><span><b>살균소독제</b><br>✔ 반복 접촉하는 차량 실내 표면의 살균 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>02</i><span><b>다용도 살균클리닝 티슈</b><br>✔ 눈에 보이는 생활 오염을 닦으면서 살균·세정<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>03</i><span><b>마스터 차량용 전문탈취제</b><br>✔ 시트·천장 등 섬유에 남은 담배 냄새·체취의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li><i>04</i><span><b>마스터 차량용 탈취캔</b><br>✔ 손이 닿지 않는 공조 안쪽의 탈취 관리<br><span class="more">→ 구매하러 가기</span></span></li>
+<li class="me"><i>05</i><b>슬림형 탈취제습제</b></li>
+</ul>
+<div class="imgslot vis"><i class="ico" data-i="img"></i><span>[VISUAL] 제품 5종 나란히 연출 컷(탈취제습제 중앙)</span></div>
+</section>
+
+<section class="s">
+<div class="lab">SPEC</div>
+<table><tbody>
+<tr><td style="width:30%">제품명</td><td>세스코 마이랩 카케어 슬림형 탈취제습제</td></tr>
+<tr><td>용량 | 수량</td><td>(확정 후 기입)</td></tr>
+<tr><td>흡습 성능</td><td>중량 대비 400% (시험 조건 각주)</td></tr>
+<tr><td>배치 위치</td><td>시트 아래 | 도어 포켓 | 트렁크 | 시트 사이·컵홀더·콘솔 박스 틈새</td></tr>
+<tr><td>성분</td><td>라벨 확정본 원문 기준</td></tr>
+<tr><td>판매가</td><td>(확정 후 기입)</td></tr>
+</tbody></table>
+</section>
+
+<section class="s legal">
+<div class="lab"><span class="n">12</span>법정 고정 블록</div>
+<div class="blk"><b>사용방법</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>사용상 주의사항</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>응급처치</b>확정 문안 원문 삽입</div>
+<div class="blk"><b>폐기 방법</b>확정 문안 원문 삽입 (지자체 기준 문구 확인 후)</div>
+<p class="memo">성분·사용상 주의사항·폐기 방법 확정 문안 원문 그대로 | 어미까지 수정 금지</p>
+<div class="imgslot">무이자 할부 안내 (토스페이먼츠 당월 무이자할부, 공통 확정 문안 삽입)</div>
+</section>
+</section>
+</main>
+<script>
+(function(){
+var P={
+shield:'<path d="M12 3l7 3v6c0 4.6-3 8-7 9-4-1-7-4.4-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+virus:'<circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.2 2.2M16.2 16.2l2.2 2.2M18.4 5.6l-2.2 2.2M7.8 16.2l-2.2 2.2"/>',
+leaf:'<path d="M5 19c7 0 13-6 14-14C11 6 5 12 5 19z"/><path d="M5 19l7-7"/>',
+flaskx:'<path d="M9 3h6M10 3v6l-5 9a1.2 1.2 0 0 0 1 2h12a1.2 1.2 0 0 0 1-2l-5-9V3"/><path d="M10 15l4 4M14 15l-4 4"/>',
+hand:'<path d="M7 13V6.5a1.5 1.5 0 0 1 3 0V12M10 11.5V4.5a1.5 1.5 0 0 1 3 0V12M13 11.5v-5a1.5 1.5 0 0 1 3 0V13M16 13v-1a1.5 1.5 0 0 1 3 0v4a5.5 5.5 0 0 1-5.5 5.5h-2.2A5.5 5.5 0 0 1 6.6 18.6L4.3 14.7A1.5 1.5 0 0 1 6.8 13L8 14.6"/>',
+spray:'<path d="M7 9h7v12H7zM9 9V6h3v3M10 6V4h1v2"/><path d="M17 6l2-2M18 9h3M17 12l2 2"/>',
+sheet:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M6 14c2-2 4-2 6 0s4 2 6 0"/>',
+dropoff:'<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/><path d="M4 4l16 16"/>',
+fluff:'<rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 9l4-4M4 14l9-9M8 19l11-11M13 19l7-7"/>',
+nosurf:'<circle cx="9" cy="10" r="3"/><circle cx="15" cy="14" r="2.5"/><circle cx="15" cy="7" r="1.5"/><path d="M4 20L20 4"/>',
+pocket:'<path d="M4 8h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 8l2-4h12l2 4"/><path d="M9 12h6"/>',
+cig:'<path d="M3 14h12v4H3zM15 14h4v4h-4z"/><path d="M17 11c-2-1-2-3 0-4M20 11c-2-1-2-3 0-4"/><path d="M4 21L21 4"/>',
+nose:'<path d="M5 9c2 1 3 3 3 5s-1 3-3 3M12 7c2 1.5 3 4 3 6.5S14 17 12 18M19 5c2 2 3 5 3 8s-1 5-3 7"/>',
+clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/>',
+scentoff:'<path d="M12 4v3M12 17v3M4 12h3M17 12h3M7 7l2 2M15 15l2 2M17 7l-2 2M9 15l-2 2"/><circle cx="12" cy="12" r="2.5"/><path d="M3 21L21 3"/>',
+bottle:'<path d="M9 3h6v3l2 2v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8l2-2z"/><path d="M9 12h6"/>',
+wind:'<path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8a2.2 2.2 0 1 1-2.2 2.2"/>',
+flameoff:'<path d="M12 3c2 4 6 6 6 11a6 6 0 0 1-12 0c0-3 1.5-4.5 3-6 0 2 1 3 2 3 0-4 1-6 1-8z"/><path d="M4 4l16 16"/>',
+wheat:'<path d="M12 22V7"/><path d="M12 11c-3 0-5-2-5-5 3 0 5 2 5 5zM12 11c3 0 5-2 5-5-3 0-5 2-5 5zM12 16c-3 0-5-2-5-5 3 0 5 2 5 5zM12 16c3 0 5-2 5-5-3 0-5 2-5 5z"/>',
+drop:'<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/>',
+pct:'<circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="16" r="2.5"/><path d="M6 18L18 6"/>',
+gel:'<path d="M6 9h12v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM8 9V6h8v3"/><path d="M6 14c2-1.5 4-1.5 6 0s4 1.5 6 0"/>',
+weight:'<path d="M6 9h12l2 12H4zM9 9a3 3 0 0 1 6 0"/>',
+slim:'<rect x="9" y="3" width="6" height="18" rx="1.5"/><path d="M9 8h6M9 16h6"/>',
+trash:'<path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14"/>',
+seat:'<path d="M7 21v-5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v5M9 14L8 4h8l-1 10"/>',
+check:'<circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.5l2.5 2.5 5-5.5"/>',
+car:'<path d="M4 15l1.5-5A2 2 0 0 1 7.4 8.5h9.2a2 2 0 0 1 1.9 1.5L20 15v4h-2.5v-2h-11v2H4z"/><circle cx="7.5" cy="15" r="1"/><circle cx="16.5" cy="15" r="1"/>',
+lab:'<path d="M9 3h6M10 3v6l-5 9a1.2 1.2 0 0 0 1 2h12a1.2 1.2 0 0 0 1-2l-5-9V3"/><path d="M8 15h8"/>',
+person:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/>',
+img:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5.2-5.2a1 1 0 0 0-1.4 0L6 19"/>',
+doc:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+magnet:'<path d="M6 3v9a6 6 0 0 0 12 0V3"/><path d="M6 3h4v6H6zM14 3h4v6h-4z"/><path d="M4 21l2-2M12 22v-3M20 21l-2-2"/>',
+area:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 12h10M7 12l2-2M7 12l2 2M17 12l-2-2M17 12l-2 2"/>',
+factory:'<path d="M3 21V10l5 3v-3l5 3v-3l5 3v8z"/><path d="M3 21h18M16 10V4h3v6"/>',
+uv:'<circle cx="12" cy="10" r="4"/><path d="M12 2v2M4.9 5.9l1.4 1.4M2 10h2M20 10h2M17.7 7.3l1.4-1.4"/><path d="M6 21h12M8 17h8"/>',
+box:'<path d="M3 8l9-4 9 4v8l-9 4-9-4z"/><path d="M3 8l9 4 9-4M12 12v8"/>'
+};
+document.querySelectorAll('i.ico').forEach(function(el){
+var k=el.getAttribute('data-i');if(!P[k])return;
+el.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+P[k]+'</svg>';
+});
+document.querySelectorAll('.hl, .c3 .lead').forEach(function(el){
+if(el.querySelector('b,strong'))return;
+var brs=el.querySelectorAll('br');
+var b=document.createElement('b');
+if(!brs.length){while(el.firstChild)b.appendChild(el.firstChild);el.appendChild(b);return;}
+var last=brs[brs.length-1],n=last.nextSibling;
+while(n){var nx=n.nextSibling;b.appendChild(n);n=nx;}
+el.appendChild(b);
+});
+var tabs=document.querySelectorAll('nav.tabs button');
+tabs.forEach(function(b){b.addEventListener('click',function(){
+tabs.forEach(function(x){x.classList.remove('active')});
+document.querySelectorAll('.doc').forEach(function(d){d.classList.remove('active')});
+b.classList.add('active');document.getElementById(b.dataset.t).classList.add('active');window.scrollTo({top:0});
+});});
+var tg=document.getElementById('tg');
+tg.addEventListener('click',function(){document.body.classList.toggle('hide-memo');tg.textContent=document.body.classList.contains('hide-memo')?'메모 층 보기':'메모 층 숨기기';});
+})();
+</script>
+</body>
+</html>
