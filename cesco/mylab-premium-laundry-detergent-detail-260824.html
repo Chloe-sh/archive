@@ -252,6 +252,19 @@ body.hide .memo{display:none}
 .cband{background:#fff;padding:36px 50px;text-align:center}
 .cband .tx{display:inline-block;background:var(--navy);color:#fff;font-size:20px;font-weight:700;line-height:1.6;padding:20px 40px;border-radius:6px}
 
+
+/* ===== 추가 제안 · FAQ v2 (GEO · details 아코디언 · 260821) ===== */
+.faqs{background:#fff;padding:76px 60px 56px}
+.faqs h2{font-size:38px;font-weight:800;line-height:1.35;color:var(--navy);margin:0 0 34px;border-bottom:2px solid var(--navy);padding-bottom:26px}
+.faqs details{border-bottom:1px solid var(--line)}
+.faqs summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:22px 4px;font-size:18px;font-weight:700;color:var(--ink)}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"+";font-size:22px;font-weight:400;color:var(--navy)}
+.faqs details[open] summary::after{content:"–"}
+.faqs .a{padding:0 4px 24px;font-size:16px;line-height:1.85;color:var(--ink2)}
+.faqs .a b{color:var(--navy)}
+.faqs .chk{border:1px dashed var(--line-strong);border-radius:4px;padding:12px 16px;margin-top:26px;font-size:12.5px;color:#6b7280;line-height:1.7}
+
 </style>
 </head>
 <body>
@@ -534,17 +547,97 @@ body.hide .memo{display:none}
 <div class="memo">이염방지시트에는 없는 섹션(리필·1 L 라인 보유). 공통 배지는 리필·1 L의 알러젠 프리향 적용 여부 확인 후 확정</div>
 
 <!-- 13 CROSS -->
+
+<div class="addbox">
+<div class="atag">추가 제안 · FAQ v2 — 표시사항·주의사항 범위 · GEO(DOM 텍스트 + JSON-LD) · details 아코디언</div>
+<section class="faqs">
+  <h2>구매 전에<br>확인하면 좋은 것들</h2>
+<details open><summary>세스코 마이랩 세탁세제 프리미엄은 일반 세탁세제와 무엇이 다른가요?</summary><div class="a"><b>오염 유형별로 나눈 8종 효소가 단백질·전분·지방 등 생활 얼룩을 각각 분해하는 세탁세제입니다.</b> 기존 세탁세제 1 L 대비 세척력 12% 향상(자사 시험 기준)에 더해, 빨래 쉰내 원인균 모락셀라균 97% 세척, 땀 냄새 원인 성분 아세트산 99% 탈취, 알레르기 유발 물질 4종 세척 테스트까지 완료했습니다.</div></details>
+<details open><summary>빨래에서 쉰내가 나는 이유는 무엇인가요?</summary><div class="a"><b>바싹 말려도 올라오는 빨래 쉰내의 원인은 섬유에 남은 모락셀라균입니다.</b> 세스코 마이랩 세탁세제 프리미엄은 향으로 냄새를 덮는 대신 원인균을 97% 세척하고, 남는 냄새 성분인 아세트산을 99% 탈취하도록 처방했습니다.</div></details>
+<details open><summary>탈취제를 따로 사야 하나요?</summary><div class="a"><b>이 제품은 세탁세제와 탈취제 품목을 함께 신고한 제품입니다.</b> 탈취 시험을 완료해, 세탁 단계에서 오염과 냄새 원인까지 함께 관리합니다.</div></details>
+<details open><summary>아이 옷이나 민감한 피부에 사용해도 되나요?</summary><div class="a"><b>더마테스트 엑설런트 등급과 대한아토피협회 추천품 인증을 받았습니다.</b> 진드기 사체·배설물, 미세먼지, 꽃가루, 반려동물 털 등 알레르기 유발 물질 4종의 세척 테스트를 완료했고, 향도 알레르기 유발 향료 26종이 불검출된 알러젠 프리향입니다.</div></details>
+<details open><summary>어떤 향인가요?</summary><div class="a"><b>산뜻하고 깨끗한 잔향의 그린 플로럴 계열 향입니다.</b> 알레르기 유발 향료 26종이 불검출된 알러젠 프리향으로, 향료의 안전성까지 검증했습니다.</div></details>
+<details open><summary>사용량은 얼마나 넣어야 하나요? 쓰면 안 되는 옷도 있나요?</summary><div class="a"><b>표준사용량은 물 5 L 기준 세제 7 mL입니다.</b> 농축 원액(중성) 제형이라 적은 양으로 세탁할 수 있고, 투명 계량캡 눈금에 맞춰 부으면 됩니다. 모·울·견·실크 등 중성세제 전용 의류에는 사용하지 말고, 세탁 전 의류 표시사항을 확인해 주세요.</div></details>
+<details open><summary>리필은 어떻게 쓰나요?</summary><div class="a"><b>본품 2 L에 리필 1.75 L 구성으로, 쓰던 용기에 채워 쓰면 됩니다.</b> 사용 후에는 밀폐하여 보관해 주세요.</div></details>
+<div class="chk">[확인] FAQ 문항은 모두 표시사항·주의사항 범위 안에서 작성했습니다. 상담 유입 데이터가 있으면 실제 문의 상위 문항으로 교체하는 편이 좋습니다.</div>
+</section>
+<div class="memo">v2 조정 : 헤드를 기존 확정 스타일('구매 전에 확인하면 좋은 것들')로 통일, 이전 버전 문항 중 지면 근거가 있는 2문 편입(탈취제 품목 신고 · 리필 구성). 이염방지시트 병용 문항은 제외 — 병용·역할 분담 안내는 바로 아래 '함께 쓰면 좋은 제품' 섹션이 담당(사용자 결정, FAQ는 이 제품 자체의 표시사항·주의사항 질문만). '섬유유연제 병용'·'담가 두기' 문항은 현 지면·POD 발췌에 근거 문안이 없어 보류 — 표시사항 원문 확인 후 추가. 97%·99%는 시험기관 확정 전 조건부 : 각주 확정 전에는 FAQ 본문·JSON-LD 모두 수치 보류. details 태그 = 접어도 DOM 텍스트 유지로 GEO 손실 없음, 시안은 펼침 렌더. 출시 후 상담 유입 상위 문항으로 교체</div>
+</div>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "세스코 마이랩 세탁세제 프리미엄은 일반 세탁세제와 무엇이 다른가요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "오염 유형별로 나눈 8종 효소가 단백질·전분·지방 등 생활 얼룩을 각각 분해하는 세탁세제입니다. 기존 세탁세제 1 L 대비 세척력 12% 향상(자사 시험 기준)에 더해, 빨래 쉰내 원인균 모락셀라균 97% 세척, 땀 냄새 원인 성분 아세트산 99% 탈취, 알레르기 유발 물질 4종 세척 테스트까지 완료했습니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "빨래에서 쉰내가 나는 이유는 무엇인가요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "바싹 말려도 올라오는 빨래 쉰내의 원인은 섬유에 남은 모락셀라균입니다. 세스코 마이랩 세탁세제 프리미엄은 향으로 냄새를 덮는 대신 원인균을 97% 세척하고, 남는 냄새 성분인 아세트산을 99% 탈취하도록 처방했습니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "탈취제를 따로 사야 하나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "이 제품은 세탁세제와 탈취제 품목을 함께 신고한 제품입니다. 탈취 시험을 완료해, 세탁 단계에서 오염과 냄새 원인까지 함께 관리합니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "아이 옷이나 민감한 피부에 사용해도 되나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "더마테스트 엑설런트 등급과 대한아토피협회 추천품 인증을 받았습니다. 진드기 사체·배설물, 미세먼지, 꽃가루, 반려동물 털 등 알레르기 유발 물질 4종의 세척 테스트를 완료했고, 향도 알레르기 유발 향료 26종이 불검출된 알러젠 프리향입니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "어떤 향인가요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "산뜻하고 깨끗한 잔향의 그린 플로럴 계열 향입니다. 알레르기 유발 향료 26종이 불검출된 알러젠 프리향으로, 향료의 안전성까지 검증했습니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "사용량은 얼마나 넣어야 하나요? 쓰면 안 되는 옷도 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "표준사용량은 물 5 L 기준 세제 7 mL입니다. 농축 원액(중성) 제형이라 적은 양으로 세탁할 수 있고, 투명 계량캡 눈금에 맞춰 부으면 됩니다. 모·울·견·실크 등 중성세제 전용 의류에는 사용하지 말고, 세탁 전 의류 표시사항을 확인해 주세요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "리필은 어떻게 쓰나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "본품 2 L에 리필 1.75 L 구성으로, 쓰던 용기에 채워 쓰면 됩니다. 사용 후에는 밀폐하여 보관해 주세요."
+   }
+  }
+ ]
+}
+</script>
+
 <section class="cross">
   <h2>함께 쓰면 좋은 제품</h2>
   <div class="chips"><span>✔ 세스코 생활과학 연구소 개발</span><span>✔ LAUNDRY CARE 라인</span></div>
-  <div class="h3">세탁 세정은 세탁세제 프리미엄<br>이염 방지는 이염방지시트<br>세탁기 위생은 세탁조클리너</div>
-  <div class="sub">같이 구비해 용도에 맞게 사용해주세요!</div>
   <div class="kv">
     <div><div class="ph"><b>이염방지시트</b><small>세탁기에 시트를 넣는 컷</small></div><div class="tx"><b>01 이염방지시트</b><p>세탁기에 함께 넣기만 하면 이염방지효과 91% 검증</p><p>염료부터 형광증백제 · 미세먼지까지 흡착</p><p>비스코스 100% 식물성 소재 · 국내 제조</p><span class="btn">구매하러 가기 →</span></div></div>
     <div><div class="ph"><b>세탁조클리너</b><small>세탁조에 분말을 붓는 컷</small></div><div class="tx"><b>02 세탁조클리너</b><p>세탁조 내부 묵은 때부터 악취 유발 세제 찌꺼기까지</p><p>표준코스 한 번으로 간편하게 제거</p><p>1개월 루틴 만으로 세탁조 깔끔관리</p><span class="btn">구매하러 가기 →</span></div></div>
   </div>
 </section>
-<div class="memo">이염방지시트 _엑셀 12 크로스셀과 대칭. 이염방지시트 불릿은 엑셀 최종 문안(원터치 삭제) | 섬유탈취제 카드는 라인 운영 결정 시 추가 | 버튼은 세스코몰 링크 확정 후</div>
+<div class="memo">이염방지시트 _엑셀 12 크로스셀과 대칭. 이염방지시트 불릿은 엑셀 최종 문안(원터치 삭제) | 섬유탈취제 카드는 라인 운영 결정 시 추가 | 버튼은 세스코몰 링크 확정 후 | 역할 분담 리드 4행("세탁 세정은 ~ 같이 구비해 용도에 맞게 사용해주세요!") 삭제 — 카드 문안과 중복 + 구비 촉구 클로징은 관행 밖(사용자 결정, 260821)</div>
 
 <!-- 14 SPEC -->
 <section class="spec">
