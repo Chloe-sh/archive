@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마케팅포털 상품별 핵심 전략 · 카케어 5종 초안</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root { --blue:#2B4C9B; --blue-deep:#1E3A78; --ink:#26282C; --sub:#6B7078;
+  --box:#F5F6F8; --line:#E3E6EB; --page:#EEF0F3; --paper:#FFFFFF; --black:#17191D; --silver:#C9CDD4; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Pretendard",-apple-system,sans-serif; background:var(--page); color:var(--ink);
+  font-size:15px; line-height:1.75; letter-spacing:-0.01em; }
+strong { font-weight:700; }
+.topbar { position:sticky; top:0; z-index:10; background:var(--paper); border-bottom:1px solid var(--line); }
+.topbar-in { max-width:960px; margin:0 auto; padding:14px 20px 0; }
+.doc-title { font-size:13px; color:var(--sub); }
+.doc-title b { color:var(--blue-deep); font-weight:700; }
+.tabrow { display:flex; gap:4px; margin-top:10px; overflow-x:auto; align-items:flex-end; }
+.tab { appearance:none; border:1px solid var(--line); border-bottom:none; background:#F8F9FB; color:var(--sub);
+  font:inherit; font-size:13px; font-weight:600; padding:9px 14px 8px; border-radius:8px 8px 0 0;
+  cursor:pointer; white-space:nowrap; display:flex; gap:7px; align-items:baseline; }
+.tab-no { font-size:11px; font-weight:700; color:#9AA0A8; }
+.tab.on { background:var(--paper); color:var(--blue-deep); }
+.tab.on .tab-no { color:var(--blue); }
+.tab:focus-visible, .viewall:focus-visible, .anchors a:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+.viewall { margin-left:auto; align-self:center; margin-bottom:8px; font-size:12px; font-weight:600;
+  color:var(--blue-deep); background:none; border:1px solid var(--blue-deep); border-radius:99px;
+  padding:5px 13px; cursor:pointer; white-space:nowrap; }
+body.all .viewall { background:var(--blue-deep); color:#fff; }
+.wrap { max-width:960px; margin:0 auto; padding:28px 20px 80px; }
+.panel { display:none; background:var(--paper); border:1px solid var(--line); border-radius:4px;
+  padding:0 0 48px; margin-bottom:32px; }
+.panel.on { display:block; }
+body.all .panel { display:block; }
+.panel > *:not(.hero), .panel section { max-width:728px; margin-left:auto; margin-right:auto; padding-left:24px; padding-right:24px; }
+.hero { background:var(--black); color:var(--silver); padding:34px 24px 30px; border-radius:3px 3px 0 0; }
+.hero-eng { font-size:11px; letter-spacing:0.32em; color:#7D828B; margin-bottom:10px; }
+.hero h2 { color:#fff; font-size:21px; line-height:1.45; font-weight:700; letter-spacing:-0.02em; }
+.hero-eng, .hero-img, .hero h2 { max-width:680px; margin-left:auto; margin-right:auto; }
+.hero-img { margin-top:14px; font-size:12px; color:#7D828B; border:1px dashed #3A3E45; border-radius:3px; padding:8px 12px; }
+.tags { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px; }
+.tags span { font-size:12px; color:var(--sub); background:var(--box); border-radius:3px; padding:3px 8px; }
+.anchors { margin-top:14px; display:flex; flex-wrap:wrap; gap:6px; padding-bottom:6px; }
+.anchors a { font-size:12.5px; font-weight:600; color:var(--blue-deep); text-decoration:none;
+  border:1px solid #C9D3E8; background:#F4F7FC; border-radius:99px; padding:6px 14px; }
+.sec-h { color:var(--blue); font-size:16.5px; font-weight:800; margin:44px 0 16px; padding-top:26px; border-top:1px solid var(--line); }
+section p { margin-bottom:14px; }
+p.note { background:#FBFBF4; border:1px solid #EAE8D4; border-radius:3px; padding:12px 14px; font-size:13.5px; color:#5B5B47; }
+p.hint { font-size:12.5px; color:var(--sub); }
+.point { background:var(--box); border-radius:4px; padding:16px 18px 13px; margin-bottom:14px; }
+.point p { margin:0; }
+.point .evidence { margin-top:11px; padding-top:10px; border-top:1px solid var(--line); font-size:13px; color:#7B808A; }
+table { width:100%; border-collapse:collapse; margin:6px 0 14px; font-size:13.5px; }
+th, td { border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top; }
+th { background:var(--box); font-weight:600; width:190px; color:#4B4F56; }
+.reco { list-style:none; }
+.reco li { padding:11px 0 11px 28px; border-bottom:1px solid var(--line); position:relative; }
+.reco li::before { content:"✓"; position:absolute; left:4px; color:var(--blue); font-weight:800; }
+.strategy { border:1px solid #C9D3E8; border-radius:4px; margin:8px 0 16px; overflow:hidden; }
+.strategy-title { background:#F4F7FC; color:var(--blue-deep); font-weight:800; font-size:14px; padding:10px 16px; margin:0; border-bottom:1px solid #DEE6F3; }
+.strategy ul { list-style:none; padding:10px 16px; }
+.strategy li { padding:5px 0 5px 14px; position:relative; font-weight:600; }
+.strategy li::before { content:"\00B7"; position:absolute; left:0; color:var(--blue); font-weight:800; }
+p.pitch { background:var(--box); border-left:3px solid var(--blue); border-radius:0 4px 4px 0; padding:14px 16px; }
+.rel { list-style:none; }
+.rel li { padding:7px 0 7px 14px; position:relative; color:var(--sub); font-size:14px; }
+.rel li::before { content:"\00B7"; position:absolute; left:0; }
+@media print { .topbar { display:none; } body { background:#fff; } .panel { display:block !important; border:none; page-break-after:always; } }
+@media (max-width:640px) { .panel > *:not(.hero), .panel section { padding-left:16px; padding-right:16px; } th { width:110px; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+  <p class="doc-title"><b>마케팅포털 · 상품별 핵심 전략</b> 세스코 마이랩 카케어 5종 초안 (2026-09-14, 검토용)</p>
+  <div class="tabrow"><button class="tab" data-p="1" onclick="showP(1)"><span class="tab-no">01</span>살균소독제</button><button class="tab" data-p="2" onclick="showP(2)"><span class="tab-no">02</span>다용도 살균클리닝 티슈</button><button class="tab" data-p="3" onclick="showP(3)"><span class="tab-no">03</span>마스터 차량용 전문탈취제</button><button class="tab" data-p="4" onclick="showP(4)"><span class="tab-no">04</span>마스터 차량용 탈취캔</button><button class="tab" data-p="5" onclick="showP(5)"><span class="tab-no">05</span>슬림형 탈취제습제</button><button class="viewall" onclick="toggleAll()">한 판 모아보기</button></div>
+</div></div>
+<main class="wrap">
+<article class="panel" id="panel1">
+<div class="hero">
+  <p class="hero-eng">CAR SANITIZING SPRAY</p>
+  <h2>[세스코 마이랩 카케어] 세균·바이러스·유해물질까지 다각도로 검증한 '살균소독제'</h2>
+  <p class="hero-img">대표 이미지: 은박 강조되는 검정 분위기의 제품 연출 컷 / 핸들 분사 사용 컷</p>
+</div>
+<div class="tags"><span>#차량용살균소독제</span> <span>#카케어</span> <span>#살생물제품</span> <span>#차량위생</span> <span>#마이랩카케어</span></div>
+<nav class="anchors"><a href="#p1-s01">Why CESCO</a><a href="#p1-s02">전문가의 시각</a><a href="#p1-s03">상품 스펙</a><a href="#p1-s04">추천 고객</a><a href="#p1-s05">함께 제안</a><a href="#p1-s06">연관 콘텐츠</a></nav>
+<section id="p1-s01">
+<h3 class="sec-h">[01. Why CESCO]</h3>
+<p>'세스코 마이랩 살균소독제'는 매일 손이 닿지만 닦아본 적은 없는 차량 접촉면의 세균과 바이러스에 대한 불편함에서 연구를 시작했습니다.</p>
+<p>차량 내 오염은 단순히 눈에 보이는 먼지의 문제가 아니라, 핸들·기어의 접촉 오염, 에어컨 송풍구에 쌓이는 습기와 먼지, 대시보드·안전벨트에 내려앉는 비말 등 다양한 요인이 복합적으로 작용해 발생할 수 있습니다.</p>
+<p>이에 세스코 바이러스 연구소는 이러한 복합적인 원인을 고려해 손이 닿는 표면부터 실내 공기가 통과하는 에어컨 송풍구까지 다각도로 연구한 차량용 살균소독제를 개발했습니다.</p>
+<p class="note">※ 렌터카·중고차 수백 대를 대상으로 반복 필드 테스트를 진행했으며, 이미 국내 대형 렌터카·중고차 기업이 세스코의 살균 기술력을 활용하고 있습니다. 살생물제품 승인 없이는 판매할 수 없는 품목으로, 기후에너지환경부 승인(0125-0038)을 통과한 제품입니다.</p>
+</section>
+<section id="p1-s02">
+<h3 class="sec-h">[02. 전문가의 시각으로 상품 바라보기]</h3>
+<div class="point"><p>1. 한국교통안전공단 조사에서 자동차 핸들의 오염도는 공중화장실 변기 시트보다 약 26배 높게 측정됐습니다. 매일 잡는 핸들이지만 닦아본 적 없는 접촉면이 대부분이기 때문에, 차량용 살균소독제는 손이 닿는 표면을 핵심 관리 포인트로 설계해야 합니다.</p><p class="evidence">한국교통안전공단 차량 내부 세균 오염도 조사(2012) 기반 설계</p></div>
+<div class="point"><p>2. 차량 내 공간마다 유해세균이 번식하는 메커니즘은 다릅니다. 손이 닿는 핸들·기어에는 황색포도상구균·대장균, 습기가 쌓이는 송풍구에는 녹농균·폐렴간균, 비말이 내려앉는 대시보드·안전벨트에는 인플루엔자 A·코로나19 바이러스가 남을 수 있기 때문에, 어디에 분사하더라도 관리되도록 세균 14종 99.999% 살균·바이러스 2종 99.99% 살멸 테스트를 진행했습니다.</p><p class="evidence">세균 14종·바이러스 2종 살균에 대한 공인 시험 완료</p></div>
+<div class="point"><p>3. 살균소독제는 이제 살생물제품으로 승인받아야 판매할 수 있습니다. 효능·효과 시험부터 급성독성, 피부·눈 자극성 등 인체 위해성 평가까지 통과해야 하는 절차이기 때문에, 이 승인 자체가 효과와 안전성의 검증입니다. 세스코 마이랩 살균소독제는 기후에너지환경부 승인 과정을 통과했습니다.</p><p class="evidence">기후에너지환경부 승인 살생물제품, 위해성 평가 결과 위해 우려 없음</p></div>
+<div class="point"><p>4. 밀폐된 차 안에서 뿌리는 제품은 성분이 피부와 호흡기로 이어질 수 있습니다. 매일 타는 차량에서도 부담 없이 사용할 수 있도록 합성 에탄올 대신 사탕수수 기원 주정(58V/V%)과 정제수, 100% 식품첨가물 성분으로 처방하고, 락스 성분과 가습기 살균제 이슈 성분 4종 불검출, 피부 저자극 판정까지 확인했습니다.</p><p class="evidence">유해물질 5종 불검출 및 피부 저자극에 대한 공인 시험 완료</p></div>
+<div class="point"><p>5. 차 안은 ABS·천·부직포·플라스틱·디스플레이 패널 등 서로 다른 소재가 모인 공간입니다. 변색이나 손상 없이 사용할 수 있도록 다양한 차량 내장재를 대상으로 호환성 테스트를 진행했습니다.</p><p class="evidence">차량 내장재 케미컬 호환성 테스트 완료 (자사 시험)</p></div>
+</section>
+<section id="p1-s03">
+<h3 class="sec-h">[03. 상품 스펙 익히기]</h3>
+<p class="hint">두 손가락을 이용해 화면을 확대/축소할 수 있습니다.</p>
+<table><tbody><tr><th>제품명 및 살생물제품 유형</th><td>세스코 마이랩 살균소독제 / 살균제</td></tr><tr><th>용량 및 표준사용량</th><td>500 mL / 15 cm 거리에서 1 ㎡당 30 mL 사용</td></tr><tr><th>유통기한</th><td>제조일로부터 24개월</td></tr><tr><th>효과효능</th><td>생활시설 표면 살균·살바이러스(비다공성)</td></tr><tr><th>사용대상자 및 사용범위</th><td>일반사용자(일반소비자)-주거시설(실내), 일반사용자(직업소비자)-다중이용시설(실내)</td></tr><tr><th>제조국 및 제조사</th><td>대한민국, 세스코 협력사</td></tr><tr><th>살생물물질</th><td>에탄올, 52.14% w/w</td></tr><tr><th>제품 유해성·위해성 표시</th><td>경고</td></tr><tr><th>어린이보호포장 대상</th><td>해당사항 없음</td></tr><tr><th>승인번호</th><td>0125-0038</td></tr><tr><th>사용방법 및 주의사항</th><td>상세페이지 별도표기 (라벨 확정 문안)</td></tr><tr><th>소비자 상담 전화번호</th><td>고객센터 1588-1119</td></tr></tbody></table>
+<p class="note">※ 본 제품은 비다공성 표면에만 사용 가능합니다.</p>
+</section>
+<section id="p1-s04">
+<h3 class="sec-h">[04. 이런 고객에게 추천해요]</h3>
+<ul class="reco"><li>아이가 안전벨트 버클을 만지고 입에 가져가는 <strong>영유아 가정집</strong></li><li>에어컨을 켤 때 나는 냄새와 균이 걱정되는 <strong>위생 민감 고객</strong></li><li>여러 사람이 타고 내리는 <strong>카풀·업무용 차량 운전자</strong></li><li>털과 침 자국까지 닦아야 하는 <strong>반려동물 동반 가정집</strong></li></ul>
+</section>
+<section id="p1-s05">
+<h3 class="sec-h">[05. 함께 제안하면 좋은 상품]</h3>
+<p>살균소독제를 사용하는 고객이라면, 눈에 보이지 않는 세균·바이러스까지 신경 쓰는 분일 가능성이 높습니다.</p>
+<p>고객이 이미 밀폐 공간 살균의 필요성을 느끼고 있는 만큼,</p>
+<div class="strategy"><p class="strategy-title">상품별 핵심 전략</p><ul><li>다용도 살균클리닝 티슈</li><li>마스터 차량용 탈취캔</li></ul></div>
+<p class="pitch">✓ 넓은 면적과 손이 닿지 않는 곳은 살균소독제로, 자주 만져 찌든 때가 쌓인 곳은 살균클리닝 티슈로 나눠 관리하는 세트 화법으로 제안하고, 살균 니즈가 확인된 고객에게는 하루 중 더 오래 머무는 실내 공간의 공기 살균으로 넓혀 트루살균 공기청정기 판테온을 자연스럽게 제안해 보세요.</p>
+</section>
+<section id="p1-s06">
+<h3 class="sec-h">[06. 연관 콘텐츠]</h3>
+<ul class="rel"><li>카케어 프로그램 소개: {등록 후 실존 링크 삽입}</li><li>리플릿/카드뉴스: {등록 후 실존 링크 삽입, 없으면 섹션 생략}</li></ul>
+</section>
+
+</article>
+<article class="panel" id="panel2">
+<div class="hero">
+  <p class="hero-eng">MULTI-SURFACE DISINFECTANT CLEANING WIPES</p>
+  <h2>[세스코 마이랩 카케어] 지문·기름때·세균까지 다각도로 검증한 '다용도 살균클리닝 티슈'</h2>
+  <p class="hero-img">대표 이미지: 은박 강조되는 검정 분위기의 제품 연출 컷 / 대시보드 닦는 사용 컷</p>
+</div>
+<div class="tags"><span>#살균클리닝티슈</span> <span>#차량용티슈</span> <span>#카케어</span> <span>#차량위생</span> <span>#마이랩카케어</span></div>
+<nav class="anchors"><a href="#p2-s01">Why CESCO</a><a href="#p2-s02">전문가의 시각</a><a href="#p2-s03">상품 스펙</a><a href="#p2-s04">추천 고객</a><a href="#p2-s05">함께 제안</a><a href="#p2-s06">연관 콘텐츠</a></nav>
+<section id="p2-s01">
+<h3 class="sec-h">[01. Why CESCO]</h3>
+<p>'세스코 마이랩 다용도 살균클리닝 티슈'는 차 안을 닦은 뒤에도 남는 물자국과 보풀, 잔여 성분에 대한 불편함에서 연구를 시작했습니다.</p>
+<p>차량 내부의 오염은 단순히 먼지의 문제가 아니라, 지문·유분 같은 생활 오염, 닦은 뒤 남는 물자국과 흰 잔여물, 접촉면에서 번식하는 유해세균 등 다양한 요인이 복합적으로 작용해 발생할 수 있습니다.</p>
+<p>이에 세스코 바이러스 연구소는 이러한 복합적인 원인을 고려해 원단 구조부터 세정·살균 성능, 닦은 뒤의 잔여물과 피부 자극까지 다각도로 연구한 다용도 살균클리닝 티슈를 개발했습니다.</p>
+<p class="note">※ 디스플레이·클러스터(계기판) 등 실제 차량에 직접 테스트해 물얼룩·잔여물 방지 효과를 확인했으며, 계면활성제 없이 세정력을 내는 성분 처방은 세스코 바이러스 연구소의 독자 기술입니다. 자사 일반 물티슈와의 잔사 비교 시연이 상세페이지에 반영되어 있어 현장 시연 소재로 활용할 수 있습니다.</p>
+</section>
+<section id="p2-s02">
+<h3 class="sec-h">[02. 전문가의 시각으로 상품 바라보기]</h3>
+<div class="point"><p>1. 차량 내장재는 평면이 아니라 굴곡과 틈으로 이뤄져 있습니다. 일반 물티슈는 틈새 오염을 놓치고 보풀을 남기기 쉽기 때문에, 촘촘하게 얽힌 미세 그물 구조의 멜트블로운 원단으로 접촉 면적을 넓혀 먼지를 포집하도록 설계했습니다.</p><p class="evidence">보풀 없는 멜트블로운 원단 적용</p></div>
+<div class="point"><p>2. 일반 물티슈로 닦으면 물자국과 흰 얼룩, 거품 잔여물이 남기 쉽습니다. 마른 수건으로 다시 닦지 않아도 되도록 계면활성제 없이 세정력을 높이는 성분을 연구하고, 곡물발효 주정 에탄올이 기름때를 작은 덩어리로 분해하는 방식을 구현했습니다.</p><p class="evidence">계면활성제 무첨가, 물얼룩·잔여물 방지 효과 실차 확인</p></div>
+<div class="point"><p>3. 운전자의 손길이 닿는 핸들부터 먼지가 쌓이는 대시보드·센터 콘솔까지, 차량 내부는 세균이 번식하기 쉬운 환경입니다. 오염만 닦는 티슈가 아니라 살균까지 되도록 대장균·황색포도상구균·녹농균·장내구균 99.999% 살균 테스트를 진행했습니다.</p><p class="evidence">유해세균 4종 살균에 대한 공인 시험 완료</p></div>
+<div class="point"><p>4. 아이 손이 닿는 자리를 닦는 티슈이기 때문에 닦은 뒤 남는 성분까지 확인해야 합니다. 9단계 정제수와 곡물발효 주정 에탄올 등 100% 식품첨가물 성분으로 처방하고, 락스 성분과 가습기 살균제 이슈 성분 4종 불검출, 피부 저자극까지 검증했습니다.</p><p class="evidence">인체피부 일차 자극 테스트 완료 (피부자극지수 0.00)</p></div>
+<div class="point"><p>5. 차 안에서 쓰는 티슈는 오염이 눈에 띄는 순간 바로 꺼내 쓸 수 있어야 합니다. 글로브 박스나 도어 포켓에 들어가는 슬림 파우치와 원터치 캡으로 설계하고, 차량 밖 생활공간에서도 쓸 수 있도록 살균제·세정제 복수 용도로 신고했습니다.</p><p class="evidence">살균제·세정제(자동차 실내용 포함) 복수 용도 신고 제품</p></div>
+</section>
+<section id="p2-s03">
+<h3 class="sec-h">[03. 상품 스펙 익히기]</h3>
+<p class="hint">두 손가락을 이용해 화면을 확대/축소할 수 있습니다.</p>
+<table><tbody><tr><th>품목 및 제품명</th><td>세스코 마이랩 다용도 살균클리닝 티슈</td></tr><tr><th>용도 및 제형</th><td>살균제[일반용(일반물체용), 특수목적용(어린이용품용)], 세정제[오븐용·렌지후드용·욕실용·변기용·기타표면세정용(주방용·전자기기용)·자동차용(실내용)] / 티슈형</td></tr><tr><th>매수</th><td>50매</td></tr><tr><th>유통기한</th><td>제조일로부터 24개월 (제조연월 별도표기)</td></tr><tr><th>제조국 및 제조사</th><td>대한민국 / 세스코 협력사</td></tr><tr><th>주요 화학물질</th><td>[주요물질] 정제수, 부직포(폴리프로필렌), 에탄올 / [보존제] 벤조산나트륨</td></tr><tr><th>어린이보호포장 대상</th><td>해당사항 없음</td></tr><tr><th>안전기준적합확인신고번호</th><td>HB23-21-0004</td></tr><tr><th>사용상 주의사항</th><td>상세페이지 별도표기 (라벨 확정 문안)</td></tr><tr><th>소비자 상담 전화번호</th><td>고객센터 1588-1119</td></tr></tbody></table>
+</section>
+<section id="p2-s04">
+<h3 class="sec-h">[04. 이런 고객에게 추천해요]</h3>
+<ul class="reco"><li>컵홀더를 닦으면 물자국이 더 남아 불편했던 <strong>셀프 관리 운전자</strong></li><li>디스플레이·계기판을 닦아도 되는지 고민인 <strong>최신 차량 오너</strong></li><li>아이 손이 닿는 자리의 잔여 성분이 신경 쓰이는 <strong>영유아 가정집</strong></li><li>차 안에 두고 오염 즉시 닦아내고 싶은 <strong>출퇴근·장거리 운전 가정</strong></li></ul>
+</section>
+<section id="p2-s05">
+<h3 class="sec-h">[05. 함께 제안하면 좋은 상품]</h3>
+<p>다용도 살균클리닝 티슈를 사용하는 고객이라면, 눈에 보이는 오염을 그때그때 직접 관리하는 분일 가능성이 높습니다.</p>
+<p>고객이 이미 닦는 것만으로는 부족한 곳을 느끼고 있는 만큼,</p>
+<div class="strategy"><p class="strategy-title">상품별 핵심 전략</p><ul><li>살균소독제</li><li>마스터 차량용 전문탈취제</li></ul></div>
+<p class="pitch">✓ 자주 만져 찌든 때가 쌓인 곳은 티슈로, 넓은 면적과 손이 닿지 않는 곳은 살균소독제로 나눠 관리하는 세트 화법으로 제안하고, 식품첨가물·저자극 성분에 반응한 고객에게는 아이가 머무는 실내 공간의 공기 관리로 넓혀 트루살균 공기청정기 판테온을 자연스럽게 제안해 보세요.</p>
+</section>
+<section id="p2-s06">
+<h3 class="sec-h">[06. 연관 콘텐츠]</h3>
+<ul class="rel"><li>카케어 프로그램 소개: {등록 후 실존 링크 삽입}</li><li>일반 물티슈 비교 시연 영상: {등록 후 실존 링크 삽입, 없으면 섹션 생략}</li></ul>
+</section>
+
+</article>
+<article class="panel" id="panel3">
+<div class="hero">
+  <p class="hero-eng">MASTER CAR DEODORIZER SPRAY</p>
+  <h2>[세스코 마이랩 카케어] 담배 냄새·체취·비린내까지 다각도로 검증한 '마스터 차량용 전문탈취제'</h2>
+  <p class="hero-img">대표 이미지: 은박 강조되는 검정 분위기의 제품 연출 컷 / 시트 분사 사용 컷</p>
+</div>
+<div class="tags"><span>#차량용탈취제</span> <span>#담배냄새제거</span> <span>#카케어</span> <span>#차량악취</span> <span>#마이랩카케어</span></div>
+<nav class="anchors"><a href="#p3-s01">Why CESCO</a><a href="#p3-s02">전문가의 시각</a><a href="#p3-s03">상품 스펙</a><a href="#p3-s04">추천 고객</a><a href="#p3-s05">함께 제안</a><a href="#p3-s06">연관 콘텐츠</a></nav>
+<section id="p3-s01">
+<h3 class="sec-h">[01. Why CESCO]</h3>
+<p>'세스코 마이랩 마스터 차량용 전문탈취제'는 환기를 해도 시트에 밴 채 빠지지 않는 차량 악취에 대한 불편함에서 연구를 시작했습니다.</p>
+<p>차량 악취는 단순히 환기 부족의 문제가 아니라, 시트·카펫·천장 원단에 깊숙이 흡착되는 담배 연기의 피리딘계 성분, 잔존 악취에 향이 섞여 생기는 2차 냄새, 계절과 온도에 따라 달라지는 냄새의 위치 등 다양한 요인이 복합적으로 작용해 발생할 수 있습니다.</p>
+<p>이에 세스코 생활과학 연구소는 이러한 복합적인 원인을 고려해 실제 차량에서 냄새 원인을 분석하고 계절과 소재별 시험을 반복하며, 향으로 덮지 않고 악취 원인을 제거하는 차량 전문 탈취제를 개발했습니다.</p>
+<p class="note">※ 국내 대형 렌터카 업체의 의뢰를 받아 차량에서 가장 없애기 어려운 담배 냄새부터 연구해 만든 제품입니다. 실제 차량에서 냄새 성분을 포집·정량 분석하고 사계절 온도 조건에서 4차례 필드 테스트를 거쳤습니다.</p>
+</section>
+<section id="p3-s02">
+<h3 class="sec-h">[02. 전문가의 시각으로 상품 바라보기]</h3>
+<div class="point"><p>1. 방향제와 시중 탈취제는 향으로 냄새를 덮을 뿐 원인 물질은 그대로 남습니다. 냄새가 미량이라도 남은 상태에서 향과 섞이면 텁텁한 2차 냄새가 되기 때문에, 악취 분자를 포획하고 중화해 분해하는 방식으로 설계하고 인공향료를 배제했습니다.</p><p class="evidence">인공향료 무첨가, 악취 원인 분자 직접 분해 방식</p></div>
+<div class="point"><p>2. 담배 연기의 피리딘계 성분은 흡착성이 강해 내장재에 달라붙어 쉽게 떨어지지 않습니다. 가장 빼기 어려운 담배 냄새(4-에테닐피리딘)부터 땀·체취(암모니아), 음식물 비린내(트리메틸아민)까지 차량 실내 3대 악취 물질에 대해 99% 탈취력 테스트를 진행했습니다.</p><p class="evidence">차량 실내 3대 악취 물질 탈취에 대한 공인 시험 완료</p></div>
+<div class="point"><p>3. 뿌릴 때만 잠깐 효과가 있는 탈취제는 악취가 다시 올라옵니다. 한 번의 분사로도 효과가 이어지도록 분사 직후부터 24시간 후까지 탈취 효과 지속을 확인했습니다.</p><p class="evidence">암모니아·트리메틸아민 24시간 탈취력 지속 테스트 완료</p></div>
+<div class="point"><p>4. 세스코 연구원이 실제 차량 악취를 분석한 결과, 실내 온도에 따라 냄새가 집중되는 부위가 달랐습니다. 기온이 오르면 시트·천장에 밴 악취가 휘발되고 추울 땐 냄새 분자가 바닥에 가라앉기 때문에, 여름철엔 시트와 공기 중에 넓게, 겨울철엔 바닥에 집중 분사하는 계절별 사용법까지 함께 설계했습니다.</p><p class="evidence">계절별 악취 특성 기반 사용법 설계, 사계절 실차 필드 테스트 완료</p></div>
+<div class="point"><p>5. 악취를 제거하더라도 차량 내장재가 손상되면 안 됩니다. 패브릭·스웨이드·부직포·가죽 등 실제 자동차 원단을 소재별로 시험하고, 밀폐 공간에서 쓰는 제품이기 때문에 파라벤 7종·형광증백제·가습기 살균제 이슈 성분 4종 불검출까지 확인했습니다.</p><p class="evidence">차량 내장재 안전성 테스트 및 유해물질 불검출 시험 완료</p></div>
+</section>
+<section id="p3-s03">
+<h3 class="sec-h">[03. 상품 스펙 익히기]</h3>
+<p class="hint">두 손가락을 이용해 화면을 확대/축소할 수 있습니다.</p>
+<table><tbody><tr><th>품목 및 제품명</th><td>세스코 마이랩 마스터 차량용 전문탈취제</td></tr><tr><th>용도 및 제형</th><td>탈취제[일반용(물체용·실내공간용), 자동차용(실내용)] / 보충형(분무기형)</td></tr><tr><th>용량</th><td>500 mL</td></tr><tr><th>유통기한</th><td>제조일자로부터 24개월 (제조일자 별도표기)</td></tr><tr><th>제조사 / 제조국</th><td>㈜코스메디슨 / 대한민국</td></tr><tr><th>주요물질</th><td>소르비탄지방산에스테르, 에탄올, 정제수</td></tr><tr><th>어린이보호포장 대상</th><td>미해당</td></tr><tr><th>안전확인대상생활화학제품 승인번호</th><td>CB26-13-0053</td></tr><tr><th>사용상 주의사항</th><td>상세정보 별도표기 (라벨 확정 문안)</td></tr><tr><th>소비자상담 전화번호</th><td>고객센터 1588-1119</td></tr></tbody></table>
+</section>
+<section id="p3-s04">
+<h3 class="sec-h">[04. 이런 고객에게 추천해요]</h3>
+<ul class="reco"><li>중고차 담배 냄새가 빠지지 않는 <strong>중고차·렌터카 이용 고객</strong></li><li>방향제 향이 섞인 냄새가 불편했던 <strong>향 민감·무향 선호 고객</strong></li><li>시트에 밴 땀 냄새·체취가 남는 <strong>레저·장거리 운전 가정</strong></li><li>음식 포장으로 비린내가 배기 쉬운 <strong>차량 내 취식이 잦은 운전자</strong></li></ul>
+</section>
+<section id="p3-s05">
+<h3 class="sec-h">[05. 함께 제안하면 좋은 상품]</h3>
+<p>전문탈취제를 사용하는 고객이라면, 향으로 덮는 방식에 이미 실망해 본 분일 가능성이 높습니다.</p>
+<p>고객이 이미 냄새의 원인 제거에 필요성을 느끼고 있는 만큼,</p>
+<div class="strategy"><p class="strategy-title">상품별 핵심 전략</p><ul><li>마스터 차량용 탈취캔</li><li>슬림형 탈취제습제</li></ul></div>
+<p class="pitch">✓ 원단 깊이 밴 냄새는 전문탈취제로, 송풍구 등 공기 통로 안쪽은 탈취캔으로 관리 방식이 다르다는 점을 짚어 세트로 제안하고, 생활 악취에 민감한 고객에게는 실내 공기 관리로 넓혀 트루살균 공기청정기 판테온을, 냄새 발원지 관리로는 마이랩 배수구클리너를 자연스럽게 제안해 보세요.</p>
+</section>
+<section id="p3-s06">
+<h3 class="sec-h">[06. 연관 콘텐츠]</h3>
+<ul class="rel"><li>카케어 프로그램 소개: {등록 후 실존 링크 삽입}</li><li>24시간 탈취 성능 그래프 영상: {등록 후 실존 링크 삽입, 없으면 섹션 생략}</li></ul>
+</section>
+
+</article>
+<article class="panel" id="panel4">
+<div class="hero">
+  <p class="hero-eng">MASTER CAR DEODORIZING FOGGER</p>
+  <h2>[세스코 마이랩 카케어] 에어컨 냄새·공조 악취·사각지대까지 다각도로 검증한 '마스터 차량용 탈취캔'</h2>
+  <p class="hero-img">대표 이미지: 은박 강조되는 검정 분위기의 제품 연출 컷 / 뒷좌석 분사 컷</p>
+</div>
+<div class="tags"><span>#차량용탈취캔</span> <span>#에어컨냄새</span> <span>#카케어</span> <span>#공조탈취</span> <span>#마이랩카케어</span></div>
+<nav class="anchors"><a href="#p4-s01">Why CESCO</a><a href="#p4-s02">전문가의 시각</a><a href="#p4-s03">상품 스펙</a><a href="#p4-s04">추천 고객</a><a href="#p4-s05">함께 제안</a><a href="#p4-s06">연관 콘텐츠</a></nav>
+<section id="p4-s01">
+<h3 class="sec-h">[01. Why CESCO]</h3>
+<p>'세스코 마이랩 마스터 차량용 탈취캔'은 에어컨을 켤 때마다 올라오지만 닦을 방법이 없는 공조 내부 냄새에 대한 불편함에서 연구를 시작했습니다.</p>
+<p>공조 악취는 단순히 필터 교체의 문제가 아니라, 손이 닿지 않는 공조 순환로 안쪽의 냄새 발원지, 향으로 덮기만 하는 제품의 한계, 한 곳에 뿌리는 방식으로는 순환로 전체에 닿지 않는 구조 등 다양한 요인이 복합적으로 작용해 발생할 수 있습니다.</p>
+<p>이에 세스코 생활과학 연구소는 이러한 복합적인 원인을 고려해 공기 흐름을 이용해 손이 닿지 않는 깊숙한 곳까지 악취 원인을 제거하는 차량 전문 탈취캔을 개발했습니다.</p>
+<p class="note">※ 밀폐된 차 안에서 전량 분사되는 캔이기 때문에 분사 입자 크기, 충전 가스, 유효성분 함량별 지속 시간을 직접 테스트해 가장 효과적인 비율로 설계했습니다. 세차장 훈증 시공 없이 20분이면 누구나 직접 관리할 수 있다는 점이 현장 제안의 핵심 소구입니다.</p>
+</section>
+<section id="p4-s02">
+<h3 class="sec-h">[02. 전문가의 시각으로 상품 바라보기]</h3>
+<div class="point"><p>1. 손이 닿지 않는 공조 내부까지 탈취하려면 한 곳에 뿌리는 방식으로는 부족합니다. 탈취 성분이 공기 흐름을 따라 차량 전체로 퍼지도록, 버튼 한 번으로 지속 분사되고 내부 순환 모드를 타고 공조 순환로 안쪽까지 침투하는 원터치 캔 타입으로 설계했습니다.</p><p class="evidence">공조 순환 기반 미세입자 침투 설계</p></div>
+<div class="point"><p>2. 유효성분 함량이 낮으면 공조 내부에서 충분한 효과를 내지 못하고 지속 시간도 짧습니다. 한 번 사용으로도 효과가 이어지도록 탈취 성분을 고함량으로 담고, 암모니아·트리메틸아민에 대해 분사 직후부터 2시간 단위로 24시간 후까지 99% 탈취력을 확인했습니다.</p><p class="evidence">악취 원인 물질 2종 24시간 탈취력 테스트 완료</p></div>
+<div class="point"><p>3. 여름철 차량 내부는 온도가 크게 오르기 때문에 충전 가스의 안전성이 중요합니다. 고온에서도 안전하게 사용할 수 있도록 냉매제로 쓰이는 불연성 충전 가스를 적용하고, 호주 밀 유래 에탄올(22%)과 녹차·페퍼민트 잎 추출물로 처방했습니다.</p><p class="evidence">불연성 충전 가스 및 식물 유래 성분 처방</p></div>
+<div class="point"><p>4. 밀폐된 차 안에서 전량 분사되는 제품은 향 성분이 그대로 호흡기로 이어집니다. 아이나 반려동물이 함께 타는 차에서도 사용할 수 있도록 알레르기를 유발할 수 있는 인공향료를 배제한 무향으로 처방하고, 파라벤류 7종·형광증백제·가습기 살균제 이슈 성분 4종 불검출까지 확인했습니다.</p><p class="evidence">알레르기 반응 가능 물질 불검출 시험 완료 (화학물질안전원 고시 기준)</p></div>
+<div class="point"><p>5. 인조가죽·직물·플라스틱 등 실제 차량 내장재를 대상으로 변색과 잔여물 발생 여부를 시험했습니다. 에어컨과 히터가 바뀌는 시점, 꿉꿉한 냄새가 느껴질 때, 장거리 여행 후 등 사용 시점이 정해져 있어 현장에서 재구매 주기까지 함께 안내할 수 있습니다.</p><p class="evidence">차량 내장 원단 변색·손상 테스트 완료 (자사 시험)</p></div>
+</section>
+<section id="p4-s03">
+<h3 class="sec-h">[03. 상품 스펙 익히기]</h3>
+<p class="hint">두 손가락을 이용해 화면을 확대/축소할 수 있습니다.</p>
+<table><tbody><tr><th>품목 및 제품명</th><td>세스코 마이랩 마스터 차량용 탈취캔</td></tr><tr><th>용도 및 제형</th><td>탈취제[일반용(물체용·실내공간용), 자동차용(실내용)] / 스프레이형</td></tr><tr><th>중량</th><td>150 g (무향)</td></tr><tr><th>유통기한</th><td>제조일자로부터 24개월 (제조일자 별도표기)</td></tr><tr><th>제조사 / 제조국</th><td>㈜코스메디슨 / 대한민국</td></tr><tr><th>주요물질</th><td>1,1,1,2-테트라플루오로에탄, 에탄올</td></tr><tr><th>어린이보호포장 대상</th><td>미해당</td></tr><tr><th>안전확인대상생활화학제품 승인번호</th><td>CB26-13-0055</td></tr><tr><th>사용상 주의사항</th><td>상세정보 별도표기 (라벨 확정 문안)</td></tr><tr><th>소비자상담 전화번호</th><td>고객센터 1588-1119</td></tr></tbody></table>
+<p class="note">※ 사용 절차(흔들기 → 에어컨 최대·내부순환 → 시트 당기기 → 뒷좌석 바닥 거치·버튼 고정 → 분사 중 외부 대기 → 5분 후 시동 오프·15분 이상 환기)는 상세페이지 확정 문안을 그대로 숙지하세요.</p>
+</section>
+<section id="p4-s04">
+<h3 class="sec-h">[04. 이런 고객에게 추천해요]</h3>
+<ul class="reco"><li>에어컨을 켤 때마다 쿰쿰한 냄새가 올라오는 <strong>공조 냄새 고민 운전자</strong></li><li>중고차 담배 냄새가 빠지지 않는 <strong>중고차 구매 고객</strong></li><li>세차장 시공 없이 직접 관리하고 싶은 <strong>셀프 관리 운전자</strong></li><li>에어컨·히터 전환기마다 관리가 필요한 <strong>계절 관리형 가정</strong></li></ul>
+</section>
+<section id="p4-s05">
+<h3 class="sec-h">[05. 함께 제안하면 좋은 상품]</h3>
+<p>탈취캔을 사용하는 고객이라면, 손이 닿지 않는 곳의 냄새까지 해결하려는 분일 가능성이 높습니다.</p>
+<p>고객이 이미 공조 안쪽 관리에 필요성을 느끼고 있는 만큼,</p>
+<div class="strategy"><p class="strategy-title">상품별 핵심 전략</p><ul><li>마스터 차량용 전문탈취제</li><li>살균소독제</li></ul></div>
+<p class="pitch">✓ 공조 안쪽을 관리했다면 시트에 남은 냄새는 다른 방식이 필요하다는 점을 짚어 전문탈취제와 세트로 제안하고, 무향·알레르기 배제 처방에 반응한 고객에게는 실내 공기질 관리로 넓혀 트루살균 공기청정기 판테온을 자연스럽게 제안해 보세요. 공조 전환 시점마다 쓰는 제품이므로 정기배송 제안도 유효합니다.</p>
+</section>
+<section id="p4-s06">
+<h3 class="sec-h">[06. 연관 콘텐츠]</h3>
+<ul class="rel"><li>카케어 프로그램 소개: {등록 후 실존 링크 삽입}</li><li>탈취캔 사용법 영상: {등록 후 실존 링크 삽입, 없으면 섹션 생략}</li></ul>
+</section>
+
+</article>
+<article class="panel" id="panel5">
+<div class="hero">
+  <p class="hero-eng">SLIM TYPE ODOR ELIMINATING AND MOISTURE ABSORBER</p>
+  <h2>[세스코 마이랩 카케어] 습기·곰팡이·냄새까지 다각도로 검증한 '슬림형 탈취제습제'</h2>
+  <p class="hero-img">대표 이미지: 은박 강조되는 검정 분위기의 제품 연출 컷(파우치+앞면+뒷면) / 콘솔 박스 거치 컷</p>
+</div>
+<div class="tags"><span>#차량용제습제</span> <span>#탈취제습제</span> <span>#카케어</span> <span>#차량습기</span> <span>#마이랩카케어</span></div>
+<nav class="anchors"><a href="#p5-s01">Why CESCO</a><a href="#p5-s02">전문가의 시각</a><a href="#p5-s03">상품 스펙</a><a href="#p5-s04">추천 고객</a><a href="#p5-s05">함께 제안</a><a href="#p5-s06">연관 콘텐츠</a></nav>
+<section id="p5-s01">
+<h3 class="sec-h">[01. Why CESCO]</h3>
+<p>'세스코 마이랩 슬림형 탈취제습제'는 장마철뿐 아니라 사계절 내내 눅눅하고 쿰쿰해지는 차 안 습기와 냄새에 대한 불편함에서 연구를 시작했습니다.</p>
+<p>차 안 습기는 단순히 장마철 비의 문제가 아니라, 겨울 안팎 온도 차로 생기는 결로, 젖은 우산과 신발이 적시는 매트, 지하 주차장 장기 주차로 배는 냄새 등 다양한 요인이 복합적으로 작용해 발생할 수 있습니다.</p>
+<p>이에 세스코 생활과학 연구소는 이러한 복합적인 원인을 고려해 흡습력과 탈취력은 물론, 주행 중 눌리고 흔들리는 차량 환경에서의 하중·누액·온도 조건까지 다각도로 검증한 슬림형 탈취제습제를 개발했습니다.</p>
+<p class="note">※ 흔들리고 기울어지는 차량 환경을 재현해 겉 봉지의 밀봉 강도와 조해액 내누설 성능을 공인 기준으로 검증했으며, 여름철 차량을 고려한 60℃ 형태·성분 안정성 테스트까지 완료했습니다(자사 시험). 액체로 남는 일반 제습제와 달리 겔로 굳는 고화제 배합이 차별 포인트입니다.</p>
+</section>
+<section id="p5-s02">
+<h3 class="sec-h">[02. 전문가의 시각으로 상품 바라보기]</h3>
+<div class="point"><p>1. 시트 사이나 콘솔 박스처럼 좁은 틈새에 두는 제습제는 크기가 작아도 흡습력이 충분해야 합니다. 파우더형 염화칼슘으로 습기와 맞닿는 표면적을 넓혀, 30 g 슬림 파우치로도 중량 대비 400% 흡습을 확인했습니다.</p><p class="evidence">중량 대비 400% 흡습력 테스트 완료</p></div>
+<div class="point"><p>2. 차 안 습기는 곰팡이가 생기기 쉬운 환경을 만들고, 시트와 매트에 밴 냄새와 젖은 신발 냄새로 이어집니다. 습기와 냄새를 함께 관리하도록 신발·발 냄새(이소발레릭산), 땀·체취(암모니아), 빗물·비린내(트리메틸아민)에 대해 99% 탈취 테스트를 진행했습니다.</p><p class="evidence">차량 실내 3대 불쾌취 탈취에 대한 공인 시험 완료</p></div>
+<div class="point"><p>3. 트렁크나 좌석 밑에 두는 제습제는 무거운 짐에 눌릴 수 있습니다. 눌려도 내장재가 손상되지 않도록 누액을 방지하는 특수 부직포로 제작하고, 300 kg 하중 시험으로 내구성을 확인했습니다.</p><p class="evidence">압축강도 300 kg 테스트 완료 (KS G 3704:2020 인용)</p></div>
+<div class="point"><p>4. 액체로 변하는 일반 제습제는 차가 흔들리면 조해액이 샐 수 있습니다. 기울어지거나 넘어져도 흐르지 않도록 흡수한 수분이 겔 형태로 굳는 고화제를 배합하고, 사용 후에는 액체를 따로 버릴 필요 없이 일반쓰레기로 배출되도록 설계했습니다.</p><p class="evidence">흡습 후 겔 고화 제형, 조해액 내누설 공인 시험 완료</p></div>
+<div class="point"><p>5. 습기는 공기가 정체되는 시트 밑, 도어 포켓, 트렁크 구석에 머뭅니다. 좁은 공간에도 들어가는 슬림 설계로 여러 곳에 나눠 배치하고, 흡습면을 위로 두어 파우치가 1~2 cm 부풀면 교체하는 단순한 관리 동선을 구현했습니다.</p><p class="evidence">10개입 구성, 차량 내 다점 배치 설계</p></div>
+</section>
+<section id="p5-s03">
+<h3 class="sec-h">[03. 상품 스펙 익히기]</h3>
+<p class="hint">두 손가락을 이용해 화면을 확대/축소할 수 있습니다.</p>
+<table><tbody><tr><th>품목 및 제품명</th><td>세스코 마이랩 슬림형 탈취제습제</td></tr><tr><th>용도</th><td>습기제거제(실내공간용·가구용·수납공간용·신발·섬유용) / 탈취제[자동차용(실내용), 일반용(실내공간용·물체용·밀폐공간용(서랍·신발·냉장고·신발장))]</td></tr><tr><th>중량</th><td>300 g (30 g x 10개입, 무향)</td></tr><tr><th>제조연월</th><td>제품 별도표기</td></tr><tr><th>제조사 / 제조국</th><td>㈜새남소재 / 대한민국</td></tr><tr><th>주요물질</th><td>염화칼슘</td></tr><tr><th>어린이보호포장 대상</th><td>미해당</td></tr><tr><th>안전확인대상생활화학제품 승인번호</th><td>FB25-27-0006</td></tr><tr><th>사용상 주의사항</th><td>상세정보 별도표기 (라벨 확정 문안)</td></tr><tr><th>소비자상담 전화번호</th><td>고객센터 1588-1119</td></tr></tbody></table>
+</section>
+<section id="p5-s04">
+<h3 class="sec-h">[04. 이런 고객에게 추천해요]</h3>
+<ul class="reco"><li>장마철마다 차 안이 눅눅하고 쿰쿰해지는 <strong>습기 고민 운전자</strong></li><li>젖은 우산과 신발로 매트가 마르지 않는 <strong>아이 등하원·출퇴근 가정</strong></li><li>지하 주차장에 오래 세워 냄새가 배는 <strong>장기 주차 차량 오너</strong></li><li>겨울철 김서림과 결로가 반복되는 <strong>사계절 관리형 가정</strong></li></ul>
+</section>
+<section id="p5-s05">
+<h3 class="sec-h">[05. 함께 제안하면 좋은 상품]</h3>
+<p>슬림형 탈취제습제를 사용하는 고객이라면, 당장의 냄새보다 상시 예방 관리를 중시하는 분일 가능성이 높습니다.</p>
+<p>고객이 이미 365일 관리의 필요성을 느끼고 있는 만큼,</p>
+<div class="strategy"><p class="strategy-title">상품별 핵심 전략</p><ul><li>마스터 차량용 전문탈취제</li><li>다용도 살균클리닝 티슈</li></ul></div>
+<p class="pitch">✓ 365일 상시 관리는 탈취제습제로, 즉각적인 악취 제거는 전문탈취제로 나눠 세트로 제안하고, 소진 주기(습한 환경 약 1개월)가 명확한 제품이므로 정기배송을 함께 제안하세요. 상시 예방 성향이 확인된 고객에게는 실내 습기·냄새 발원지 관리로 넓혀 마이랩 배수구클리너를 자연스럽게 제안해 보세요.</p>
+</section>
+<section id="p5-s06">
+<h3 class="sec-h">[06. 연관 콘텐츠]</h3>
+<ul class="rel"><li>카케어 프로그램 소개: {등록 후 실존 링크 삽입}</li><li>흡습→겔 고화→배출 과정 영상: {등록 후 실존 링크 삽입, 없으면 섹션 생략}</li></ul>
+</section>
+
+</article>
+
+</main>
+<script>
+function showP(n) {
+  document.body.classList.remove('all');
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  document.getElementById('panel'+n).classList.add('on');
+  document.querySelector('.tab[data-p="'+n+'"]').classList.add('on');
+  window.scrollTo(0,0);
+}
+function toggleAll() {
+  document.body.classList.toggle('all');
+  if (document.body.classList.contains('all')) {
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  } else { showP(1); }
+}
+showP(1);
+</script>
+</body>
+</html>
